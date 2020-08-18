@@ -157,6 +157,7 @@
           <el-input type="textarea" v-model="formData.content" rows="3"></el-input>
         </el-form-item>
       </el-form>
+      
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="addEvent">确 定</el-button>
         <el-button type="info" @click="diaLogFormVisible = false" plain>取 消</el-button>
