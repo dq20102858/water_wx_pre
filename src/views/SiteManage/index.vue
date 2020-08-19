@@ -1,10 +1,15 @@
 <template>
   <div class="app-pages">
     <div style="padding:30px;">
+         <router-link to="/sitemanage/station">选择站点</router-link>  
+           <router-link to="/sitemanage/stationDetail">站点详情</router-link>  
+        <router-link to="/sitemanage/main">运行图</router-link>   
       <router-link to="/dispatch">运维派单</router-link>  
-      <router-link to="/record">考勤打卡</router-link>
-    </div>
-
+     <router-link to="/record">报表统计</router-link>
+     <router-link to="/warning">设备列表</router-link>
+     <br>   <br>
+<router-link to="/attendance">考勤打卡</router-link>
+</div>
     <div class="baidumap">
 <div class="map-so-input el-input el-input--medium el-input-group el-input-group--append el-input--suffix"><!----><input type="text" autocomplete="off" placeholder="请输入位置关键字" class="el-input__inner"><!----><!----><div class="el-input-group__append"><button type="button" class="el-button el-button--primary el-button--medium"><!----><i class="el-icon-search"></i><!----></button></div><!----></div>
 

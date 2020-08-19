@@ -86,7 +86,8 @@
               <em class="pull-left">完成时间：2020-08-20</em>
               <em class="pull-right">维保人：张三</em>
             </p>
-          </div>     <div class="item">
+          </div>
+          <div class="item">
             <p>
               <span class="pull-left">东陈镇汤湾村站</span>
               <span class="type type2">日常巡检</span>
@@ -100,11 +101,12 @@
       </el-card>
     </div>
     <el-dialog
-      width="100%"
-      class="dialog-dispatch"
+      width="90%"
       :title="this.diaLogTitle"
-      :close-on-click-modal="false"
       :visible.sync="diaLogFormVisible"
+        :close-on-click-modal="false"
+      :show-close="false"
+      center
     >
       <el-form
         :model="formData"
@@ -157,10 +159,10 @@
           <el-input type="textarea" v-model="formData.content" rows="3"></el-input>
         </el-form-item>
       </el-form>
-      
+
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="addEvent">确 定</el-button>
-        <el-button type="info" @click="diaLogFormVisible = false" plain>取 消</el-button>
+        <el-button type="info"  plain @click="diaLogFormVisible = false">取 消</el-button>
       </div>
     </el-dialog>
   </div>
@@ -204,17 +206,17 @@ export default {
           }
         ]
       },
-       stationOptions: [],
+      stationOptions: [],
       stationOptionsProps: {
         value: "id",
         label: "name",
         children: "child"
-      },
+      }
     };
   },
   created() {},
   methods: {
-      getStationList() {
+    getStationList() {
       this.request({
         url: "/station/getStationLists",
         method: "get"
@@ -238,8 +240,8 @@ export default {
         // recept_type: []
       };
     },
-    getListDetail(val){
-          this.$router.push({
+    getListDetail(val) {
+      this.$router.push({
         path: "/dispatch/list",
         query: {
           id: val
@@ -314,7 +316,4 @@ export default {
   background: #cc9900;
 }
 
-.dialog-dispatch{margin: 15px;}
-.dialog-dispatch .el-dialog__footer{text-align: center; overflow: hidden;}
-.dialog-dispatch .el-dialog__footer button:first-child{margin-right:30px ;}
 </style>

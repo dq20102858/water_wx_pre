@@ -36,14 +36,22 @@ const constantRouterMap = [
         component: () => import('@/views/SiteManage/index')
       },
       {
+        path: '/sitemanage/station',
+        name: 'sitemanage-station',
+        component: () => import('@/views/SiteManage/station')
+      }, {
+        path: '/sitemanage/stationdetail',
+        name: 'sitemanage-stationdetail',
+        component: () => import('@/views/SiteManage/stationDetail')
+      }, {
         path: '/sitemanage/main',
         name: 'sitemanage-main',
         component: () => import('@/views/SiteManage/main')
       },
       {
-        path: '/sitemanage/statisticswater',
-        name: 'sitemanage-statisticswater',
-        component: () => import('@/views/SiteManage/statisticsWater')
+        path: '/sitemanage/devicedetail',
+        name: 'sitemanage-devicedetail',
+        component: () => import('@/views/SiteManage/deviceDetail')
       }, {
         path: '/sitemanage/statisticsenergy',
         name: 'sitemanage-statisticsenergy',
@@ -82,9 +90,41 @@ const constantRouterMap = [
         path: '/record',
         name: 'record',
         component: () => import('@/views/Record/index')
+      }, {
+        path: '/record/operation',
+        name: 'operation',
+        component: () => import('@/views/Record/operation')
+      }, {
+        path: '/record/sampling',
+        name: 'sampling',
+        component: () => import('@/views/Record/sampling')
       }
     ]
   },
+  {
+    path: '/attendance',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: '/attendance',
+        name: 'attendance',
+        component: () => import('@/views/Attendance/index')
+      }
+    ]
+  },
+  {
+    path: '/warning',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: '/warning',
+        name: 'warning',
+        component: () => import('@/views/Warning/index')
+      }
+    ]
+  }
 ]
 export { constantRouterMap }
 

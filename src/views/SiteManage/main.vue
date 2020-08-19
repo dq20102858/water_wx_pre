@@ -1,217 +1,173 @@
 <template>
-  <div class="app-page-main">
-    <div class="app-page-rows">
-      <div class="app-page-rows-lefts">
-        <div class="left-menu-area">
-          <div class="input-so">
-            <el-autocomplete
-              v-model="chlidStationName"
-              prefix-icon="el-icon-search"
-              class="inline-input"
-              :fetch-suggestions="searchStationCallBack"
-              placeholder="请输入处理站名"
-              :trigger-on-focus="false"
-              @select="searchStationEvent($event)"
-              clearable
-            ></el-autocomplete>
-          </div>
-          <el-menu router>
-            <el-menu-item
-              :class="fatherStationId === 0 ? 'active' : ''"
-              @click="fatherStationEvent(0)"
-            >
-              <span>全部</span>
-            </el-menu-item>
-            <el-menu-item
-              v-for="item in fatherStationList"
-              :key="item.id"
-              :class="fatherStationId === item.id ? 'active' : ''"
-              @click="fatherStationEvent(item.id)"
-            >
-              <span :title="item.name">{{item.name}}</span>
-            </el-menu-item>
-          </el-menu>
-        </div>
-        <div class="left-menu-chlid">
-          <el-menu router>
-            <el-menu-item
-              v-for="item in childStationList"
-              :key="item.id"
-              :class="chlidStationId === item.id ? 'active' : ''"
-              @click="chlidStationEvent(item)"
-            >
-              <span :id="'span'+item.id" :title="item.name">{{item.name}}</span>
-            </el-menu-item>
-          </el-menu>
-        </div>
-      </div>
-      <div class="app-page-rows-rights">
-        <div class="app-page-site">
-          <div class="app-page-site-box">
-            <div class="app-site">
-              <div class="centerbox">
-                <div class="nenghao">
-                  <span @click="statisticsEnergyDetail">查看能耗分析</span>
-                  当前控制室温度{{stationViewDetail.temp}}
-                </div>
-                <div class="jcname" @click="statisticsWaterDetail">进水口</div>
-                <div class="ccname" @click="statisticsWaterDetail">出水口</div>
-                <canvas id="line1" class="wline"></canvas>
-                <canvas id="line2" class="wline"></canvas>
-                <canvas id="line3" class="wline rotate270"></canvas>
-                <canvas id="line4" class="wline"></canvas>
-                <canvas id="line5" class="wline rotate90"></canvas>
-                <canvas id="line6" class="wline rotate270"></canvas>
-                <canvas id="line7" class="wline rotate270"></canvas>
-                <canvas id="line8" class="wline rotate270"></canvas>
-                <canvas id="line9" class="wline"></canvas>
-                <canvas id="line10" class="rotate270 wline"></canvas>
-                <canvas id="line11" class="wline"></canvas>
-                <canvas id="line12" class="wline"></canvas>
-                <canvas id="line13" class="wline"></canvas>
-                <canvas id="line14" class="wline"></canvas>
-                <canvas id="line15" class="wline rotate90"></canvas>
-                <canvas id="line16" class="wline rotate90"></canvas>
-                <canvas id="line17" class="wline"></canvas>
-                <canvas id="line18" class="wline"></canvas>
-                <canvas id="line19" class="wline"></canvas>
-                <canvas id="line20" class="wline rotate90"></canvas>
-                <canvas id="line21" class="wline rotate180"></canvas>
-                <canvas id="line22" class="wline rotate180"></canvas>
-                <canvas id="line23" class="wline rotate180"></canvas>
-                <canvas id="line24" class="wline"></canvas>
-                <canvas id="line25" class="wline rotate90"></canvas>
-                <canvas id="line26" class="wline rotate270"></canvas>
-                <canvas id="line27" class="wline rotate180"></canvas>
-                <canvas id="line28" class="wline rotate180"></canvas>
-                <canvas id="line29" class="wline rotate90"></canvas>
-                <div class="adapter1 ad1"></div>
-                <div class="adapter2 ad2"></div>
-                <div class="adapter1 ad3"></div>
-                <div class="adapter1 ad4"></div>
-                <div class="adapter1 ad5"></div>
-                <div class="adapter4 ad6"></div>
-                <div class="adapter1 ad7"></div>
-                <div class="adapter2 ad8"></div>
-                <div class="adapter2 ad9"></div>
-                <div class="adapter2 ad10"></div>
-                <div class="adapter3 ad11"></div>
-                <div class="adapter1 ad12"></div>
-                <div class="adapter2 ad13"></div>
-                <div class="adapter3 ad14"></div>
-                <div class="adapter4 ad15"></div>
-                <div class="j2text" @click="statisticsWaterQualityDetail">
-                  <div>PH：60</div>
-                  <div>电导率：60</div>
-                  <div>液位：60</div>
-                </div>
-                <div class="shbeng">
-                  <h3>排水泵</h3>
-                  <p class="zhtai">
-                    <em>设备状态：</em>
-                    <span class="start0">运行中</span>
-                  </p>
-                </div>
-                <div class="huiliu">
-                  <h3>硝酸液回流泵</h3>
-                  <p class="zhtai">
-                    <em>设备状态：</em>
-                    <span class="start1">停止运行</span>
-                  </p>
-                </div>
-                <div class="huiliu" style="top: -115px;left:830px;">
-                  <h3>淤泥回流泵</h3>
-                  <p class="zhtai">
-                    <em>设备状态：</em>
-                    <span class="start1">停止运行</span>
-                  </p>
-                </div>
-                <div class="fengji">
-                  <h3>1#风机</h3>
-                  <p class="zhtai">
-                    <em>设备状态：</em>
-                    <span class="start0">运行中</span>
-                  </p>
-                </div>
-                <div class="fengji" style="top: -170px; left:1115px;">
-                  <h3>2#风机</h3>
-                  <p class="zhtai">
-                    <em>设备状态：</em>
-                    <span class="start1">故障中</span>
-                  </p>
-                </div>
-                <div class="ziwai">
-                  <h3>紫外线消毒灯光</h3>
-                  <p class="zhtai">
-                    <em>设备状态：</em>
-                    <span class="start0">运行中</span>
-                  </p>
-                </div>
-                <div class="itembox1">
-                  <div class="wbox">
-                    <div class="bwater"></div>
-                    <div class="ble"></div>
-                  </div>
-                  <div class="bnames">栅格池</div>
-                </div>
-                <div class="itembox2">
-                  <div class="wbox">
-                    <div class="bwater"></div>
-                    <div class="ble"></div>
-                    <div class="bban"></div>
-                  </div>
-                  <div class="bnames">调节池</div>
-                </div>
-                <div class="itembox3">
-                  <div class="wbox">
-                    <div class="bwater"></div>
-                    <div class="ble"></div>
-                  </div>
-                  <div class="bnames">厌氧池</div>
-                </div>
-                <div class="itembox4">
-                  <div class="wbox">
-                    <div class="bwater"></div>
-                    <div class="ble"></div>
-                    <div class="bban"></div>
-                  </div>
-                  <div class="bnames">好氧池</div>
-                </div>
-                <div class="itembox5">
-                  <div class="wbox">
-                    <div class="bwater"></div>
-                    <div class="ble"></div>
-                    <div class="bban"></div>
-                  </div>
-                  <div class="bnames">二沉池</div>
-                </div>
-                <div class="itembox6">
-                  <div class="wbox">
-                    <div class="bwater"></div>
-                    <div class="ble"></div>
-                  </div>
-                  <div class="bnames">预留池</div>
-                </div>
-                <div class="itembox7">
-                  <div class="wboxs">
-                    <div class="bwater"></div>
-                    <div class="ble"></div>
-                  </div>
-                  <div class="bnames">消毒池</div>
-                </div>
-                <div class="itembox8">
-                  <div class="wbox">
-                    <div class="bwater"></div>
-                    <div class="ble"></div>
-                  </div>
-                  <div class="bnames">排放池</div>
-                </div>
-                <div class="itembox0">
-                  <div class="wbox0">
-                    <div class="bbans"></div>
-                    <div class="bbans" style="top:150px"></div>
-                  </div>
-                </div>
+  <div class="app-pages">
+    <header class="app-top-bar">
+      <span class="icons icon-back pull-left" @click="backURL"></span>
+      <h1 class="titles">XXX站点运行图</h1>
+    </header>
+    <div class="app-content">
+      <div class="app-site">
+        <div class="app-site-body">
+          <div class="app-site-content">
+            <!-- <div class="nenghao">
+              <span @click="statisticsEnergyDetail">查看能耗分析</span>
+              当前控制室温度{{stationViewDetail.temp}}
+            </div>-->
+            <div class="jcname" @click="statisticsWaterDetail">进水口</div>
+            <div class="ccname" @click="statisticsWaterDetail">出水口</div>
+            <canvas id="line1" class="wline"></canvas>
+            <canvas id="line2" class="wline"></canvas>
+            <canvas id="line3" class="wline rotate270"></canvas>
+            <canvas id="line4" class="wline"></canvas>
+            <canvas id="line5" class="wline rotate90"></canvas>
+            <canvas id="line6" class="wline rotate270"></canvas>
+            <canvas id="line7" class="wline rotate270"></canvas>
+            <canvas id="line8" class="wline rotate270"></canvas>
+            <canvas id="line9" class="wline"></canvas>
+            <canvas id="line10" class="rotate270 wline"></canvas>
+            <canvas id="line11" class="wline"></canvas>
+            <canvas id="line12" class="wline"></canvas>
+            <canvas id="line13" class="wline"></canvas>
+            <canvas id="line14" class="wline"></canvas>
+            <canvas id="line15" class="wline rotate90"></canvas>
+            <canvas id="line16" class="wline rotate90"></canvas>
+            <canvas id="line17" class="wline"></canvas>
+            <canvas id="line18" class="wline"></canvas>
+            <canvas id="line19" class="wline"></canvas>
+            <canvas id="line20" class="wline rotate90"></canvas>
+            <canvas id="line21" class="wline rotate180"></canvas>
+            <canvas id="line22" class="wline rotate180"></canvas>
+            <canvas id="line23" class="wline rotate180"></canvas>
+            <canvas id="line24" class="wline"></canvas>
+            <canvas id="line25" class="wline rotate90"></canvas>
+            <canvas id="line26" class="wline rotate270"></canvas>
+            <canvas id="line27" class="wline rotate180"></canvas>
+            <canvas id="line28" class="wline rotate180"></canvas>
+            <canvas id="line29" class="wline rotate90"></canvas>
+            <div class="adapter1 ad1"></div>
+            <div class="adapter2 ad2"></div>
+            <div class="adapter1 ad3"></div>
+            <div class="adapter1 ad4"></div>
+            <div class="adapter1 ad5"></div>
+            <div class="adapter4 ad6"></div>
+            <div class="adapter1 ad7"></div>
+            <div class="adapter2 ad8"></div>
+            <div class="adapter2 ad9"></div>
+            <div class="adapter2 ad10"></div>
+            <div class="adapter3 ad11"></div>
+            <div class="adapter1 ad12"></div>
+            <div class="adapter2 ad13"></div>
+            <div class="adapter3 ad14"></div>
+            <div class="adapter4 ad15"></div>
+            <div class="j2text" @click="statisticsWaterQualityDetail">
+              <div>PH：60</div>
+              <div>电导率：60</div>
+              <div>液位：60</div>
+            </div>
+            <div class="shbeng">
+              <h3>排水泵</h3>
+              <p class="zhtai">
+                <em>设备状态：</em>
+                <span class="start0">运行中</span>
+              </p>
+            </div>
+            <div class="huiliu">
+              <h3>硝酸液回流泵</h3>
+              <p class="zhtai">
+                <em>设备状态：</em>
+                <span class="start1">停止运行</span>
+              </p>
+            </div>
+            <div class="huiliu" style="top: -115px;left:830px;">
+              <h3>淤泥回流泵</h3>
+              <p class="zhtai">
+                <em>设备状态：</em>
+                <span class="start1">停止运行</span>
+              </p>
+            </div>
+            <div class="fengji">
+              <h3>1#风机</h3>
+              <p class="zhtai">
+                <em>设备状态：</em>
+                <span class="start0">运行中</span>
+              </p>
+            </div>
+            <div class="fengji" style="top: -170px; left:1115px;">
+              <h3>2#风机</h3>
+              <p class="zhtai">
+                <em>设备状态：</em>
+                <span class="start1">故障中</span>
+              </p>
+            </div>
+            <div class="ziwai">
+              <h3>紫外线消毒灯光</h3>
+              <p class="zhtai">
+                <em>设备状态：</em>
+                <span class="start0">运行中</span>
+              </p>
+            </div>
+            <div class="itembox1">
+              <div class="wbox">
+                <div class="bwater"></div>
+                <div class="ble"></div>
+              </div>
+              <div class="bnames">栅格池</div>
+            </div>
+            <div class="itembox2">
+              <div class="wbox">
+                <div class="bwater"></div>
+                <div class="ble"></div>
+                <div class="bban"></div>
+              </div>
+              <div class="bnames">调节池</div>
+            </div>
+            <div class="itembox3">
+              <div class="wbox">
+                <div class="bwater"></div>
+                <div class="ble"></div>
+              </div>
+              <div class="bnames">厌氧池</div>
+            </div>
+            <div class="itembox4">
+              <div class="wbox">
+                <div class="bwater"></div>
+                <div class="ble"></div>
+                <div class="bban"></div>
+              </div>
+              <div class="bnames">好氧池</div>
+            </div>
+            <div class="itembox5">
+              <div class="wbox">
+                <div class="bwater"></div>
+                <div class="ble"></div>
+                <div class="bban"></div>
+              </div>
+              <div class="bnames">二沉池</div>
+            </div>
+            <div class="itembox6">
+              <div class="wbox">
+                <div class="bwater"></div>
+                <div class="ble"></div>
+              </div>
+              <div class="bnames">预留池</div>
+            </div>
+            <div class="itembox7">
+              <div class="wboxs">
+                <div class="bwater"></div>
+                <div class="ble"></div>
+              </div>
+              <div class="bnames">消毒池</div>
+            </div>
+            <div class="itembox8">
+              <div class="wbox">
+                <div class="bwater"></div>
+                <div class="ble"></div>
+              </div>
+              <div class="bnames">排放池</div>
+            </div>
+            <div class="itembox0">
+              <div class="wbox0">
+                <div class="bbans"></div>
+                <div class="bbans" style="top:150px"></div>
               </div>
             </div>
           </div>
@@ -225,6 +181,8 @@ import { Createline } from "../../utils/flowAnimation.js";
 export default {
   data() {
     return {
+      bodyWidth: "",
+      bodyHeight: "",
       fatherStationList: [],
       childStationList: [],
       fatherStationId: this.$route.query.pid,
@@ -234,60 +192,67 @@ export default {
     };
   },
   mounted() {
-    this.flowAnimations("line1", 145, 12, "w");
-    this.flowAnimations("line2", 145, 12, "w");
-    this.flowAnimations("line3", 100, 12, "w");
-    this.flowAnimations("line4", 100, 12, "w");
-    this.flowAnimations("line5", 100, 12, "w");
-    this.flowAnimations("line6", 200, 12, "w");
-    this.flowAnimations("line7", 150, 12, "w");
-    this.flowAnimations("line8", 100, 12, "w");
-    this.flowAnimations("line9", 300, 12, "w");
-    this.flowAnimations("line10", 60, 12, "w");
-    this.flowAnimations("line11", 100, 12, "w");
-    this.flowAnimations("line12", 100, 12, "w");
-    this.flowAnimations("line13", 450, 12, "w");
-    this.flowAnimations("line14", 200, 12, "w");
-    this.flowAnimations("line15", 90, 12, "w");
-    this.flowAnimations("line16", 150, 12, "w");
-    this.flowAnimations("line17", 100, 12, "w");
-    this.flowAnimations("line18", 100, 12, "w");
-    this.flowAnimations("line19", 70, 12, "w");
-    this.flowAnimations("line20", 290, 12, "w");
-    this.flowAnimations("line21", 100, 12, "w");
-    this.flowAnimations("line22", 200, 12, "w");
-    this.flowAnimations("line23", 140, 12, "w");
-    this.flowAnimations("line24", 140, 12, "w");
-    this.flowAnimations("line25", 80, 12, "w");
-    this.flowAnimations("line26", 80, 12, "w");
-    this.flowAnimations("line27", 220, 12, "w");
-    this.flowAnimations("line28", 150, 12, "w");
-    this.flowAnimations("line29", 250, 12, "w");
-    let that = this;
-    this.timer = setInterval(function() {
-      that.getStationViewList();
-    }, 5000);
+    this.flowAnimations("line1", 50, 6, "w");
+    this.flowAnimations("line2", 130, 6, "w");
+    this.flowAnimations("line3", 100, 6, "w");
+    this.flowAnimations("line4", 100, 6, "w");
+    this.flowAnimations("line5", 100, 6, "w");
+    this.flowAnimations("line6", 200, 6, "w");
+    this.flowAnimations("line7", 150, 6, "w");
+    this.flowAnimations("line8", 100, 6, "w");
+    this.flowAnimations("line9", 300, 6, "w");
+    this.flowAnimations("line10", 60, 6, "w");
+    this.flowAnimations("line11", 100, 6, "w");
+    this.flowAnimations("line12", 100, 6, "w");
+    this.flowAnimations("line13", 450, 6, "w");
+    this.flowAnimations("line14", 200, 6, "w");
+    this.flowAnimations("line15", 90, 6, "w");
+    this.flowAnimations("line16", 150, 6, "w");
+    this.flowAnimations("line17", 100, 6, "w");
+    this.flowAnimations("line18", 100, 6, "w");
+    this.flowAnimations("line19", 70, 6, "w");
+    this.flowAnimations("line20", 290, 6, "w");
+    this.flowAnimations("line21", 100, 6, "w");
+    this.flowAnimations("line22", 200, 6, "w");
+    this.flowAnimations("line23", 140, 6, "w");
+    this.flowAnimations("line24", 140, 6, "w");
+    this.flowAnimations("line25", 80, 6, "w");
+    this.flowAnimations("line26", 80, 6, "w");
+    this.flowAnimations("line27", 220, 6, "w");
+    this.flowAnimations("line28", 150, 6, "w");
+    this.flowAnimations("line29", 250, 6, "w");
+
+    this.bodyWidth = document.documentElement.clientWidth;
+    this.bodyHeight = document.documentElement.clientHeight;
+
+    // let that = this;
+    // this.timer = setInterval(function() {
+    //   that.getStationViewList();
+    // }, 5000);
   },
   beforeDestroy() {
     clearInterval(this.timer);
   },
   created() {
-    this.getFatherStationList();
-    this.getStationViewList();
+    // this.getFatherStationList();
+    // this.getStationViewList();
   },
   methods: {
+    backURL() {
+      this.$router.go(-1); //返回上一层
+    },
     flowAnimations(canvas, canvas_w, canvas_h, fx) {
       var data = {
         time: 150, //运动速度
         mx: 0, //起点位置
-        my: 6,
-        ly: 6,
+        my: 3,
+        ly: 3,
         canvas_w: canvas_w,
         canvas_h: canvas_h,
         color: "#51b9d4", //颜色
         vx: 4,
-        vy: 0,
-        line_w: 4,
+        vy: 4,
+        line_w: 2,
         fx: fx,
         width: 10, //线长
         jiange: 10 //间隔
@@ -305,13 +270,15 @@ export default {
       }).then(response => {
         let data = response.data;
         if (data.status == 1) {
-          this.stationViewDetail = data.data[0];
-          console.log(this.stationViewDetail);
-          console.log(this.stationViewDetail.temp);
+          id(data.data.length > 0);
+          {
+            this.stationViewDetail = data.data[0];
+            console.log(this.stationViewDetail);
+            console.log(this.stationViewDetail.temp);
+          }
         }
       });
     },
-
     statisticsEnergyDetail() {
       this.$router.push({
         path: "/sitemanage/statisticsenergy",
@@ -329,136 +296,34 @@ export default {
         path: "/sitemanage/statisticswaterquality",
         query: { id: this.$route.query.id }
       });
-    },
-    //station
-    getFatherStationList() {
-      let name = this.chlidName;
-      this.request({
-        url: "/station/getStationLists",
-        method: "get",
-        params: { name }
-      }).then(response => {
-        let data = response.data;
-        if (data.status == 1) {
-          this.fatherStationList = data.data;
-          let pids = this.$route.query.pid;
-          this.fatherStationList.map(ele => {
-            if (ele.id == pids) {
-              this.childStationList = ele.child;
-              this.fatherStationId = this.$route.query.pid;
-              this.chlidStationId = this.$route.query.sid;
-            }
-          });
-        }
-      });
-    },
-    getChildStationList() {
-      let name = "";
-      this.request({
-        url: "/station/getChildStationLists",
-        method: "get",
-        params: { name }
-      }).then(response => {
-        let data = response.data;
-        if (data.status == 1) {
-          let results = data.data;
-          this.childStationList = results;
-
-          // this.childStationList.map(ele => {
-          //   if (ele.id == sids) {
-          //     this.fatherStationId = ele.pid;
-          //     this.fatherStationEvent(ele.pid);
-          //   }
-          // });
-        }
-      });
-    },
-    fatherStationEvent(val) {
-      if (val == 0) {
-        this.fatherStationId = 0;
-        this.getChildStationList();
-      }
-      this.fatherStationId = val;
-      this.fatherStationList.map(ele => {
-        if (ele.id == val) {
-          this.childStationList = ele.child;
-        }
-      });
-    },
-    chlidStationEvent(item) {
-      this.$router.push({
-        path: "/sitemanage/main",
-        query: { pid: item.pid, sid: item.id }
-      });
-    },
-    searchStationCallBack(queryString, cb) {
-      this.request({
-        url: "/station/getChildStationLists",
-        method: "get",
-        params: { name: queryString }
-      }).then(response => {
-        let data = response.data;
-        if (data.status == 1) {
-          let results = data.data;
-          let list = [];
-          if (results.length == 0) {
-            list.push({
-              id: 0,
-              value: "未查询到站名"
-            });
-          }
-          for (let item of results) {
-            list.push({
-              id: item.id,
-              pid: item.pid,
-              value: item.name
-            });
-          }
-
-          cb(list);
-        }
-      });
-    },
-    searchStationEvent(item) {
-      this.$router.push({
-        path: "/sitemanage/main",
-        query: { pid: item.pid, sid: item.id }
-      });
     }
-    //end station
+    //end
+  },
+  beforeCreate() {
+    document.querySelector("body").setAttribute("style", "background:#182175;");
+  },
+  beforeDestroy() {
+    document.querySelector("body").removeAttribute("style");
   }
 };
 </script>
 <style>
-.left-menu-chlid {
-  float: left;
-  background: #e3e8f2;
-  width: 100px;
-  height: calc(100vh - 100px);
+
+/*.app-site*/
+.app-site1{
+  transform: rotate(90deg);
+  transform-origin: bottom left;
+  position: absolute;
+  top: -100vw;
+  height: 100vw;
+  width: 100vh;
 }
 
-/*print*/
-
-.app-page-site {
-  background: #24284d;
-  height: calc(100vh - 100px);
-}
-.app-page-site-box {
-  background: #24284d;
-  background-repeat: no-repeat;
-  height: 100vh;
-  overflow-x: auto;
-}
-
-.app-site {
+.app-site .app-site-content {
   position: relative;
-  margin-left: 100px;
-  width: 1120px;
-}
-.app-site .centerbox {
-  margin-top: 400px;
-  position: relative;
-  z-index: 99;
+  background:#24284d;
+  height: 360px;
+  width: 100%;
 }
 .nenghao {
   color: #fff;
@@ -478,33 +343,33 @@ export default {
 }
 .app-site .itembox1 {
   position: absolute;
-  top: 0px;
+  top: 140px;
   left: 130px;
 }
 .app-site .itembox2 {
   position: absolute;
-  top: 0px;
-  left: 350px;
+  top: 140px;
+  left: 300px;
 }
 .app-site .itembox3 {
   position: absolute;
-  top: 0px;
-  left: 570px;
+  top: 140px;
+  left: 470px;
 }
 .app-site .itembox4 {
   position: absolute;
-  top: 0px;
-  left: 790px;
+  top: 140px;
+  left: 640px;
 }
 .app-site .itembox5 {
   position: absolute;
-  top: 0px;
-  left: 1010px;
+  top: 140px;
+  left: 810px;
 }
 .app-site .itembox6 {
   position: absolute;
   top: 260px;
-  left: 1010px;
+  left: 960px;
 }
 .app-site .itembox7 {
   position: absolute;
@@ -514,18 +379,18 @@ export default {
 .app-site .itembox8 {
   position: absolute;
   top: 260px;
-  left: 350px;
+  left: 300px;
 }
 .app-site .itembox0 {
   position: absolute;
-  top: -340px;
-  left: 1010px;
+  top: 10px;
+  left: 960px;
 }
 .app-site .wbox {
   margin: 0 auto;
   background: url("~@/assets/image/site-01.png") no-repeat;
-  width: 151px;
-  height: 128px;
+  width: 70px;
+  height: 59px;
   z-index: 999;
   overflow: hidden;
   position: relative;
@@ -533,8 +398,9 @@ export default {
 .app-site .wboxs {
   margin: 0 auto;
   background: url("~@/assets/image/site-001.png") no-repeat;
-  width: 222px;
-  height: 189px;
+  background-size: 100%;
+  width: 120px;
+  height: 102px;
   z-index: 999;
   overflow: hidden;
   position: relative;
@@ -553,8 +419,9 @@ export default {
 }
 .app-site .wbox .bban {
   background: url("~@/assets/image/site-04.png") no-repeat;
-  width: 38px;
-  height: 59px;
+  background-size: 100%;
+  width: 19px;
+  height: 30px;
   position: absolute;
   right: 5px;
   bottom: 12px;
@@ -562,35 +429,38 @@ export default {
 .app-site .wbox0 {
   margin: 0 auto;
   background: url("~@/assets/image/site-03.png") no-repeat;
-  width: 260px;
-  height: 220px;
+  background-size: 100%;
+  width: 100px;
+  height: 85px;
   z-index: 999;
   overflow: hidden;
 }
 .app-site .wbox0 .bbans {
   background: url("~@/assets/image/site-05.png") no-repeat;
-  width: 63px;
-  height: 45px;
+  background-size: 100%;
+  width: 30px;
+  height: 21px;
   position: absolute;
   left: 50px;
-  top: 72px;
+  top: 80px;
 }
 .app-site .bnames {
   color: #fff;
   text-align: center;
   font-size: 16px;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 .app-site .jcname {
   background: rgba(32, 95, 156, 0.5);
   color: #fff;
-  width: 80px;
+  width: 70px;
   text-align: center;
   padding: 4px 0px;
   border-radius: 2px;
   border: 1px #4274a5 solid;
   position: absolute;
-  top: 30px;
+  left: 20px;
+  top: 160px;
   cursor: pointer;
 }
 .app-site .ccname {
@@ -703,24 +573,24 @@ export default {
   border-radius: 2px;
 }
 .app-site #line1 {
-  left: 40px;
-  top: 70px;
+  left: 100px;
+  top: 170px;
 }
 .app-site #line2 {
-  left: 240px;
-  top: 50px;
+  left: 185px;
+  top: 170px;
 }
 .app-site #line3 {
   left: 415px;
-  top: 10px;
+  top: 100px;
 }
 .app-site #line4 {
   left: 480px;
-  top: -50px;
+  top: 40px;
 }
 .app-site #line5 {
   left: 545px;
-  top: 15px;
+  top: 105px;
 }
 .app-site #line6 {
   left: 530px;
@@ -728,39 +598,39 @@ export default {
 }
 .app-site #line7 {
   left: 590px;
-  top: -10px;
+  top: 80px;
 }
 .app-site #line8 {
   left: 645px;
-  top: 15px;
+  top: 105px;
 }
 .app-site #line9 {
   left: 645px;
-  top: -200px;
+  top: 110px;
 }
 .app-site #line10 {
   left: 920px;
-  top: -200px;
+  top: 110px;
 }
 .app-site #line11 {
   left: 960px;
-  top: -240px;
+  top: 150px;
 }
 .app-site #line12 {
   left: 960px;
-  top: -161px;
+  top: 171px;
 }
 .app-site #line13 {
   left: 670px;
-  top: -90px;
+  top: 0px;
 }
 .app-site #line14 {
   left: 700px;
-  top: -50px;
+  top: 40px;
 }
 .app-site #line15 {
   left: 860px;
-  top: 10px;
+  top: 100px;
 }
 .app-site #line16 {
   left: 1050px;
@@ -768,19 +638,19 @@ export default {
 }
 .app-site #line17 {
   left: 705px;
-  top: 80px;
+  top: 170px;
 }
 .app-site #line18 {
   left: 925px;
-  top: 10px;
+  top: 100px;
 }
 .app-site #line19 {
   left: 1145px;
-  top: 10px;
+  top: 100px;
 }
 .app-site #line20 {
   left: 1080px;
-  top: 170px;
+  top: 260px;
 }
 .app-site #line21 {
   left: 1120px;
