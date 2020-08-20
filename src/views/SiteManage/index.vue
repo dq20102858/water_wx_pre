@@ -1,17 +1,33 @@
 <template>
   <div class="app-pages">
-    <div style="padding:30px;">
-         <router-link to="/sitemanage/station">选择站点</router-link>  
-           <router-link to="/sitemanage/stationDetail">站点详情</router-link>  
-        <router-link to="/sitemanage/main">运行图</router-link>   
-      <router-link to="/dispatch">运维派单</router-link>  
-     <router-link to="/record">报表统计</router-link>
-     <router-link to="/warning">设备列表</router-link>
-     <br>   <br>
-<router-link to="/attendance">考勤打卡</router-link>
-</div>
+    <div class="navss">
+      <div class="navss">
+        <a target="_blank" href="#/sitemanage/station" class>选择站点</a>
+        <a target="_blank"  href="#/sitemanage/stationDetail" class>站点详情</a>
+        <a target="_blank"  href="#/sitemanage/main" class>运行图</a>
+        <a target="_blank"  href="#/dispatch" class>运维派单</a>
+        <a target="_blank"  href="#/record" class>报表统计</a>
+        <a target="_blank"  href="#/warning" class>告警列表</a>
+        <a target="_blank"  href="#/attendance" class>考勤打卡</a>
+      </div>
+    </div>
     <div class="baidumap">
-<div class="map-so-input el-input el-input--medium el-input-group el-input-group--append el-input--suffix"><!----><input type="text" autocomplete="off" placeholder="请输入位置关键字" class="el-input__inner"><!----><!----><div class="el-input-group__append"><button type="button" class="el-button el-button--primary el-button--medium"><!----><i class="el-icon-search"></i><!----></button></div><!----></div>
+      <div
+        class="map-so-input el-input el-input--medium el-input-group el-input-group--append el-input--suffix"
+      >
+        <!---->
+        <input type="text" autocomplete="off" placeholder="请输入位置关键字" class="el-input__inner" />
+        <!---->
+        <!---->
+        <div class="el-input-group__append">
+          <button type="button" class="el-button el-button--primary el-button--medium">
+            <!---->
+            <i class="el-icon-search"></i>
+            <!---->
+          </button>
+        </div>
+        <!---->
+      </div>
 
       <!-- <div class="baidumap-so">
         <el-input
@@ -24,44 +40,43 @@
         <el-button slot="append" type="primary" icon="el-icon-search" @click="searchEvent"></el-button>
       </el-input>
     
-        </div> -->
-        <baidu-map
-          class="bm-view"
-          :center="center"
-          :zoom="zoom"
-          @ready="readyHandler"
-          @click="getClickInfo"
-          :scroll-wheel-zoom="true"
-          :mapClick="false"
-          　ak="GsTerPPU46fUXlt09K8840K0HxTvKIIa"
-        >
-          <!--地图类型-->
-          <bm-map-type
-            :map-types="['BMAP_NORMAL_MAP', 'BMAP_HYBRID_MAP']"
-            anchor="BMAP_ANCHOR_BOTTOM_RIGHT"
-          ></bm-map-type>
-          <!--地图缩放-->
-          <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-navigation>
-          <!--标注点  animation="BMAP_ANIMATION_BOUNCE"-->
-          <div v-for="marker in markers" :key="marker.lng">
-            <bm-marker :position="{lng: marker.lng, lat: marker.lat}" @click="markerClick(marker)"></bm-marker>
-            <bm-label
-              :content="marker.name"
-              :offset="{width:-55,height:-45}"
-              :position="{lng: marker.lng, lat: marker.lat}"
-              :labelStyle="{border:'1px solid #3498DB',background:'#3498DB', color:'#fff', padding:'2px',fontWeight: '600',fontSize:'14px',cursor: 'pointer'}"
-              :title="marker.name"
-              @click="markerClick(marker)"
-            />
-          </div>
-          <bm-local-search
-            :keyword="address"
-            :location="address"
-            :auto-viewport="true"
-            style="width:0px;height:0px;overflow: hidden;"
-          ></bm-local-search>
-        </baidu-map>
-      </div>
+      </div>-->
+      <baidu-map
+        class="bm-view"
+        :center="center"
+        :zoom="zoom"
+        @ready="readyHandler"
+        @click="getClickInfo"
+        :scroll-wheel-zoom="true"
+        :mapClick="false"
+        　ak="GsTerPPU46fUXlt09K8840K0HxTvKIIa"
+      >
+        <!--地图类型-->
+        <bm-map-type
+          :map-types="['BMAP_NORMAL_MAP', 'BMAP_HYBRID_MAP']"
+          anchor="BMAP_ANCHOR_BOTTOM_RIGHT"
+        ></bm-map-type>
+        <!--地图缩放-->
+        <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-navigation>
+        <!--标注点  animation="BMAP_ANIMATION_BOUNCE"-->
+        <div v-for="marker in markers" :key="marker.lng">
+          <bm-marker :position="{lng: marker.lng, lat: marker.lat}" @click="markerClick(marker)"></bm-marker>
+          <bm-label
+            :content="marker.name"
+            :offset="{width:-55,height:-45}"
+            :position="{lng: marker.lng, lat: marker.lat}"
+            :labelStyle="{border:'1px solid #3498DB',background:'#3498DB', color:'#fff', padding:'2px',fontWeight: '600',fontSize:'14px',cursor: 'pointer'}"
+            :title="marker.name"
+            @click="markerClick(marker)"
+          />
+        </div>
+        <bm-local-search
+          :keyword="address"
+          :location="address"
+          :auto-viewport="true"
+          style="width:0px;height:0px;overflow: hidden;"
+        ></bm-local-search>
+      </baidu-map>
     </div>
   </div>
 </template>
@@ -199,5 +214,16 @@ export default {
   background: #409eff;
   border: 1px #409eff solid;
   color: #fff;
+}
+.navss {
+  padding: 10px;
+}
+.navss a {
+  padding: 5px;
+  color: #333;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
 }
 </style>

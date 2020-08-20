@@ -838,6 +838,20 @@ em, i {
 
 /*el-form */
 
+.app-form {
+  background: #fff;
+  margin: 15px;
+  border-radius: 5px;
+  padding: 20px 15px 20px 15px; }
+
+.app-form-save {
+  text-align: center;
+  margin-top: 40px;
+  overflow: hidden; }
+
+.app-form-save button {
+  width: 140px; }
+
 .el-form-custom .el-form-item {
   margin-bottom: 25px; }
 
@@ -845,7 +859,7 @@ em, i {
   color: #1d397a; }
 
 .el-form-custom .el-input__inner {
-  border: 1px #9db9fa solid !important;
+  border: 1px #9db9fa solid;
   color: #338ff6 !important; }
 
 .el-form-custom .el-form-item__error {
@@ -890,6 +904,12 @@ em, i {
 
 .el-form-custom .el-cascader {
   width: 100%; }
+
+.el-form-custom .el-form-item__label {
+  padding: 0; }
+
+.el-form-custom .el-form-item.is-error .el-input__inner {
+  border-color: #9db9fa; }
 
 .el-form-custom .el-textarea.is-disabled .el-textarea__inner {
   background-color: #F5F7FA;
@@ -997,7 +1017,7 @@ em, i {
   border-radius: 6px 6px 0 0;
   background: #4093ED;
   text-align: center;
-  padding: 6px 12px; }
+  padding: 7px 12px; }
 
 .el-dialog__title {
   color: #fff;
@@ -1035,6 +1055,17 @@ em, i {
   min-width: 90px;
   margin: 0 15px;
   margin-bottom: 20px; }
+
+.app-cascader .el-cascader-menu {
+  min-width: 150px; }
+
+.app-cascader .el-cascader-menu__list {
+  overflow: hidden; }
+
+.app-cascader .el-cascader-menu__list li {
+  max-width: 150px;
+  overflow: hidden;
+  padding-right: 0 !important; }
 
 .el-message-box-new {
   padding-bottom: 20px;

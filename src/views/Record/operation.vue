@@ -2,7 +2,7 @@
   <div class="app-pages">
     <header class="app-top-bar">
       <h1 class="titles">报表统计</h1>
-      <a class="icons icon-add pull-right"></a>
+      <a class="icons icon-add pull-right" @click="addShowEvent"></a>
     </header>
     <div class="app-content">
       <div class="app-tab">
@@ -103,6 +103,9 @@ export default {
     pageToLast() {
       this.page_cur = this.page_total;
       this.getDataList();
+    },
+     addShowEvent() {
+      this.$router.push("/record/operationedit");
     }
   }
 };
@@ -117,4 +120,5 @@ export default {
   padding: 3px 5px;
   border-radius: 3px;
 }
+
 </style>

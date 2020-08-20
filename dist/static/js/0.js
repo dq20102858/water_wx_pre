@@ -54,21 +54,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAWCAYAAAAv
 
 /***/ }),
 
-/***/ "PpS0":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("UgSs");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("rjj0")("87d2fdea", content, true);
-
-/***/ }),
-
-/***/ "UgSs":
+/***/ "VN/D":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("FZ+f")(false);
@@ -76,10 +62,24 @@ exports = module.exports = __webpack_require__("FZ+f")(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n\r\n/*.app-site*/\n.app-site1{\r\n  -webkit-transform: rotate(90deg);\r\n          transform: rotate(90deg);\r\n  -webkit-transform-origin: bottom left;\r\n          transform-origin: bottom left;\r\n  position: absolute;\r\n  top: -100vw;\r\n  height: 100vw;\r\n  width: 100vh;\n}\n.app-site .app-site-content {\r\n  position: relative;\r\n  background:#24284d;\r\n  height: 360px;\r\n  width: 100%;\n}\n.nenghao {\r\n  color: #fff;\r\n  font-size: 20px;\r\n  position: absolute;\r\n  top: -340px;\r\n  left: 10px;\n}\n.nenghao span {\r\n  background: #3d88f5;\r\n  color: #fff;\r\n  border-radius: 3px;\r\n  font-size: 16px;\r\n  padding: 8px 10px;\r\n  margin-right: 30px;\r\n  cursor: pointer;\n}\n.app-site .itembox1 {\r\n  position: absolute;\r\n  top: 140px;\r\n  left: 130px;\n}\n.app-site .itembox2 {\r\n  position: absolute;\r\n  top: 140px;\r\n  left: 350px;\n}\n.app-site .itembox3 {\r\n  position: absolute;\r\n  top: 140px;\r\n  left: 570px;\n}\n.app-site .itembox4 {\r\n  position: absolute;\r\n  top: 140px;\r\n  left: 790px;\n}\n.app-site .itembox5 {\r\n  position: absolute;\r\n  top: 140px;\r\n  left: 1010px;\n}\n.app-site .itembox6 {\r\n  position: absolute;\r\n  top: 260px;\r\n  left: 1010px;\n}\n.app-site .itembox7 {\r\n  position: absolute;\r\n  top: 230px;\r\n  left: 650px;\n}\n.app-site .itembox8 {\r\n  position: absolute;\r\n  top: 260px;\r\n  left: 350px;\n}\n.app-site .itembox0 {\r\n  position: absolute;\r\n  top: 20px;\r\n  left: 1010px;\n}\n.app-site .wbox {\r\n  margin: 0 auto;\r\n  background: url(" + __webpack_require__("lHv1") + ") no-repeat;\r\n  width: 70px;\r\n  height: 59px;\r\n  z-index: 999;\r\n  overflow: hidden;\r\n  position: relative;\n}\n.app-site .wboxs {\r\n  margin: 0 auto;\r\n  background: url(" + __webpack_require__("3ya9") + ") no-repeat;\r\n  background-size: 100%;\r\n  width: 120px;\r\n  height: 102px;\r\n  z-index: 999;\r\n  overflow: hidden;\r\n  position: relative;\n}\n.app-site .wbox .bwater {\r\n  margin-top: 40px;\r\n  display: block;\r\n  margin-bottom: 10px;\r\n  background: url(" + __webpack_require__("Zsec") + ") no-repeat;\r\n  height: 67px;\n}\n.app-site .wbox .ble {\r\n  background: #1d689e;\r\n  height: 2px;\r\n  width: 150px;\n}\n.app-site .wbox .bban {\r\n  background: url(" + __webpack_require__("+Bvp") + ") no-repeat;\r\n  background-size: 100%;\r\n  width: 19px;\r\n  height: 30px;\r\n  position: absolute;\r\n  right: 5px;\r\n  bottom: 12px;\n}\n.app-site .wbox0 {\r\n  margin: 0 auto;\r\n  background: url(" + __webpack_require__("io9z") + ") no-repeat;\r\n  background-size: 100%;\r\n  width: 100px;\r\n  height: 85px;\r\n  z-index: 999;\r\n  overflow: hidden;\n}\n.app-site .wbox0 .bbans {\r\n  background: url(" + __webpack_require__("Coru") + ") no-repeat;\r\n  background-size: 100%;\r\n  width: 30px;\r\n  height: 21px;\r\n  position: absolute;\r\n  left: 50px;\r\n  top: 72px;\n}\n.app-site .bnames {\r\n  color: #fff;\r\n  text-align: center;\r\n  font-size: 16px;\r\n  padding-top: 10px;\n}\n.app-site .jcname {\r\n  background: rgba(32, 95, 156, 0.5);\r\n  color: #fff;\r\n  width: 80px;\r\n  text-align: center;\r\n  padding: 4px 0px;\r\n  border-radius: 2px;\r\n  border: 1px #4274a5 solid;\r\n  position: absolute;\r\n  top: 30px;\r\n  cursor: pointer;\n}\n.app-site .ccname {\r\n  background: rgba(32, 95, 156, 0.5);\r\n  color: #fff;\r\n  width: 80px;\r\n  text-align: center;\r\n  padding: 4px 0px;\r\n  border-radius: 2px;\r\n  border: 1px #4274a5 solid;\r\n  position: absolute;\r\n  left: 150px;\r\n  top: 313px;\r\n  cursor: pointer;\n}\n.app-site .j2text {\r\n  cursor: pointer;\r\n  position: absolute;\r\n  top: -120px;\r\n  left: 150px;\r\n  font-size: 12px;\n}\n.app-site .j2text div {\r\n  background: rgba(32, 95, 156, 0.5);\r\n  color: #fff;\r\n  width: 105px;\r\n  padding: 5px 0px;\r\n  border-radius: 2px;\r\n  border: 1px #4274a5 solid;\r\n  margin-bottom: 10px;\r\n  text-indent: 10px;\n}\n.shbeng {\r\n  position: absolute;\r\n  top: 80px;\r\n  left: 470px;\r\n  z-index: 9999;\r\n  text-align: center;\n}\n.shbeng h3 {\r\n  color: #fff;\r\n  font-weight: 400;\r\n  margin-bottom: 35px;\n}\n.huiliu {\r\n  position: absolute;\r\n  top: -75px;\r\n  left: 700px;\r\n  z-index: 9999;\r\n  text-align: center;\n}\n.huiliu h3 {\r\n  display: inline-block;\r\n  color: #fff;\r\n  font-weight: 400;\r\n  font-size: 12px;\r\n  margin-right: 5px;\n}\n.huiliu p {\r\n  display: inline-block;\n}\n.fengji {\r\n  position: absolute;\r\n  top: -250px;\r\n  left: 1115px;\r\n  z-index: 9999;\r\n  width: 118px;\n}\n.fengji h3 {\r\n  color: #fff;\r\n  font-weight: 400;\r\n  font-size: 12px;\r\n  margin-bottom: 5px;\n}\n.ziwai {\r\n  position: absolute;\r\n  top: 290px;\r\n  left: 702px;\r\n  z-index: 9999;\r\n  text-align: center;\n}\n.ziwai h3 {\r\n  color: #fff;\r\n  font-weight: 400;\r\n  margin-bottom: 15px;\n}\n.zhtai {\r\n  border: 1px #4274a5 solid;\r\n  color: #fff;\r\n  border-radius: 2px;\r\n  background: rgba(40, 70, 124, 0.5);\r\n  font-size: 12px;\n}\n.zhtai em {\r\n  display: inline-block;\r\n  padding: 3px 0 3px 6px;\n}\n.zhtai span {\r\n  display: inline-block;\r\n  background: #3d88f5;\r\n  padding: 3px 5px;\n}\n.zhtai .start1 {\r\n  background: #ec450f;\n}\r\n/* line */\n.app-site .wline {\r\n  position: absolute;\r\n  background: #1f5880;\r\n  border-radius: 2px;\n}\n.app-site #line1 {\r\n  left: 40px;\r\n  top: 160px;\n}\n.app-site #line2 {\r\n  left: 240px;\r\n  top: 140px;\n}\n.app-site #line3 {\r\n  left: 415px;\r\n  top: 100px;\n}\n.app-site #line4 {\r\n  left: 480px;\r\n  top: 40px;\n}\n.app-site #line5 {\r\n  left: 545px;\r\n  top: 105px;\n}\n.app-site #line6 {\r\n  left: 530px;\r\n  top: -90px;\n}\n.app-site #line7 {\r\n  left: 590px;\r\n  top: 80px;\n}\n.app-site #line8 {\r\n  left: 645px;\r\n  top: 105px;\n}\n.app-site #line9 {\r\n  left: 645px;\r\n  top: 110px;\n}\n.app-site #line10 {\r\n  left: 920px;\r\n  top: 110px;\n}\n.app-site #line11 {\r\n  left: 960px;\r\n  top: 150px;\n}\n.app-site #line12 {\r\n  left: 960px;\r\n  top: 171px;\n}\n.app-site #line13 {\r\n  left: 670px;\r\n  top: 0px;\n}\n.app-site #line14 {\r\n  left: 700px;\r\n  top: 40px;\n}\n.app-site #line15 {\r\n  left: 860px;\r\n  top: 100px;\n}\n.app-site #line16 {\r\n  left: 1050px;\r\n  top: -10px;\n}\n.app-site #line17 {\r\n  left: 705px;\r\n  top: 170px;\n}\n.app-site #line18 {\r\n  left: 925px;\r\n  top: 100px;\n}\n.app-site #line19 {\r\n  left: 1145px;\r\n  top: 100px;\n}\n.app-site #line20 {\r\n  left: 1080px;\r\n  top: 260px;\n}\n.app-site #line21 {\r\n  left: 1120px;\r\n  top: 330px;\n}\n.app-site #line22 {\r\n  left: 830px;\r\n  top: 320px;\n}\n.app-site #line23 {\r\n  left: 690px;\r\n  top: 260px;\n}\n.app-site #line24 {\r\n  left: 690px;\r\n  top: 360px;\n}\n.app-site #line25 {\r\n  left: 645px;\r\n  top: 310px;\n}\n.app-site #line26 {\r\n  left: 795px;\r\n  top: 310px;\n}\n.app-site #line27 {\r\n  left: 460px;\r\n  top: 320px;\n}\n.app-site #line28 {\r\n  left: 250px;\r\n  top: 320px;\n}\n.app-site #line29 {\r\n  left: 690px;\r\n  top: -70px;\n}\r\n/* */\n.adapter1 {\r\n  position: absolute;\r\n  width: 21px;\r\n  height: 22px;\r\n  background: url(" + __webpack_require__("mWkX") + ") no-repeat;\n}\n.adapter2 {\r\n  position: absolute;\r\n  width: 21px;\r\n  height: 22px;\r\n  background: url(" + __webpack_require__("96an") + ") no-repeat;\n}\n.adapter3 {\r\n  position: absolute;\r\n  width: 21px;\r\n  height: 22px;\r\n  background: url(" + __webpack_require__("hYVI") + ") no-repeat;\n}\n.adapter4 {\r\n  position: absolute;\r\n  width: 21px;\r\n  height: 22px;\r\n  background: url(" + __webpack_require__("HDD+") + ") no-repeat;\n}\n.ad1 {\r\n  left: 460px;\r\n  top: -50px;\n}\n.ad2 {\r\n  left: 580px;\r\n  top: -50px;\n}\n.ad3 {\r\n  left: 625px;\r\n  top: -200px;\n}\n.ad4 {\r\n  left: 660px;\r\n  top: -90px;\n}\n.ad5 {\r\n  left: 945px;\r\n  top: -240px;\n}\n.ad6 {\r\n  left: 945px;\r\n  top: -170px;\n}\n.ad7 {\r\n  left: 690px;\r\n  top: -50px;\n}\n.ad8 {\r\n  left: 890px;\r\n  top: -50px;\n}\n.ad9 {\r\n  left: 1110px;\r\n  top: -90px;\n}\n.ad10 {\r\n  left: 1210px;\r\n  top: 10px;\n}\n.ad11 {\r\n  left: 1210px;\r\n  top: 321px;\n}\n.ad12 {\r\n  left: 680px;\r\n  top: 260px;\n}\n.ad13 {\r\n  left: 820px;\r\n  top: 260px;\n}\n.ad14 {\r\n  left: 820px;\r\n  top: 351px;\n}\n.ad15 {\r\n  left: 680px;\r\n  top: 351px;\n}\n.rotate360 {\r\n  transform: rotate(360deg);\r\n  -ms-transform: rotate(360deg);\r\n  -moz-transform: rotate(360deg);\r\n  -webkit-transform: rotate(360deg);\r\n  -o-transform: rotate(360deg);\n}\n.rotate270 {\r\n  transform: rotate(270deg);\r\n  -ms-transform: rotate(270deg);\r\n  -moz-transform: rotate(270deg);\r\n  -webkit-transform: rotate(270deg);\r\n  -o-transform: rotate(270deg);\n}\n.rotate180 {\r\n  transform: rotate(180deg);\r\n  -ms-transform: rotate(180deg);\r\n  -moz-transform: rotate(180deg);\r\n  -webkit-transform: rotate(180deg);\r\n  -o-transform: rotate(180deg);\n}\n.rotate90 {\r\n  transform: rotate(90deg);\r\n  -ms-transform: rotate(90deg);\r\n  -moz-transform: rotate(90deg);\r\n  -webkit-transform: rotate(90deg);\r\n  -o-transform: rotate(90deg);\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n\r\n/*.app-site*/\n.app-site1{\r\n  -webkit-transform: rotate(90deg);\r\n          transform: rotate(90deg);\r\n  -webkit-transform-origin: bottom left;\r\n          transform-origin: bottom left;\r\n  position: absolute;\r\n  top: -100vw;\r\n  height: 100vw;\r\n  width: 100vh;\n}\n.app-site .app-site-content {\r\n  position: relative;\r\n  background:#24284d;\r\n  height: 360px;\r\n  width: 100%;\n}\n.nenghao {\r\n  color: #fff;\r\n  font-size: 20px;\r\n  position: absolute;\r\n  top: -340px;\r\n  left: 10px;\n}\n.nenghao span {\r\n  background: #3d88f5;\r\n  color: #fff;\r\n  border-radius: 3px;\r\n  font-size: 16px;\r\n  padding: 8px 10px;\r\n  margin-right: 30px;\r\n  cursor: pointer;\n}\n.app-site .itembox1 {\r\n  position: absolute;\r\n  top: 140px;\r\n  left: 130px;\n}\n.app-site .itembox2 {\r\n  position: absolute;\r\n  top: 140px;\r\n  left: 300px;\n}\n.app-site .itembox3 {\r\n  position: absolute;\r\n  top: 140px;\r\n  left: 470px;\n}\n.app-site .itembox4 {\r\n  position: absolute;\r\n  top: 140px;\r\n  left: 640px;\n}\n.app-site .itembox5 {\r\n  position: absolute;\r\n  top: 140px;\r\n  left: 810px;\n}\n.app-site .itembox6 {\r\n  position: absolute;\r\n  top: 260px;\r\n  left: 960px;\n}\n.app-site .itembox7 {\r\n  position: absolute;\r\n  top: 230px;\r\n  left: 650px;\n}\n.app-site .itembox8 {\r\n  position: absolute;\r\n  top: 260px;\r\n  left: 300px;\n}\n.app-site .itembox0 {\r\n  position: absolute;\r\n  top: 10px;\r\n  left: 960px;\n}\n.app-site .wbox {\r\n  margin: 0 auto;\r\n  background: url(" + __webpack_require__("lHv1") + ") no-repeat;\r\n  width: 70px;\r\n  height: 59px;\r\n  z-index: 999;\r\n  overflow: hidden;\r\n  position: relative;\n}\n.app-site .wboxs {\r\n  margin: 0 auto;\r\n  background: url(" + __webpack_require__("3ya9") + ") no-repeat;\r\n  background-size: 100%;\r\n  width: 120px;\r\n  height: 102px;\r\n  z-index: 999;\r\n  overflow: hidden;\r\n  position: relative;\n}\n.app-site .wbox .bwater {\r\n  margin-top: 40px;\r\n  display: block;\r\n  margin-bottom: 10px;\r\n  background: url(" + __webpack_require__("Zsec") + ") no-repeat;\r\n  height: 67px;\n}\n.app-site .wbox .ble {\r\n  background: #1d689e;\r\n  height: 2px;\r\n  width: 150px;\n}\n.app-site .wbox .bban {\r\n  background: url(" + __webpack_require__("+Bvp") + ") no-repeat;\r\n  background-size: 100%;\r\n  width: 19px;\r\n  height: 30px;\r\n  position: absolute;\r\n  right: 5px;\r\n  bottom: 12px;\n}\n.app-site .wbox0 {\r\n  margin: 0 auto;\r\n  background: url(" + __webpack_require__("io9z") + ") no-repeat;\r\n  background-size: 100%;\r\n  width: 100px;\r\n  height: 85px;\r\n  z-index: 999;\r\n  overflow: hidden;\n}\n.app-site .wbox0 .bbans {\r\n  background: url(" + __webpack_require__("Coru") + ") no-repeat;\r\n  background-size: 100%;\r\n  width: 30px;\r\n  height: 21px;\r\n  position: absolute;\r\n  left: 50px;\r\n  top: 80px;\n}\n.app-site .bnames {\r\n  color: #fff;\r\n  text-align: center;\r\n  font-size: 16px;\r\n  padding-top: 10px;\n}\n.app-site .jcname {\r\n  background: rgba(32, 95, 156, 0.5);\r\n  color: #fff;\r\n  width: 70px;\r\n  text-align: center;\r\n  padding: 4px 0px;\r\n  border-radius: 2px;\r\n  border: 1px #4274a5 solid;\r\n  position: absolute;\r\n  left: 20px;\r\n  top: 160px;\r\n  cursor: pointer;\n}\n.app-site .ccname {\r\n  background: rgba(32, 95, 156, 0.5);\r\n  color: #fff;\r\n  width: 80px;\r\n  text-align: center;\r\n  padding: 4px 0px;\r\n  border-radius: 2px;\r\n  border: 1px #4274a5 solid;\r\n  position: absolute;\r\n  left: 150px;\r\n  top: 313px;\r\n  cursor: pointer;\n}\n.app-site .j2text {\r\n  cursor: pointer;\r\n  position: absolute;\r\n  top: -120px;\r\n  left: 150px;\r\n  font-size: 12px;\n}\n.app-site .j2text div {\r\n  background: rgba(32, 95, 156, 0.5);\r\n  color: #fff;\r\n  width: 105px;\r\n  padding: 5px 0px;\r\n  border-radius: 2px;\r\n  border: 1px #4274a5 solid;\r\n  margin-bottom: 10px;\r\n  text-indent: 10px;\n}\n.shbeng {\r\n  position: absolute;\r\n  top: 80px;\r\n  left: 470px;\r\n  z-index: 9999;\r\n  text-align: center;\n}\n.shbeng h3 {\r\n  color: #fff;\r\n  font-weight: 400;\r\n  margin-bottom: 35px;\n}\n.huiliu {\r\n  position: absolute;\r\n  top: -75px;\r\n  left: 700px;\r\n  z-index: 9999;\r\n  text-align: center;\n}\n.huiliu h3 {\r\n  display: inline-block;\r\n  color: #fff;\r\n  font-weight: 400;\r\n  font-size: 12px;\r\n  margin-right: 5px;\n}\n.huiliu p {\r\n  display: inline-block;\n}\n.fengji {\r\n  position: absolute;\r\n  top: -250px;\r\n  left: 1115px;\r\n  z-index: 9999;\r\n  width: 118px;\n}\n.fengji h3 {\r\n  color: #fff;\r\n  font-weight: 400;\r\n  font-size: 12px;\r\n  margin-bottom: 5px;\n}\n.ziwai {\r\n  position: absolute;\r\n  top: 290px;\r\n  left: 702px;\r\n  z-index: 9999;\r\n  text-align: center;\n}\n.ziwai h3 {\r\n  color: #fff;\r\n  font-weight: 400;\r\n  margin-bottom: 15px;\n}\n.zhtai {\r\n  border: 1px #4274a5 solid;\r\n  color: #fff;\r\n  border-radius: 2px;\r\n  background: rgba(40, 70, 124, 0.5);\r\n  font-size: 12px;\n}\n.zhtai em {\r\n  display: inline-block;\r\n  padding: 3px 0 3px 6px;\n}\n.zhtai span {\r\n  display: inline-block;\r\n  background: #3d88f5;\r\n  padding: 3px 5px;\n}\n.zhtai .start1 {\r\n  background: #ec450f;\n}\r\n/* line */\n.app-site .wline {\r\n  position: absolute;\r\n  background: #1f5880;\r\n  border-radius: 2px;\n}\n.app-site #line1 {\r\n  left: 100px;\r\n  top: 170px;\n}\n.app-site #line2 {\r\n  left: 185px;\r\n  top: 170px;\n}\n.app-site #line3 {\r\n  left: 415px;\r\n  top: 100px;\n}\n.app-site #line4 {\r\n  left: 480px;\r\n  top: 40px;\n}\n.app-site #line5 {\r\n  left: 545px;\r\n  top: 105px;\n}\n.app-site #line6 {\r\n  left: 530px;\r\n  top: -90px;\n}\n.app-site #line7 {\r\n  left: 590px;\r\n  top: 80px;\n}\n.app-site #line8 {\r\n  left: 645px;\r\n  top: 105px;\n}\n.app-site #line9 {\r\n  left: 645px;\r\n  top: 110px;\n}\n.app-site #line10 {\r\n  left: 920px;\r\n  top: 110px;\n}\n.app-site #line11 {\r\n  left: 960px;\r\n  top: 150px;\n}\n.app-site #line12 {\r\n  left: 960px;\r\n  top: 171px;\n}\n.app-site #line13 {\r\n  left: 670px;\r\n  top: 0px;\n}\n.app-site #line14 {\r\n  left: 700px;\r\n  top: 40px;\n}\n.app-site #line15 {\r\n  left: 860px;\r\n  top: 100px;\n}\n.app-site #line16 {\r\n  left: 1050px;\r\n  top: -10px;\n}\n.app-site #line17 {\r\n  left: 705px;\r\n  top: 170px;\n}\n.app-site #line18 {\r\n  left: 925px;\r\n  top: 100px;\n}\n.app-site #line19 {\r\n  left: 1145px;\r\n  top: 100px;\n}\n.app-site #line20 {\r\n  left: 1080px;\r\n  top: 260px;\n}\n.app-site #line21 {\r\n  left: 1120px;\r\n  top: 330px;\n}\n.app-site #line22 {\r\n  left: 830px;\r\n  top: 320px;\n}\n.app-site #line23 {\r\n  left: 690px;\r\n  top: 260px;\n}\n.app-site #line24 {\r\n  left: 690px;\r\n  top: 360px;\n}\n.app-site #line25 {\r\n  left: 645px;\r\n  top: 310px;\n}\n.app-site #line26 {\r\n  left: 795px;\r\n  top: 310px;\n}\n.app-site #line27 {\r\n  left: 460px;\r\n  top: 320px;\n}\n.app-site #line28 {\r\n  left: 250px;\r\n  top: 320px;\n}\n.app-site #line29 {\r\n  left: 690px;\r\n  top: -70px;\n}\r\n/* */\n.adapter1 {\r\n  position: absolute;\r\n  width: 21px;\r\n  height: 22px;\r\n  background: url(" + __webpack_require__("mWkX") + ") no-repeat;\n}\n.adapter2 {\r\n  position: absolute;\r\n  width: 21px;\r\n  height: 22px;\r\n  background: url(" + __webpack_require__("96an") + ") no-repeat;\n}\n.adapter3 {\r\n  position: absolute;\r\n  width: 21px;\r\n  height: 22px;\r\n  background: url(" + __webpack_require__("hYVI") + ") no-repeat;\n}\n.adapter4 {\r\n  position: absolute;\r\n  width: 21px;\r\n  height: 22px;\r\n  background: url(" + __webpack_require__("HDD+") + ") no-repeat;\n}\n.ad1 {\r\n  left: 460px;\r\n  top: -50px;\n}\n.ad2 {\r\n  left: 580px;\r\n  top: -50px;\n}\n.ad3 {\r\n  left: 625px;\r\n  top: -200px;\n}\n.ad4 {\r\n  left: 660px;\r\n  top: -90px;\n}\n.ad5 {\r\n  left: 945px;\r\n  top: -240px;\n}\n.ad6 {\r\n  left: 945px;\r\n  top: -170px;\n}\n.ad7 {\r\n  left: 690px;\r\n  top: -50px;\n}\n.ad8 {\r\n  left: 890px;\r\n  top: -50px;\n}\n.ad9 {\r\n  left: 1110px;\r\n  top: -90px;\n}\n.ad10 {\r\n  left: 1210px;\r\n  top: 10px;\n}\n.ad11 {\r\n  left: 1210px;\r\n  top: 321px;\n}\n.ad12 {\r\n  left: 680px;\r\n  top: 260px;\n}\n.ad13 {\r\n  left: 820px;\r\n  top: 260px;\n}\n.ad14 {\r\n  left: 820px;\r\n  top: 351px;\n}\n.ad15 {\r\n  left: 680px;\r\n  top: 351px;\n}\n.rotate360 {\r\n  transform: rotate(360deg);\r\n  -ms-transform: rotate(360deg);\r\n  -moz-transform: rotate(360deg);\r\n  -webkit-transform: rotate(360deg);\r\n  -o-transform: rotate(360deg);\n}\n.rotate270 {\r\n  transform: rotate(270deg);\r\n  -ms-transform: rotate(270deg);\r\n  -moz-transform: rotate(270deg);\r\n  -webkit-transform: rotate(270deg);\r\n  -o-transform: rotate(270deg);\n}\n.rotate180 {\r\n  transform: rotate(180deg);\r\n  -ms-transform: rotate(180deg);\r\n  -moz-transform: rotate(180deg);\r\n  -webkit-transform: rotate(180deg);\r\n  -o-transform: rotate(180deg);\n}\n.rotate90 {\r\n  transform: rotate(90deg);\r\n  -ms-transform: rotate(90deg);\r\n  -moz-transform: rotate(90deg);\r\n  -webkit-transform: rotate(90deg);\r\n  -o-transform: rotate(90deg);\n}\r\n", ""]);
 
 // exports
 
+
+/***/ }),
+
+/***/ "XXgQ":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("VN/D");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("rjj0")("4fbc08ec", content, true);
 
 /***/ }),
 
@@ -121,11 +121,55 @@ exports.default = function (obj, key, value) {
 
 /***/ }),
 
-/***/ "gsO4":
+/***/ "hYVI":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAWCAYAAAAvg9c4AAABOUlEQVQ4je3Uv0vDQBQH8NM6CCI4OYmDguDiIK6Ck5vJvYTOurmLmw5dRET/AP8AUekiSs29a4cguDjZNO/SiJSCk6OIm9JzE7RpvdBz88F3vA/vfrxjzKCg2tziSNooUp2bmP/oH6BuLdkxRUHQ2a9gsVwucKGujDtFOu0LrspozBNqk2P8YdypVMcMBO1nxcH4CFBdcoxfcnSpuUx2Wa4FBvEFrdtFBb06Il2wioJUNyCjSXuopA5HOlgJwxGbnT751XSJMcasoSDUYVHrgjUUJN1thO3Rrwc+INjhSHUePM5+m5rBLkc1XHxYLmk9bAUFEUdrtdY003qoa75zYu8gqAXY3OMX9xM9P42+5yXpjSM9u0gEUp24gdr2MFns2u7Pgko83zPX9Tm/0pjxgmjKuU3HM7eaUZ+p19TzU81yawAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "io9z":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/img/site-03.f846aeb.png";
+
+/***/ }),
+
+/***/ "lHv1":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJcAAACACAYAAAAGTPtaAAAByklEQVR4nO3SoUoccADAYetewSYYNPgAwhDBsHIgQ4Q1QWz/ImZfwjIwHNjEMgQxeAwuCCuGA1lZnS+yME1G79e+8L3Bt/J19ntM7hZjcgvLsX//PA4e/mysTO4WY+v8x9g8vYal2Lmcv+a6XYzN0+uxdjSFjzueju2Ln3IRkIuMXGTkIiMXGbnIyEVGLjJykZGLjFxk5CIjFxm5yMhFRi4ycpGRi4xcZOQiIxcZucjIRUYuMnKRkYuMXGTkIiMXGbnIyEVGLjJykZGLjFxk5CIjFxm5yMhFRi4ycpGRi4xcZOQiIxcZucjIRUYuMnKRkYuMXGTkIiMXGbnIyEVGLjJykZGLjFxk5CIjFxm5yMhFRi4ycpGRi4xcZOQiIxcZucjIRUYuMnKRkYuMXGTkIiMXGbnIyEVGLjJykZGLjFxk5CIjFxm5yMhFRi4ycpGRi4xcZOQiIxcZucjIRUYuMnKRkYuMXGTkIiMXGbnIyEVGLjJykZGLjFxk5CIjFxm5yMhFRi4ycpGRi4xcZOQiIxcZucjIRUYuMnKRkYvMu1xnN2P9+Ao+7uRqfH7LtX//PPamj2P3+xyW4svN0/9c32Z/V2HZDn+9fPoHU+SU7y35lO4AAAAASUVORK5CYII="
+
+/***/ }),
+
+/***/ "mClu":
+/***/ (function(module, exports, __webpack_require__) {
+
+var $export = __webpack_require__("kM2E");
+// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+$export($export.S + $export.F * !__webpack_require__("+E39"), 'Object', { defineProperty: __webpack_require__("evD5").f });
+
+
+/***/ }),
+
+/***/ "mWkX":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAWCAYAAAAvg9c4AAABMklEQVQ4je3Uv0vDUBAH8LSgIE79B8RBsa6OLm4uUnOvISj9A5z8I/IPODs527UQzF2LOgiZuph3l4g4CG51EBF0kT4HqfijiUkbcPHBd3wf7o7jLCvrGVNpXUQ1pxsvNzFpKZIjCHSoSAaAPARk8yMk7VRvky7nmxTvKOQOBDIYCxRBd8+TRSDdBeQHIBlfUUpUwMdfMM+Yqk16HQK5LQJlVqpOkg1Avp4Y/I66eLOkpgU/o254N6dIh1ODHzM1pmL3pAUoj2WgQNK2tvyoplA6QCl7NwnqUFRXyE+lgCMUUPZLA0eoQvHLR4m5dBQCvs/7wUZ+UcgHjZ4seJ6pph4OQP2aH5XDvX5/JvOyvaN5W5Nh4zRe+xUshJI8OxTV/9E/QpWvV/Nk++xqxRWZzWO+ARsC13tURXfpAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ "pOEK":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = Createline;
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// EXTERNAL MODULE: ./node_modules/babel-runtime/helpers/defineProperty.js
+var defineProperty = __webpack_require__("bOdI");
+var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
+
+// CONCATENATED MODULE: ./src/utils/flowAnimation.js
 //构造函数
 function Createline(config) {
 	this.c = 0;
@@ -349,60 +393,6 @@ Createline.prototype.addline = function (self, canvas) {
 		}
 	}
 };
-
-/***/ }),
-
-/***/ "hYVI":
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAWCAYAAAAvg9c4AAABOUlEQVQ4je3Uv0vDQBQH8NM6CCI4OYmDguDiIK6Ck5vJvYTOurmLmw5dRET/AP8AUekiSs29a4cguDjZNO/SiJSCk6OIm9JzE7RpvdBz88F3vA/vfrxjzKCg2tziSNooUp2bmP/oH6BuLdkxRUHQ2a9gsVwucKGujDtFOu0LrspozBNqk2P8YdypVMcMBO1nxcH4CFBdcoxfcnSpuUx2Wa4FBvEFrdtFBb06Il2wioJUNyCjSXuopA5HOlgJwxGbnT751XSJMcasoSDUYVHrgjUUJN1thO3Rrwc+INjhSHUePM5+m5rBLkc1XHxYLmk9bAUFEUdrtdY003qoa75zYu8gqAXY3OMX9xM9P42+5yXpjSM9u0gEUp24gdr2MFns2u7Pgko83zPX9Tm/0pjxgmjKuU3HM7eaUZ+p19TzU81yawAAAABJRU5ErkJggg=="
-
-/***/ }),
-
-/***/ "io9z":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/site-03.f846aeb.png";
-
-/***/ }),
-
-/***/ "lHv1":
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJcAAACACAYAAAAGTPtaAAAByklEQVR4nO3SoUoccADAYetewSYYNPgAwhDBsHIgQ4Q1QWz/ImZfwjIwHNjEMgQxeAwuCCuGA1lZnS+yME1G79e+8L3Bt/J19ntM7hZjcgvLsX//PA4e/mysTO4WY+v8x9g8vYal2Lmcv+a6XYzN0+uxdjSFjzueju2Ln3IRkIuMXGTkIiMXGbnIyEVGLjJykZGLjFxk5CIjFxm5yMhFRi4ycpGRi4xcZOQiIxcZucjIRUYuMnKRkYuMXGTkIiMXGbnIyEVGLjJykZGLjFxk5CIjFxm5yMhFRi4ycpGRi4xcZOQiIxcZucjIRUYuMnKRkYuMXGTkIiMXGbnIyEVGLjJykZGLjFxk5CIjFxm5yMhFRi4ycpGRi4xcZOQiIxcZucjIRUYuMnKRkYuMXGTkIiMXGbnIyEVGLjJykZGLjFxk5CIjFxm5yMhFRi4ycpGRi4xcZOQiIxcZucjIRUYuMnKRkYuMXGTkIiMXGbnIyEVGLjJykZGLjFxk5CIjFxm5yMhFRi4ycpGRi4xcZOQiIxcZucjIRUYuMnKRkYvMu1xnN2P9+Ao+7uRqfH7LtX//PPamj2P3+xyW4svN0/9c32Z/V2HZDn+9fPoHU+SU7y35lO4AAAAASUVORK5CYII="
-
-/***/ }),
-
-/***/ "mClu":
-/***/ (function(module, exports, __webpack_require__) {
-
-var $export = __webpack_require__("kM2E");
-// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-$export($export.S + $export.F * !__webpack_require__("+E39"), 'Object', { defineProperty: __webpack_require__("evD5").f });
-
-
-/***/ }),
-
-/***/ "mWkX":
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAWCAYAAAAvg9c4AAABMklEQVQ4je3Uv0vDUBAH8LSgIE79B8RBsa6OLm4uUnOvISj9A5z8I/IPODs527UQzF2LOgiZuph3l4g4CG51EBF0kT4HqfijiUkbcPHBd3wf7o7jLCvrGVNpXUQ1pxsvNzFpKZIjCHSoSAaAPARk8yMk7VRvky7nmxTvKOQOBDIYCxRBd8+TRSDdBeQHIBlfUUpUwMdfMM+Yqk16HQK5LQJlVqpOkg1Avp4Y/I66eLOkpgU/o254N6dIh1ODHzM1pmL3pAUoj2WgQNK2tvyoplA6QCl7NwnqUFRXyE+lgCMUUPZLA0eoQvHLR4m5dBQCvs/7wUZ+UcgHjZ4seJ6pph4OQP2aH5XDvX5/JvOyvaN5W5Nh4zRe+xUshJI8OxTV/9E/QpWvV/Nk++xqxRWZzWO+ARsC13tURXfpAAAAAElFTkSuQmCC"
-
-/***/ }),
-
-/***/ "pOEK":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-
-// EXTERNAL MODULE: ./node_modules/babel-runtime/helpers/defineProperty.js
-var defineProperty = __webpack_require__("bOdI");
-var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
-
-// EXTERNAL MODULE: ./src/utils/flowAnimation.js
-var flowAnimation = __webpack_require__("gsO4");
-
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/SiteManage/main.vue
 
 //
@@ -599,8 +589,8 @@ var flowAnimation = __webpack_require__("gsO4");
     };
   },
   mounted: function mounted() {
-    this.flowAnimations("line1", 145, 6, "w");
-    this.flowAnimations("line2", 145, 6, "w");
+    this.flowAnimations("line1", 50, 6, "w");
+    this.flowAnimations("line2", 130, 6, "w");
     this.flowAnimations("line3", 100, 6, "w");
     this.flowAnimations("line4", 100, 6, "w");
     this.flowAnimations("line5", 100, 6, "w");
@@ -666,7 +656,7 @@ var flowAnimation = __webpack_require__("gsO4");
         jiange: 10 //间隔
       };
       //debugger;
-      var res = new flowAnimation["a" /* Createline */](data);
+      var res = new Createline(data);
       res.begin(canvas, data);
     },
     getStationViewList: function getStationViewList() {
@@ -716,14 +706,14 @@ var flowAnimation = __webpack_require__("gsO4");
 }, "beforeDestroy", function beforeDestroy() {
   document.querySelector("body").removeAttribute("style");
 }));
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-50fccb00","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/SiteManage/main.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-57722380","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/SiteManage/main.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('span',{staticClass:"icons icon-back pull-left",on:{"click":_vm.backURL}}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v("XXX站点运行图")])]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-site"},[_c('div',{staticClass:"app-site-body"},[_c('div',{staticClass:"app-site-content"},[_c('div',{staticClass:"jcname",on:{"click":_vm.statisticsWaterDetail}},[_vm._v("进水口")]),_vm._v(" "),_c('div',{staticClass:"ccname",on:{"click":_vm.statisticsWaterDetail}},[_vm._v("出水口")]),_vm._v(" "),_c('canvas',{staticClass:"wline",attrs:{"id":"line1"}}),_vm._v(" "),_c('canvas',{staticClass:"wline",attrs:{"id":"line2"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate270",attrs:{"id":"line3"}}),_vm._v(" "),_c('canvas',{staticClass:"wline",attrs:{"id":"line4"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate90",attrs:{"id":"line5"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate270",attrs:{"id":"line6"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate270",attrs:{"id":"line7"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate270",attrs:{"id":"line8"}}),_vm._v(" "),_c('canvas',{staticClass:"wline",attrs:{"id":"line9"}}),_vm._v(" "),_c('canvas',{staticClass:"rotate270 wline",attrs:{"id":"line10"}}),_vm._v(" "),_c('canvas',{staticClass:"wline",attrs:{"id":"line11"}}),_vm._v(" "),_c('canvas',{staticClass:"wline",attrs:{"id":"line12"}}),_vm._v(" "),_c('canvas',{staticClass:"wline",attrs:{"id":"line13"}}),_vm._v(" "),_c('canvas',{staticClass:"wline",attrs:{"id":"line14"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate90",attrs:{"id":"line15"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate90",attrs:{"id":"line16"}}),_vm._v(" "),_c('canvas',{staticClass:"wline",attrs:{"id":"line17"}}),_vm._v(" "),_c('canvas',{staticClass:"wline",attrs:{"id":"line18"}}),_vm._v(" "),_c('canvas',{staticClass:"wline",attrs:{"id":"line19"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate90",attrs:{"id":"line20"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate180",attrs:{"id":"line21"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate180",attrs:{"id":"line22"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate180",attrs:{"id":"line23"}}),_vm._v(" "),_c('canvas',{staticClass:"wline",attrs:{"id":"line24"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate90",attrs:{"id":"line25"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate270",attrs:{"id":"line26"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate180",attrs:{"id":"line27"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate180",attrs:{"id":"line28"}}),_vm._v(" "),_c('canvas',{staticClass:"wline rotate90",attrs:{"id":"line29"}}),_vm._v(" "),_c('div',{staticClass:"adapter1 ad1"}),_vm._v(" "),_c('div',{staticClass:"adapter2 ad2"}),_vm._v(" "),_c('div',{staticClass:"adapter1 ad3"}),_vm._v(" "),_c('div',{staticClass:"adapter1 ad4"}),_vm._v(" "),_c('div',{staticClass:"adapter1 ad5"}),_vm._v(" "),_c('div',{staticClass:"adapter4 ad6"}),_vm._v(" "),_c('div',{staticClass:"adapter1 ad7"}),_vm._v(" "),_c('div',{staticClass:"adapter2 ad8"}),_vm._v(" "),_c('div',{staticClass:"adapter2 ad9"}),_vm._v(" "),_c('div',{staticClass:"adapter2 ad10"}),_vm._v(" "),_c('div',{staticClass:"adapter3 ad11"}),_vm._v(" "),_c('div',{staticClass:"adapter1 ad12"}),_vm._v(" "),_c('div',{staticClass:"adapter2 ad13"}),_vm._v(" "),_c('div',{staticClass:"adapter3 ad14"}),_vm._v(" "),_c('div',{staticClass:"adapter4 ad15"}),_vm._v(" "),_c('div',{staticClass:"j2text",on:{"click":_vm.statisticsWaterQualityDetail}},[_c('div',[_vm._v("PH：60")]),_vm._v(" "),_c('div',[_vm._v("电导率：60")]),_vm._v(" "),_c('div',[_vm._v("液位：60")])]),_vm._v(" "),_vm._m(0),_vm._v(" "),_vm._m(1),_vm._v(" "),_vm._m(2),_vm._v(" "),_vm._m(3),_vm._v(" "),_vm._m(4),_vm._v(" "),_vm._m(5),_vm._v(" "),_vm._m(6),_vm._v(" "),_vm._m(7),_vm._v(" "),_vm._m(8),_vm._v(" "),_vm._m(9),_vm._v(" "),_vm._m(10),_vm._v(" "),_vm._m(11),_vm._v(" "),_vm._m(12),_vm._v(" "),_vm._m(13),_vm._v(" "),_vm._m(14)])])])])])}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"shbeng"},[_c('h3',[_vm._v("排水泵")]),_vm._v(" "),_c('p',{staticClass:"zhtai"},[_c('em',[_vm._v("设备状态：")]),_vm._v(" "),_c('span',{staticClass:"start0"},[_vm._v("运行中")])])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"huiliu"},[_c('h3',[_vm._v("硝酸液回流泵")]),_vm._v(" "),_c('p',{staticClass:"zhtai"},[_c('em',[_vm._v("设备状态：")]),_vm._v(" "),_c('span',{staticClass:"start1"},[_vm._v("停止运行")])])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"huiliu",staticStyle:{"top":"-115px","left":"830px"}},[_c('h3',[_vm._v("淤泥回流泵")]),_vm._v(" "),_c('p',{staticClass:"zhtai"},[_c('em',[_vm._v("设备状态：")]),_vm._v(" "),_c('span',{staticClass:"start1"},[_vm._v("停止运行")])])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"fengji"},[_c('h3',[_vm._v("1#风机")]),_vm._v(" "),_c('p',{staticClass:"zhtai"},[_c('em',[_vm._v("设备状态：")]),_vm._v(" "),_c('span',{staticClass:"start0"},[_vm._v("运行中")])])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"fengji",staticStyle:{"top":"-170px","left":"1115px"}},[_c('h3',[_vm._v("2#风机")]),_vm._v(" "),_c('p',{staticClass:"zhtai"},[_c('em',[_vm._v("设备状态：")]),_vm._v(" "),_c('span',{staticClass:"start1"},[_vm._v("故障中")])])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"ziwai"},[_c('h3',[_vm._v("紫外线消毒灯光")]),_vm._v(" "),_c('p',{staticClass:"zhtai"},[_c('em',[_vm._v("设备状态：")]),_vm._v(" "),_c('span',{staticClass:"start0"},[_vm._v("运行中")])])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"itembox1"},[_c('div',{staticClass:"wbox"},[_c('div',{staticClass:"bwater"}),_vm._v(" "),_c('div',{staticClass:"ble"})]),_vm._v(" "),_c('div',{staticClass:"bnames"},[_vm._v("栅格池")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"itembox2"},[_c('div',{staticClass:"wbox"},[_c('div',{staticClass:"bwater"}),_vm._v(" "),_c('div',{staticClass:"ble"}),_vm._v(" "),_c('div',{staticClass:"bban"})]),_vm._v(" "),_c('div',{staticClass:"bnames"},[_vm._v("调节池")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"itembox3"},[_c('div',{staticClass:"wbox"},[_c('div',{staticClass:"bwater"}),_vm._v(" "),_c('div',{staticClass:"ble"})]),_vm._v(" "),_c('div',{staticClass:"bnames"},[_vm._v("厌氧池")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"itembox4"},[_c('div',{staticClass:"wbox"},[_c('div',{staticClass:"bwater"}),_vm._v(" "),_c('div',{staticClass:"ble"}),_vm._v(" "),_c('div',{staticClass:"bban"})]),_vm._v(" "),_c('div',{staticClass:"bnames"},[_vm._v("好氧池")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"itembox5"},[_c('div',{staticClass:"wbox"},[_c('div',{staticClass:"bwater"}),_vm._v(" "),_c('div',{staticClass:"ble"}),_vm._v(" "),_c('div',{staticClass:"bban"})]),_vm._v(" "),_c('div',{staticClass:"bnames"},[_vm._v("二沉池")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"itembox6"},[_c('div',{staticClass:"wbox"},[_c('div',{staticClass:"bwater"}),_vm._v(" "),_c('div',{staticClass:"ble"})]),_vm._v(" "),_c('div',{staticClass:"bnames"},[_vm._v("预留池")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"itembox7"},[_c('div',{staticClass:"wboxs"},[_c('div',{staticClass:"bwater"}),_vm._v(" "),_c('div',{staticClass:"ble"})]),_vm._v(" "),_c('div',{staticClass:"bnames"},[_vm._v("消毒池")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"itembox8"},[_c('div',{staticClass:"wbox"},[_c('div',{staticClass:"bwater"}),_vm._v(" "),_c('div',{staticClass:"ble"})]),_vm._v(" "),_c('div',{staticClass:"bnames"},[_vm._v("排放池")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"itembox0"},[_c('div',{staticClass:"wbox0"},[_c('div',{staticClass:"bbans"}),_vm._v(" "),_c('div',{staticClass:"bbans",staticStyle:{"top":"150px"}})])])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ var SiteManage_main = (esExports);
 // CONCATENATED MODULE: ./src/views/SiteManage/main.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("PpS0")
+  __webpack_require__("XXgQ")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */

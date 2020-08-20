@@ -1,4 +1,4 @@
-webpackJsonp([19],{
+webpackJsonp([20],{
 
 /***/ "+g8z":
 /***/ (function(module, exports) {
@@ -491,25 +491,25 @@ vue_esm["default"].use(vue_router_esm["a" /* default */]);
 var constantRouterMap = [{
   path: '/login',
   component: function component() {
-    return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, "T+/8"));
+    return __webpack_require__.e/* import() */(9).then(__webpack_require__.bind(null, "T+/8"));
   },
   hidden: true
 }, {
   path: '/authredirect',
   component: function component() {
-    return __webpack_require__.e/* import() */(17).then(__webpack_require__.bind(null, "+abo"));
+    return __webpack_require__.e/* import() */(18).then(__webpack_require__.bind(null, "+abo"));
   },
   hidden: true
 }, {
   path: '/404',
   component: function component() {
-    return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, "fe7i"));
+    return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, "fe7i"));
   },
   hidden: true
 }, {
   path: '/401',
   component: function component() {
-    return __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, "97xN"));
+    return __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, "97xN"));
   },
   hidden: true
 }, {
@@ -520,19 +520,19 @@ var constantRouterMap = [{
     path: '/sitemanage',
     name: 'sitemanage',
     component: function component() {
-      return __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, "vzEL"));
+      return __webpack_require__.e/* import() */(5).then(__webpack_require__.bind(null, "vzEL"));
     }
   }, {
     path: '/sitemanage/station',
     name: 'sitemanage-station',
     component: function component() {
-      return __webpack_require__.e/* import() */(10).then(__webpack_require__.bind(null, "8iLd"));
+      return __webpack_require__.e/* import() */(8).then(__webpack_require__.bind(null, "8iLd"));
     }
   }, {
     path: '/sitemanage/stationdetail',
     name: 'sitemanage-stationdetail',
     component: function component() {
-      return __webpack_require__.e/* import() */(5).then(__webpack_require__.bind(null, "YQSK"));
+      return __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, "YQSK"));
     }
   }, {
     path: '/sitemanage/main',
@@ -544,19 +544,19 @@ var constantRouterMap = [{
     path: '/sitemanage/devicedetail',
     name: 'sitemanage-devicedetail',
     component: function component() {
-      return __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, "AWFw"));
+      return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, "AWFw"));
     }
   }, {
     path: '/sitemanage/statisticsenergy',
     name: 'sitemanage-statisticsenergy',
     component: function component() {
-      return __webpack_require__.e/* import() */(8).then(__webpack_require__.bind(null, "Rz0p"));
+      return __webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, "Rz0p"));
     }
   }, {
     path: '/sitemanage/statisticswaterquality',
     name: 'sitemanage-statisticswaterquality',
     component: function component() {
-      return __webpack_require__.e/* import() */(12).then(__webpack_require__.bind(null, "zcLY"));
+      return __webpack_require__.e/* import() */(11).then(__webpack_require__.bind(null, "zcLY"));
     }
   }]
 }, {
@@ -567,13 +567,13 @@ var constantRouterMap = [{
     path: '/dispatch',
     name: 'dispatch',
     component: function component() {
-      return __webpack_require__.e/* import() */(15).then(__webpack_require__.bind(null, "IRil"));
+      return __webpack_require__.e/* import() */(14).then(__webpack_require__.bind(null, "IRil"));
     }
   }, {
     path: '/dispatch/list',
     name: 'dispatch-list',
     component: function component() {
-      return __webpack_require__.e/* import() */(14).then(__webpack_require__.bind(null, "J4TC"));
+      return __webpack_require__.e/* import() */(13).then(__webpack_require__.bind(null, "J4TC"));
     }
   }]
 }, {
@@ -584,19 +584,25 @@ var constantRouterMap = [{
     path: '/record',
     name: 'record',
     component: function component() {
-      return __webpack_require__.e/* import() */(11).then(__webpack_require__.bind(null, "xqn6"));
+      return __webpack_require__.e/* import() */(10).then(__webpack_require__.bind(null, "xqn6"));
     }
   }, {
     path: '/record/operation',
     name: 'operation',
     component: function component() {
-      return __webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, "IsfQ"));
+      return __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, "IsfQ"));
     }
   }, {
     path: '/record/sampling',
     name: 'sampling',
     component: function component() {
-      return __webpack_require__.e/* import() */(13).then(__webpack_require__.bind(null, "3YOD"));
+      return __webpack_require__.e/* import() */(16).then(__webpack_require__.bind(null, "3YOD"));
+    }
+  }, {
+    path: '/record/samplingedit',
+    name: 'sampling',
+    component: function component() {
+      return __webpack_require__.e/* import() */(12).then(__webpack_require__.bind(null, "Cuha"));
     }
   }]
 }, {
@@ -607,7 +613,7 @@ var constantRouterMap = [{
     path: '/attendance',
     name: 'attendance',
     component: function component() {
-      return __webpack_require__.e/* import() */(16).then(__webpack_require__.bind(null, "Cxod"));
+      return __webpack_require__.e/* import() */(15).then(__webpack_require__.bind(null, "Cxod"));
     }
   }]
 }, {
@@ -618,7 +624,7 @@ var constantRouterMap = [{
     path: '/warning',
     name: 'warning',
     component: function component() {
-      return __webpack_require__.e/* import() */(9).then(__webpack_require__.bind(null, "WdIq"));
+      return __webpack_require__.e/* import() */(17).then(__webpack_require__.bind(null, "WdIq"));
     }
   }]
 }];
@@ -1139,7 +1145,7 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 
 var host = window.location.host;
 // host = 'http://' + host
-host =  true ? 'http://' + host : 'http://10.100.103.204:10001';
+host =  true ? 'http://' + host : 'http://10.100.103.204:10002';
 var service = axios_default.a.create({
   baseURL: host, // api的base_url
   withCredentials: true,

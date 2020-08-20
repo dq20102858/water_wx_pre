@@ -40,7 +40,7 @@
                   <span v-else>液位</span>
                 </template>
               </el-table-column>
-            <el-table-column label="发声位置" prop="address"></el-table-column>
+            <el-table-column label="发生位置" prop="address"></el-table-column>
             <el-table-column label="告警时间">
               <template slot-scope="scope">
                 <span>{{scope.row.create_time|formatDateTime}}</span>

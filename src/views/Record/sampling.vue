@@ -2,10 +2,10 @@
   <div class="app-pages">
     <header class="app-top-bar">
       <h1 class="titles">报表统计</h1>
-      <a class="icons icon-add pull-right"></a>
+      <a class="icons icon-add pull-right" @click="addShowEvent"></a>
     </header>
     <div class="app-content">
-        <div class="app-tab">
+      <div class="app-tab">
         <div class="item">
           <span @click="tabSelect(1)">维护记录</span>
         </div>
@@ -19,10 +19,8 @@
       <div class="app-content-rows">
         <div class="app-table">
           <el-table :data="dataList" size="mini">
-             <el-table-column label="序号">
-           <template slot-scope="scope">
-                 {{scope.$index+(page_cur - 1) * page_size + 1}}
-              </template>
+            <el-table-column label="序号">
+              <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
             <el-table-column label="站点名" prop="station_name"></el-table-column>
             <el-table-column label="采样日期" class-name="linewrap">
@@ -32,7 +30,7 @@
           </el-table>
           <div class="app-pagers">
             <el-pagination
-             background
+              background
               v-if="dataList.length !== 0"
               layout="prev, pager, next"
               :page-size="this.page_size"
@@ -55,7 +53,8 @@ export default {
       page_data_total: 0,
       page_size: 20,
       page_total: 0,
-      dataList: []
+      dataList: [],
+      diaLogFormVisible: false
     };
   },
   created() {
@@ -63,7 +62,7 @@ export default {
   },
   methods: {
     tabSelect(type) {
-     if (type == 2) {
+      if (type == 2) {
         this.$router.push("/record/operation");
       } else if (type == 3) {
         this.$router.push("/record/sampling");
@@ -100,6 +99,9 @@ export default {
     pageToLast() {
       this.page_cur = this.page_total;
       this.getDataList();
+    },
+    addShowEvent() {
+      this.$router.push("/record/samplingedit");
     }
   }
 };
@@ -113,5 +115,34 @@ export default {
   color: #fff;
   padding: 3px 5px;
   border-radius: 3px;
+}
+.el-form-item-samp .stitless {
+  overflow: hidden;
+  text-align: center;
+  display: block;
+}
+.el-form-item-samp .samp-item {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+}
+.el-form-item-samp .el-form-item {
+  width: 33.2%;
+  display: inherit;
+}
+.el-form-item-samp .el-input {
+  display: inline-block;
+  padding: 0 5px;
+  min-width: 50px;
+}
+.el-form-item-samp .el-form-item__label {
+  float: none;
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0 0 0 5px;
+}
+.el-form-item-samp .el-form-item__content {
+  display: inline-block;
+  vertical-align: top;
 }
 </style>

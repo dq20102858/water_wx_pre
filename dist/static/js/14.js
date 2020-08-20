@@ -1,66 +1,198 @@
 webpackJsonp([14],{
 
-/***/ "J4TC":
+/***/ "13N9":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("QgJ0");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("rjj0")("dbb678c2", content, true);
+
+/***/ }),
+
+/***/ "IRil":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
-// EXTERNAL MODULE: ./node_modules/babel-runtime/core-js/get-iterator.js
-var get_iterator = __webpack_require__("BO1k");
-var get_iterator_default = /*#__PURE__*/__webpack_require__.n(get_iterator);
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Dispatch/index.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Dispatch/list.vue
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ var Dispatch_list = ({
+/* harmony default export */ var Dispatch = ({
   data: function data() {
-    var _this = this;
-
     return {
       diaLogFormVisible: false,
       diaLogTitle: "添加信息",
@@ -88,126 +220,19 @@ var get_iterator_default = /*#__PURE__*/__webpack_require__.n(get_iterator);
           trigger: "blur"
         }]
       },
-      page_cur: 1,
-      page_data_total: 0,
-      page_size: 20,
-      page_total: 0,
-      dataList: [],
-      userList: [],
       stationOptions: [],
       stationOptionsProps: {
         value: "id",
         label: "name",
         children: "child"
-      },
-      fatherStationList: [],
-      childStationList: [],
-      fatherStationId: 0,
-      chlidStationId: 0,
-      chlidStationName: "",
-      searchKeyword: "",
-      searchAssignerId: "0",
-      searchType: "0",
-      searchStatus: "0",
-      pickerStartTime: {
-        disabledDate: function disabledDate(time) {
-          if (_this.searchEndTime) {
-            return time.getTime() > new Date(_this.searchEndTime).getTime();
-          }
-        }
-      },
-      pickerEndTime: {
-        disabledDate: function disabledDate(time) {
-          if (_this.searchStartTime) {
-            return time.getTime() < new Date(_this.searchStartTime).getTime();
-          }
-        }
-      },
-      searchStartTime: "",
-      searchEndTime: ""
+      }
     };
   },
-  created: function created() {
-    this.getFatherStationList();
-    this.getDataList();
-    this.getUsersList();
-  },
+  created: function created() {},
 
   methods: {
-    getDataList: function getDataList() {
-      var _this2 = this;
-
-      var page = this.page_cur;
-      var type = this.searchType;
-      var status = this.searchStatus;
-      var sid = this.chlidStationId;
-      var assigner_id = this.searchAssignerId;
-      var start_time = this.searchStartTime;
-      var end_time = this.searchEndTime;
-      this.request({
-        url: "/assign/getAssignPages",
-        method: "get",
-        params: { page: page, sid: sid, assigner_id: assigner_id, type: type, status: status, start_time: start_time, end_time: end_time }
-      }).then(function (res) {
-        var data = res.data;
-        if (data.status == 1) {
-          _this2.dataList = data.data.data;
-          _this2.page_cur = parseInt(data.data.current_page);
-          _this2.page_total = data.data.last_page;
-          _this2.page_data_total = data.data.total;
-          _this2.page_size = data.data.per_page;
-        }
-      });
-    },
-    pageChange: function pageChange(value) {
-      this.page_cur = value;
-      this.getDataList();
-    },
-    pageToFirst: function pageToFirst() {
-      this.page_cur = 1;
-      this.getDataList();
-    },
-    pageToLast: function pageToLast() {
-      this.page_cur = this.page_total;
-      this.getDataList();
-    },
-    searchAssignerEvent: function searchAssignerEvent(item) {
-      this.searchAssignerId = item;
-      this.getDataList();
-    },
-    searchStatusEvent: function searchStatusEvent(val) {
-      this.searchStatus = val;
-      this.getDataList();
-    },
-    searchTypeEvent: function searchTypeEvent(val) {
-      this.searchType = val;
-      this.getDataList();
-    },
-    searchStartTimeEvent: function searchStartTimeEvent() {
-      console.log(this.searchEndTime);
-      if (this.searchEndTime != "") {
-        this.page_cur = 1;
-        this.getDataList();
-      }
-    },
-    searchEndTimeEvent: function searchEndTimeEvent() {
-      if (this.searchStartTime != "") {
-        this.page_cur = 1;
-        this.getDataList();
-      }
-    },
-    searchAllEvent: function searchAllEvent() {
-      this.page_cur = 1;
-      this.searchStatus = "0";
-      this.searchType = "0";
-      this.searchAssignerId = "0";
-      this.chlidStationId = 0;
-      this.searchStartTime = "";
-      this.searchEndTime = "";
-      this.getDataList();
-    },
     getStationList: function getStationList() {
-      var _this3 = this;
+      var _this = this;
 
       this.request({
         url: "/station/getStationLists",
@@ -215,52 +240,18 @@ var get_iterator_default = /*#__PURE__*/__webpack_require__.n(get_iterator);
       }).then(function (response) {
         var data = response.data;
         if (data.status == 1) {
-          _this3.stationOptions = data.data;
+          _this.stationOptions = data.data;
         }
       });
     },
-    getUsersList: function getUsersList() {
-      var _this4 = this;
-
-      this.request({
-        url: "/assign/getUsersLists",
-        method: "get"
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          _this4.userList = data.data;
-        }
-      });
-    },
-    userChange: function userChange(e) {
-      var _this5 = this;
-
-      this.userList.forEach(function (ele) {
-        if (ele.id == e) {
-          // if (ele.role_id == 1) {
-          //   this.formData.role = "管理员";
-          // } else if (ele.role_id == 2) {
-          //   this.formData.role = "维修人员";
-          // } else if (ele.role_id == 3) {
-          //   this.formData.role = "巡检人员";
-          // } else if (ele.role_id == 4) {
-          //   this.formData.role = "分析人员";
-          // }
-          _this5.formData.phone = ele.phone;
-        }
-      });
-    },
-
-    //添加编辑
     addShowDialog: function addShowDialog() {
-      var _this6 = this;
+      var _this2 = this;
 
       this.getStationList();
-
       this.diaLogFormVisible = true;
       this.diaLogTitle = "发起派单";
       this.$nextTick(function () {
-        _this6.$refs["formRulesRef"].clearValidate();
+        _this2.$refs["formRulesRef"].clearValidate();
       });
       this.formData = {
         // title: "",
@@ -268,229 +259,37 @@ var get_iterator_default = /*#__PURE__*/__webpack_require__.n(get_iterator);
         // recept_type: []
       };
     },
-    addEvent: function addEvent() {
-      var _this7 = this;
-
-      var that = this;
-      this.$refs["formRulesRef"].validate(function (valid) {
-        if (valid) {
-          var data = that.formData;
-          data.sid = that.formData.sid[1];
-          _this7.request({
-            url: "/assign/addAssign",
-            method: "post",
-            data: data
-          }).then(function (response) {
-            var data = response.data;
-            if (data.status == 1) {
-              _this7.diaLogFormVisible = false;
-              _this7.searchType = "0";
-              _this7.getDataList();
-              _this7.$message({
-                type: "success",
-                message: "保存成功！"
-              });
-            }
-          });
-        } else {
-          console.log("操作失败！");
-          return false;
+    getListDetail: function getListDetail(val) {
+      this.$router.push({
+        path: "/dispatch/list",
+        query: {
+          id: val
         }
       });
-    },
-    detailEvent: function detailEvent(id) {
-      var _this8 = this;
-
-      this.diaLogFormDetailVisible = true;
-      this.request({
-        url: "/assign/getAssignDetail",
-        method: "get",
-        params: { id: id }
-      }).then(function (res) {
-        var data = res.data;
-        if (data.status == 1) {
-          _this8.formData = data.data;
-        }
-      });
-    },
-    applyEvent: function applyEvent(id) {
-      var _this9 = this;
-
-      this.$confirm("请确认派单是否完成？", "提示", {
-        confirmButtonText: "已完成",
-        cancelButtonText: "未完成",
-        type: "warning",
-        customClass: "el-message-box-new"
-      }).then(function () {
-        _this9.request({
-          url: "/assign/checkAssign",
-          method: "post",
-          data: { id: id, status: 2 }
-        }).then(function (res) {
-          var data = res.data;
-          if (data.status == 1) {
-            _this9.getDataList();
-          }
-        });
-      }).catch(function () {});
-    },
-    deleteEvent: function deleteEvent(id) {
-      var _this10 = this;
-
-      this.$confirm("您确定要删除？删除后不能恢复！", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
-        customClass: "el-message-box-new"
-      }).then(function () {
-        _this10.request({
-          url: "/assign/deleteAssign",
-          method: "post",
-          data: { id: id, type: parseInt(_this10.searchType) }
-        }).then(function (res) {
-          var data = res.data;
-          if (data.status == 1) {
-            if (_this10.dataList.length == 1) {
-              _this10.page_cur = _this10.page_cur - 1;
-              _this10.getDataList();
-            } else {
-              _this10.getDataList();
-            }
-            _this10.$message({
-              type: "success",
-              message: "删除成功！"
-            });
-          }
-        });
-      }).catch(function () {});
-    },
-
-    //station
-    getFatherStationList: function getFatherStationList() {
-      var _this11 = this;
-
-      var name = this.chlidName;
-      this.request({
-        url: "/station/getStationLists",
-        method: "get",
-        params: { name: name }
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          _this11.fatherStationList = data.data;
-          if (_this11.fatherStationId == 0) {
-            _this11.getChildStationList();
-          }
-        }
-      });
-    },
-    getChildStationList: function getChildStationList() {
-      var _this12 = this;
-
-      var name = "";
-      this.request({
-        url: "/station/getChildStationLists",
-        method: "get",
-        params: { name: name }
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          var results = data.data;
-          _this12.childStationList = results;
-        }
-      });
-    },
-    fatherStationEvent: function fatherStationEvent(val) {
-      var _this13 = this;
-
-      if (val == 0) {
-        this.getChildStationList();
-        this.page_cur = 1;
-        this.chlidStationId = 0;
-        this.getDataList();
-      }
-      this.fatherStationId = val;
-      this.fatherStationList.map(function (ele) {
-        if (ele.id == val) {
-          _this13.childStationList = ele.child;
-        }
-      });
-    },
-    chlidStationEvent: function chlidStationEvent(val) {
-      this.page_cur = 1;
-      this.chlidStationId = val;
-      this.getDataList();
-    },
-    searchStationCallBack: function searchStationCallBack(queryString, cb) {
-      this.request({
-        url: "/station/getChildStationLists",
-        method: "get",
-        params: { name: queryString }
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          var results = data.data;
-          var list = [];
-          if (results.length == 0) {
-            list.push({
-              id: 0,
-              value: "未查询到站名"
-            });
-          }
-          var _iteratorNormalCompletion = true;
-          var _didIteratorError = false;
-          var _iteratorError = undefined;
-
-          try {
-            for (var _iterator = get_iterator_default()(results), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-              var item = _step.value;
-
-              list.push({
-                id: item.id,
-                pid: item.pid,
-                value: item.name
-              });
-            }
-          } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion && _iterator.return) {
-                _iterator.return();
-              }
-            } finally {
-              if (_didIteratorError) {
-                throw _iteratorError;
-              }
-            }
-          }
-
-          console.log(list);
-          cb(list);
-        }
-      });
-    },
-    searchStationEvent: function searchStationEvent(item) {
-      this.page_cur = 1;
-      this.fatherStationEvent(item.pid);
-      this.fatherStationId = item.pid;
-      this.chlidStationId = item.id;
-      this.chlidStationName = "";
-      this.getDataList();
     }
-    //end station
+    // getChildStationList() {
+    //   let name = this.searchVillageName;
+    //   this.request({
+    //     url: "/station/getChildStationLists",
+    //     method: "get",
+    //     params: { name }
+    //   }).then(response => {
+    //     let data = response.data;
+    //     if (data.status == 1) {
+    //       this.childStationList = data.data;
+    //     }
+    //   });
 
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-4b110afc","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Dispatch/list.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-content-rows"},[_c('div',{staticClass:"app-table"},[_c('el-table',{attrs:{"data":_vm.dataList,"size":"mini"}},[_c('el-table-column',{attrs:{"label":"序号","type":"index"}}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"station_name","label":"维保站点","class-name":"nowrap"}}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"type","label":"维保事项"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [(scope.row.type==1)?_c('span',[_vm._v("设备维修")]):(scope.row.type==2)?_c('span',[_vm._v("例行维保")]):_c('span',[_vm._v("运行检查")])]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"指派时间","class-name":"linewrap"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('span',[_vm._v(_vm._s(_vm._f("formatGetDate")(scope.row.assign_time)))])]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"assigner","label":"指派人","class-name":"nowrap"}})],1),_vm._v(" "),_c('div',{staticClass:"app-pagination"},[(_vm.dataList.length !== 0)?_c('el-pagination',{staticClass:"pagination",attrs:{"layout":"prev, pager, next","page-size":this.page_size,"current-page":this.page_cur,"total":this.page_data_total},on:{"current-change":_vm.pageChange}}):_vm._e()],1)],1)])])])}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('header',{staticClass:"app-top-bar"},[_c('a',{staticClass:"icons icon-back pull-left"}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v("已完成")])])}]
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2dda6807","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Dispatch/index.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('a',{staticClass:"icons icon-back pull-left"}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v("运维派单")]),_vm._v(" "),_c('a',{staticClass:"icons icon-add pull-right",on:{"click":_vm.addShowDialog}})]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('el-card',{staticClass:"dis-box-card box-card"},[_c('div',{staticClass:"clearfix",attrs:{"slot":"header"},slot:"header"},[_c('span',{staticStyle:{"font-size":"18px"}},[_vm._v("已完成")]),_vm._v(" "),_c('el-button',{staticClass:"mores",attrs:{"type":"text"},on:{"click":function($event){_vm.getListDetail(1)}}},[_vm._v("\n          查看更多\n          "),_c('i',{staticClass:"icon-rights"})])],1),_vm._v(" "),_c('div',{staticClass:"items"},[_c('div',{staticClass:"item"},[_c('p',[_c('span',{staticClass:"pull-left"},[_vm._v("东陈镇汤湾村站")]),_vm._v(" "),_c('span',{staticClass:"type type1"},[_vm._v("设备维修")])]),_vm._v(" "),_c('p',[_c('em',{staticClass:"pull-left"},[_vm._v("完成时间：2020-08-20")]),_vm._v(" "),_c('em',{staticClass:"pull-right"},[_vm._v("维保人：张三")])])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('p',[_c('span',{staticClass:"pull-left"},[_vm._v("东陈镇汤湾村站")]),_vm._v(" "),_c('span',{staticClass:"type type2"},[_vm._v("例行维保")])]),_vm._v(" "),_c('p',[_c('em',{staticClass:"pull-left"},[_vm._v("完成时间：2020-08-20")]),_vm._v(" "),_c('em',{staticClass:"pull-right"},[_vm._v("维保人：张三")])])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('p',[_c('span',{staticClass:"pull-left"},[_vm._v("东陈镇汤湾村站")]),_vm._v(" "),_c('span',{staticClass:"type type3"},[_vm._v("运行检查")])]),_vm._v(" "),_c('p',[_c('em',{staticClass:"pull-left"},[_vm._v("完成时间：2020-08-20")]),_vm._v(" "),_c('em',{staticClass:"pull-right"},[_vm._v("维保人：张三")])])])])]),_vm._v(" "),_c('el-card',{staticClass:"dis-box-card box-card"},[_c('div',{staticClass:"clearfix",attrs:{"slot":"header"},slot:"header"},[_c('span',{staticStyle:{"font-size":"18px"}},[_vm._v("已完成")]),_vm._v(" "),_c('el-button',{staticClass:"mores",attrs:{"type":"text"},on:{"click":function($event){_vm.getListDetail(0)}}},[_vm._v("\n          查看更多\n          "),_c('i',{staticClass:"icon-rights"})])],1),_vm._v(" "),_c('div',{staticClass:"items"},[_c('div',{staticClass:"item"},[_c('p',[_c('span',{staticClass:"pull-left"},[_vm._v("东陈镇汤湾村站")]),_vm._v(" "),_c('span',{staticClass:"type type1"},[_vm._v("日常巡检")])]),_vm._v(" "),_c('p',[_c('em',{staticClass:"pull-left"},[_vm._v("完成时间：2020-08-20")]),_vm._v(" "),_c('em',{staticClass:"pull-right"},[_vm._v("维保人：张三")])])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('p',[_c('span',{staticClass:"pull-left"},[_vm._v("东陈镇汤湾村站")]),_vm._v(" "),_c('span',{staticClass:"type type3"},[_vm._v("日常巡检")])]),_vm._v(" "),_c('p',[_c('em',{staticClass:"pull-left"},[_vm._v("完成时间：2020-08-20")]),_vm._v(" "),_c('em',{staticClass:"pull-right"},[_vm._v("维保人：张三")])])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('p',[_c('span',{staticClass:"pull-left"},[_vm._v("东陈镇汤湾村站")]),_vm._v(" "),_c('span',{staticClass:"type type2"},[_vm._v("日常巡检")])]),_vm._v(" "),_c('p',[_c('em',{staticClass:"pull-left"},[_vm._v("完成时间：2020-08-20")]),_vm._v(" "),_c('em',{staticClass:"pull-right"},[_vm._v("维保人：张三")])])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('p',[_c('span',{staticClass:"pull-left"},[_vm._v("东陈镇汤湾村站")]),_vm._v(" "),_c('span',{staticClass:"type type2"},[_vm._v("日常巡检")])]),_vm._v(" "),_c('p',[_c('em',{staticClass:"pull-left"},[_vm._v("完成时间：2020-08-20")]),_vm._v(" "),_c('em',{staticClass:"pull-right"},[_vm._v("维保人：张三")])])])])])],1),_vm._v(" "),_c('el-dialog',{attrs:{"width":"90%","title":this.diaLogTitle,"visible":_vm.diaLogFormVisible,"close-on-click-modal":false,"show-close":false,"center":""},on:{"update:visible":function($event){_vm.diaLogFormVisible=$event}}},[_c('el-form',{ref:"formRulesRef",staticClass:"el-form-custom",attrs:{"model":_vm.formData,"rules":_vm.formRules,"label-width":"100px"}},[_c('div',{staticClass:"el-form-item-inlines"},[_c('el-form-item',{attrs:{"label":"选择站点：","prop":"sid"}},[_c('el-cascader',{attrs:{"options":_vm.stationOptions,"props":_vm.stationOptionsProps},model:{value:(_vm.formData.sid),callback:function ($$v) {_vm.$set(_vm.formData, "sid", $$v)},expression:"formData.sid"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"派单事项：","prop":"type"}},[_c('el-select',{attrs:{"placeholder":"请选择设备类型"},model:{value:(_vm.formData.type),callback:function ($$v) {_vm.$set(_vm.formData, "type", $$v)},expression:"formData.type"}},[_c('el-option',{attrs:{"label":"设备维修","value":1}}),_vm._v(" "),_c('el-option',{attrs:{"label":"例行维保","value":2}}),_vm._v(" "),_c('el-option',{attrs:{"label":"运行检查","value":3}})],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"指派人员：","prop":"assigner_id"}},[_c('el-select',{attrs:{"filterable":"","placeholder":"请选择 或搜索"},on:{"change":function($event){_vm.userChange($event)}},model:{value:(_vm.formData.assigner_id),callback:function ($$v) {_vm.$set(_vm.formData, "assigner_id", $$v)},expression:"formData.assigner_id"}},_vm._l((_vm.userList),function(item){return _c('el-option',{key:item.id,attrs:{"label":item.name,"value":item.id}})}))],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"手机号码："}},[_c('el-input',{attrs:{"autocomplete":"off","disabled":""},model:{value:(_vm.formData.phone),callback:function ($$v) {_vm.$set(_vm.formData, "phone", $$v)},expression:"formData.phone"}})],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"维修内容：","prop":"content"}},[_c('el-input',{attrs:{"type":"textarea","rows":"3"},model:{value:(_vm.formData.content),callback:function ($$v) {_vm.$set(_vm.formData, "content", $$v)},expression:"formData.content"}})],1)],1),_vm._v(" "),_c('div',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.addEvent}},[_vm._v("确 定")]),_vm._v(" "),_c('el-button',{attrs:{"type":"info","plain":""},on:{"click":function($event){_vm.diaLogFormVisible = false}}},[_vm._v("取 消")])],1)],1)],1)}
+var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ var views_Dispatch_list = (esExports);
-// CONCATENATED MODULE: ./src/views/Dispatch/list.vue
+/* harmony default export */ var views_Dispatch = (esExports);
+// CONCATENATED MODULE: ./src/views/Dispatch/index.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("WPoJ")
+  __webpack_require__("13N9")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -506,34 +305,20 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  Dispatch_list,
-  views_Dispatch_list,
+  Dispatch,
+  views_Dispatch,
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
 
-/* harmony default export */ var src_views_Dispatch_list = __webpack_exports__["default"] = (Component.exports);
+/* harmony default export */ var src_views_Dispatch = __webpack_exports__["default"] = (Component.exports);
 
 
 /***/ }),
 
-/***/ "WPoJ":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("YB9p");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("rjj0")("897cd23e", content, true);
-
-/***/ }),
-
-/***/ "YB9p":
+/***/ "QgJ0":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("FZ+f")(false);
@@ -541,7 +326,7 @@ exports = module.exports = __webpack_require__("FZ+f")(false);
 
 
 // module
-exports.push([module.i, "\n.dialog-dispatch .el-select {\r\n  width: 100%;\n}\n.dialog-dispatch .el-form-item-inline {\r\n  display: inline-block;\n}\n.dialog-dispatch .el-form-item-inline .el-form-item {\r\n  display: inline-block;\n}\n.dialog-dispatch .el-form-item-block {\r\n  display: block;\n}\n.dialog-dispatch .el-form-item-inline .el-checkbox-group {\r\n  margin-left: 110px;\n}\n.dialog-dispatch .el-form-item-inline .el-input__inner {\r\n  width: 220px;\n}\n.el-form-item-detail .el-form-item {\r\n  margin-bottom: 5px;\n}\n.el-form-item-detail .disp-info {\r\n  line-height: 28px;\r\n  margin-top: 5px;\n}\n.dd {\r\n  display: inline-block;\r\n  overflow-y: auto;\n}\r\n", ""]);
+exports.push([module.i, "\n.dis-box-card {\r\n  margin: 15px;\r\n  border-radius: 6px;\n}\n.dis-box-card .mores {\r\n  float: right;\r\n  padding: 3px 0;\r\n  color: #666;\n}\n.dis-box-card .item {\r\n  border-bottom: 1px #ddd solid;\r\n  overflow: hidden;\r\n  padding: 20px 0 15px 0;\n}\n.dis-box-card .item:last-child {\r\n  border: 0;\n}\n.dis-box-card .el-card__body {\r\n  padding: 0 20px;\n}\n.dis-box-card .item p {\r\n  display: block;\r\n  padding-bottom: 5px;\r\n  overflow: hidden;\n}\n.dis-box-card .item span {\r\n  color: #333;\r\n  font-size: 14px;\n}\n.dis-box-card .item em {\r\n  color: #999;\r\n  font-size: 12px;\n}\n.dis-box-card .type {\r\n  float: right;\r\n  cursor: pointer;\r\n  color: #fff !important;\r\n  padding: 3px 8px;\r\n  border-radius: 3px;\r\n  font-size: 12px !important;\n}\n.dis-box-card .type1 {\r\n  background: #40d2fd;\n}\n.dis-box-card .type2 {\r\n  background: #66cc00;\n}\n.dis-box-card .type3 {\r\n  background: #cc9900;\n}\r\n\r\n", ""]);
 
 // exports
 

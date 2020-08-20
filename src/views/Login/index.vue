@@ -14,7 +14,7 @@
           <el-input
             v-model="loginForm.username"
             placeholder="用户名"
-            autocomplete="new-password"
+            autocomplete="new-password"  maxlength="20"
             clearable
           >
             <template slot="prepend">
@@ -28,7 +28,7 @@
             type="password"
             v-model="loginForm.password"
             placeholder="登录密码"
-            autocomplete="new-password"
+            autocomplete="new-password" maxlength="20"
             clearable
           >
             <template slot="prepend">
@@ -108,7 +108,7 @@ export default {
               this.$router.push({ path: "/sitemanage" });
               sessionStorage.setItem("activeMenu", "/sitemanage");
             })
-            .catch(() => {
+            .catch((e) => {
               this.loading = false;
               return false;
             });
