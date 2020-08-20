@@ -110,6 +110,7 @@ em,i{font-style: normal;}
 .el-form-custom  .el-radio__inner::after{-webkit-box-sizing: content-box;box-sizing: content-box; content: "";border: 1px solid #FFF;border-left: 0;border-top: 0;height: 7px;left: 4px;position: absolute;top: 1px; background: none;}
 .el-form-custom  .el-radio__input.is-checked .el-radio__inner::after {-webkit-transform: rotate(45deg) scaleY(1);transform: rotate(45deg) scaleY(1);}
 .el-form-custom .el-checkbox__inner{border: 1px #9db9fa solid;}
+.el-form-custom .el-date-editor.el-input{width: 100%;}
 /*pagination */
 .app-pagers{text-align: center;padding:15px 0; overflow: hidden; background: #fff; }
 .app-pagination{text-align: center;padding:15px 0; overflow: hidden; background: #fff; }

@@ -18,7 +18,8 @@
               popper-class="app-cascader"
               v-model="formData.sid"
               :options="stationOptions"
-              :props="stationOptionsProps"  placeholder="请选择站点"
+              :props="stationOptionsProps"
+              placeholder="请选择站点"
             ></el-cascader>
           </el-form-item>
           <el-form-item label="采样人：" prop="user_id" label-width="90px">
@@ -286,7 +287,11 @@ export default {
             }
           });
         } else {
-          console.log("操作失败！");
+          let that = this;
+          that.$nextTick(() => {
+            let isError = document.getElementsByClassName("is-error");
+            isError[0].querySelector("input").focus();
+          });
           return false;
         }
       });

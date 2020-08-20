@@ -18,7 +18,8 @@
               popper-class="app-cascader"
               v-model="formData.sid"
               :options="stationOptions"
-              :props="stationOptionsProps"  placeholder="请选择站点"
+              :props="stationOptionsProps"
+              placeholder="请选择站点"
             ></el-cascader>
           </el-form-item>
           <el-form-item label="巡查人：" prop="user_id" label-width="90px">
@@ -66,39 +67,39 @@
               </el-form-item>
             </div>
             <div class="stitless">主要处理单元</div>
-              <el-form-item label="预处理：" prop="pretreatment">
-                <el-radio-group v-model="formData.pretreatment">
-                  <el-radio label="1">正常</el-radio>
-                  <el-radio label="2">异常</el-radio>
-                </el-radio-group>
-              </el-form-item>
-              <el-form-item label="沉淀情况：" prop="precipitate">
-                <el-radio-group v-model="formData.precipitate">
-                  <el-radio label="1">正常</el-radio>
-                  <el-radio label="2">异常</el-radio>
-                </el-radio-group>
-              </el-form-item>
-              <el-form-item label="生化处理：" prop="biochemistry">
-                <el-radio-group v-model="formData.biochemistry">
-                  <el-radio label="1">正常</el-radio>
-                  <el-radio label="2">异常</el-radio>
-                </el-radio-group>
-              </el-form-item>
-              <el-form-item label="出水情况：" prop="out_water">
-                <el-radio-group v-model="formData.out_water">
-                  <el-radio label="1">正常</el-radio>
-                  <el-radio label="2">异常</el-radio>
-                </el-radio-group>
-              </el-form-item>
+            <el-form-item label="预处理：" prop="pretreatment">
+              <el-radio-group v-model="formData.pretreatment">
+                <el-radio label="1">正常</el-radio>
+                <el-radio label="2">异常</el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item label="沉淀情况：" prop="precipitate">
+              <el-radio-group v-model="formData.precipitate">
+                <el-radio label="1">正常</el-radio>
+                <el-radio label="2">异常</el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item label="生化处理：" prop="biochemistry">
+              <el-radio-group v-model="formData.biochemistry">
+                <el-radio label="1">正常</el-radio>
+                <el-radio label="2">异常</el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item label="出水情况：" prop="out_water">
+              <el-radio-group v-model="formData.out_water">
+                <el-radio label="1">正常</el-radio>
+                <el-radio label="2">异常</el-radio>
+              </el-radio-group>
+            </el-form-item>
             <el-form-item label="异常情况：">
               <el-input v-model="formData.exception" maxlength="6"></el-input>
             </el-form-item>
-              <el-form-item label="电表读数：" prop="electricity">
-                <el-input v-model="formData.electricity" maxlength="6"></el-input>
-              </el-form-item>
-              <el-form-item label="累积读数：" prop="electricity_sum">
-                <el-input v-model="formData.electricity_sum" maxlength="6"></el-input>
-              </el-form-item>
+            <el-form-item label="电表读数：" prop="electricity">
+              <el-input v-model="formData.electricity" maxlength="6"></el-input>
+            </el-form-item>
+            <el-form-item label="累积读数：" prop="electricity_sum">
+              <el-input v-model="formData.electricity_sum" maxlength="6"></el-input>
+            </el-form-item>
           </div>
           <el-form-item class="app-form-save">
             <el-button type="primary" @click="addEvent">确 定</el-button>
@@ -289,7 +290,11 @@ export default {
             }
           });
         } else {
-          console.log("操作失败！");
+          let that = this;
+          that.$nextTick(() => {
+            let isError = document.getElementsByClassName("is-error");
+            isError[0].querySelector("input").focus();
+          });
           return false;
         }
       });

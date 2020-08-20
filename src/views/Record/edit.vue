@@ -22,7 +22,7 @@
               placeholder="请选择站点"
             ></el-cascader>
           </el-form-item>
-          <el-form-item label="维护人：" prop="user_id" label-width="90px">
+          <el-form-item label="维护人：" prop="user_id" label-width="90px" ref="user_id">
             <el-select v-model="formData.user_id" placeholder="请选择维护人">
               <el-option
                 v-for="item in userList"
@@ -82,15 +82,15 @@
           <el-form-item label="更换耗材：">
             <el-input v-model="formData.replace_material"></el-input>
           </el-form-item>
-          <el-form-item label="备注">
+          <el-form-item label="备注：">
             <el-input v-model="formData.remark"></el-input>
           </el-form-item>
           <el-form-item label="离站时间：" prop="leave_time">
             <el-date-picker v-model="formData.leave_time" type="datetime" placeholder="选择日期"></el-date-picker>
           </el-form-item>
-          <el-form-item label="服务耗时：">
+          <!-- <el-form-item label="服务耗时：">
             <el-input v-model="formData.keep_time" maxlength="6"></el-input>
-          </el-form-item>
+          </el-form-item>-->
           <el-form-item class="app-form-save">
             <el-button type="primary" @click="addEvent">确 定</el-button>
           </el-form-item>
@@ -233,7 +233,7 @@ export default {
       });
     },
     addEvent() {
-      this.$refs["formRulesRef"].validate(valid => {
+      this.$refs["formRulesRef"].validate((valid, object) => {
         if (valid) {
           let data = this.formData;
           data.sid = this.formData.sid[1];
@@ -254,7 +254,13 @@ export default {
             }
           });
         } else {
-          console.log("操作失败！");
+          //console.log(object);
+          // let errorlen = Object.keys(object);
+          let that = this;
+          that.$nextTick(() => {
+            let isError = document.getElementsByClassName("is-error");
+            isError[0].querySelector("input").focus();
+          });
           return false;
         }
       });

@@ -11,11 +11,6 @@ const constantRouterMap = [
     hidden: true
   },
   {
-    path: '/authredirect',
-    component: () => import('@/views/login/authredirect'),
-    hidden: true
-  },
-  {
     path: '/404',
     component: () => import('@/views/ErrorPage/404'),
     hidden: true
@@ -92,7 +87,7 @@ const constantRouterMap = [
         component: () => import('@/views/Record/index')
       },{
         path: '/record/edit',
-        name: 'operation',
+        name: 'recordedit',
         component: () => import('@/views/Record/edit')
       },  {
         path: '/record/operation',
@@ -100,7 +95,7 @@ const constantRouterMap = [
         component: () => import('@/views/Record/operation')
       }, {
         path: '/record/operationedit',
-        name: 'operation',
+        name: 'operationedit',
         component: () => import('@/views/Record/operationEdit')
       }, {
         path: '/record/sampling',
@@ -108,7 +103,7 @@ const constantRouterMap = [
         component: () => import('@/views/Record/sampling')
       }, {
         path: '/record/samplingedit',
-        name: 'sampling',
+        name: 'samplingedit',
         component: () => import('@/views/Record/samplingEdit')
       }
     ]
@@ -139,11 +134,9 @@ const constantRouterMap = [
   }
 ]
 export { constantRouterMap }
-
 export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
-
 //路由组件注册
 export const asyncRouterMap = []

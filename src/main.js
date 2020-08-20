@@ -10,16 +10,14 @@ import store from './store'
 import './permission' // permission control
 import * as filters from './filters' // global filters
 
-import authorityCode from './authorityCode'
-// import 'default-passive-events'
-// import echarts from 'echarts'
+
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts
 
 import wx from "weixin-jsapi"; 
 Vue.prototype.wx = wx;
 
-import Print from 'vue-print-nb'//调用浏览器打印插件
+import Print from 'vue-print-nb'
 Vue.use(Print);
 
 // import Video
