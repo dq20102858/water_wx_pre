@@ -600,8 +600,8 @@ em, i {
   background: #fff;
   color: #1386FF;
   border-radius: 20px;
-  padding: 6px 20px;
-  font-size: 16px;
+  padding: 6px 15px;
+  font-size: 14px;
   font-weight: 700; }
 
 .app-tab .item span.active {
@@ -842,10 +842,9 @@ em, i {
   background: #fff;
   margin: 15px;
   border-radius: 5px;
-  padding: 20px 15px 20px 15px; }
+  padding: 20px 20px 20px 15px; }
 
 .app-form-save {
-  text-align: center;
   margin-top: 40px;
   overflow: hidden; }
 
@@ -864,12 +863,6 @@ em, i {
 
 .el-form-custom .el-form-item__error {
   padding-top: 5px; }
-
-.el-form-custom .el-radio__label {
-  color: #338ff6; }
-
-.el-form-custom .el-checkbox__label {
-  color: #338ff6; }
 
 .el-form-custom .el-textarea__inner {
   border: 1px #9db9fa solid;
@@ -916,6 +909,33 @@ em, i {
   border-color: #9db9fa;
   color: #338ff6;
   cursor: not-allowed; }
+
+.el-form-custom .el-radio__inner {
+  border-radius: 0;
+  border: 1px #9db9fa solid; }
+
+.el-form-custom .el-radio__inner::after {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  content: "";
+  border: 1px solid #FFF;
+  border-left: 0;
+  border-top: 0;
+  height: 7px;
+  left: 4px;
+  position: absolute;
+  top: 1px;
+  background: none; }
+
+.el-form-custom .el-radio__input.is-checked .el-radio__inner::after {
+  -webkit-transform: rotate(45deg) scaleY(1);
+  transform: rotate(45deg) scaleY(1); }
+
+.el-form-custom .el-checkbox__inner {
+  border: 1px #9db9fa solid; }
+
+.el-form-custom .el-date-editor.el-input {
+  width: 100%; }
 
 /*pagination */
 
@@ -1252,135 +1272,6 @@ em, i {
   color: #909399;
   background: #f9f9f9;
   margin: 20px; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;

@@ -1,62 +1,46 @@
 <template>
   <div class="app-pages">
     <header class="app-top-bar">
-      <h1 class="titles">告警列表</h1>
+      <span class="icons icon-back pull-left" @click="backURL"></span>
+      <h1 class="titles">选择站点</h1>
     </header>
     <div class="app-content">
-      <div class="app-tab">
-        <div class="item">
-          <span @click="tabSelect(2)" :class="tabType == 2 ? 'active':''">设备告警</span>
-        </div>
-        <div class="item">
-          <span @click="tabSelect(1)" :class="tabType == 1 ? 'active':''">水质告警</span>
-        </div>
-        <div class="item">
-          <span @click="tabSelect(3)" :class="tabType == 3 ? 'active':''">入侵告警</span>
-        </div>
+      <div class="station-so">
+        <el-input placeholder="请输入内容" v-model="chlidStationName" class="input-with-select">
+          <el-select
+            v-model="fatherStationId"
+            slot="prepend"
+            placeholder="请选择"
+            @change="fatherStationEvent($event)"
+          >
+            <el-option
+              v-for="item in fatherStationList"
+              :key="item.id+''"
+              :label="item.name"
+              :value="item.id"
+            ></el-option>
+          </el-select>
+          <el-button slot="append" icon="el-icon-search"></el-button>
+        </el-input>
       </div>
       <div class="app-content-rows">
-        <div class="app-table">
-          <el-table :data="dataList" size="mini">
-            <el-table-column label="序号" type="index">
-                  <template slot-scope="scope">
-                  <span
-                    :class="[scope.row.is_read!=1? 'cirshow' : 'nums']"
-                  >{{scope.$index+(page_cur - 1) * page_size + 1}}</span>
-                </template>
-            </el-table-column>
-            <el-table-column label="告警设备" class-name="nowrap"  v-if="this.tabType==2">
-              <template slot-scope="scope">
-                <span v-if="scope.row.type==1">风机</span>
-                <span v-if="scope.row.type==2">水泵</span>
-                <span v-if="scope.row.type==3">紫外灯</span>
-                <span v-if="scope.row.type==4">PLC</span>
-              </template>
-            </el-table-column>
-                <el-table-column prop="type" label="水质类型" v-if="this.tabType==1">
-                <template slot-scope="scope">
-                  <span v-if="scope.row.type==1">PH</span>
-                  <span v-else-if="scope.row.type==2">DO</span>
-                  <span v-else>液位</span>
-                </template>
-              </el-table-column>
-            <el-table-column label="发声位置" prop="address"></el-table-column>
-            <el-table-column label="告警时间">
-              <template slot-scope="scope">
-                <span>{{scope.row.create_time|formatDateTime}}</span>
-              </template>
-            </el-table-column>
-          </el-table>
-          <div class="app-pagination">
-            <el-pagination
-              class="pagination"
-              v-if="dataList.length !== 0"
-              layout="prev, pager, next"
-              :page-size="this.page_size"
-              :current-page="this.page_cur"
-              :total="this.page_data_total"
-              @current-change="pageChange"
-            ></el-pagination>
+        <div class="station-list">
+          <h2>{{fatherStationName}}</h2>
+          <div class="warp">
+            <div
+              class="item"
+              v-for="item in childStationList"
+              :key="item.id"
+              @click="stationDetail(item.id)"
+            >
+              <div class="text">
+                <h3>{{item.name}}</h3>
+                <div class="status">
+                  <span class="status1">正常运行</span>
+                </div>
+              </div>
+              <h4>{{item.address}}</h4>
+            </div>
           </div>
         </div>
       </div>
@@ -67,63 +51,147 @@
 export default {
   data() {
     return {
-      tabType: 2,
-      page_cur: 1,
-      page_data_total: 0,
-      page_size: 20,
-      page_total: 0,
-      dataList: []
+      fatherStationId: 0,
+      fatherStationName: "",
+      fatherStationList: [],
+      chlidStationName: "",
+      childStationList: []
     };
   },
   created() {
-    this.getDataList();
+    this.getStationList();
   },
   methods: {
-    tabSelect(type) {
-      this.tabType = type;
-      this.getDataList();
+    backURL() {
+      this.$router.push("/sitemanage");
     },
-    getDataList() {
-      let page = this.page_cur;
-      let type = this.tabType;
+    getStationList() {
       this.request({
-        url: "/alert/getAlertPages",
-        method: "get",
-        params: { page, type }
-      }).then(res => {
-        let data = res.data;
-        if (data.status == 1) {
-          this.dataList = data.data.data;
-          this.page_cur = parseInt(data.data.current_page);
-          this.page_total = data.data.last_page;
-          this.page_data_total = data.data.total;
-          this.page_size = data.data.per_page;
+        url: "/station/getStationLists",
+        method: "get"
+      }).then(response => {
+      
+        let res = response.data;
+        if (res.status == 1) {
+          var dataList = res.data;
+         
+          this.fatherStationList = dataList;
+          let stationid = this.$route.query.sid;
+          console.log(stationid);
+          if (typeof stationid == "undefined") {
+            stationid = dataList[0].id;
+          }
+
+          this.fatherStationId =  this.fatherStationList.find(
+            item => item.id == stationid
+          ).id;
+          this.fatherStationName = this.fatherStationList.find(
+            item => item.id == stationid
+          ).name;
+          this.fatherStationList.map(ele => {
+            if (ele.id == stationid) {
+              this.childStationList = ele.child;
+            }
+          });
         }
       });
     },
-    pageChange(value) {
-      this.page_cur = value;
-      this.getDataList();
+    fatherStationEvent(id) {
+      this.$router.push({
+        path: "/sitemanage/station",
+        query: { sid: id }
+      });
     },
-    pageToFirst() {
-      this.page_cur = 1;
-      this.getDataList();
-    },
-    pageToLast() {
-      this.page_cur = this.page_total;
-      this.getDataList();
+    stationDetail(id) {
+      this.$router.push({
+        path: "/sitemanage/stationdetail",
+        query: { sid: id }
+      });
     }
+    //end
   }
 };
 </script>
 <style>
-.nums {
-  padding: 3px 5px;
+.station-so {
+  padding: 15px 15px 1px 15px;
 }
-.cirshow {
-  background: #FF3856;
+.station-so .el-input__inner {
+  border: none;
+}
+.station-so .el-input-group__prepend {
+  background: #dbecfd;
+  border-radius: 30px 0 0 30px;
+  border: none;
+}
+.station-so .el-input-group__append {
+  background: #fff;
+  border-radius: 0 30px 30px 0;
+  border: none;
+}
+.station-so .el-input--suffix .el-input__inner {
+  padding-right: 30px;
+  width: 130px;
+  text-align: center;
+}
+.station-so .el-select__caret {
+  color: #338ff6 !important;
+}
+.station-so .el-button--medium{padding: 10px;}
+/* list */
+.station-list h2 {
+  font-size: 18px;
+  color: #333;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+.station-list .warp {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.station-list .item {
+  padding-bottom: 20px;
+  margin: 20px;
+  border-bottom: 1px #ddd solid;
+  overflow: hidden;
+}
+.station-list .item:last-child {
+  border: none;
+  padding-bottom: 0;
+}
+.station-list .item .text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.station-list .item h3 {
+  color: #303030;
+  font-size: 15px;
+  float: left;
+  line-height: 20px;
+  margin-top: 5px;
+}
+.station-list .item h4 {
+  color: #7e7e7e;
+  font-size: 14px;
+  font-weight: 400;
+}
+.station-list .item .status {
+  margin-top: 0;
+  margin-left: 20px;
+}
+.station-list .item span {
+  float: right;
+  padding: 6px 15px;
+  border-radius: 30px;
   color: #fff;
-  padding: 3px 5px;
-  border-radius: 3px;
+  white-space: nowrap;
+}
+.station-list .item .status1 {
+  background: #00dd86;
+}
+.station-list .item .status2 {
+  background: #fd3c5a;
 }
 </style>

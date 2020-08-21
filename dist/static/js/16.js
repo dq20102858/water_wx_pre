@@ -1,12 +1,65 @@
 webpackJsonp([16],{
 
-/***/ "3YOD":
+/***/ "7RXp":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("w3vP");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("rjj0")("2f6bcbe3", content, true);
+
+/***/ }),
+
+/***/ "Cxod":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Record/sampling.vue
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Attendance/index.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -55,141 +108,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ var sampling = ({
+/* harmony default export */ var Attendance = ({
   data: function data() {
     return {
-      tabType: 3,
+      dialogVisible: false,
+      diaLogDetailVisible: false,
+      formDetailData: [],
+      searchName: "",
       page_cur: 1,
       page_data_total: 0,
       page_size: 20,
       page_total: 0,
-      dataList: [],
-      diaLogFormVisible: false,
-      childStation: [],
-      stationOptions: [],
-      stationOptionsProps: {
-        value: "id",
-        label: "name",
-        children: "child"
-      },
-      usersList: [],
-      formData: {},
-      formRules: {
-        name: [{
-          required: true,
-          message: "请输入设备名称",
-          trigger: "blur"
-        }, {
-          min: 2,
-          max: 20,
-          message: "请输入长度在2到20个字符",
-          trigger: "blur"
-        }, {
-          pattern: /(^\S+).*(\S+$)/,
-          message: "开始和结尾不能有空格",
-          trigger: "blur"
-        }],
-        number: [{
-          required: true,
-          message: "请输入设备编号",
-          trigger: "blur"
-        }, {
-          min: 2,
-          max: 20,
-          message: "请输入长度在2到20个字符",
-          trigger: "blur"
-        }, {
-          pattern: /(^\S+).*(\S+$)/,
-          message: "开始和结尾不能有空格",
-          trigger: "blur"
-        }],
-        model: [{
-          required: true,
-          message: "请输入设备型号",
-          trigger: "blur"
-        }, {
-          min: 2,
-          max: 20,
-          message: "请输入长度在2到20个字符",
-          trigger: "blur"
-        }, {
-          pattern: /(^\S+).*(\S+$)/,
-          message: "开始和结尾不能有空格",
-          trigger: "blur"
-        }],
-        brand: [{
-          required: true,
-          message: "请输入设备品牌",
-          trigger: "blur"
-        }, {
-          min: 2,
-          max: 10,
-          message: "请输入长度在2到10个字符",
-          trigger: "blur"
-        }, {
-          pattern: /(^\S+).*(\S+$)/,
-          message: "开始和结尾不能有空格",
-          trigger: "blur"
-        }],
-        purchaser: [{
-          required: true,
-          message: "请输入采购人",
-          trigger: "blur"
-        }, {
-          min: 2,
-          max: 10,
-          message: "请输入长度在2到10个字符",
-          trigger: "blur"
-        }, {
-          pattern: /(^\S+).*(\S+$)/,
-          message: "开始和结尾不能有空格",
-          trigger: "blur"
-        }],
-        days: [{
-          required: true,
-          message: "请输入运行时长",
-          trigger: "blur"
-        }, {
-          pattern: /^\d{1,5}$/,
-          message: "请输入1-5位正整数",
-          trigger: "blur"
-        }],
-        sid: [{
-          required: true,
-          message: "请选择站点",
-          trigger: "change"
-        }],
-        type: [{
-          required: true,
-          message: "请选择设备类型",
-          trigger: "change"
-        }],
-        use_time: [{
-          required: true,
-          message: "请选择投入时间",
-          trigger: "change"
-        }],
-        latest_time: [{
-          required: true,
-          message: "请选择最近维保时间",
-          trigger: "change"
-        }],
-        warranty_time: [{
-          required: true,
-          message: "请选择质保期",
-          trigger: "change"
-        }],
-        work_status: [{
-          required: true,
-          message: "请选择运行状态",
-          trigger: "change"
-        }],
-        img: [{
-          required: true,
-          message: "请选择图片",
-          trigger: "change"
-        }]
-      }
+      dataList: []
     };
   },
   created: function created() {
@@ -197,24 +127,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
-    tabSelect: function tabSelect(type) {
-      if (type == 2) {
-        this.$router.push("/record/operation");
-      } else if (type == 3) {
-        this.$router.push("/record/sampling");
-      } else {
-        this.$router.push("/record");
-      }
-    },
     getDataList: function getDataList() {
       var _this = this;
 
       var page = this.page_cur;
-      var type = this.tabType;
+      var type = this.searchType;
+      var status = this.searchStatus;
+      var sid = this.chlidStationId;
+      var assigner_id = this.searchAssignerId;
+      var start_time = this.searchStartTime;
+      var end_time = this.searchEndTime;
       this.request({
-        url: "/record/getRecordRepairPages",
+        url: "/clock/getClockPages",
         method: "get",
-        params: { page: page, type: type }
+        params: { page: page, sid: sid, assigner_id: assigner_id, type: type, status: status, start_time: start_time, end_time: end_time }
       }).then(function (res) {
         var data = res.data;
         if (data.status == 1) {
@@ -238,48 +164,62 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.page_cur = this.page_total;
       this.getDataList();
     },
-    diaLogFormShowEvent: function diaLogFormShowEvent() {
-      this.$router.push("/record/samplingedit");
-      // this.diaLogFormVisible = true;
-      // this.getStationList();
-      // this.getUsersList();
+    searchNameEvent: function searchNameEvent() {
+      this.page_cur = this.page_total;
+      this.getDataList();
     },
-    getStationList: function getStationList() {
+
+    //添加
+    addDialogEvent: function addDialogEvent() {
+      this.dialogVisible = true;
+    },
+    addEvent: function addEvent() {
       var _this2 = this;
 
-      this.request({
-        url: "/station/getStationLists",
-        method: "get"
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          _this2.stationOptions = data.data;
+      var that = this;
+      this.$refs["formRulesRef"].validate(function (valid) {
+        if (valid) {
+          var data = that.formData;
+          data.sid = that.formData.sid[1];
+          _this2.request({
+            url: "/assign/addAssign",
+            method: "post",
+            data: data
+          }).then(function (response) {
+            var data = response.data;
+            if (data.status == 1) {
+              _this2.diaLogFormVisible = false;
+              _this2.searchType = "0";
+              _this2.getDataList();
+              _this2.$message({
+                type: "success",
+                message: "保存成功！"
+              });
+            }
+          });
+        } else {
+          console.log("操作失败！");
+          return false;
         }
       });
     },
-    getUsersList: function getUsersList() {
-      var _this3 = this;
-
-      this.request({
-        url: "/assign/getUsersLists",
-        method: "get"
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          _this3.usersList = data.data;
-        }
-      });
+    tableRowDetails: function tableRowDetails(row) {
+      this.diaLogDetailVisible = true;
+      this.formDetailData.user = row.user;
+      this.formDetailData.start_time = row.start_time;
+      this.formDetailData.end_time = row.end_time;
+      this.formDetailData.address = row.address;
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-235dab0a","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Record/sampling.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('h1',{staticClass:"titles"},[_vm._v("报表统计")]),_vm._v(" "),_c('a',{staticClass:"icons icon-add pull-right",on:{"click":_vm.diaLogFormShowEvent}})]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-tab"},[_c('div',{staticClass:"item"},[_c('span',{on:{"click":function($event){_vm.tabSelect(1)}}},[_vm._v("维护记录")])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('span',{on:{"click":function($event){_vm.tabSelect(2)}}},[_vm._v("运行记录")])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('span',{staticClass:"active",on:{"click":function($event){_vm.tabSelect(3)}}},[_vm._v("采样化验单")])])]),_vm._v(" "),_c('div',{staticClass:"app-content-rows"},[_c('div',{staticClass:"app-table"},[_c('el-table',{attrs:{"data":_vm.dataList,"size":"mini"}},[_c('el-table-column',{attrs:{"label":"序号"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_vm._v(_vm._s(scope.$index+(_vm.page_cur - 1) * _vm.page_size + 1))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"站点名","prop":"station_name"}}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"采样日期","class-name":"linewrap"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_vm._v(_vm._s(_vm._f("formatGetDate")(scope.row.create_time)))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"user","label":"采样人"}})],1),_vm._v(" "),_c('div',{staticClass:"app-pagers"},[(_vm.dataList.length !== 0)?_c('el-pagination',{attrs:{"background":"","layout":"prev, pager, next","page-size":this.page_size,"current-page":this.page_cur,"total":this.page_data_total},on:{"current-change":_vm.pageChange}}):_vm._e()],1)],1)])])])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-270f04fc","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Attendance/index.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('h1',{staticClass:"titles"},[_vm._v("考勤统计")]),_vm._v(" "),_c('a',{staticClass:"icons icon-add pull-right",on:{"click":_vm.addDialogEvent}})]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-search"},[_c('el-input',{staticClass:"inline-input",attrs:{"prefix-icon":"el-icon-search","placeholder":"请输入打卡人名字","clearable":""},on:{"select":function($event){_vm.searchNameEvent($event)}},model:{value:(_vm.searchName),callback:function ($$v) {_vm.searchName=$$v},expression:"searchName"}})],1),_vm._v(" "),_c('div',{staticClass:"app-content-rows"},[_c('div',{staticClass:"app-table"},[_c('el-table',{attrs:{"data":_vm.dataList,"size":"mini"},on:{"row-click":_vm.tableRowDetails}},[_c('el-table-column',{attrs:{"label":"序号","type":"index"}}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"address","label":"站点名"}}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"开始时间"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_vm._v(_vm._s(_vm._f("formatDateTime")(scope.row.start_time)))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"结束时间"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_vm._v(_vm._s(_vm._f("formatDateTime")(scope.row.end_time)))]}}])})],1),_vm._v(" "),_c('div',{staticClass:"app-pagination"},[(_vm.dataList.length !== 0)?_c('el-pagination',{staticClass:"pagination",attrs:{"layout":"prev, pager, next","page-size":this.page_size,"current-page":this.page_cur,"total":this.page_data_total},on:{"current-change":_vm.pageChange}}):_vm._e()],1)],1)])]),_vm._v(" "),_c('el-dialog',{attrs:{"width":"90%","title":"打卡详情","visible":_vm.diaLogDetailVisible,"close-on-click-modal":false,"show-close":false,"center":""},on:{"update:visible":function($event){_vm.diaLogDetailVisible=$event}}},[_c('el-form',{staticClass:"el-form-custom",attrs:{"label-width":"100px"}},[_c('el-form-item',{attrs:{"label":"打卡人："}},[_c('el-input',{attrs:{"autocomplete":"off","disabled":""},model:{value:(_vm.formDetailData.user),callback:function ($$v) {_vm.$set(_vm.formDetailData, "user", $$v)},expression:"formDetailData.user"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"开始时间："}},[_c('el-input',{attrs:{"autocomplete":"off","disabled":""},model:{value:(_vm.formDetailData.start_time),callback:function ($$v) {_vm.$set(_vm.formDetailData, "start_time", $$v)},expression:"formDetailData.start_time"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"结束时间："}},[_c('el-input',{attrs:{"autocomplete":"off","disabled":""},model:{value:(_vm.formDetailData.end_time),callback:function ($$v) {_vm.$set(_vm.formDetailData, "end_time", $$v)},expression:"formDetailData.end_time"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"打卡地址："}},[_c('el-input',{attrs:{"type":"textarea","rows":"3","disabled":""},model:{value:(_vm.formDetailData.address),callback:function ($$v) {_vm.$set(_vm.formDetailData, "address", $$v)},expression:"formDetailData.address"}})],1)],1),_vm._v(" "),_c('div',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{attrs:{"type":"info","plain":""},on:{"click":function($event){_vm.diaLogDetailVisible = false}}},[_vm._v("关闭")])],1)],1),_vm._v(" "),_c('el-dialog',{attrs:{"width":"90%","top":"40%","title":"提示","visible":_vm.dialogVisible,"close-on-click-modal":false,"show-close":false,"center":""},on:{"update:visible":function($event){_vm.dialogVisible=$event}}},[_c('span',{staticClass:"dialiginfoa"},[_vm._v("是否打卡后结束任务")]),_vm._v(" "),_c('span',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){_vm.dialogVisible = false}}},[_vm._v("确定")]),_vm._v(" "),_c('el-button',{attrs:{"type":"info","plain":""},on:{"click":function($event){_vm.dialogVisible = false}}},[_vm._v("重新开始")])],1)])],1)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ var Record_sampling = (esExports);
-// CONCATENATED MODULE: ./src/views/Record/sampling.vue
+/* harmony default export */ var views_Attendance = (esExports);
+// CONCATENATED MODULE: ./src/views/Attendance/index.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("o0EB")
+  __webpack_require__("7RXp")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -295,20 +235,20 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  sampling,
-  Record_sampling,
+  Attendance,
+  views_Attendance,
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
 
-/* harmony default export */ var views_Record_sampling = __webpack_exports__["default"] = (Component.exports);
+/* harmony default export */ var src_views_Attendance = __webpack_exports__["default"] = (Component.exports);
 
 
 /***/ }),
 
-/***/ "S6Qb":
+/***/ "w3vP":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("FZ+f")(false);
@@ -316,24 +256,10 @@ exports = module.exports = __webpack_require__("FZ+f")(false);
 
 
 // module
-exports.push([module.i, "\n.nums {\r\n  padding: 3px 5px;\n}\n.cirshow {\r\n  background: #ff3856;\r\n  color: #fff;\r\n  padding: 3px 5px;\r\n  border-radius: 3px;\n}\n.el-form-item-samp .stitless {\r\n  overflow: hidden;\r\n  text-align: center;\r\n  display: block;\n}\n.el-form-item-samp .samp-item {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: start;\r\n      -ms-flex-pack: start;\r\n          justify-content: flex-start;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-flow: row wrap;\r\n          flex-flow: row wrap;\n}\n.el-form-item-samp .el-form-item {\r\n  width: 33.2%;\r\n  display: inherit;\n}\n.el-form-item-samp .el-input {\r\n  display: inline-block; padding: 0 5px; min-width: 50px;\n}\n.el-form-item-samp .el-form-item__label {\r\n  float: none;\r\n  display: inline-block;\r\n  white-space: nowrap;\r\n  padding: 0 0 0 5px;\n}\n.el-form-item-samp .el-form-item__content {\r\n  display: inline-block;\r\n  vertical-align: top;\n}\r\n", ""]);
+exports.push([module.i, "\n.dialiginfoa {\r\n  font-weight: 700;\r\n  text-align: center;\r\n  display: block;\r\n  margin: 0 auto;\r\n  padding: 20px 0;\n}\r\n", ""]);
 
 // exports
 
-
-/***/ }),
-
-/***/ "o0EB":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("S6Qb");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("rjj0")("8632a1dc", content, true);
 
 /***/ })
 

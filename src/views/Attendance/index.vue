@@ -64,7 +64,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button  type="info" plain @click="diaLogDetailVisible = false">关闭</el-button>
+        <el-button type="info" plain @click="diaLogDetailVisible = false">关闭</el-button>
       </div>
     </el-dialog>
     <el-dialog
@@ -142,35 +142,48 @@ export default {
       this.page_cur = this.page_total;
       this.getDataList();
     },
+    addTest() {},
     //添加
     addDialogEvent() {
-      this.dialogVisible = true;
+      this.request({
+        url: "/clock/isCard",
+        method: "get",
+        params: { sid: 6 }
+      }).then(response => {
+        var res = response.data;
+        console.log(res.data.is_card);
+        // if (== 1) {
+
+        // }
+        // else
+        // {
+
+        // }
+      });
     },
     addEvent() {
-      const that = this;
-      this.$refs["formRulesRef"].validate(valid => {
-        if (valid) {
-          let data = that.formData;
-          data.sid = that.formData.sid[1];
-          this.request({
-            url: "/assign/addAssign",
-            method: "post",
-            data
-          }).then(response => {
-            var data = response.data;
-            if (data.status == 1) {
-              this.diaLogFormVisible = false;
-              this.searchType = "0";
-              this.getDataList();
-              this.$message({
-                type: "success",
-                message: "保存成功！"
-              });
-            }
+      //this.dialogVisible = true;
+      let datas = {
+        sid: 7,
+        user_id: 17,
+        // start_time: "2020-08-21 8:00:00",
+        //end_time: "2020-08-21 11:20:30",
+        is_end: 0,
+        is_recard: 0
+      };
+      let data = datas;
+      this.request({
+        url: "/clock/addClock",
+        method: "post",
+        data
+      }).then(response => {
+        var data = response.data;
+        if (data.status == 1) {
+          this.$message({
+            type: "success",
+            message: "保存成功！"
           });
-        } else {
-          console.log("操作失败！");
-          return false;
+          this.getDataList();
         }
       });
     },

@@ -5,7 +5,7 @@ const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 console.log(process.env.NODE_ENV)
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -25,6 +25,10 @@ module.exports = {
   entry: {
     app: './src/main.js'
   },
+  // externals: {
+  //   'vue': 'vue',
+  //   'element-ui': 'ElementUI'
+  // },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',

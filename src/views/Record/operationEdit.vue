@@ -274,7 +274,7 @@ export default {
           let data = this.formData;
           data.sid = this.formData.sid[1];
           data.type = 2;
-          console.log(this.formData);
+          //console.log(this.formData);
           this.request({
             url: "/record/addRecord",
             method: "post",

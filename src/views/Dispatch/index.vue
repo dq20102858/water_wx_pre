@@ -1,7 +1,6 @@
 <template>
   <div class="app-pages">
     <header class="app-top-bar">
-      <a class="icons icon-back pull-left"></a>
       <h1 class="titles">运维派单</h1>
       <a class="icons icon-add pull-right" @click="addShowDialog"></a>
     </header>
@@ -9,102 +8,58 @@
       <el-card class="dis-box-card box-card">
         <div slot="header" class="clearfix">
           <span style="font-size:18px;">已完成</span>
+          <el-button class="mores" type="text" @click="getListDetail(2)">
+            查看更多
+            <i class="icon-rights"></i>
+          </el-button>
+        </div>
+        <div class="items">
+          <div class="item" v-for="item in statusOkList" :key="item.id">
+            <p>
+              <span class="pull-left">{{item.station_name}}</span>
+              <span v-if="item.type==1" class="type type1">设备维修</span>
+              <span v-if="item.type==2" class="type type2">例行维保</span>
+              <span v-if="item.type==3" class="type type3">运行检查</span>
+            </p>
+            <p>
+              <em class="pull-left">完成时间：{{item.assign_time}}</em>
+              <em class="pull-right">维保人：</em>
+            </p>
+          </div>
+        </div>
+        <div v-if="statusOkList.length==0" class="app-nodata">暂无信息</div>
+      </el-card>
+
+      <el-card class="dis-box-card box-card">
+        <div slot="header" class="clearfix">
+          <span style="font-size:18px;">未完成</span>
           <el-button class="mores" type="text" @click="getListDetail(1)">
             查看更多
             <i class="icon-rights"></i>
           </el-button>
         </div>
         <div class="items">
-          <div class="item">
+          <div class="item" v-for="item in statusNoList" :key="item.id">
             <p>
-              <span class="pull-left">东陈镇汤湾村站</span>
-              <span class="type type1">设备维修</span>
+              <span class="pull-left">{{item.station_name}}</span>
+              <span v-if="item.type==1" class="type type1">设备维修</span>
+              <span v-if="item.type==2" class="type type2">例行维保</span>
+              <span v-if="item.type==3" class="type type3">运行检查</span>
             </p>
             <p>
-              <em class="pull-left">完成时间：2020-08-20</em>
-              <em class="pull-right">维保人：张三</em>
-            </p>
-          </div>
-          <div class="item">
-            <p>
-              <span class="pull-left">东陈镇汤湾村站</span>
-              <span class="type type2">例行维保</span>
-            </p>
-            <p>
-              <em class="pull-left">完成时间：2020-08-20</em>
-              <em class="pull-right">维保人：张三</em>
-            </p>
-          </div>
-          <div class="item">
-            <p>
-              <span class="pull-left">东陈镇汤湾村站</span>
-              <span class="type type3">运行检查</span>
-            </p>
-            <p>
-              <em class="pull-left">完成时间：2020-08-20</em>
-              <em class="pull-right">维保人：张三</em>
+              <em class="pull-left">完成时间：{{item.assign_time}}</em>
+              <em class="pull-right">维保人：</em>
             </p>
           </div>
         </div>
-      </el-card>
-
-      <el-card class="dis-box-card box-card">
-        <div slot="header" class="clearfix">
-          <span style="font-size:18px;">已完成</span>
-          <el-button class="mores" type="text" @click="getListDetail(0)">
-            查看更多
-            <i class="icon-rights"></i>
-          </el-button>
-        </div>
-        <div class="items">
-          <div class="item">
-            <p>
-              <span class="pull-left">东陈镇汤湾村站</span>
-              <span class="type type1">日常巡检</span>
-            </p>
-            <p>
-              <em class="pull-left">完成时间：2020-08-20</em>
-              <em class="pull-right">维保人：张三</em>
-            </p>
-          </div>
-          <div class="item">
-            <p>
-              <span class="pull-left">东陈镇汤湾村站</span>
-              <span class="type type3">日常巡检</span>
-            </p>
-            <p>
-              <em class="pull-left">完成时间：2020-08-20</em>
-              <em class="pull-right">维保人：张三</em>
-            </p>
-          </div>
-          <div class="item">
-            <p>
-              <span class="pull-left">东陈镇汤湾村站</span>
-              <span class="type type2">日常巡检</span>
-            </p>
-            <p>
-              <em class="pull-left">完成时间：2020-08-20</em>
-              <em class="pull-right">维保人：张三</em>
-            </p>
-          </div>
-          <div class="item">
-            <p>
-              <span class="pull-left">东陈镇汤湾村站</span>
-              <span class="type type2">日常巡检</span>
-            </p>
-            <p>
-              <em class="pull-left">完成时间：2020-08-20</em>
-              <em class="pull-right">维保人：张三</em>
-            </p>
-          </div>
-        </div>
+        <div v-if="statusNoList.length==0" class="app-nodata">暂无信息</div>
       </el-card>
     </div>
     <el-dialog
       width="90%"
       :title="this.diaLogTitle"
       :visible.sync="diaLogFormVisible"
-        :close-on-click-modal="false"
+      :close-on-click-modal="false"
       :show-close="false"
       center
     >
@@ -115,46 +70,30 @@
         class="el-form-custom"
         label-width="100px"
       >
-        <div class="el-form-item-inlines">
-          <el-form-item label="选择站点：" prop="sid">
-            <el-cascader
-              v-model="formData.sid"
-              :options="stationOptions"
-              :props="stationOptionsProps"
-            ></el-cascader>
-          </el-form-item>
-          <el-form-item label="派单事项：" prop="type">
-            <el-select v-model="formData.type" placeholder="请选择设备类型">
-              <el-option label="设备维修" :value="1"></el-option>
-              <el-option label="例行维保" :value="2"></el-option>
-              <el-option label="运行检查" :value="3"></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="指派人员：" prop="assigner_id">
-            <el-select
-              v-model="formData.assigner_id"
-              filterable
-              placeholder="请选择 或搜索"
-              @change="userChange($event)"
-            >
-              <el-option
-                v-for="item in userList"
-                :key="item.id"
-                :label="item.name"
-                :value="item.id"
-              ></el-option>
-            </el-select>
-          </el-form-item>
-          <!-- <el-form-item label="人员职位：">
-            <el-input v-model="formData.role" autocomplete="off" disabled></el-input>
-          </el-form-item>-->
-          <el-form-item label="手机号码：">
-            <el-input v-model="formData.phone" autocomplete="off" disabled></el-input>
-          </el-form-item>
-          <!-- <el-form-item label="指派时间：" prop="assign_time">
-            <el-date-picker v-model="formData.assign_time" type="date" placeholder="选择日期"></el-date-picker>
-          </el-form-item>-->
-        </div>
+        <el-form-item label="选择站点：" prop="sid">
+          <el-cascader
+            popper-class="app-cascader"
+            v-model="formData.sid"
+            :options="stationOptions"
+            :props="stationOptionsProps"
+            placeholder="请选择站点"
+          ></el-cascader>
+        </el-form-item>
+        <el-form-item label="派单事项：" prop="type">
+          <el-select v-model="formData.type" placeholder="请选择派单事项">
+            <el-option label="设备维修" :value="1"></el-option>
+            <el-option label="例行维保" :value="2"></el-option>
+            <el-option label="运行检查" :value="3"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="指派人员：" prop="assigner_id">
+          <el-select v-model="formData.assigner_id" filterable placeholder="请选择 或搜索">
+            <el-option v-for="item in userList" :key="item.id" :label="item.name" :value="item.id"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="指派时间：" prop="assign_time">
+          <el-date-picker v-model="formData.assign_time" type="datetime" placeholder="选择日期"></el-date-picker>
+        </el-form-item>
         <el-form-item label="维修内容：" prop="content">
           <el-input type="textarea" v-model="formData.content" rows="3"></el-input>
         </el-form-item>
@@ -162,7 +101,7 @@
 
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="addEvent">确 定</el-button>
-        <el-button type="info"  plain @click="diaLogFormVisible = false">取 消</el-button>
+        <el-button type="info" plain @click="diaLogFormVisible = false">取 消</el-button>
       </div>
     </el-dialog>
   </div>
@@ -197,6 +136,13 @@ export default {
             trigger: "change"
           }
         ],
+        assign_time: [
+          {
+            required: true,
+            message: "请选择指派时间",
+            trigger: "change"
+          }
+        ],
         content: [
           { min: 2, max: 200, message: "长度在2到200个字符", trigger: "blur" },
           {
@@ -211,11 +157,33 @@ export default {
         value: "id",
         label: "name",
         children: "child"
-      }
+      },
+      userList: [],
+      statusOkList: [],
+      statusNoList: []
     };
   },
-  created() {},
+  created() {
+    this.getAssignPages(1, 3);
+    this.getAssignPages(2, 3);
+  },
   methods: {
+    getAssignPages(status, limit) {
+      this.request({
+        url: "/assign/getAssignPages",
+        method: "get",
+        params: { status, limit }
+      }).then(response => {
+        let data = response.data;
+        if (data.status == 1) {
+          if (status == 1) {
+            this.statusNoList = data.data;
+          } else {
+            this.statusOkList = data.data;
+          }
+        }
+      });
+    },
     getStationList() {
       this.request({
         url: "/station/getStationLists",
@@ -227,39 +195,58 @@ export default {
         }
       });
     },
+    getUsersList() {
+      this.request({
+        url: "/assign/getUsersLists",
+        method: "get"
+      }).then(response => {
+        let data = response.data;
+        if (data.status == 1) {
+          this.userList = data.data;
+        }
+      });
+    },
     addShowDialog() {
       this.getStationList();
+      this.getUsersList();
       this.diaLogFormVisible = true;
       this.diaLogTitle = "发起派单";
       this.$nextTick(() => {
         this.$refs["formRulesRef"].clearValidate();
       });
-      this.formData = {
-        // title: "",
-        // description: "",
-        // recept_type: []
-      };
+    },
+    addEvent() {
+      this.$refs["formRulesRef"].validate(valid => {
+        if (valid) {
+          let data = this.formData;
+          data.sid = this.formData.sid[1];
+          this.request({
+            url: "assign/addAssign",
+            method: "post",
+            data
+          }).then(response => {
+            var res = response.data;
+            if (res.status == 1) {
+              this.$message({
+                type: "success",
+                message: "保存成功！"
+              });
+              window.location.reload();
+            }
+          });
+        } else {
+          return false;
+        }
+      });
     },
     getListDetail(val) {
       this.$router.push({
         path: "/dispatch/list",
         query: {
-          id: val
+          status: val
         }
       });
     }
-    // getChildStationList() {
-    //   let name = this.searchVillageName;
-    //   this.request({
-    //     url: "/station/getChildStationLists",
-    //     method: "get",
-    //     params: { name }
-    //   }).then(response => {
-    //     let data = response.data;
-    //     if (data.status == 1) {
-    //       this.childStationList = data.data;
-    //     }
-    //   });
   }
 };
 </script>
@@ -269,11 +256,17 @@ export default {
   margin: 15px;
   border-radius: 6px;
 }
+.dis-box-card .el-card__header {
+  background: #2b8cf9;
+  color: #fff;
+  padding: 8px 10px 8px 15px;
+}
 .dis-box-card .mores {
   float: right;
   padding: 3px 0;
-  color: #666;
+  color: #fff;
 }
+
 .dis-box-card .item {
   border-bottom: 1px #ddd solid;
   overflow: hidden;
@@ -307,13 +300,12 @@ export default {
   font-size: 12px !important;
 }
 .dis-box-card .type1 {
-  background: #40d2fd;
+  background: #3a91f1;
 }
 .dis-box-card .type2 {
-  background: #66cc00;
+  background: #00dd86;
 }
 .dis-box-card .type3 {
-  background: #cc9900;
+  background: #ffa000;
 }
-
 </style>

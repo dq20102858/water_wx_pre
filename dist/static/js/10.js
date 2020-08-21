@@ -1,6 +1,6 @@
 webpackJsonp([10],{
 
-/***/ "FLxV":
+/***/ "Gqm5":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("FZ+f")(false);
@@ -8,34 +8,79 @@ exports = module.exports = __webpack_require__("FZ+f")(false);
 
 
 // module
-exports.push([module.i, "\n.nums {\r\n  padding: 3px 5px;\n}\n.cirshow {\r\n  background: #ff3856;\r\n  color: #fff;\r\n  padding: 3px 5px;\r\n  border-radius: 3px;\n}\r\n", ""]);
+exports.push([module.i, "\n.stitless {\r\n  overflow: hidden;\r\n  text-align: center;\r\n  display: block;\r\n  color: #1386ff;\r\n  font-size: 16px;\r\n  font-weight: 700;\r\n  padding-top: 20px;\r\n  padding-bottom: 20px;\n}\r\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "UE6D":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("FLxV");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("rjj0")("db2c5e5a", content, true);
-
-/***/ }),
-
-/***/ "xqn6":
+/***/ "RdRo":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Record/index.vue
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Record/operationEdit.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -89,73 +134,184 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ var Record = ({
+/* harmony default export */ var operationEdit = ({
   data: function data() {
     return {
-      tabType: 1,
+      tabType: 3,
       page_cur: 1,
       page_data_total: 0,
       page_size: 20,
       page_total: 0,
-      dataList: []
+      dataList: [],
+      diaLogFormVisible: false,
+      stationOptions: [],
+      stationOptionsProps: {
+        value: "id",
+        label: "name",
+        children: "child"
+      },
+      userList: [],
+      formData: {},
+      formRules: {
+        sid: [{
+          required: true,
+          message: "请选择站点",
+          trigger: "change"
+        }],
+        user_id: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        fan: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        water_pump: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        disinfect: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        cabinet: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        wetland: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        pretreatment: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        biochemistry: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        precipitate: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        out_water: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        electricity: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }],
+        electricity_sum: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }]
+      }
     };
   },
   created: function created() {
-    this.getDataList();
+    this.getStationList();
+    this.getUsersList();
   },
 
   methods: {
-    tabSelect: function tabSelect(type) {
-      if (type == 2) {
-        this.$router.push("/record/operation");
-      } else if (type == 3) {
-        this.$router.push("/record/sampling");
-      } else {
-        this.$router.push("/record");
-      }
+    backURL: function backURL() {
+      this.$router.go(-1); //返回上一层
     },
-    getDataList: function getDataList() {
+    diaLogFormShowEvent: function diaLogFormShowEvent() {
+      this.diaLogFormVisible = true;
+      this.getStationList();
+      this.getUsersList();
+    },
+    getStationList: function getStationList() {
       var _this = this;
 
-      var page = this.page_cur;
-      var type = this.tabType;
       this.request({
-        url: "/record/getRecordRepairPages",
-        method: "get",
-        params: { page: page, type: type }
-      }).then(function (res) {
-        var data = res.data;
+        url: "/station/getStationLists",
+        method: "get"
+      }).then(function (response) {
+        var data = response.data;
         if (data.status == 1) {
-          _this.dataList = data.data.data;
-          _this.page_cur = parseInt(data.data.current_page);
-          _this.page_total = data.data.last_page;
-          _this.page_data_total = data.data.total;
-          _this.page_size = data.data.per_page;
+          _this.stationOptions = data.data;
         }
       });
     },
-    pageChange: function pageChange(value) {
-      this.page_cur = value;
-      this.getDataList();
+    getUsersList: function getUsersList() {
+      var _this2 = this;
+
+      this.request({
+        url: "/assign/getUsersLists",
+        method: "get"
+      }).then(function (response) {
+        var data = response.data;
+        if (data.status == 1) {
+          _this2.userList = data.data;
+        }
+      });
     },
-    pageToFirst: function pageToFirst() {
-      this.page_cur = 1;
-      this.getDataList();
-    },
-    pageToLast: function pageToLast() {
-      this.page_cur = this.page_total;
-      this.getDataList();
+    addEvent: function addEvent() {
+      var _this3 = this;
+
+      this.$refs["formRulesRef"].validate(function (valid) {
+        if (valid) {
+          var data = _this3.formData;
+          data.sid = _this3.formData.sid[1];
+          data.type = 2;
+          console.log(_this3.formData);
+          _this3.request({
+            url: "/record/addRecord",
+            method: "post",
+            data: data
+          }).then(function (response) {
+            var data = response.data;
+            if (data.status == 1) {
+              _this3.$message({
+                type: "success",
+                message: "保存成功！"
+              });
+              _this3.backURL();
+            }
+          });
+        } else {
+          var that = _this3;
+          that.$nextTick(function () {
+            var isError = document.getElementsByClassName("is-error");
+            isError[0].querySelector("input").focus();
+          });
+          return false;
+        }
+      });
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-6c025a2c","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Record/index.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-tab"},[_c('div',{staticClass:"item"},[_c('span',{staticClass:"active",on:{"click":function($event){_vm.tabSelect(1)}}},[_vm._v("维护记录")])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('span',{on:{"click":function($event){_vm.tabSelect(2)}}},[_vm._v("运行记录")])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('span',{on:{"click":function($event){_vm.tabSelect(3)}}},[_vm._v("采样化验单")])])]),_vm._v(" "),_c('div',{staticClass:"app-content-rows"},[_c('div',{staticClass:"app-table"},[_c('el-table',{attrs:{"data":_vm.dataList,"size":"mini"}},[_c('el-table-column',{attrs:{"label":"序号"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_vm._v(_vm._s(scope.$index+(_vm.page_cur - 1) * _vm.page_size + 1))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"站点名","prop":"station_name"}}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"is_problem","label":"是否异常"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [(scope.row.is_problem==1)?_c('span',[_vm._v("是")]):_vm._e(),_vm._v(" "),(scope.row.is_problem==0)?_c('span',[_vm._v("否")]):_vm._e()]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"维保日期","class-name":"linewrap"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_vm._v(_vm._s(_vm._f("formatGetDate")(scope.row.create_time)))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"user","label":"维保人"}})],1),_vm._v(" "),_c('div',{staticClass:"app-pagers"},[(_vm.dataList.length !== 0)?_c('el-pagination',{attrs:{"background":"","layout":"prev, pager, next","page-size":this.page_size,"current-page":this.page_cur,"total":this.page_data_total},on:{"current-change":_vm.pageChange}}):_vm._e()],1)],1)])])])}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('header',{staticClass:"app-top-bar"},[_c('h1',{staticClass:"titles"},[_vm._v("报表统计")]),_vm._v(" "),_c('a',{staticClass:"icons icon-add pull-right"})])}]
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-6bfc6436","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Record/operationEdit.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('span',{staticClass:"icons icon-back pull-left",on:{"click":_vm.backURL}}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v("污水处理站运行记录")])]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-form"},[_c('el-form',{ref:"formRulesRef",staticClass:"el-form-custom",attrs:{"model":_vm.formData,"rules":_vm.formRules,"label-width":"110px"}},[_c('el-form-item',{attrs:{"label":"选择站点：","prop":"sid","label-width":"90px"}},[_c('el-cascader',{attrs:{"popper-class":"app-cascader","options":_vm.stationOptions,"props":_vm.stationOptionsProps,"placeholder":"请选择站点"},model:{value:(_vm.formData.sid),callback:function ($$v) {_vm.$set(_vm.formData, "sid", $$v)},expression:"formData.sid"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"巡查人：","prop":"user_id","label-width":"90px"}},[_c('el-select',{attrs:{"placeholder":"请选择巡查人"},model:{value:(_vm.formData.user_id),callback:function ($$v) {_vm.$set(_vm.formData, "user_id", $$v)},expression:"formData.user_id"}},_vm._l((this.userList),function(item){return _c('el-option',{key:item.id,attrs:{"label":item.name,"value":item.id}})}))],1),_vm._v(" "),_c('div',{staticClass:"el-radioed"},[_c('div',{staticClass:"stitless"},[_vm._v("设备运行状况")]),_vm._v(" "),_c('div',{staticClass:"el-form-item-inline"},[_c('el-form-item',{attrs:{"label":"风机：","prop":"fan"}},[_c('el-radio-group',{model:{value:(_vm.formData.fan),callback:function ($$v) {_vm.$set(_vm.formData, "fan", $$v)},expression:"formData.fan"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"紫外消毒机：","prop":"disinfect"}},[_c('el-radio-group',{model:{value:(_vm.formData.disinfect),callback:function ($$v) {_vm.$set(_vm.formData, "disinfect", $$v)},expression:"formData.disinfect"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"湿地情况：","prop":"wetland"}},[_c('el-radio-group',{model:{value:(_vm.formData.wetland),callback:function ($$v) {_vm.$set(_vm.formData, "wetland", $$v)},expression:"formData.wetland"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"各水泵：","prop":"water_pump"}},[_c('el-radio-group',{model:{value:(_vm.formData.water_pump),callback:function ($$v) {_vm.$set(_vm.formData, "water_pump", $$v)},expression:"formData.water_pump"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"电控柜：","prop":"cabinet"}},[_c('el-radio-group',{model:{value:(_vm.formData.cabinet),callback:function ($$v) {_vm.$set(_vm.formData, "cabinet", $$v)},expression:"formData.cabinet"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1)],1),_vm._v(" "),_c('div',{staticClass:"stitless"},[_vm._v("主要处理单元")]),_vm._v(" "),_c('el-form-item',{attrs:{"label":"预处理：","prop":"pretreatment"}},[_c('el-radio-group',{model:{value:(_vm.formData.pretreatment),callback:function ($$v) {_vm.$set(_vm.formData, "pretreatment", $$v)},expression:"formData.pretreatment"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"沉淀情况：","prop":"precipitate"}},[_c('el-radio-group',{model:{value:(_vm.formData.precipitate),callback:function ($$v) {_vm.$set(_vm.formData, "precipitate", $$v)},expression:"formData.precipitate"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"生化处理：","prop":"biochemistry"}},[_c('el-radio-group',{model:{value:(_vm.formData.biochemistry),callback:function ($$v) {_vm.$set(_vm.formData, "biochemistry", $$v)},expression:"formData.biochemistry"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"出水情况：","prop":"out_water"}},[_c('el-radio-group',{model:{value:(_vm.formData.out_water),callback:function ($$v) {_vm.$set(_vm.formData, "out_water", $$v)},expression:"formData.out_water"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"异常情况："}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.exception),callback:function ($$v) {_vm.$set(_vm.formData, "exception", $$v)},expression:"formData.exception"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"电表读数：","prop":"electricity"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.electricity),callback:function ($$v) {_vm.$set(_vm.formData, "electricity", $$v)},expression:"formData.electricity"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"累积读数：","prop":"electricity_sum"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.electricity_sum),callback:function ($$v) {_vm.$set(_vm.formData, "electricity_sum", $$v)},expression:"formData.electricity_sum"}})],1)],1),_vm._v(" "),_c('el-form-item',{staticClass:"app-form-save"},[_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.addEvent}},[_vm._v("确 定")])],1)],1)],1)])])}
+var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ var views_Record = (esExports);
-// CONCATENATED MODULE: ./src/views/Record/index.vue
+/* harmony default export */ var Record_operationEdit = (esExports);
+// CONCATENATED MODULE: ./src/views/Record/operationEdit.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("UE6D")
+  __webpack_require__("ggaP")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -171,16 +327,30 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  Record,
-  views_Record,
+  operationEdit,
+  Record_operationEdit,
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
 
-/* harmony default export */ var src_views_Record = __webpack_exports__["default"] = (Component.exports);
+/* harmony default export */ var views_Record_operationEdit = __webpack_exports__["default"] = (Component.exports);
 
+
+/***/ }),
+
+/***/ "ggaP":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("Gqm5");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("rjj0")("f8a1d55c", content, true);
 
 /***/ })
 
