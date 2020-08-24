@@ -1,12 +1,61 @@
 webpackJsonp([14],{
 
-/***/ "Cuha":
+/***/ "4fLq":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("pKhg");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("rjj0")("3f9de72e", content, true);
+
+/***/ }),
+
+/***/ "RdRo":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Record/samplingEdit.vue
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Record/operationEdit.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -84,7 +133,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ var samplingEdit = ({
+/* harmony default export */ var operationEdit = ({
   data: function data() {
     return {
       tabType: 3,
@@ -110,10 +159,55 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }],
         user_id: [{
           required: true,
-          message: "请选择采样人",
+          message: "请选择",
           trigger: "change"
         }],
-        in_ph: [{
+        fan: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        water_pump: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        disinfect: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        cabinet: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        wetland: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        pretreatment: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        biochemistry: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        precipitate: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        out_water: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        electricity: [{
           required: true,
           message: "请输入1-6位数字",
           trigger: "blur"
@@ -122,79 +216,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           message: "请输入1-6位数字",
           trigger: "blur"
         }],
-        in_cod: [{
-          required: true,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }, {
-          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }],
-        in_tp: [{
-          required: true,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }, {
-          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }],
-        in_tn: [{
-          required: true,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }, {
-          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }],
-        in_nh3: [{
-          required: true,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }, {
-          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }],
-        out_ph: [{
-          required: true,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }, {
-          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }],
-        out_cod: [{
-          required: true,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }, {
-          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }],
-        out_tp: [{
-          required: true,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }, {
-          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }],
-        out_tn: [{
-          required: true,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }, {
-          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-          message: "请输入1-6位数字",
-          trigger: "blur"
-        }],
-        out_nh3: [{
+        electricity_sum: [{
           required: true,
           message: "请输入1-6位数字",
           trigger: "blur"
@@ -253,7 +275,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         if (valid) {
           var data = _this3.formData;
           data.sid = _this3.formData.sid[1];
-          data.type = 3;
+          data.type = 2;
+          //console.log(this.formData);
           _this3.request({
             url: "/record/addRecord",
             method: "post",
@@ -280,14 +303,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2ebd6c02","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Record/samplingEdit.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('span',{staticClass:"icons icon-back pull-left",on:{"click":_vm.backURL}}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v("污水处理站采样化验记录表")])]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-form"},[_c('el-form',{ref:"formRulesRef",staticClass:"el-form-custom",attrs:{"model":_vm.formData,"rules":_vm.formRules,"label-width":"90px"}},[_c('el-form-item',{attrs:{"label":"选择站点：","prop":"sid"}},[_c('el-cascader',{attrs:{"popper-class":"app-cascader","options":_vm.stationOptions,"props":_vm.stationOptionsProps,"placeholder":"请选择站点"},model:{value:(_vm.formData.sid),callback:function ($$v) {_vm.$set(_vm.formData, "sid", $$v)},expression:"formData.sid"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"采样人：","prop":"user_id","label-width":"90px"}},[_c('el-select',{attrs:{"placeholder":"请选择采样人"},model:{value:(_vm.formData.user_id),callback:function ($$v) {_vm.$set(_vm.formData, "user_id", $$v)},expression:"formData.user_id"}},_vm._l((this.userList),function(item){return _c('el-option',{key:item.id,attrs:{"label":item.name,"value":item.id}})}))],1),_vm._v(" "),_c('div',{staticClass:"stitless"},[_vm._v("进水")]),_vm._v(" "),_c('el-form-item',{attrs:{"label":"PH：","prop":"in_ph"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.in_ph),callback:function ($$v) {_vm.$set(_vm.formData, "in_ph", $$v)},expression:"formData.in_ph"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"COD：","prop":"in_cod"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.in_cod),callback:function ($$v) {_vm.$set(_vm.formData, "in_cod", $$v)},expression:"formData.in_cod"}})],1),_vm._v(" "),_c('div',{staticClass:"el-form-item-sampd"},[_c('el-form-item',{attrs:{"label":"TP：","prop":"in_tp"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.in_tp),callback:function ($$v) {_vm.$set(_vm.formData, "in_tp", $$v)},expression:"formData.in_tp"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"TN：","prop":"in_tn"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.in_tn),callback:function ($$v) {_vm.$set(_vm.formData, "in_tn", $$v)},expression:"formData.in_tn"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"NH3-N：","prop":"in_nh3"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.in_nh3),callback:function ($$v) {_vm.$set(_vm.formData, "in_nh3", $$v)},expression:"formData.in_nh3"}})],1)],1),_vm._v(" "),_c('div',{staticClass:"stitless"},[_vm._v("出水")]),_vm._v(" "),_c('el-form-item',{attrs:{"label":"PH：","prop":"out_ph"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.out_ph),callback:function ($$v) {_vm.$set(_vm.formData, "out_ph", $$v)},expression:"formData.out_ph"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"COD：","prop":"out_cod"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.out_cod),callback:function ($$v) {_vm.$set(_vm.formData, "out_cod", $$v)},expression:"formData.out_cod"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"TP：","prop":"out_tp"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.out_tp),callback:function ($$v) {_vm.$set(_vm.formData, "out_tp", $$v)},expression:"formData.out_tp"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"TN：","prop":"out_tn"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.out_tn),callback:function ($$v) {_vm.$set(_vm.formData, "out_tn", $$v)},expression:"formData.out_tn"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"NH3-N：","prop":"out_nh3"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.out_nh3),callback:function ($$v) {_vm.$set(_vm.formData, "out_nh3", $$v)},expression:"formData.out_nh3"}})],1),_vm._v(" "),_c('el-form-item',{staticClass:"app-form-save"},[_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.addEvent}},[_vm._v("确 定")])],1)],1)],1)])])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-29d2fed6","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Record/operationEdit.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('span',{staticClass:"icons icon-back pull-left",on:{"click":_vm.backURL}}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v("污水处理站运行记录")])]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-form"},[_c('el-form',{ref:"formRulesRef",staticClass:"el-form-custom",attrs:{"model":_vm.formData,"rules":_vm.formRules,"label-width":"110px"}},[_c('el-form-item',{attrs:{"label":"选择站点：","prop":"sid","label-width":"90px"}},[_c('el-cascader',{attrs:{"popper-class":"app-cascader","options":_vm.stationOptions,"props":_vm.stationOptionsProps,"placeholder":"请选择站点"},model:{value:(_vm.formData.sid),callback:function ($$v) {_vm.$set(_vm.formData, "sid", $$v)},expression:"formData.sid"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"巡查人：","prop":"user_id","label-width":"90px"}},[_c('el-select',{attrs:{"placeholder":"请选择巡查人"},model:{value:(_vm.formData.user_id),callback:function ($$v) {_vm.$set(_vm.formData, "user_id", $$v)},expression:"formData.user_id"}},_vm._l((this.userList),function(item){return _c('el-option',{key:item.id,attrs:{"label":item.name,"value":item.id}})}))],1),_vm._v(" "),_c('div',{staticClass:"el-radioed"},[_c('div',{staticClass:"stitless"},[_vm._v("设备运行状况")]),_vm._v(" "),_c('div',{staticClass:"el-form-item-inline"},[_c('el-form-item',{attrs:{"label":"风机：","prop":"fan"}},[_c('el-radio-group',{model:{value:(_vm.formData.fan),callback:function ($$v) {_vm.$set(_vm.formData, "fan", $$v)},expression:"formData.fan"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"紫外消毒机：","prop":"disinfect"}},[_c('el-radio-group',{model:{value:(_vm.formData.disinfect),callback:function ($$v) {_vm.$set(_vm.formData, "disinfect", $$v)},expression:"formData.disinfect"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"湿地情况：","prop":"wetland"}},[_c('el-radio-group',{model:{value:(_vm.formData.wetland),callback:function ($$v) {_vm.$set(_vm.formData, "wetland", $$v)},expression:"formData.wetland"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"各水泵：","prop":"water_pump"}},[_c('el-radio-group',{model:{value:(_vm.formData.water_pump),callback:function ($$v) {_vm.$set(_vm.formData, "water_pump", $$v)},expression:"formData.water_pump"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"电控柜：","prop":"cabinet"}},[_c('el-radio-group',{model:{value:(_vm.formData.cabinet),callback:function ($$v) {_vm.$set(_vm.formData, "cabinet", $$v)},expression:"formData.cabinet"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1)],1),_vm._v(" "),_c('div',{staticClass:"stitless"},[_vm._v("主要处理单元")]),_vm._v(" "),_c('el-form-item',{attrs:{"label":"预处理：","prop":"pretreatment"}},[_c('el-radio-group',{model:{value:(_vm.formData.pretreatment),callback:function ($$v) {_vm.$set(_vm.formData, "pretreatment", $$v)},expression:"formData.pretreatment"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"沉淀情况：","prop":"precipitate"}},[_c('el-radio-group',{model:{value:(_vm.formData.precipitate),callback:function ($$v) {_vm.$set(_vm.formData, "precipitate", $$v)},expression:"formData.precipitate"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"生化处理：","prop":"biochemistry"}},[_c('el-radio-group',{model:{value:(_vm.formData.biochemistry),callback:function ($$v) {_vm.$set(_vm.formData, "biochemistry", $$v)},expression:"formData.biochemistry"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"出水情况：","prop":"out_water"}},[_c('el-radio-group',{model:{value:(_vm.formData.out_water),callback:function ($$v) {_vm.$set(_vm.formData, "out_water", $$v)},expression:"formData.out_water"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"异常情况："}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.exception),callback:function ($$v) {_vm.$set(_vm.formData, "exception", $$v)},expression:"formData.exception"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"电表读数：","prop":"electricity"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.electricity),callback:function ($$v) {_vm.$set(_vm.formData, "electricity", $$v)},expression:"formData.electricity"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"累积读数：","prop":"electricity_sum"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.electricity_sum),callback:function ($$v) {_vm.$set(_vm.formData, "electricity_sum", $$v)},expression:"formData.electricity_sum"}})],1)],1),_vm._v(" "),_c('el-form-item',{staticClass:"app-form-save"},[_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.addEvent}},[_vm._v("确 定")])],1)],1)],1)])])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ var Record_samplingEdit = (esExports);
-// CONCATENATED MODULE: ./src/views/Record/samplingEdit.vue
+/* harmony default export */ var Record_operationEdit = (esExports);
+// CONCATENATED MODULE: ./src/views/Record/operationEdit.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("lJFm")
+  __webpack_require__("4fLq")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -303,34 +326,20 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  samplingEdit,
-  Record_samplingEdit,
+  operationEdit,
+  Record_operationEdit,
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
 
-/* harmony default export */ var views_Record_samplingEdit = __webpack_exports__["default"] = (Component.exports);
+/* harmony default export */ var views_Record_operationEdit = __webpack_exports__["default"] = (Component.exports);
 
 
 /***/ }),
 
-/***/ "lJFm":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("uFhr");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("rjj0")("d6c032b4", content, true);
-
-/***/ }),
-
-/***/ "uFhr":
+/***/ "pKhg":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("FZ+f")(false);
@@ -338,7 +347,7 @@ exports = module.exports = __webpack_require__("FZ+f")(false);
 
 
 // module
-exports.push([module.i, "\n.stitless {\r\n  overflow: hidden;\r\n  text-align: center;\r\n  display: block;\r\n  color: #1386ff;\r\n  font-size: 16px;\r\n  font-weight: 700;\r\n  padding-top: 20px;\r\n  padding-bottom: 20px;\n}\n.el-form-item-samp .samp-item {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: start;\r\n      -ms-flex-pack: start;\r\n          justify-content: flex-start;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-flow: row wrap;\r\n          flex-flow: row wrap;\n}\n.el-form-item-samp .el-form-item {\r\n  float: left;\r\n  width: 50%;\n}\n.el-form-item-samp .el-input {\r\n  display: inline-block;\r\n  padding: 0 5px;\r\n  text-align: center;\r\n  border-radius: 0;\r\n  border: 0;\r\n  min-width: 100px;\n}\n.el-form-item-samp .el-input__inner {\r\n  border-radius: 0;\r\n  border: none;\r\n  border-bottom: 1px #9db9fa solid !important;\r\n  color: #338ff6 !important;\r\n  padding: 0 5px;\n}\n.el-form-item-samp .el-form-item__label {\r\n  float: none;\r\n\r\n  display: inline-block;\r\n  white-space: nowrap;\r\n  padding: 0 0 0 5px;\n}\n.el-form-item-samp .el-form-item__content {\r\n  display: inline-block;\r\n  vertical-align: top;\n}\r\n", ""]);
+exports.push([module.i, "\n.stitless {\r\n  overflow: hidden;\r\n  text-align: center;\r\n  display: block;\r\n  color: #1386ff;\r\n  font-size: 16px;\r\n  font-weight: 700;\r\n  padding-top: 20px;\r\n  padding-bottom: 20px;\n}\r\n", ""]);
 
 // exports
 

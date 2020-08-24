@@ -100,6 +100,7 @@ export default {
     };
   },
   created() {
+    this.getSign();
     this.getDataList();
   },
   methods: {
@@ -143,7 +144,43 @@ export default {
       this.getDataList();
     },
     addTest() {},
-    //添加
+    //扫码
+    getSign() {
+      let url = location.href.split("#")[0];
+      this.request({
+        url: "/weixin/getWeixinConfig",
+        method: "get"
+      }).then(res => {
+        let jdata = res.data;
+        if (jdata.status == 1) {
+          let a = jdata.data;
+          wx.config({
+            debug: false,
+            appId: jdata.appid,
+            timestamp: jdata.timestamp,
+            noncestr: jdata.noncestr,
+            signature: jdata.signature,
+            jsApiList: ["scanQRCode"]
+          });
+          wx.ready(() => {
+            console.log("微信js-sdk配置成功");
+          });
+          wx.error(function(res) {
+            console.log("微信js-sdk配置失败");
+          });
+
+          // timestamp	number
+
+          // noncestr	string
+
+          // jsapi_ticket	string
+
+          // signature	string
+
+          // appid	string
+        }
+      });
+    },
     addDialogEvent() {
       this.request({
         url: "/clock/isCard",

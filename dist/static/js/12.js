@@ -1,213 +1,227 @@
 webpackJsonp([12],{
 
-/***/ "J4TC":
+/***/ "Cuha":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
-// EXTERNAL MODULE: ./node_modules/babel-runtime/core-js/get-iterator.js
-var get_iterator = __webpack_require__("BO1k");
-var get_iterator_default = /*#__PURE__*/__webpack_require__.n(get_iterator);
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Record/samplingEdit.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Dispatch/list.vue
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ var Dispatch_list = ({
+/* harmony default export */ var samplingEdit = ({
   data: function data() {
-    var _this = this;
-
     return {
-      diaLogFormVisible: false,
-      diaLogTitle: "添加信息",
-      diaLogFormDetailVisible: false,
-      formData: {},
-      formRules: {
-        sid: [{
-          required: true,
-          message: "请选择站点名",
-          trigger: "change"
-        }],
-        assigner_id: [{
-          required: true,
-          message: "请选择指派人",
-          trigger: "change"
-        }],
-        type: [{
-          required: true,
-          message: "请选择派单事项",
-          trigger: "change"
-        }],
-        content: [{ min: 2, max: 200, message: "长度在2到200个字符", trigger: "blur" }, {
-          pattern: /(^\S+).*(\S+$)/,
-          message: "开始和结尾不能有空格",
-          trigger: "blur"
-        }]
-      },
+      tabType: 3,
       page_cur: 1,
       page_data_total: 0,
       page_size: 20,
       page_total: 0,
       dataList: [],
-      userList: [],
+      diaLogFormVisible: false,
       stationOptions: [],
       stationOptionsProps: {
         value: "id",
         label: "name",
         children: "child"
       },
-      fatherStationList: [],
-      childStationList: [],
-      fatherStationId: 0,
-      chlidStationId: 0,
-      chlidStationName: "",
-      searchKeyword: "",
-      searchAssignerId: "0",
-      searchType: "0",
-      searchStatus: "0",
-      pickerStartTime: {
-        disabledDate: function disabledDate(time) {
-          if (_this.searchEndTime) {
-            return time.getTime() > new Date(_this.searchEndTime).getTime();
-          }
-        }
-      },
-      pickerEndTime: {
-        disabledDate: function disabledDate(time) {
-          if (_this.searchStartTime) {
-            return time.getTime() < new Date(_this.searchStartTime).getTime();
-          }
-        }
-      },
-      searchStartTime: "",
-      searchEndTime: ""
+      userList: [],
+      formData: {},
+      formRules: {
+        sid: [{
+          required: true,
+          message: "请选择站点",
+          trigger: "change"
+        }],
+        user_id: [{
+          required: true,
+          message: "请选择采样人",
+          trigger: "change"
+        }],
+        in_ph: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }],
+        in_cod: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }],
+        in_tp: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }],
+        in_tn: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }],
+        in_nh3: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }],
+        out_ph: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }],
+        out_cod: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }],
+        out_tp: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }],
+        out_tn: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }],
+        out_nh3: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }]
+      }
     };
   },
   created: function created() {
-    this.getFatherStationList();
-    this.getDataList();
+    this.getStationList();
     this.getUsersList();
   },
 
   methods: {
-    getDataList: function getDataList() {
-      var _this2 = this;
-
-      var page = this.page_cur;
-      var type = this.searchType;
-      var status = this.searchStatus;
-      var sid = this.chlidStationId;
-      var assigner_id = this.searchAssignerId;
-      var start_time = this.searchStartTime;
-      var end_time = this.searchEndTime;
-      this.request({
-        url: "/assign/getAssignPages",
-        method: "get",
-        params: { page: page, sid: sid, assigner_id: assigner_id, type: type, status: status, start_time: start_time, end_time: end_time }
-      }).then(function (res) {
-        var data = res.data;
-        if (data.status == 1) {
-          _this2.dataList = data.data.data;
-          _this2.page_cur = parseInt(data.data.current_page);
-          _this2.page_total = data.data.last_page;
-          _this2.page_data_total = data.data.total;
-          _this2.page_size = data.data.per_page;
-        }
-      });
+    backURL: function backURL() {
+      this.$router.go(-1); //返回上一层
     },
-    pageChange: function pageChange(value) {
-      this.page_cur = value;
-      this.getDataList();
-    },
-    pageToFirst: function pageToFirst() {
-      this.page_cur = 1;
-      this.getDataList();
-    },
-    pageToLast: function pageToLast() {
-      this.page_cur = this.page_total;
-      this.getDataList();
-    },
-    searchAssignerEvent: function searchAssignerEvent(item) {
-      this.searchAssignerId = item;
-      this.getDataList();
-    },
-    searchStatusEvent: function searchStatusEvent(val) {
-      this.searchStatus = val;
-      this.getDataList();
-    },
-    searchTypeEvent: function searchTypeEvent(val) {
-      this.searchType = val;
-      this.getDataList();
-    },
-    searchStartTimeEvent: function searchStartTimeEvent() {
-      console.log(this.searchEndTime);
-      if (this.searchEndTime != "") {
-        this.page_cur = 1;
-        this.getDataList();
-      }
-    },
-    searchEndTimeEvent: function searchEndTimeEvent() {
-      if (this.searchStartTime != "") {
-        this.page_cur = 1;
-        this.getDataList();
-      }
-    },
-    searchAllEvent: function searchAllEvent() {
-      this.page_cur = 1;
-      this.searchStatus = "0";
-      this.searchType = "0";
-      this.searchAssignerId = "0";
-      this.chlidStationId = 0;
-      this.searchStartTime = "";
-      this.searchEndTime = "";
-      this.getDataList();
+    diaLogFormShowEvent: function diaLogFormShowEvent() {
+      this.diaLogFormVisible = true;
+      this.getStationList();
+      this.getUsersList();
     },
     getStationList: function getStationList() {
-      var _this3 = this;
+      var _this = this;
 
       this.request({
         url: "/station/getStationLists",
@@ -215,12 +229,12 @@ var get_iterator_default = /*#__PURE__*/__webpack_require__.n(get_iterator);
       }).then(function (response) {
         var data = response.data;
         if (data.status == 1) {
-          _this3.stationOptions = data.data;
+          _this.stationOptions = data.data;
         }
       });
     },
     getUsersList: function getUsersList() {
-      var _this4 = this;
+      var _this2 = this;
 
       this.request({
         url: "/assign/getUsersLists",
@@ -228,269 +242,52 @@ var get_iterator_default = /*#__PURE__*/__webpack_require__.n(get_iterator);
       }).then(function (response) {
         var data = response.data;
         if (data.status == 1) {
-          _this4.userList = data.data;
+          _this2.userList = data.data;
         }
       });
-    },
-    userChange: function userChange(e) {
-      var _this5 = this;
-
-      this.userList.forEach(function (ele) {
-        if (ele.id == e) {
-          // if (ele.role_id == 1) {
-          //   this.formData.role = "管理员";
-          // } else if (ele.role_id == 2) {
-          //   this.formData.role = "维修人员";
-          // } else if (ele.role_id == 3) {
-          //   this.formData.role = "巡检人员";
-          // } else if (ele.role_id == 4) {
-          //   this.formData.role = "分析人员";
-          // }
-          _this5.formData.phone = ele.phone;
-        }
-      });
-    },
-
-    //添加编辑
-    addShowDialog: function addShowDialog() {
-      var _this6 = this;
-
-      this.getStationList();
-
-      this.diaLogFormVisible = true;
-      this.diaLogTitle = "发起派单";
-      this.$nextTick(function () {
-        _this6.$refs["formRulesRef"].clearValidate();
-      });
-      this.formData = {
-        // title: "",
-        // description: "",
-        // recept_type: []
-      };
     },
     addEvent: function addEvent() {
-      var _this7 = this;
+      var _this3 = this;
 
-      var that = this;
       this.$refs["formRulesRef"].validate(function (valid) {
         if (valid) {
-          var data = that.formData;
-          data.sid = that.formData.sid[1];
-          _this7.request({
-            url: "/assign/addAssign",
+          var data = _this3.formData;
+          data.sid = _this3.formData.sid[1];
+          data.type = 3;
+          _this3.request({
+            url: "/record/addRecord",
             method: "post",
             data: data
           }).then(function (response) {
             var data = response.data;
             if (data.status == 1) {
-              _this7.diaLogFormVisible = false;
-              _this7.searchType = "0";
-              _this7.getDataList();
-              _this7.$message({
+              _this3.$message({
                 type: "success",
                 message: "保存成功！"
               });
+              _this3.backURL();
             }
           });
         } else {
-          console.log("操作失败！");
+          var that = _this3;
+          that.$nextTick(function () {
+            var isError = document.getElementsByClassName("is-error");
+            isError[0].querySelector("input").focus();
+          });
           return false;
         }
       });
-    },
-    detailEvent: function detailEvent(id) {
-      var _this8 = this;
-
-      this.diaLogFormDetailVisible = true;
-      this.request({
-        url: "/assign/getAssignDetail",
-        method: "get",
-        params: { id: id }
-      }).then(function (res) {
-        var data = res.data;
-        if (data.status == 1) {
-          _this8.formData = data.data;
-        }
-      });
-    },
-    applyEvent: function applyEvent(id) {
-      var _this9 = this;
-
-      this.$confirm("请确认派单是否完成？", "提示", {
-        confirmButtonText: "已完成",
-        cancelButtonText: "未完成",
-        type: "warning",
-        customClass: "el-message-box-new"
-      }).then(function () {
-        _this9.request({
-          url: "/assign/checkAssign",
-          method: "post",
-          data: { id: id, status: 2 }
-        }).then(function (res) {
-          var data = res.data;
-          if (data.status == 1) {
-            _this9.getDataList();
-          }
-        });
-      }).catch(function () {});
-    },
-    deleteEvent: function deleteEvent(id) {
-      var _this10 = this;
-
-      this.$confirm("您确定要删除？删除后不能恢复！", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
-        customClass: "el-message-box-new"
-      }).then(function () {
-        _this10.request({
-          url: "/assign/deleteAssign",
-          method: "post",
-          data: { id: id, type: parseInt(_this10.searchType) }
-        }).then(function (res) {
-          var data = res.data;
-          if (data.status == 1) {
-            if (_this10.dataList.length == 1) {
-              _this10.page_cur = _this10.page_cur - 1;
-              _this10.getDataList();
-            } else {
-              _this10.getDataList();
-            }
-            _this10.$message({
-              type: "success",
-              message: "删除成功！"
-            });
-          }
-        });
-      }).catch(function () {});
-    },
-
-    //station
-    getFatherStationList: function getFatherStationList() {
-      var _this11 = this;
-
-      var name = this.chlidName;
-      this.request({
-        url: "/station/getStationLists",
-        method: "get",
-        params: { name: name }
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          _this11.fatherStationList = data.data;
-          if (_this11.fatherStationId == 0) {
-            _this11.getChildStationList();
-          }
-        }
-      });
-    },
-    getChildStationList: function getChildStationList() {
-      var _this12 = this;
-
-      var name = "";
-      this.request({
-        url: "/station/getChildStationLists",
-        method: "get",
-        params: { name: name }
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          var results = data.data;
-          _this12.childStationList = results;
-        }
-      });
-    },
-    fatherStationEvent: function fatherStationEvent(val) {
-      var _this13 = this;
-
-      if (val == 0) {
-        this.getChildStationList();
-        this.page_cur = 1;
-        this.chlidStationId = 0;
-        this.getDataList();
-      }
-      this.fatherStationId = val;
-      this.fatherStationList.map(function (ele) {
-        if (ele.id == val) {
-          _this13.childStationList = ele.child;
-        }
-      });
-    },
-    chlidStationEvent: function chlidStationEvent(val) {
-      this.page_cur = 1;
-      this.chlidStationId = val;
-      this.getDataList();
-    },
-    searchStationCallBack: function searchStationCallBack(queryString, cb) {
-      this.request({
-        url: "/station/getChildStationLists",
-        method: "get",
-        params: { name: queryString }
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          var results = data.data;
-          var list = [];
-          if (results.length == 0) {
-            list.push({
-              id: 0,
-              value: "未查询到站名"
-            });
-          }
-          var _iteratorNormalCompletion = true;
-          var _didIteratorError = false;
-          var _iteratorError = undefined;
-
-          try {
-            for (var _iterator = get_iterator_default()(results), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-              var item = _step.value;
-
-              list.push({
-                id: item.id,
-                pid: item.pid,
-                value: item.name
-              });
-            }
-          } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion && _iterator.return) {
-                _iterator.return();
-              }
-            } finally {
-              if (_didIteratorError) {
-                throw _iteratorError;
-              }
-            }
-          }
-
-          console.log(list);
-          cb(list);
-        }
-      });
-    },
-    searchStationEvent: function searchStationEvent(item) {
-      this.page_cur = 1;
-      this.fatherStationEvent(item.pid);
-      this.fatherStationId = item.pid;
-      this.chlidStationId = item.id;
-      this.chlidStationName = "";
-      this.getDataList();
     }
-    //end station
-
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-4b110afc","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Dispatch/list.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-content-rows"},[_c('div',{staticClass:"app-table"},[_c('el-table',{attrs:{"data":_vm.dataList,"size":"mini"}},[_c('el-table-column',{attrs:{"label":"序号","type":"index"}}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"station_name","label":"维保站点","class-name":"nowrap"}}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"type","label":"维保事项"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [(scope.row.type==1)?_c('span',[_vm._v("设备维修")]):(scope.row.type==2)?_c('span',[_vm._v("例行维保")]):_c('span',[_vm._v("运行检查")])]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"指派时间","class-name":"linewrap"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('span',[_vm._v(_vm._s(_vm._f("formatGetDate")(scope.row.assign_time)))])]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"assigner","label":"指派人","class-name":"nowrap"}})],1),_vm._v(" "),_c('div',{staticClass:"app-pagination"},[(_vm.dataList.length !== 0)?_c('el-pagination',{staticClass:"pagination",attrs:{"layout":"prev, pager, next","page-size":this.page_size,"current-page":this.page_cur,"total":this.page_data_total},on:{"current-change":_vm.pageChange}}):_vm._e()],1)],1)])])])}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('header',{staticClass:"app-top-bar"},[_c('a',{staticClass:"icons icon-back pull-left"}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v("已完成")])])}]
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2ebd6c02","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Record/samplingEdit.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('span',{staticClass:"icons icon-back pull-left",on:{"click":_vm.backURL}}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v("污水处理站采样化验记录表")])]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-form"},[_c('el-form',{ref:"formRulesRef",staticClass:"el-form-custom",attrs:{"model":_vm.formData,"rules":_vm.formRules,"label-width":"90px"}},[_c('el-form-item',{attrs:{"label":"选择站点：","prop":"sid"}},[_c('el-cascader',{attrs:{"popper-class":"app-cascader","options":_vm.stationOptions,"props":_vm.stationOptionsProps,"placeholder":"请选择站点"},model:{value:(_vm.formData.sid),callback:function ($$v) {_vm.$set(_vm.formData, "sid", $$v)},expression:"formData.sid"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"采样人：","prop":"user_id","label-width":"90px"}},[_c('el-select',{attrs:{"placeholder":"请选择采样人"},model:{value:(_vm.formData.user_id),callback:function ($$v) {_vm.$set(_vm.formData, "user_id", $$v)},expression:"formData.user_id"}},_vm._l((this.userList),function(item){return _c('el-option',{key:item.id,attrs:{"label":item.name,"value":item.id}})}))],1),_vm._v(" "),_c('div',{staticClass:"stitless"},[_vm._v("进水")]),_vm._v(" "),_c('el-form-item',{attrs:{"label":"PH：","prop":"in_ph"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.in_ph),callback:function ($$v) {_vm.$set(_vm.formData, "in_ph", $$v)},expression:"formData.in_ph"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"COD：","prop":"in_cod"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.in_cod),callback:function ($$v) {_vm.$set(_vm.formData, "in_cod", $$v)},expression:"formData.in_cod"}})],1),_vm._v(" "),_c('div',{staticClass:"el-form-item-sampd"},[_c('el-form-item',{attrs:{"label":"TP：","prop":"in_tp"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.in_tp),callback:function ($$v) {_vm.$set(_vm.formData, "in_tp", $$v)},expression:"formData.in_tp"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"TN：","prop":"in_tn"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.in_tn),callback:function ($$v) {_vm.$set(_vm.formData, "in_tn", $$v)},expression:"formData.in_tn"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"NH3-N：","prop":"in_nh3"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.in_nh3),callback:function ($$v) {_vm.$set(_vm.formData, "in_nh3", $$v)},expression:"formData.in_nh3"}})],1)],1),_vm._v(" "),_c('div',{staticClass:"stitless"},[_vm._v("出水")]),_vm._v(" "),_c('el-form-item',{attrs:{"label":"PH：","prop":"out_ph"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.out_ph),callback:function ($$v) {_vm.$set(_vm.formData, "out_ph", $$v)},expression:"formData.out_ph"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"COD：","prop":"out_cod"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.out_cod),callback:function ($$v) {_vm.$set(_vm.formData, "out_cod", $$v)},expression:"formData.out_cod"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"TP：","prop":"out_tp"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.out_tp),callback:function ($$v) {_vm.$set(_vm.formData, "out_tp", $$v)},expression:"formData.out_tp"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"TN：","prop":"out_tn"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.out_tn),callback:function ($$v) {_vm.$set(_vm.formData, "out_tn", $$v)},expression:"formData.out_tn"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"NH3-N：","prop":"out_nh3"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.out_nh3),callback:function ($$v) {_vm.$set(_vm.formData, "out_nh3", $$v)},expression:"formData.out_nh3"}})],1),_vm._v(" "),_c('el-form-item',{staticClass:"app-form-save"},[_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.addEvent}},[_vm._v("确 定")])],1)],1)],1)])])}
+var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ var views_Dispatch_list = (esExports);
-// CONCATENATED MODULE: ./src/views/Dispatch/list.vue
+/* harmony default export */ var Record_samplingEdit = (esExports);
+// CONCATENATED MODULE: ./src/views/Record/samplingEdit.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("WPoJ")
+  __webpack_require__("lJFm")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -506,34 +303,34 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  Dispatch_list,
-  views_Dispatch_list,
+  samplingEdit,
+  Record_samplingEdit,
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
 
-/* harmony default export */ var src_views_Dispatch_list = __webpack_exports__["default"] = (Component.exports);
+/* harmony default export */ var views_Record_samplingEdit = __webpack_exports__["default"] = (Component.exports);
 
 
 /***/ }),
 
-/***/ "WPoJ":
+/***/ "lJFm":
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__("YB9p");
+var content = __webpack_require__("uFhr");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("rjj0")("897cd23e", content, true);
+var update = __webpack_require__("rjj0")("d6c032b4", content, true);
 
 /***/ }),
 
-/***/ "YB9p":
+/***/ "uFhr":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("FZ+f")(false);
@@ -541,7 +338,7 @@ exports = module.exports = __webpack_require__("FZ+f")(false);
 
 
 // module
-exports.push([module.i, "\n.dialog-dispatch .el-select {\r\n  width: 100%;\n}\n.dialog-dispatch .el-form-item-inline {\r\n  display: inline-block;\n}\n.dialog-dispatch .el-form-item-inline .el-form-item {\r\n  display: inline-block;\n}\n.dialog-dispatch .el-form-item-block {\r\n  display: block;\n}\n.dialog-dispatch .el-form-item-inline .el-checkbox-group {\r\n  margin-left: 110px;\n}\n.dialog-dispatch .el-form-item-inline .el-input__inner {\r\n  width: 220px;\n}\n.el-form-item-detail .el-form-item {\r\n  margin-bottom: 5px;\n}\n.el-form-item-detail .disp-info {\r\n  line-height: 28px;\r\n  margin-top: 5px;\n}\n.dd {\r\n  display: inline-block;\r\n  overflow-y: auto;\n}\r\n", ""]);
+exports.push([module.i, "\n.stitless {\r\n  overflow: hidden;\r\n  text-align: center;\r\n  display: block;\r\n  color: #1386ff;\r\n  font-size: 16px;\r\n  font-weight: 700;\r\n  padding-top: 20px;\r\n  padding-bottom: 20px;\n}\n.el-form-item-samp .samp-item {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: start;\r\n      -ms-flex-pack: start;\r\n          justify-content: flex-start;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-flow: row wrap;\r\n          flex-flow: row wrap;\n}\n.el-form-item-samp .el-form-item {\r\n  float: left;\r\n  width: 50%;\n}\n.el-form-item-samp .el-input {\r\n  display: inline-block;\r\n  padding: 0 5px;\r\n  text-align: center;\r\n  border-radius: 0;\r\n  border: 0;\r\n  min-width: 100px;\n}\n.el-form-item-samp .el-input__inner {\r\n  border-radius: 0;\r\n  border: none;\r\n  border-bottom: 1px #9db9fa solid !important;\r\n  color: #338ff6 !important;\r\n  padding: 0 5px;\n}\n.el-form-item-samp .el-form-item__label {\r\n  float: none;\r\n\r\n  display: inline-block;\r\n  white-space: nowrap;\r\n  padding: 0 0 0 5px;\n}\n.el-form-item-samp .el-form-item__content {\r\n  display: inline-block;\r\n  vertical-align: top;\n}\r\n", ""]);
 
 // exports
 

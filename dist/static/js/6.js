@@ -1,254 +1,137 @@
 webpackJsonp([6],{
 
-/***/ "0r5t":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("upfc");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("rjj0")("9d03ccba", content, true);
-
-/***/ }),
-
-/***/ "IZXa":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__ = __webpack_require__("dAEq");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  data: function data() {
-    return {
-      searchAddress: "",
-      address: "",
-      center: { lng: 0, lat: 0 },
-      zoom: 15,
-      childStationList: [],
-      markers: []
-    };
-  },
-
-  components: {
-    BaiduMap: __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__["BaiduMap"],
-    BmNavigation: __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__["BmNavigation"],
-    BmMapType: __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__["BmMapType"],
-    BmMarker: __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__["BmMarker"],
-    BmInfoWindow: __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__["BmInfoWindow"],
-    BmOverlay: __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__["BmOverlay"],
-    BmLabel: __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__["BmLabel"],
-    BmLocalSearch: __WEBPACK_IMPORTED_MODULE_0_vue_baidu_map__["BmLocalSearch"]
-  },
-
-  created: function created() {},
-
-  methods: {
-    getChildStationList: function getChildStationList() {
-      var _this = this;
-
-      var name = this.searchVillageName;
-      this.request({
-        url: "/station/getChildStationLists",
-        method: "get",
-        params: { name: name }
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          _this.childStationList = data.data;
-        }
-      });
-    },
-    getMarkers: function getMarkers() {
-      this.markers = this.childStationList;
-    },
-
-
-    // draw({ el, BMap, map }) {
-    //   //        let point = new BMap.Point(116.404, 39.915)
-    //   //        map.addOverlay(point)
-    //   const pixel = map.pointToOverlayPixel(new BMap.Point(116.404, 39.915));
-    //   el.style.left = pixel.x - 60 + "px";
-    //   el.style.top = pixel.y - 20 + "px";
-    // },
-
-    readyHandler: function readyHandler(_ref) {
-      var _this2 = this;
-
-      var BMap = _ref.BMap,
-          map = _ref.map;
-
-      var name = this.searchVillageName;
-      this.request({
-        url: "/station/getChildStationLists",
-        method: "get",
-        params: { name: name }
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          _this2.markers = data.data;
-          // 自动获取展示的比例
-          var view = map.getViewport(eval(_this2.markers));
-          _this2.zoom = view.zoom;
-          _this2.center = view.center;
-          console.log(_this2.markers);
-        }
-      });
-    },
-    markerClick: function markerClick(e) {
-      console.log(e);
-      this.show = true;
-      this.$router.push({
-        path: "/sitemanage/main",
-        query: { pid: e.pid, sid: e.id }
-      });
-    },
-    getClickInfo: function getClickInfo(e) {
-      this.marker.lng = e.point.lng;
-      this.marker.lat = e.point.lat;
-    },
-    syncCenterAndZoom: function syncCenterAndZoom(e) {
-      var _e$target$getCenter = e.target.getCenter(),
-          lng = _e$target$getCenter.lng,
-          lat = _e$target$getCenter.lat;
-
-      if (this.diaLogEdit == true) {
-        this.centerStr.lng = this.formData.lng;
-        this.centerStr.lat = this.formData.lat;
-      } else {
-        this.centerStr.lng = lng;
-        this.centerStr.lat = lat;
-      }
-      this.zoom = e.target.getZoom();
-      // console.log(this.centerStr.lng + "__A__" + this.centerStr.lat);
-    },
-    searchEvent: function searchEvent() {
-      this.address = this.searchAddress;
-    }
-  },
-  destroyed: function destroyed() {}
-});
-
-/***/ }),
-
-/***/ "upfc":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("FZ+f")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.bm-view {\r\n  width: 100%;\r\n  height: calc(100vh - 100px);\n}\n.baidumap {\r\n  position: relative;\n}\n.baidumap-so {\r\n  position: absolute;\r\n  top: 10px;\r\n  left: 10px;\r\n  z-index: 99999;\n}\n.map-so-input .el-button {\r\n  background: #409eff;\r\n  border: 1px #409eff solid;\r\n  padding: 5px 5px 5px 10px;\r\n  color: #fff;\n}\n.map-so-input .el-input-group__append {\r\n  background: #409eff;\r\n  border: 1px #409eff solid;\r\n  color: #fff;\n}\n.navss {\r\n  padding: 10px;\n}\n.navss a {\r\n  padding: 5px;\r\n  color: #333;\r\n  white-space: nowrap;\r\n  text-decoration: none;\r\n  display: inline-block;\r\n  font-weight: 700;\n}\r\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "vzEL":
+/***/ "8iLd":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
-// EXTERNAL MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/SiteManage/index.vue
-var SiteManage = __webpack_require__("IZXa");
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/SiteManage/station.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-92d3cfe6","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/SiteManage/index.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"baidumap"},[_vm._m(1),_vm._v(" "),_c('baidu-map',{staticClass:"bm-view",attrs:{"center":_vm.center,"zoom":_vm.zoom,"scroll-wheel-zoom":true,"mapClick":false,"ak":"GsTerPPU46fUXlt09K8840K0HxTvKIIa"},on:{"ready":_vm.readyHandler,"click":_vm.getClickInfo}},[_c('bm-map-type',{attrs:{"map-types":['BMAP_NORMAL_MAP', 'BMAP_HYBRID_MAP'],"anchor":"BMAP_ANCHOR_BOTTOM_RIGHT"}}),_vm._v(" "),_c('bm-navigation',{attrs:{"anchor":"BMAP_ANCHOR_TOP_RIGHT"}}),_vm._v(" "),_vm._l((_vm.markers),function(marker){return _c('div',{key:marker.lng},[_c('bm-marker',{attrs:{"position":{lng: marker.lng, lat: marker.lat}},on:{"click":function($event){_vm.markerClick(marker)}}}),_vm._v(" "),_c('bm-label',{attrs:{"content":marker.name,"offset":{width:-55,height:-45},"position":{lng: marker.lng, lat: marker.lat},"labelStyle":{border:'1px solid #3498DB',background:'#3498DB', color:'#fff', padding:'2px',fontWeight: '600',fontSize:'14px',cursor: 'pointer'},"title":marker.name},on:{"click":function($event){_vm.markerClick(marker)}}})],1)}),_vm._v(" "),_c('bm-local-search',{staticStyle:{"width":"0px","height":"0px","overflow":"hidden"},attrs:{"keyword":_vm.address,"location":_vm.address,"auto-viewport":true}})],2)],1)])}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"navss"},[_c('div',{staticClass:"navss"},[_c('a',{attrs:{"target":"_blank","href":"#/sitemanage/station"}},[_vm._v("选择站点")]),_vm._v(" "),_c('a',{attrs:{"target":"_blank","href":"#/sitemanage/stationDetail"}},[_vm._v("站点详情")]),_vm._v(" "),_c('a',{attrs:{"target":"_blank","href":"#/sitemanage/main"}},[_vm._v("运行图")]),_vm._v(" "),_c('a',{attrs:{"target":"_blank","href":"#/dispatch"}},[_vm._v("运维派单")]),_vm._v(" "),_c('a',{attrs:{"target":"_blank","href":"#/record"}},[_vm._v("报表统计")]),_vm._v(" "),_c('a',{attrs:{"target":"_blank","href":"#/warning"}},[_vm._v("告警列表")]),_vm._v(" "),_c('a',{attrs:{"target":"_blank","href":"#/attendance"}},[_vm._v("考勤打卡")])])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"map-so-input el-input el-input--medium el-input-group el-input-group--append el-input--suffix"},[_c('input',{staticClass:"el-input__inner",attrs:{"type":"text","autocomplete":"off","placeholder":"请输入位置关键字"}}),_vm._v(" "),_c('div',{staticClass:"el-input-group__append"},[_c('button',{staticClass:"el-button el-button--primary el-button--medium",attrs:{"type":"button"}},[_c('i',{staticClass:"el-icon-search"})])])])}]
+/* harmony default export */ var station = ({
+  data: function data() {
+    return {
+      fatherStationId: 0,
+      fatherStationName: "",
+      fatherStationList: [],
+      chlidStationName: "",
+      childStationList: []
+    };
+  },
+  created: function created() {
+    this.getStationList();
+  },
+
+  methods: {
+    backURL: function backURL() {
+      this.$router.push("/sitemanage");
+    },
+    getStationList: function getStationList() {
+      var _this = this;
+
+      this.request({
+        url: "/station/getStationLists",
+        method: "get"
+      }).then(function (response) {
+
+        var res = response.data;
+        if (res.status == 1) {
+          var dataList = res.data;
+
+          _this.fatherStationList = dataList;
+          var stationid = _this.$route.query.sid;
+          console.log(stationid);
+          if (typeof stationid == "undefined") {
+            stationid = dataList[0].id;
+          }
+
+          _this.fatherStationId = _this.fatherStationList.find(function (item) {
+            return item.id == stationid;
+          }).id;
+          _this.fatherStationName = _this.fatherStationList.find(function (item) {
+            return item.id == stationid;
+          }).name;
+          _this.fatherStationList.map(function (ele) {
+            if (ele.id == stationid) {
+              _this.childStationList = ele.child;
+            }
+          });
+        }
+      });
+    },
+    fatherStationEvent: function fatherStationEvent(id) {
+      this.$router.push({
+        path: "/sitemanage/station",
+        query: { sid: id }
+      });
+    },
+    stationDetail: function stationDetail(id) {
+      this.$router.push({
+        path: "/sitemanage/stationdetail",
+        query: { sid: id }
+      });
+    }
+    //end
+
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-d522e304","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/SiteManage/station.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('span',{staticClass:"icons icon-back pull-left",on:{"click":_vm.backURL}}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v("选择站点")])]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"station-so"},[_c('el-input',{staticClass:"input-with-select",attrs:{"placeholder":"请输入内容"},model:{value:(_vm.chlidStationName),callback:function ($$v) {_vm.chlidStationName=$$v},expression:"chlidStationName"}},[_c('el-select',{attrs:{"slot":"prepend","placeholder":"请选择"},on:{"change":function($event){_vm.fatherStationEvent($event)}},slot:"prepend",model:{value:(_vm.fatherStationId),callback:function ($$v) {_vm.fatherStationId=$$v},expression:"fatherStationId"}},_vm._l((_vm.fatherStationList),function(item){return _c('el-option',{key:item.id+'',attrs:{"label":item.name,"value":item.id}})})),_vm._v(" "),_c('el-button',{attrs:{"slot":"append","icon":"el-icon-search"},slot:"append"})],1)],1),_vm._v(" "),_c('div',{staticClass:"app-content-rows"},[_c('div',{staticClass:"station-list"},[_c('h2',[_vm._v(_vm._s(_vm.fatherStationName))]),_vm._v(" "),_c('div',{staticClass:"warp"},_vm._l((_vm.childStationList),function(item){return _c('div',{key:item.id,staticClass:"item",on:{"click":function($event){_vm.stationDetail(item.id)}}},[_c('div',{staticClass:"text"},[_c('h3',[_vm._v(_vm._s(item.name))]),_vm._v(" "),_vm._m(0,true)]),_vm._v(" "),_c('h4',[_vm._v(_vm._s(item.address))])])}))])])])])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"status"},[_c('span',{staticClass:"status1"},[_vm._v("正常运行")])])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ var views_SiteManage = (esExports);
-// CONCATENATED MODULE: ./src/views/SiteManage/index.vue
+/* harmony default export */ var SiteManage_station = (esExports);
+// CONCATENATED MODULE: ./src/views/SiteManage/station.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("0r5t")
+  __webpack_require__("BOnO")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -264,15 +147,44 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  SiteManage["a" /* default */],
-  views_SiteManage,
+  station,
+  SiteManage_station,
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
 
-/* harmony default export */ var src_views_SiteManage = __webpack_exports__["default"] = (Component.exports);
+/* harmony default export */ var views_SiteManage_station = __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "BOnO":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("ya8t");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("rjj0")("8aa01cf0", content, true);
+
+/***/ }),
+
+/***/ "ya8t":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("FZ+f")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.station-so {\r\n  padding: 15px 15px 1px 15px;\n}\n.station-so .el-input__inner {\r\n  border: none;\n}\n.station-so .el-input-group__prepend {\r\n  background: #dbecfd;\r\n  border-radius: 30px 0 0 30px;\r\n  border: none;\n}\n.station-so .el-input-group__append {\r\n  background: #fff;\r\n  border-radius: 0 30px 30px 0;\r\n  border: none;\n}\n.station-so .el-input--suffix .el-input__inner {\r\n  padding-right: 30px;\r\n  width: 130px;\r\n  text-align: center;\n}\n.station-so .el-select__caret {\r\n  color: #338ff6 !important;\n}\n.station-so .el-button--medium{padding: 10px;\n}\r\n/* list */\n.station-list h2 {\r\n  font-size: 18px;\r\n  color: #333;\r\n  padding-left: 10px;\r\n  margin-bottom: 20px;\n}\n.station-list .warp {\r\n  background: #fff;\r\n  border-radius: 6px;\r\n  overflow: hidden;\n}\n.station-list .item {\r\n  padding-bottom: 20px;\r\n  margin: 20px;\r\n  border-bottom: 1px #ddd solid;\r\n  overflow: hidden;\n}\n.station-list .item:last-child {\r\n  border: none;\r\n  padding-bottom: 0;\n}\n.station-list .item .text {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: justify;\r\n      -ms-flex-pack: justify;\r\n          justify-content: space-between;\r\n  margin-bottom: 6px;\n}\n.station-list .item h3 {\r\n  color: #303030;\r\n  font-size: 15px;\r\n  float: left;\r\n  line-height: 20px;\r\n  margin-top: 5px;\n}\n.station-list .item h4 {\r\n  color: #7e7e7e;\r\n  font-size: 14px;\r\n  font-weight: 400;\n}\n.station-list .item .status {\r\n  margin-top: 0;\r\n  margin-left: 20px;\n}\n.station-list .item span {\r\n  float: right;\r\n  padding: 6px 15px;\r\n  border-radius: 30px;\r\n  color: #fff;\r\n  white-space: nowrap;\n}\n.station-list .item .status1 {\r\n  background: #00dd86;\n}\n.station-list .item .status2 {\r\n  background: #fd3c5a;\n}\r\n", ""]);
+
+// exports
 
 
 /***/ })

@@ -194,10 +194,13 @@ export default {
       }).then(res => {
         let data = res.data;
         if (data.status == 1) {
-           data.data.latest_time= data.data.latest_time.replace("00:00:00","");
-            data.data.warranty_time= data.data.warranty_time.replace("00:00:00","");
-       this.deviceDetailData = data.data;
-      }
+          data.data.latest_time = data.data.latest_time.replace("00:00:00", "");
+          data.data.warranty_time = data.data.warranty_time.replace(
+            "00:00:00",
+            ""
+          );
+          this.deviceDetailData = data.data;
+        }
       });
     }
   }

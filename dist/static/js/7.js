@@ -1,70 +1,27 @@
 webpackJsonp([7],{
 
-/***/ "+ylA":
+/***/ "/ltw":
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
+exports = module.exports = __webpack_require__("FZ+f")(false);
+// imports
 
-// load the styles
-var content = __webpack_require__("ju28");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("rjj0")("4e886b39", content, true);
+
+// module
+exports.push([module.i, "\n.app-device-detail {\r\n  background: #fff;\r\n  border-radius: 6px;\n}\n.app-device-detail .ones {\r\n  background: #2b8cf9;\r\n  display: block;\r\n  overflow: hidden;\r\n  border-radius: 6px 6px 0 0;\r\n  padding: 10px 15px;\n}\n.app-device-detail .ones h3 {\r\n  font-size: 16px;\r\n  font-weight: 700;\r\n  float: left;\r\n  color: #fff;\r\n  width: 80%;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  text-overflow: ellipsis;\n}\n.app-device-detail .ones span {\r\n  float: right;\r\n  font-size: 16px;\r\n  color: #fff;\n}\n.app-device-detail .twos {\r\n  padding: 13px 15px 15px 15px;\n}\n.app-device-detail .bd-img {\r\n  float: left;\r\n  margin-right: 14px;\n}\n.app-device-detail .bd-img img {\r\n  background: #fafafa;\r\n  max-width: 100px;\r\n  height: 110px;\r\n  border-radius: 3px;\r\n  display: block;\r\n  margin-top: 5px;\r\n  margin-bottom: 20px;\n}\n.app-device-detail .bd-body {\r\n  overflow: hidden;\n}\n.app-device-detail p {\r\n  color: #747373;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  line-height: 24px;\n}\n.app-device-chart {\r\n  background: #fff;\r\n  border-radius: 6px;\r\n  padding: 15px;\r\n  margin-top: 15px;\n}\n.app-device-chart .ones h3 {\r\n  font-size: 16px;\r\n  font-weight: 700;\r\n  float: left;\r\n  color: #303030;\n}\n.app-device-chart .ones span {\r\n  float: right;\r\n  font-size: 14px;\r\n  color: #747373;\n}\n.app-device-chart .echartbox {\r\n  margin-top: 20px;\r\n  overflow: hidden;\r\n  width: 100%;\n}\n.app-device-chart .echarts {\r\n  height: 300px;\r\n  width: 100%;\n}\r\n", ""]);
+
+// exports
+
 
 /***/ }),
 
-/***/ "Rz0p":
+/***/ "AWFw":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/SiteManage/statisticsEnergy.vue
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/SiteManage/deviceDetail.vue
 //
 //
 //
@@ -115,58 +72,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ var statisticsEnergy = ({
+/* harmony default export */ var deviceDetail = ({
   data: function data() {
     return {
-      oneType: 1,
-      oneStartTime: "",
-      twoType: 1,
-      twoStartTime: "",
-      threeType: 1,
-      threeStartTime: ""
+      deviceDetailData: []
     };
   },
+  mounted: function mounted() {
+    this.getEcharts();
+  },
   created: function created() {
-    this.getOneChart(this.oneType);
-    this.getTwoChart(this.twoType);
-    this.getThreeChart(this.threeType);
+    this.getDeviceDetailData();
   },
 
   methods: {
     backURL: function backURL() {
-      this.$router.go(-1);
+      this.$router.go(-1); //返回上一层
     },
-
-    //=======1
-    oneStartTimeSelect: function oneStartTimeSelect() {
-      this.getOneChart(this.oneType);
-    },
-    oneSelect: function oneSelect(type) {
-      this.oneType = type;
-      this.getOneChart(type);
-    },
-    getOneChart: function getOneChart(type) {
+    getEcharts: function getEcharts() {
       var _this = this;
 
       this.request({
-        url: "/log/getRealtimeEnergy",
+        url: "/device/getDeviceData",
         method: "get",
-        params: {
-          sid: this.$route.query.id,
-          type: type,
-          start_time: this.oneStartTime
-        }
-      }).then(function (response) {
-        var data = response.data;
+        params: { did: this.$route.query.id }
+      }).then(function (res) {
+        var data = res.data;
         if (data.status == 1) {
+          _this.deviceDetailData = data.data;
           var dataxAxis = data.data.x;
-          var dataSeries = data.data.data;
-          // dataxAxis = [12, 13, 14, 15];
-          // dataSeries = [120, 130, 140, 150];
-
+          var dataSeries = data.data.result;
+          //  let dataxAxis = [12, 13, 14, 15];
+          //   let dataSeries = [20, 70, 50, 90];
           //
           var myChart = _this.$echarts.init(document.getElementById("oneChart"));
-          if (data.data.length == 0) {
+          if (data.data.x.length == 0) {
             myChart.showLoading({
               text: "暂无数据",
               color: "#fff",
@@ -194,15 +134,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
               top: "10%",
               containLabel: true
             },
-            legend: {
-              data: ["总能耗"],
-              textStyle: {
-                color: ["#00D98B"],
-                fontSize: 15
-              },
-              itemWidth: 32,
-              itemHeight: 15
-            },
+            // legend: {
+            //   data: ["总能耗"],
+            //   textStyle: {
+            //     color: ["#00D98B"],
+            //     fontSize: 15
+            //   },
+            //   itemWidth: 32,
+            //   itemHeight: 15
+            // },
             xAxis: {
               type: "category",
               data: dataxAxis,
@@ -224,7 +164,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
               }
             },
-
             yAxis: {
               type: "value",
               // max: "1200",
@@ -259,6 +198,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                   color: "#00D98B"
                 }
               },
+
               data: dataSeries
             }]
           };
@@ -267,313 +207,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           window.addEventListener("resize", function () {
             myChart.resize();
           });
-
-          //end
+          //
         }
       });
     },
-
-    //=======2
-    twoStartTimeSelect: function twoStartTimeSelect() {
-      this.getTwoChart(this.twoType);
-    },
-    twoSelect: function twoSelect(type) {
-      this.twoType = type;
-      this.getTwoChart(type);
-    },
-    getTwoChart: function getTwoChart(type) {
+    getDeviceDetailData: function getDeviceDetailData() {
       var _this2 = this;
 
       this.request({
-        url: "/log/getRealtimeEnergy",
+        url: "/device/getDeviceDetail",
         method: "get",
-        params: {
-          sid: this.$route.query.id,
-          device_type: 1,
-          type: type,
-          start_time: this.twoStartTime
-        }
-      }).then(function (response) {
-        var data = response.data;
+        params: { id: this.$route.query.id }
+      }).then(function (res) {
+        var data = res.data;
         if (data.status == 1) {
-          var dataxAxis = data.data.x;
-          var dataSeries = data.data.result;
-          //dataxAxis = [12, 13, 14, 15];
-          //dataSeries = [120, 30, 10, 150];
-
-          //
-          var myChart = _this2.$echarts.init(document.getElementById("twoChart"));
-          if (data.data.length == 0) {
-            myChart.showLoading({
-              text: "暂无数据",
-              color: "#fff",
-              textColor: "#8a8e91",
-              maskColor: "rgba(255, 255, 255, 0.8)"
-            });
-          }
-          var option = {
-            backgroundColor: "#fff",
-            tooltip: {
-              trigger: "axis",
-              axisPointer: {
-                type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
-              }
-            },
-            toolbox: {
-              feature: {
-                saveAsImage: {}
-              }
-            },
-            grid: {
-              left: "1%",
-              right: "2%",
-              bottom: "2%",
-              top: "10%",
-              containLabel: true
-            },
-            legend: {
-              data: ["风机能耗"],
-              textStyle: {
-                color: ["#00D98B"],
-                fontSize: 15
-              },
-              itemWidth: 32,
-              itemHeight: 15
-            },
-            xAxis: {
-              type: "category",
-              data: dataxAxis,
-              axisLine: {
-                show: true,
-                lineStyle: {
-                  color: "#869ec6"
-                }
-              },
-              splitLine: {
-                show: true,
-                lineStyle: {
-                  color: "#eff4f6"
-                }
-              },
-              axisLabel: {
-                textStyle: {
-                  fontFamily: "Microsoft YaHei"
-                }
-              }
-            },
-
-            yAxis: {
-              type: "value",
-              // max: "1200",
-              axisLine: {
-                show: true,
-                lineStyle: {
-                  color: "#869ec6"
-                }
-              },
-              splitLine: {
-                show: true,
-                lineStyle: {
-                  color: "#eff4f6"
-                }
-              },
-              axisLabel: {}
-            },
-            series: [{
-              name: "风机能耗",
-              type: "line",
-              barWidth: "12",
-              label: {
-                normal: {
-                  show: true,
-                  fontSize: 12,
-                  color: "#00D98B",
-                  position: "top"
-                }
-              },
-              itemStyle: {
-                normal: {
-                  color: "#00D98B"
-                }
-              },
-              data: dataSeries
-            }]
-          };
-          myChart.setOption(option);
-          myChart.resize();
-          window.addEventListener("resize", function () {
-            myChart.resize();
-          });
-
-          //end
-        }
-      });
-    },
-
-    //=======3
-    threeStartTimeSelect: function threeStartTimeSelect() {
-      this.getThreeChart(this.threeType);
-    },
-    threeSelect: function threeSelect(type) {
-      this.threeType = type;
-      this.getThreeChart(type);
-    },
-    getThreeChart: function getThreeChart(type) {
-      var _this3 = this;
-
-      this.request({
-        url: "/log/getRealtimeEnergy",
-        method: "get",
-        params: {
-          sid: this.$route.query.id,
-          device_type: 2,
-          type: type,
-          start_time: this.twoStartTime
-        }
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          var dataxAxis = data.data.x;
-          var dataSeries = data.data.result;
-          //dataxAxis = [12, 13, 14, 15];
-          //dataSeries = [120, 130, 140, 150];
-
-          //
-          var myChart = _this3.$echarts.init(document.getElementById("threeChart"));
-          if (data.data.length == 0) {
-            myChart.showLoading({
-              text: "暂无数据",
-              color: "#fff",
-              textColor: "#8a8e91",
-              maskColor: "rgba(255, 255, 255, 0.8)"
-            });
-          }
-          var option = {
-            backgroundColor: "#fff",
-            tooltip: {
-              trigger: "axis",
-              axisPointer: {
-                type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
-              }
-            },
-            toolbox: {
-              feature: {
-                saveAsImage: {}
-              }
-            },
-            grid: {
-              left: "1%",
-              right: "2%",
-              bottom: "2%",
-              top: "10%",
-              containLabel: true
-            },
-            legend: {
-              data: ["水泵能耗"],
-              textStyle: {
-                color: ["#228FFE"],
-                fontSize: 15
-              },
-              itemWidth: 32,
-              itemHeight: 15
-            },
-            xAxis: {
-              type: "category",
-              data: dataxAxis,
-              axisLine: {
-                show: true,
-                lineStyle: {
-                  color: "#869ec6"
-                }
-              },
-              splitLine: {
-                show: true,
-                lineStyle: {
-                  color: "#eff4f6"
-                }
-              },
-              axisLabel: {
-                textStyle: {
-                  fontFamily: "Microsoft YaHei"
-                }
-              }
-            },
-
-            yAxis: {
-              type: "value",
-              // max: "1200",
-              axisLine: {
-                show: true,
-                lineStyle: {
-                  color: "#869ec6"
-                }
-              },
-              splitLine: {
-                show: true,
-                lineStyle: {
-                  color: "#eff4f6"
-                }
-              },
-              axisLabel: {}
-            },
-            series: [{
-              name: "水泵能耗",
-              type: "line",
-              barWidth: "12",
-              label: {
-                normal: {
-                  show: true,
-                  fontSize: 12,
-                  color: "#228FFE",
-                  position: "top"
-                }
-              },
-              itemStyle: {
-                normal: {
-                  color: "#228FFE"
-                }
-              },
-              data: dataSeries
-            }]
-          };
-          myChart.setOption(option);
-          myChart.resize();
-          window.addEventListener("resize", function () {
-            myChart.resize();
-          });
-
-          //end
-        }
-      });
-    },
-
-    //=======end
-    getStationList: function getStationList() {
-      var _this4 = this;
-
-      this.request({
-        url: "/station/getStationLists",
-        method: "get"
-      }).then(function (response) {
-        var data = response.data;
-        if (data.status == 1) {
-          _this4.stationOptions = data.data;
+          data.data.latest_time = data.data.latest_time.replace("00:00:00", "");
+          data.data.warranty_time = data.data.warranty_time.replace("00:00:00", "");
+          _this2.deviceDetailData = data.data;
         }
       });
     }
-
-    //
-
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-7a13138a","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/SiteManage/statisticsEnergy.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('div',{staticClass:"app-page-statistics"},[_c('div',{staticClass:"app-page-container"},[_c('div',{staticClass:"statistics-top"},[_c('div',{staticClass:"deleft"},[_c('b',[_vm._v("能耗分析")]),_vm._v(" "),_c('el-button',{staticStyle:{"background":"#00ADFF","border":"none"},attrs:{"type":"primary","size":"mini","round":""},on:{"click":_vm.backURL}},[_vm._v("返回")])],1),_vm._v(" "),_c('div',{staticClass:"deright"},[_c('span',[_vm._v(_vm._s(_vm._f("formatGetDate")(new Date())))])])]),_vm._v(" "),_c('div',{staticClass:"statistics"},[_c('div',{staticClass:"grid-content-chart"},[_c('div',{staticClass:"chart-title"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"titleright"},[_c('el-date-picker',{staticClass:"seldate",attrs:{"type":"date","placeholder":"选择日期"},on:{"change":_vm.oneStartTimeSelect},model:{value:(_vm.oneStartTime),callback:function ($$v) {_vm.oneStartTime=$$v},expression:"oneStartTime"}}),_vm._v(" "),_c('span',{staticClass:"selspan",class:_vm.oneType == 1 ? 'active':'',on:{"click":function($event){_vm.oneSelect(1)}}},[_vm._v("按日")]),_vm._v(" "),_c('span',{staticClass:"selspan",class:_vm.oneType == 2 ? 'active':'',on:{"click":function($event){_vm.oneSelect(2)}}},[_vm._v("按月")]),_vm._v(" "),_c('span',{staticClass:"selspan",class:_vm.oneType == 3 ? 'active':'',on:{"click":function($event){_vm.oneSelect(3)}}},[_vm._v("按年")])],1)]),_vm._v(" "),_vm._m(1)]),_vm._v(" "),_c('div',{staticClass:"grid-content-chart"},[_c('div',{staticClass:"chart-title"},[_vm._m(2),_vm._v(" "),_c('div',{staticClass:"titleright"},[_c('el-date-picker',{staticClass:"seldate",attrs:{"type":"date","placeholder":"选择日期"},on:{"change":_vm.twoStartTimeSelect},model:{value:(_vm.twoStartTime),callback:function ($$v) {_vm.twoStartTime=$$v},expression:"twoStartTime"}}),_vm._v(" "),_c('span',{staticClass:"selspan",class:_vm.twoType == 1 ? 'active':'',on:{"click":function($event){_vm.twoSelect(1)}}},[_vm._v("按日")]),_vm._v(" "),_c('span',{staticClass:"selspan",class:_vm.twoType == 2 ? 'active':'',on:{"click":function($event){_vm.twoSelect(2)}}},[_vm._v("按月")]),_vm._v(" "),_c('span',{staticClass:"selspan",class:_vm.twoType == 3 ? 'active':'',on:{"click":function($event){_vm.twoSelect(3)}}},[_vm._v("按年")])],1)]),_vm._v(" "),_vm._m(3)]),_vm._v(" "),_c('div',{staticClass:"grid-content-chart"},[_c('div',{staticClass:"chart-title"},[_vm._m(4),_vm._v(" "),_c('div',{staticClass:"titleright"},[_c('el-date-picker',{staticClass:"seldate",attrs:{"type":"date","placeholder":"选择日期"},on:{"change":_vm.threeStartTimeSelect},model:{value:(_vm.threeStartTime),callback:function ($$v) {_vm.threeStartTime=$$v},expression:"threeStartTime"}}),_vm._v(" "),_c('span',{staticClass:"selspan",class:_vm.threeType == 1 ? 'active':'',on:{"click":function($event){_vm.threeSelect(1)}}},[_vm._v("按日")]),_vm._v(" "),_c('span',{staticClass:"selspan",class:_vm.threeType == 2 ? 'active':'',on:{"click":function($event){_vm.threeSelect(2)}}},[_vm._v("按月")]),_vm._v(" "),_c('span',{staticClass:"selspan",class:_vm.threeType == 3 ? 'active':'',on:{"click":function($event){_vm.threeSelect(3)}}},[_vm._v("按年")])],1)]),_vm._v(" "),_vm._m(5)])])])])])}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"titleleft"},[_c('b',[_vm._v("总能耗")]),_vm._v(" "),_c('em',[_vm._v("单位：度")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"echarts-main"},[_c('div',{staticClass:"echarts",attrs:{"id":"oneChart"}})])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"titleleft"},[_c('b',[_vm._v("风机能耗")]),_vm._v(" "),_c('em',[_vm._v("单位：度")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"echarts-main"},[_c('div',{staticClass:"echarts",attrs:{"id":"twoChart"}})])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"titleleft"},[_c('b',[_vm._v("水泵能耗")]),_vm._v(" "),_c('em',[_vm._v("单位：度")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"echarts-main"},[_c('div',{staticClass:"echarts",attrs:{"id":"threeChart"}})])}]
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-ba2ee340","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/SiteManage/deviceDetail.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('span',{staticClass:"icons icon-back pull-left",on:{"click":_vm.backURL}}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v("设备详情")])]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-content-rows"},[_c('div',{staticClass:"app-device-detail"},[_c('div',{staticClass:"ones"},[_c('h3',[_vm._v(_vm._s(_vm.deviceDetailData.name))]),_vm._v(" "),(_vm.deviceDetailData.type==1)?_c('span',[_vm._v("风机")]):_vm._e(),_vm._v(" "),(_vm.deviceDetailData.type==2)?_c('span',[_vm._v("水泵")]):_vm._e(),_vm._v(" "),(_vm.deviceDetailData.type==3)?_c('span',[_vm._v("紫外灯")]):_vm._e(),_vm._v(" "),(_vm.deviceDetailData.type==4)?_c('span',[_vm._v("PLC")]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"twos"},[_c('div',{staticClass:"bd-img"},[_c('img',{attrs:{"src":_vm.deviceDetailData.img}}),_vm._v(" "),_c('p',[_vm._v("设备状态："+_vm._s(_vm.deviceDetailData.work_status==1?"正常":"异常"))])]),_vm._v(" "),_c('div',{staticClass:"bd-body"},[_c('p',[_vm._v("设备编号："+_vm._s(_vm.deviceDetailData.number))]),_vm._v(" "),_c('p',[_vm._v("设备型号："+_vm._s(_vm.deviceDetailData.model))]),_vm._v(" "),_c('p',[_vm._v("运行时长："+_vm._s(_vm.deviceDetailData.days))]),_vm._v(" "),_c('p',[_vm._v("最近维保："+_vm._s(_vm.deviceDetailData.latest_time))]),_vm._v(" "),_c('p',[_vm._v("设备品牌："+_vm._s(_vm.deviceDetailData.brand))]),_vm._v(" "),_c('p',[_vm._v("质保日期："+_vm._s(_vm.deviceDetailData.warranty_time))]),_vm._v(" "),_c('p',[_vm._v("今日能耗："+_vm._s(_vm.deviceDetailData.energy))]),_vm._v(" "),_c('p',[_vm._v("累计能耗："+_vm._s(_vm.deviceDetailData.total_energy))]),_vm._v(" "),_c('p',[_vm._v("采购人："+_vm._s(_vm.deviceDetailData.purchaser))])])])]),_vm._v(" "),_vm._m(0)])])])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-device-chart"},[_c('div',{staticClass:"ones"},[_c('h3',[_vm._v("设备耗能图")])]),_vm._v(" "),_c('div',{staticClass:"echartbox"},[_c('div',{staticClass:"echarts",attrs:{"id":"oneChart"}})])])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ var SiteManage_statisticsEnergy = (esExports);
-// CONCATENATED MODULE: ./src/views/SiteManage/statisticsEnergy.vue
+/* harmony default export */ var SiteManage_deviceDetail = (esExports);
+// CONCATENATED MODULE: ./src/views/SiteManage/deviceDetail.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("+ylA")
+  __webpack_require__("JfV9")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -589,31 +252,30 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  statisticsEnergy,
-  SiteManage_statisticsEnergy,
+  deviceDetail,
+  SiteManage_deviceDetail,
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
 
-/* harmony default export */ var views_SiteManage_statisticsEnergy = __webpack_exports__["default"] = (Component.exports);
+/* harmony default export */ var views_SiteManage_deviceDetail = __webpack_exports__["default"] = (Component.exports);
 
 
 /***/ }),
 
-/***/ "ju28":
+/***/ "JfV9":
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__("FZ+f")(false);
-// imports
+// style-loader: Adds some css to the DOM by adding a <style> tag
 
-
-// module
-exports.push([module.i, "\n.app-device-page-detail {\r\n  padding: 20px;\n}\n.statistics-top {\r\n  overflow: hidden;\r\n  margin-bottom: 30px;\n}\n.statistics-top .deleft {\r\n  float: left;\n}\n.statistics-top .deleft b {\r\n  font-weight: 400;\r\n  font-size: 18px;\r\n  margin-right: 20px;\n}\n.statistics-top .deright {\r\n  float: right;\r\n  color: #666;\r\n  font-size: 14px;\n}\n.statistics-top .deright span {\r\n  padding-left: 20px;\n}\n.statistics .el-row {\r\n  margin-bottom: 20px;\n}\n.statistics .grid-content {\r\n  padding: 40px 0px 30px 50px;\r\n  background: #fff;\r\n  border-radius: 6px;\r\n  overflow: hidden;\r\n  -webkit-box-shadow: 5px 1px 15px rgba(222, 222, 222, 0.9);\r\n          box-shadow: 5px 1px 15px rgba(222, 222, 222, 0.9);\n}\n.statistics .grid-img {\r\n  float: left;\r\n  width: 100px;\r\n  height: 150px;\r\n  margin-right: 40px;\r\n  border-radius: 100%;\n}\n.statistics .grid-img img {\r\n  margin-top: 15px;\r\n  float: left;\r\n  width: 100px;\r\n  height: 100px;\r\n  border-radius: 100%;\n}\n.statistics .grid-info p {\r\n  color: #333;\r\n  display: inline-block;\r\n  width: 21%;\r\n  padding-top: 20px;\r\n  font-size: 16px;\n}\n.statistics .grid-info p em {\r\n  color: #666;\n}\n.grid-content-chart {\r\n  border-radius: 6px;\r\n  margin-top: 30px;\r\n  background: #fff;\r\n\r\n  -webkit-box-shadow: 5px 1px 15px rgba(222, 222, 222, 0.9);\r\n\r\n          box-shadow: 5px 1px 15px rgba(222, 222, 222, 0.9);\n}\r\n/**/\n.echarts-main {\r\n  padding: 20px;\r\n  overflow: hidden;\n}\n.echarts {\r\n  height: 400px;\r\n  width: 100%;\n}\r\n", ""]);
-
-// exports
-
+// load the styles
+var content = __webpack_require__("/ltw");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("rjj0")("c6355510", content, true);
 
 /***/ })
 

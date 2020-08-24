@@ -1,4 +1,4 @@
-webpackJsonp([21],{
+webpackJsonp([20],{
 
 /***/ "+g8z":
 /***/ (function(module, exports) {
@@ -32,6 +32,7 @@ __webpack_require__.d(filters_namespaceObject, "formatDateTime", function() { re
 __webpack_require__.d(filters_namespaceObject, "formatGetDate", function() { return formatGetDate; });
 __webpack_require__.d(filters_namespaceObject, "formatDateTamp", function() { return formatDateTamp; });
 __webpack_require__.d(filters_namespaceObject, "dateDifference", function() { return dateDifference; });
+__webpack_require__.d(filters_namespaceObject, "isNull", function() { return isNull; });
 
 // EXTERNAL MODULE: ./node_modules/babel-runtime/core-js/object/keys.js
 var keys = __webpack_require__("fZjL");
@@ -41,17 +42,16 @@ var keys_default = /*#__PURE__*/__webpack_require__.n(keys);
 var lib = __webpack_require__("j1ja");
 var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
 
-// EXTERNAL MODULE: external "vue"
-var external__vue_ = __webpack_require__("lRwf");
-var external__vue__default = /*#__PURE__*/__webpack_require__.n(external__vue_);
+// EXTERNAL MODULE: ./node_modules/vue/dist/vue.esm.js
+var vue_esm = __webpack_require__("7+uW");
 
 // EXTERNAL MODULE: ./node_modules/normalize.css/normalize.css
 var normalize = __webpack_require__("uMhA");
 var normalize_default = /*#__PURE__*/__webpack_require__.n(normalize);
 
-// EXTERNAL MODULE: external "ElementUI"
-var external__ElementUI_ = __webpack_require__("l6IN");
-var external__ElementUI__default = /*#__PURE__*/__webpack_require__.n(external__ElementUI_);
+// EXTERNAL MODULE: ./node_modules/element-ui/lib/element-ui.common.js
+var element_ui_common = __webpack_require__("zL8q");
+var element_ui_common_default = /*#__PURE__*/__webpack_require__.n(element_ui_common);
 
 // EXTERNAL MODULE: ./node_modules/element-ui/lib/theme-chalk/index.css
 var theme_chalk = __webpack_require__("tvR6");
@@ -131,20 +131,43 @@ var vue_router_esm = __webpack_require__("/ocq");
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ var Layout = ({
   data: function data() {
-    return {};
+    return { dialogVisible: false };
   },
 
-  methods: {}
+  methods: {
+    showMenu: function showMenu() {
+      this.dialogVisible = true;
+    },
+    hideMenu: function hideMenu() {
+      this.dialogVisible = false;
+    }
+  }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-5f44dbe2","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/layout/Layout.vue
-var Layout_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-wrapper"},[_c('router-view')],1)}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-50a89c71","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/layout/Layout.vue
+var Layout_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-wrapper"},[_c('router-view',{key:_vm.$route.fullPath}),_vm._v(" "),_c('div',{staticClass:"menus",on:{"click":_vm.showMenu}},[_vm._v("菜单")]),_vm._v(" "),_c('el-dialog',{attrs:{"title":"临时菜单","visible":_vm.dialogVisible,"width":"90%"},on:{"update:visible":function($event){_vm.dialogVisible=$event}}},[_c('div',{staticClass:"navss"},[_c('a',{attrs:{"href":"#/sitemanage"},on:{"click":_vm.hideMenu}},[_vm._v("站点首页")]),_vm._v(" "),_c('a',{attrs:{"href":"#/sitemanage/station"},on:{"click":_vm.hideMenu}},[_vm._v("选择站点")]),_vm._v(" "),_c('a',{attrs:{"href":"#/dispatch"},on:{"click":_vm.hideMenu}},[_vm._v("运维派单")]),_vm._v(" "),_c('a',{attrs:{"href":"#/record"},on:{"click":_vm.hideMenu}},[_vm._v("报表统计")]),_vm._v(" "),_c('a',{attrs:{"href":"#/warning"},on:{"click":_vm.hideMenu}},[_vm._v("告警列表")]),_vm._v(" "),_c('a',{attrs:{"href":"#/attendance"},on:{"click":_vm.hideMenu}},[_vm._v("考勤打卡")])])])],1)}
 var Layout_staticRenderFns = []
 var Layout_esExports = { render: Layout_render, staticRenderFns: Layout_staticRenderFns }
 /* harmony default export */ var layout_Layout = (Layout_esExports);
 // CONCATENATED MODULE: ./src/views/layout/Layout.vue
+function injectStyle (ssrContext) {
+  __webpack_require__("jGGX")
+}
 var Layout_normalizeComponent = __webpack_require__("VU/8")
 /* script */
 
@@ -153,7 +176,7 @@ var Layout_normalizeComponent = __webpack_require__("VU/8")
 /* template functional */
 var Layout___vue_template_functional__ = false
 /* styles */
-var Layout___vue_styles__ = null
+var Layout___vue_styles__ = injectStyle
 /* scopeId */
 var Layout___vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -174,24 +197,24 @@ var Layout_Component = Layout_normalizeComponent(
 
 
 
-external__vue__default.a.use(vue_router_esm["a" /* default */]);
+vue_esm["default"].use(vue_router_esm["a" /* default */]);
 
 var constantRouterMap = [{
   path: '/login',
   component: function component() {
-    return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, "T+/8"));
+    return __webpack_require__.e/* import() */(9).then(__webpack_require__.bind(null, "T+/8"));
   },
   hidden: true
 }, {
   path: '/404',
   component: function component() {
-    return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, "fe7i"));
+    return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, "fe7i"));
   },
   hidden: true
 }, {
   path: '/401',
   component: function component() {
-    return __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, "97xN"));
+    return __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, "97xN"));
   },
   hidden: true
 }, {
@@ -202,19 +225,19 @@ var constantRouterMap = [{
     path: '/sitemanage',
     name: 'sitemanage',
     component: function component() {
-      return __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, "vzEL"));
+      return __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, "vzEL"));
     }
   }, {
     path: '/sitemanage/station',
     name: 'sitemanage-station',
     component: function component() {
-      return __webpack_require__.e/* import() */(8).then(__webpack_require__.bind(null, "8iLd"));
+      return __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, "8iLd"));
     }
   }, {
     path: '/sitemanage/stationdetail',
     name: 'sitemanage-stationdetail',
     component: function component() {
-      return __webpack_require__.e/* import() */(5).then(__webpack_require__.bind(null, "YQSK"));
+      return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, "YQSK"));
     }
   }, {
     path: '/sitemanage/main',
@@ -226,19 +249,13 @@ var constantRouterMap = [{
     path: '/sitemanage/devicedetail',
     name: 'sitemanage-devicedetail',
     component: function component() {
-      return __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, "AWFw"));
+      return __webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, "AWFw"));
     }
   }, {
-    path: '/sitemanage/statisticsenergy',
-    name: 'sitemanage-statisticsenergy',
+    path: '/sitemanage/menu',
+    name: 'sitemanage-menu',
     component: function component() {
-      return __webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, "Rz0p"));
-    }
-  }, {
-    path: '/sitemanage/statisticswaterquality',
-    name: 'sitemanage-statisticswaterquality',
-    component: function component() {
-      return __webpack_require__.e/* import() */(11).then(__webpack_require__.bind(null, "zcLY"));
+      return __webpack_require__.e/* import() */(8).then(__webpack_require__.bind(null, "y3h8"));
     }
   }]
 }, {
@@ -249,13 +266,13 @@ var constantRouterMap = [{
     path: '/dispatch',
     name: 'dispatch',
     component: function component() {
-      return __webpack_require__.e/* import() */(15).then(__webpack_require__.bind(null, "IRil"));
+      return __webpack_require__.e/* import() */(16).then(__webpack_require__.bind(null, "IRil"));
     }
   }, {
     path: '/dispatch/list',
     name: 'dispatch-list',
     component: function component() {
-      return __webpack_require__.e/* import() */(12).then(__webpack_require__.bind(null, "J4TC"));
+      return __webpack_require__.e/* import() */(5).then(__webpack_require__.bind(null, "J4TC"));
     }
   }]
 }, {
@@ -266,37 +283,37 @@ var constantRouterMap = [{
     path: '/record',
     name: 'record',
     component: function component() {
-      return __webpack_require__.e/* import() */(18).then(__webpack_require__.bind(null, "xqn6"));
+      return __webpack_require__.e/* import() */(17).then(__webpack_require__.bind(null, "xqn6"));
     }
   }, {
     path: '/record/edit',
     name: 'recordedit',
     component: function component() {
-      return __webpack_require__.e/* import() */(17).then(__webpack_require__.bind(null, "TXIg"));
+      return __webpack_require__.e/* import() */(15).then(__webpack_require__.bind(null, "TXIg"));
     }
   }, {
     path: '/record/operation',
     name: 'operation',
     component: function component() {
-      return __webpack_require__.e/* import() */(13).then(__webpack_require__.bind(null, "IsfQ"));
+      return __webpack_require__.e/* import() */(11).then(__webpack_require__.bind(null, "IsfQ"));
     }
   }, {
     path: '/record/operationedit',
     name: 'operationedit',
     component: function component() {
-      return __webpack_require__.e/* import() */(10).then(__webpack_require__.bind(null, "RdRo"));
+      return __webpack_require__.e/* import() */(14).then(__webpack_require__.bind(null, "RdRo"));
     }
   }, {
     path: '/record/sampling',
     name: 'sampling',
     component: function component() {
-      return __webpack_require__.e/* import() */(9).then(__webpack_require__.bind(null, "3YOD"));
+      return __webpack_require__.e/* import() */(10).then(__webpack_require__.bind(null, "3YOD"));
     }
   }, {
     path: '/record/samplingedit',
     name: 'samplingedit',
     component: function component() {
-      return __webpack_require__.e/* import() */(14).then(__webpack_require__.bind(null, "Cuha"));
+      return __webpack_require__.e/* import() */(12).then(__webpack_require__.bind(null, "Cuha"));
     }
   }]
 }, {
@@ -307,7 +324,7 @@ var constantRouterMap = [{
     path: '/attendance',
     name: 'attendance',
     component: function component() {
-      return __webpack_require__.e/* import() */(16).then(__webpack_require__.bind(null, "Cxod"));
+      return __webpack_require__.e/* import() */(13).then(__webpack_require__.bind(null, "Cxod"));
     }
   }]
 }, {
@@ -318,7 +335,7 @@ var constantRouterMap = [{
     path: '/warning',
     name: 'warning',
     component: function component() {
-      return __webpack_require__.e/* import() */(19).then(__webpack_require__.bind(null, "WdIq"));
+      return __webpack_require__.e/* import() */(18).then(__webpack_require__.bind(null, "WdIq"));
     }
   }]
 }];
@@ -852,7 +869,7 @@ var service = axios_default.a.create({
 });
 // 请求前进行统一处理
 service.interceptors.request.use(function (config) {
-  external__vue__default.a.globalEvBus.$emit('showLoading');
+  vue_esm["default"].globalEvBus.$emit('showLoading');
   return config;
 }, function (error) {
   // 对请求错误做些什么
@@ -861,14 +878,14 @@ service.interceptors.request.use(function (config) {
 
 // 请求后进行统一处理
 service.interceptors.response.use(function (response) {
-  external__vue__default.a.globalEvBus.$emit('hideLoading');
+  vue_esm["default"].globalEvBus.$emit('hideLoading');
   if (response.data.status == 0 && response.data.msg == '校验失败，请重新登录') {
     src_store.dispatch('FedLogOut').then(function () {
       location.reload(); // 为了重新实例化vue-router对象 避免bug
     });
   } else {
     if (response.data.status == 0 && response.data.msg != '') {
-      Object(external__ElementUI_["Message"])({
+      Object(element_ui_common["Message"])({
         message: response.data.msg,
         type: 'error',
         duration: 3 * 1000
@@ -877,15 +894,15 @@ service.interceptors.response.use(function (response) {
     return response;
   }
 }, function (error) {
-  external__vue__default.a.globalEvBus.$emit('hideLoading');
-  Object(external__ElementUI_["Message"])({
+  vue_esm["default"].globalEvBus.$emit('hideLoading');
+  Object(element_ui_common["Message"])({
     message: '请求超时，请重试！',
     type: 'error',
     duration: 3 * 1000
   });
   return promise_default.a.reject(error);
 });
-define_properties_default()(external__vue__default.a.prototype, {
+define_properties_default()(vue_esm["default"].prototype, {
   hostURL: {
     get: function get() {
       return host;
@@ -1260,7 +1277,7 @@ var getters = {
 
 
 
-external__vue__default.a.use(vuex_esm["a" /* default */]);
+vue_esm["default"].use(vuex_esm["a" /* default */]);
 
 var store = new vuex_esm["a" /* default */].Store({
   modules: {
@@ -1332,7 +1349,7 @@ router.beforeEach(function (to, from, next) {
           // })
         }).catch(function (err) {
           src_store.dispatch('FedLogOut').then(function () {
-            external__ElementUI_["Message"].error(err || 'Verification failed, please login again');
+            element_ui_common["Message"].error(err || 'Verification failed, please login again');
             next({ path: '/' });
           });
         });
@@ -1384,18 +1401,12 @@ function formatDateTime(time) {
 }
 //格式化时间
 function formatGetDate(val) {
-  if (val != "") {
-    if (typeof val === 'string') {
-      val = val.replace(/-/g, '/');
-    }
-    var date = new Date(val);
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    month = month < 10 ? "0" + month : month;
-    var day = date.getDate();
-    day = day < 10 ? "0" + day : day;
-    return year + "-" + month + "-" + day;
-  }
+  var date = new Date(val);
+  var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+  var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+  var hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+  var minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+  return date.getFullYear() + '-' + month + "-" + day;
 }
 
 //格式化时间戳
@@ -1423,6 +1434,15 @@ function dateDifference(sDate1, sDate2) {
   }
   return iDays;
 };
+
+function isNull(val) {
+  //debugger
+  var result = "";
+  if (typeof val != "undefined") {
+    result = val;
+  }
+  return result;
+}
 // EXTERNAL MODULE: ./node_modules/echarts/index.js
 var echarts = __webpack_require__("XLwt");
 var echarts_default = /*#__PURE__*/__webpack_require__.n(echarts);
@@ -1523,45 +1543,45 @@ function createEvBus() {
 
 
 
-external__vue__default.a.prototype.$echarts = echarts_default.a;
+vue_esm["default"].prototype.$echarts = echarts_default.a;
 
 
-external__vue__default.a.prototype.wx = weixin_jsapi["a" /* default */];
+vue_esm["default"].prototype.wx = weixin_jsapi["a" /* default */];
 
 
-external__vue__default.a.use(tag_textarea_umd_min_default.a);
+vue_esm["default"].use(tag_textarea_umd_min_default.a);
 
 // import Video
  //浏览器视频插件
 
-external__vue__default.a.prototype.$video = video_es["a" /* default */];
+vue_esm["default"].prototype.$video = video_es["a" /* default */];
 
 // import layer;
 
 
-external__vue__default.a.prototype.$layer = vue_layer_umd_min_default()(external__vue__default.a);
+vue_esm["default"].prototype.$layer = vue_layer_umd_min_default()(vue_esm["default"]);
 // 
-external__vue__default.a.use(external__ElementUI__default.a, {
+vue_esm["default"].use(element_ui_common_default.a, {
   size: 'medium'
 });
 //
 
-external__vue__default.a.use(vue_baidu_map_default.a, {
+vue_esm["default"].use(vue_baidu_map_default.a, {
   ak: 'GsTerPPU46fUXlt09K8840K0HxTvKIIa'
 });
 //
 
-external__vue__default.a.use(eventBus);
+vue_esm["default"].use(eventBus);
 // Vue.use(VueQuillEditor)
 // register global utility filters.
 keys_default()(filters_namespaceObject).forEach(function (key) {
-  external__vue__default.a.filter(key, filters_namespaceObject[key]);
+  vue_esm["default"].filter(key, filters_namespaceObject[key]);
 });
 // 在man.js中注册 weixin-jsapi
 
-external__vue__default.a.config.productionTip = false;
+vue_esm["default"].config.productionTip = false;
 
-new external__vue__default.a({
+new vue_esm["default"]({
   el: '#app',
   router: router,
   store: src_store,
@@ -1585,17 +1605,10 @@ new external__vue__default.a({
 
 /***/ }),
 
-/***/ "l6IN":
+/***/ "jGGX":
 /***/ (function(module, exports) {
 
-module.exports = ElementUI;
-
-/***/ }),
-
-/***/ "lRwf":
-/***/ (function(module, exports) {
-
-module.exports = vue;
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

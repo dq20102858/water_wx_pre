@@ -4,7 +4,7 @@
       <span class="icons icon-back pull-left" @click="backURL"></span>
       <h1 class="titles">XXX站点运行图</h1>
     </header>
-    <div class="app-content" style="display:none">
+    <div class="app-content">
       <div class="app-site">
         <div class="app-site-body">
           <div class="app-site-content">
@@ -167,7 +167,7 @@
             <div class="itembox0">
               <div class="wbox0">
                 <div class="bbans"></div>
-                <div class="bbans" style="top:150px"></div>
+                <div class="bbans" style="top:50px"></div>
               </div>
             </div>
           </div>
@@ -194,33 +194,33 @@ export default {
   mounted() {
     this.flowAnimations("line1", 50, 6, "w");
     this.flowAnimations("line2", 130, 6, "w");
-    this.flowAnimations("line3", 100, 6, "w");
+    this.flowAnimations("line3", 60, 6, "w");
     this.flowAnimations("line4", 100, 6, "w");
-    this.flowAnimations("line5", 100, 6, "w");
-    this.flowAnimations("line6", 200, 6, "w");
-    this.flowAnimations("line7", 150, 6, "w");
-    this.flowAnimations("line8", 100, 6, "w");
-    this.flowAnimations("line9", 300, 6, "w");
-    this.flowAnimations("line10", 60, 6, "w");
-    this.flowAnimations("line11", 100, 6, "w");
-    this.flowAnimations("line12", 100, 6, "w");
-    this.flowAnimations("line13", 450, 6, "w");
-    this.flowAnimations("line14", 200, 6, "w");
-    this.flowAnimations("line15", 90, 6, "w");
-    this.flowAnimations("line16", 150, 6, "w");
-    this.flowAnimations("line17", 100, 6, "w");
-    this.flowAnimations("line18", 100, 6, "w");
+    this.flowAnimations("line5", 60, 6, "w");
+    this.flowAnimations("line6", 80, 6, "w");
+    this.flowAnimations("line7", 70, 6, "w");
+    this.flowAnimations("line8", 50, 6, "w");
+    this.flowAnimations("line9", 350, 6, "w");
+    this.flowAnimations("line10", 40, 6, "w");
+    this.flowAnimations("line11", 80, 6, "w");
+    this.flowAnimations("line12", 80, 6, "w");
+    this.flowAnimations("line13", 300, 6, "w");
+    this.flowAnimations("line14", 130, 6, "w");
+    this.flowAnimations("line15", 50, 6, "w");
+    this.flowAnimations("line16", 70, 6, "w");
+    this.flowAnimations("line17", 90, 6, "w");
+    this.flowAnimations("line18", 90, 6, "w");
     this.flowAnimations("line19", 70, 6, "w");
-    this.flowAnimations("line20", 290, 6, "w");
-    this.flowAnimations("line21", 100, 6, "w");
-    this.flowAnimations("line22", 200, 6, "w");
-    this.flowAnimations("line23", 140, 6, "w");
-    this.flowAnimations("line24", 140, 6, "w");
-    this.flowAnimations("line25", 80, 6, "w");
-    this.flowAnimations("line26", 80, 6, "w");
-    this.flowAnimations("line27", 220, 6, "w");
+    this.flowAnimations("line20", 120, 6, "w");
+    this.flowAnimations("line21", 80, 6, "w");
+    this.flowAnimations("line22", 170, 6, "w");
+    this.flowAnimations("line23", 70, 6, "w");
+    this.flowAnimations("line24", 70, 6, "w");
+    this.flowAnimations("line25", 50, 6, "w");
+    this.flowAnimations("line26", 50, 6, "w");
+    this.flowAnimations("line27", 180, 6, "w");
     this.flowAnimations("line28", 150, 6, "w");
-    this.flowAnimations("line29", 250, 6, "w");
+    this.flowAnimations("line29", 100, 6, "w");
 
     this.bodyWidth = document.documentElement.clientWidth;
     this.bodyHeight = document.documentElement.clientHeight;
@@ -308,9 +308,8 @@ export default {
 };
 </script>
 <style>
-
 /*.app-site*/
-.app-site1{
+.app-site1 {
   transform: rotate(90deg);
   transform-origin: bottom left;
   position: absolute;
@@ -321,7 +320,7 @@ export default {
 
 .app-site .app-site-content {
   position: relative;
-  background:#24284d;
+  background: #24284d;
   height: 360px;
   width: 100%;
 }
@@ -349,32 +348,32 @@ export default {
 .app-site .itembox2 {
   position: absolute;
   top: 140px;
-  left: 300px;
+  left: 290px;
 }
 .app-site .itembox3 {
   position: absolute;
   top: 140px;
-  left: 470px;
+  left: 440px;
 }
 .app-site .itembox4 {
   position: absolute;
   top: 140px;
-  left: 640px;
+  left: 590px;
 }
 .app-site .itembox5 {
   position: absolute;
   top: 140px;
-  left: 810px;
+  left: 740px;
 }
 .app-site .itembox6 {
   position: absolute;
   top: 260px;
-  left: 960px;
+  left: 744px;
 }
 .app-site .itembox7 {
   position: absolute;
-  top: 230px;
-  left: 650px;
+  top: 240px;
+  left: 495px;
 }
 .app-site .itembox8 {
   position: absolute;
@@ -384,7 +383,7 @@ export default {
 .app-site .itembox0 {
   position: absolute;
   top: 10px;
-  left: 960px;
+  left: 890px;
 }
 .app-site .wbox {
   margin: 0 auto;
@@ -399,18 +398,19 @@ export default {
   margin: 0 auto;
   background: url("~@/assets/image/site-001.png") no-repeat;
   background-size: 100%;
-  width: 120px;
-  height: 102px;
+  width: 110px;
+  height: 98px;
   z-index: 999;
   overflow: hidden;
   position: relative;
 }
 .app-site .wbox .bwater {
-  margin-top: 40px;
+  margin-top: 18px;
   display: block;
   margin-bottom: 10px;
   background: url("~@/assets/image/site-02.png") no-repeat;
   height: 67px;
+  background-size: 100%;
 }
 .app-site .wbox .ble {
   background: #1d689e;
@@ -424,14 +424,14 @@ export default {
   height: 30px;
   position: absolute;
   right: 5px;
-  bottom: 12px;
+  bottom: 0;
 }
 .app-site .wbox0 {
   margin: 0 auto;
   background: url("~@/assets/image/site-03.png") no-repeat;
   background-size: 100%;
-  width: 100px;
-  height: 85px;
+  width: 110px;
+  height: 95px;
   z-index: 999;
   overflow: hidden;
 }
@@ -441,8 +441,8 @@ export default {
   width: 30px;
   height: 21px;
   position: absolute;
-  left: 50px;
-  top: 80px;
+  left: 25px;
+  top: 25px;
 }
 .app-site .bnames {
   color: #fff;
@@ -495,12 +495,13 @@ export default {
 }
 .shbeng {
   position: absolute;
-  top: 80px;
-  left: 470px;
+  top: 180px;
+  left: 325px;
   z-index: 9999;
   text-align: center;
 }
 .shbeng h3 {
+  font-size: 12px;
   color: #fff;
   font-weight: 400;
   margin-bottom: 35px;
@@ -537,8 +538,8 @@ export default {
 }
 .ziwai {
   position: absolute;
-  top: 290px;
-  left: 702px;
+top: 259px;
+    left: 494px;
   z-index: 9999;
   text-align: center;
 }
@@ -546,6 +547,7 @@ export default {
   color: #fff;
   font-weight: 400;
   margin-bottom: 15px;
+  font-size: 11px;
 }
 .zhtai {
   border: 1px #4274a5 solid;
@@ -556,12 +558,12 @@ export default {
 }
 .zhtai em {
   display: inline-block;
-  padding: 3px 0 3px 6px;
+  padding: 1px;
 }
 .zhtai span {
   display: inline-block;
   background: #3d88f5;
-  padding: 3px 5px;
+  padding: 1px;
 }
 .zhtai .start1 {
   background: #ec450f;
@@ -581,197 +583,201 @@ export default {
   top: 170px;
 }
 .app-site #line3 {
-  left: 415px;
-  top: 100px;
+  left: 310px;
+  top: 135px;
 }
 .app-site #line4 {
-  left: 480px;
-  top: 40px;
+  left: 345px;
+  top: 104px;
 }
 .app-site #line5 {
-  left: 545px;
-  top: 105px;
+  left: 421px;
+  top: 142px;
 }
 .app-site #line6 {
-  left: 530px;
-  top: -90px;
-}
-.app-site #line7 {
-  left: 590px;
-  top: 80px;
-}
-.app-site #line8 {
-  left: 645px;
+  left: 425px;
   top: 105px;
 }
+.app-site #line7 {
+  left: 444px;
+  top: 136px;
+}
+.app-site #line8 {
+  left: 471px;
+  top: 145px;
+}
 .app-site #line9 {
-  left: 645px;
-  top: 110px;
+  left: 472px;
+  top: 65px;
 }
 .app-site #line10 {
-  left: 920px;
-  top: 110px;
+  left: 804px;
+  top: 68px;
 }
 .app-site #line11 {
-  left: 960px;
-  top: 150px;
+  left: 833px;
+  top: 46px;
 }
 .app-site #line12 {
-  left: 960px;
-  top: 171px;
+  left: 833px;
+  top: 88px;
 }
 .app-site #line13 {
-  left: 670px;
-  top: 0px;
+  left: 488px;
+  top: 94px;
 }
 .app-site #line14 {
-  left: 700px;
-  top: 40px;
+  left: 504px;
+  top: 119px;
 }
 .app-site #line15 {
-  left: 860px;
-  top: 100px;
+  left: 615px;
+  top: 141px;
 }
 .app-site #line16 {
-  left: 1050px;
-  top: -10px;
+  left: 755px;
+  top: 136px;
 }
 .app-site #line17 {
-  left: 705px;
-  top: 170px;
+  left: 506px;
+  top: 178px;
 }
 .app-site #line18 {
-  left: 925px;
-  top: 100px;
+  left: 655px;
+  top: 146px;
 }
 .app-site #line19 {
-  left: 1145px;
-  top: 100px;
+  left: 804px;
+  top: 167px;
 }
 .app-site #line20 {
-  left: 1080px;
-  top: 260px;
+  left: 818px;
+  top: 235px;
 }
 .app-site #line21 {
-  left: 1120px;
-  top: 330px;
+  left: 790px;
+  top: 296px;
 }
 .app-site #line22 {
-  left: 830px;
-  top: 320px;
+    left: 588px;
+    top: 286px;
 }
 .app-site #line23 {
-  left: 690px;
-  top: 260px;
+  left: 520px;
+  top: 250px;
 }
 .app-site #line24 {
-  left: 690px;
-  top: 360px;
+  left: 520px;
+  top: 306px;
 }
 .app-site #line25 {
-  left: 645px;
-  top: 310px;
+left: 488px;
+    top: 281px;
 }
 .app-site #line26 {
-  left: 795px;
-  top: 310px;
+left: 564px;
+    top: 283px;
 }
 .app-site #line27 {
-  left: 460px;
-  top: 320px;
+    left: 332px;
+    top: 274px;
 }
 .app-site #line28 {
   left: 250px;
   top: 320px;
 }
 .app-site #line29 {
-  left: 690px;
-  top: -70px;
+  left: 558px;
+  top: 117px;
 }
 /* */
 .adapter1 {
   position: absolute;
-  width: 21px;
-  height: 22px;
+  width: 12px;
+  height: 13px;
   background: url("~@/assets/image/w-g1.png") no-repeat;
+  background-size: 100%;
 }
 .adapter2 {
   position: absolute;
-  width: 21px;
-  height: 22px;
+  width: 12px;
+  height: 13px;
   background: url("~@/assets/image/w-g2.png") no-repeat;
+  background-size: 100%;
 }
 .adapter3 {
   position: absolute;
-  width: 21px;
-  height: 22px;
+  width: 12px;
+  height: 13px;
   background: url("~@/assets/image/w-g3.png") no-repeat;
+  background-size: 100%;
 }
 .adapter4 {
   position: absolute;
-  width: 21px;
-  height: 22px;
+  width: 12px;
+  height: 13px;
   background: url("~@/assets/image/w-g4.png") no-repeat;
+  background-size: 100%;
 }
 .ad1 {
-  left: 460px;
-  top: -50px;
+  left: 337px;
+  top: 103px;
 }
 .ad2 {
-  left: 580px;
-  top: -50px;
+  left: 443px;
+  top: 104px;
 }
 .ad3 {
-  left: 625px;
-  top: -200px;
+  left: 462px;
+  top: 65px;
 }
 .ad4 {
-  left: 660px;
-  top: -90px;
+  left: 476px;
+  top: 94px;
 }
 .ad5 {
-  left: 945px;
-  top: -240px;
+  left: 822px;
+  top: 45px;
 }
 .ad6 {
-  left: 945px;
-  top: -170px;
+  left: 822px;
+  top: 83px;
 }
 .ad7 {
-  left: 690px;
-  top: -50px;
+  left: 493px;
+  top: 118px;
 }
 .ad8 {
-  left: 890px;
-  top: -50px;
+  left: 632px;
+  top: 118px;
 }
 .ad9 {
-  left: 1110px;
-  top: -90px;
+  left: 782px;
+  top: 94px;
 }
 .ad10 {
-  left: 1210px;
-  top: 10px;
+  left: 870px;
+  top: 167px;
 }
 .ad11 {
-  left: 1210px;
-  top: 321px;
+  left: 869px;
+  top: 291px;
 }
 .ad12 {
-  left: 680px;
-  top: 260px;
+left: 509px;
+    top: 250px;
 }
 .ad13 {
-  left: 820px;
-  top: 260px;
+left: 581px;
+    top: 250px;
 }
 .ad14 {
-  left: 820px;
-  top: 351px;
+  left: 581px;
+  top: 298px;
 }
 .ad15 {
-  left: 680px;
-  top: 351px;
+ left: 510px;
+    top: 299px;
 }
 .rotate360 {
   transform: rotate(360deg);

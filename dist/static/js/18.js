@@ -1,20 +1,6 @@
 webpackJsonp([18],{
 
-/***/ "83YS":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("HxtP");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("rjj0")("2bfc9853", content, true);
-
-/***/ }),
-
-/***/ "HxtP":
+/***/ "+Fuy":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("FZ+f")(false);
@@ -22,20 +8,47 @@ exports = module.exports = __webpack_require__("FZ+f")(false);
 
 
 // module
-exports.push([module.i, "\n.nums {\r\n  padding: 3px 5px;\n}\n.cirshow {\r\n  background: #ff3856;\r\n  color: #fff;\r\n  padding: 3px 5px;\r\n  border-radius: 3px;\n}\r\n", ""]);
+exports.push([module.i, "\n.nums {\r\n  padding: 3px 5px;\n}\n.cirshow {\r\n  background: #FF3856;\r\n  color: #fff;\r\n  padding: 3px 5px;\r\n  border-radius: 3px;\n}\r\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "xqn6":
+/***/ "Qou/":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("+Fuy");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("rjj0")("9d075caa", content, true);
+
+/***/ }),
+
+/***/ "WdIq":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Record/index.vue
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Warning/index.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -89,10 +102,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ var Record = ({
+/* harmony default export */ var Warning = ({
   data: function data() {
     return {
-      tabType: 1,
+      tabType: 2,
       page_cur: 1,
       page_data_total: 0,
       page_size: 20,
@@ -106,13 +119,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     tabSelect: function tabSelect(type) {
-      if (type == 2) {
-        this.$router.push("/record/operation");
-      } else if (type == 3) {
-        this.$router.push("/record/sampling");
-      } else {
-        this.$router.push("/record");
-      }
+      this.tabType = type;
+      this.getDataList();
     },
     getDataList: function getDataList() {
       var _this = this;
@@ -120,7 +128,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var page = this.page_cur;
       var type = this.tabType;
       this.request({
-        url: "/record/getRecordRepairPages",
+        url: "/alert/getAlertPages",
         method: "get",
         params: { page: page, type: type }
       }).then(function (res) {
@@ -145,20 +153,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     pageToLast: function pageToLast() {
       this.page_cur = this.page_total;
       this.getDataList();
-    },
-    addShowEvent: function addShowEvent() {
-      this.$router.push("/record/edit");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-0967ab45","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Record/index.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('h1',{staticClass:"titles"},[_vm._v("报表统计")]),_vm._v(" "),_c('a',{staticClass:"icons icon-add pull-right",on:{"click":_vm.addShowEvent}})]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-tab"},[_c('div',{staticClass:"item"},[_c('span',{staticClass:"active",on:{"click":function($event){_vm.tabSelect(1)}}},[_vm._v("维护记录")])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('span',{on:{"click":function($event){_vm.tabSelect(2)}}},[_vm._v("运行记录")])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('span',{on:{"click":function($event){_vm.tabSelect(3)}}},[_vm._v("采样化验单")])])]),_vm._v(" "),_c('div',{staticClass:"app-content-rows"},[_c('div',{staticClass:"app-table"},[_c('el-table',{attrs:{"data":_vm.dataList,"size":"mini"}},[_c('el-table-column',{attrs:{"label":"序号"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_vm._v(_vm._s(scope.$index+(_vm.page_cur - 1) * _vm.page_size + 1))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"站点名","prop":"station_name"}}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"is_problem","label":"是否异常"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [(scope.row.is_problem==1)?_c('span',[_vm._v("是")]):_vm._e(),_vm._v(" "),(scope.row.is_problem==0)?_c('span',[_vm._v("否")]):_vm._e()]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"维保日期","class-name":"linewrap"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_vm._v(_vm._s(_vm._f("formatGetDate")(scope.row.create_time)))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"user","label":"维保人"}})],1),_vm._v(" "),_c('div',{staticClass:"app-pagers"},[(_vm.dataList.length !== 0)?_c('el-pagination',{attrs:{"background":"","layout":"prev, pager, next","page-size":this.page_size,"current-page":this.page_cur,"total":this.page_data_total},on:{"current-change":_vm.pageChange}}):_vm._e()],1)],1)])])])}
-var staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-0234f85d","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Warning/index.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-tab"},[_c('div',{staticClass:"item"},[_c('span',{class:_vm.tabType == 2 ? 'active':'',on:{"click":function($event){_vm.tabSelect(2)}}},[_vm._v("设备告警")])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('span',{class:_vm.tabType == 1 ? 'active':'',on:{"click":function($event){_vm.tabSelect(1)}}},[_vm._v("水质告警")])]),_vm._v(" "),_c('div',{staticClass:"item"},[_c('span',{class:_vm.tabType == 3 ? 'active':'',on:{"click":function($event){_vm.tabSelect(3)}}},[_vm._v("入侵告警")])])]),_vm._v(" "),_c('div',{staticClass:"app-content-rows"},[_c('div',{staticClass:"app-table"},[_c('el-table',{attrs:{"data":_vm.dataList,"size":"mini"}},[_c('el-table-column',{attrs:{"label":"序号","type":"index"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('span',{class:[scope.row.is_read!=1? 'cirshow' : 'nums']},[_vm._v(_vm._s(scope.$index+(_vm.page_cur - 1) * _vm.page_size + 1))])]}}])}),_vm._v(" "),(this.tabType==2)?_c('el-table-column',{attrs:{"label":"告警设备","class-name":"nowrap"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [(scope.row.type==1)?_c('span',[_vm._v("风机")]):_vm._e(),_vm._v(" "),(scope.row.type==2)?_c('span',[_vm._v("水泵")]):_vm._e(),_vm._v(" "),(scope.row.type==3)?_c('span',[_vm._v("紫外灯")]):_vm._e(),_vm._v(" "),(scope.row.type==4)?_c('span',[_vm._v("PLC")]):_vm._e()]}}])}):_vm._e(),_vm._v(" "),(this.tabType==1)?_c('el-table-column',{attrs:{"prop":"type","label":"水质类型"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [(scope.row.type==1)?_c('span',[_vm._v("PH")]):(scope.row.type==2)?_c('span',[_vm._v("DO")]):_c('span',[_vm._v("液位")])]}}])}):_vm._e(),_vm._v(" "),_c('el-table-column',{attrs:{"label":"发生位置","prop":"address"}}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"告警时间"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('span',[_vm._v(_vm._s(_vm._f("formatDateTime")(scope.row.create_time)))])]}}])})],1),_vm._v(" "),_c('div',{staticClass:"app-pagination"},[(_vm.dataList.length !== 0)?_c('el-pagination',{staticClass:"pagination",attrs:{"layout":"prev, pager, next","page-size":this.page_size,"current-page":this.page_cur,"total":this.page_data_total},on:{"current-change":_vm.pageChange}}):_vm._e()],1)],1)])])])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('header',{staticClass:"app-top-bar"},[_c('h1',{staticClass:"titles"},[_vm._v("告警列表")])])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ var views_Record = (esExports);
-// CONCATENATED MODULE: ./src/views/Record/index.vue
+/* harmony default export */ var views_Warning = (esExports);
+// CONCATENATED MODULE: ./src/views/Warning/index.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("83YS")
+  __webpack_require__("Qou/")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -174,15 +179,15 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  Record,
-  views_Record,
+  Warning,
+  views_Warning,
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
 
-/* harmony default export */ var src_views_Record = __webpack_exports__["default"] = (Component.exports);
+/* harmony default export */ var src_views_Warning = __webpack_exports__["default"] = (Component.exports);
 
 
 /***/ })

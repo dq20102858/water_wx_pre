@@ -17,8 +17,6 @@
             autocomplete="new-password"  maxlength="20"
             clearable
           >
-
-          
             <template slot="prepend">
               <img :src="require('@/assets/image/icon-login1.png')" />
             </template>
