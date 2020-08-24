@@ -2,7 +2,7 @@
   <div class="app-pages">
     <header class="app-top-bar">
       <span class="icons icon-back pull-left" @click="backURL"></span>
-      <h1 class="titles">站点概览</h1>
+      <h1 class="titles">站点详情</h1>
     </header>
     <div class="app-content">
       <div class="app-content-rows">

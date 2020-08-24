@@ -1,8 +1,11 @@
 <template>
   <div class="app-pages">
-        <header class="app-top-bar">
-      <!-- <span class="icons icon-back pull-left"></span> -->
-      <h1 class="titles">站点</h1>
+    <header class="app-top-bar">
+      <span class="icons icon-station pull-left" @click="getAllStation"></span>
+      <span class="icons icon-msg pull-left" @click="getWarm">
+        <i class="msgnum"></i>
+      </span>
+      <h1 class="titles">南通沿海市政</h1>
     </header>
     <div class="baidumap">
       <div
@@ -108,6 +111,16 @@ export default {
 
   created() {},
   methods: {
+    getAllStation() {
+      this.$router.push({
+        path: "/sitemanage/station"
+      });
+    },
+    getWarm() {
+      this.$router.push({
+        path: "/warning"
+      });
+    },
     getChildStationList() {
       let name = this.searchVillageName;
       this.request({
@@ -208,5 +221,4 @@ export default {
   border: 1px #409eff solid;
   color: #fff;
 }
-
 </style>
