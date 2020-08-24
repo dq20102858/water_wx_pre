@@ -91,9 +91,9 @@
             <el-option v-for="item in userList" :key="item.id" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="指派时间：" prop="assign_time">
+        <!-- <el-form-item label="指派时间：" prop="assign_time">
           <el-date-picker v-model="formData.assign_time" type="datetime" placeholder="选择日期"></el-date-picker>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item label="维修内容：" prop="content">
           <el-input type="textarea" v-model="formData.content" rows="3"></el-input>
         </el-form-item>

@@ -53,7 +53,12 @@
             <h3>设备列表</h3>
             <!-- <span @click="deviceDetailEvent(0)">查看详情</span> -->
           </div>
-          <div class="twos" v-for="item in deviceLists" :key="item.id">
+          <div
+            class="twos"
+            v-for="item in deviceLists"
+            :key="item.id"
+            @click="getDeviceDetail(item.id)"
+          >
             <img class="bd-img" :src="item.img" />
             <div class="bd-body">
               <p v-if="item.type==1">设备类型：风机</p>
@@ -126,6 +131,12 @@ export default {
           this.deviceLists = data.data;
         }
       });
+    },
+    getDeviceDetail(id) {
+      this.$router.push({
+        path: "/sitemanage/devicedetail",
+        query: { id: id }
+      });
     }
     //
   }
@@ -144,7 +155,10 @@ export default {
 .app-station-one .ones h3 {
   font-size: 18px;
   font-weight: 700;
-  float: left;
+  float: left;  width: 60%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .app-station-one .ones span {
   cursor: pointer;

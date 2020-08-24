@@ -47,16 +47,8 @@ const constantRouterMap = [
         path: '/sitemanage/devicedetail',
         name: 'sitemanage-devicedetail',
         component: () => import('@/views/SiteManage/deviceDetail')
-      }, {
-        path: '/sitemanage/statisticsenergy',
-        name: 'sitemanage-statisticsenergy',
-        component: () => import('@/views/SiteManage/statisticsEnergy')
       }
       , {
-        path: '/sitemanage/statisticswaterquality',
-        name: 'sitemanage-statisticswaterquality',
-        component: () => import('@/views/SiteManage/statisticsWaterQuality')
-      } , {
         path: '/sitemanage/menu',
         name: 'sitemanage-menu',
         component: () => import('@/views/SiteManage/menu')
@@ -89,11 +81,11 @@ const constantRouterMap = [
         path: '/record',
         name: 'record',
         component: () => import('@/views/Record/index')
-      },{
+      }, {
         path: '/record/edit',
         name: 'recordedit',
         component: () => import('@/views/Record/edit')
-      },  {
+      }, {
         path: '/record/operation',
         name: 'operation',
         component: () => import('@/views/Record/operation')
