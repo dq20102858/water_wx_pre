@@ -4,7 +4,7 @@
       <span class="icons icon-back pull-left" @click="backURL"></span>
       <h1 class="titles">XXX站点运行图</h1>
     </header>
-    <div class="app-content">
+    <div class="app-content" style="display:none">
       <div class="app-site">
         <div class="app-site-body">
           <div class="app-site-content">

@@ -4,7 +4,7 @@
       <div class="navss">
         <a target="_blank" href="#/sitemanage/station" class>选择站点</a>
         <a target="_blank"  href="#/sitemanage/stationDetail" class>站点详情</a>
-        <a target="_blank"  href="#/sitemanage/main" class>运行图</a>
+        <!-- <a target="_blank"  href="#/sitemanage/main" class>运行图</a> -->
         <a target="_blank"  href="#/dispatch" class>运维派单</a>
         <a target="_blank"  href="#/record" class>报表统计</a>
         <a target="_blank"  href="#/warning" class>告警列表</a>
