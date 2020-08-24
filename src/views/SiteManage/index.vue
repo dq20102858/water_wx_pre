@@ -208,15 +208,5 @@ export default {
   border: 1px #409eff solid;
   color: #fff;
 }
-.navss {
-  padding: 10px;
-}
-.navss a {
-  padding: 5px;
-  color: #333;
-  white-space: nowrap;
-  text-decoration: none;
-  display: inline-block;
-  font-weight: 700;
-}
+
 </style>

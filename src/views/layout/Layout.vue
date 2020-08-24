@@ -46,7 +46,7 @@ export default {
   z-index: 99999;
 }
 .navss {
-  padding:20px 10px ;
+  padding:20px 0 ;
 }
 .navss a {
   padding: 10px;
