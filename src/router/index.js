@@ -56,6 +56,10 @@ const constantRouterMap = [
         path: '/sitemanage/statisticswaterquality',
         name: 'sitemanage-statisticswaterquality',
         component: () => import('@/views/SiteManage/statisticsWaterQuality')
+      } , {
+        path: '/sitemanage/menu',
+        name: 'sitemanage-menu',
+        component: () => import('@/views/SiteManage/menu')
       }
     ]
   },
