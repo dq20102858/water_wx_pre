@@ -1,16 +1,9 @@
 <template>
   <div class="app-pages">
-    <!-- <div class="navss">
-      <div class="navss">
-        <a target="_blank" href="#/sitemanage/station" class>选择站点</a>
-        <a target="_blank"  href="#/sitemanage/stationDetail" class>站点详情</a>
-        <a target="_blank"  href="#/sitemanage/main" class>运行图</a>
-        <a target="_blank"  href="#/dispatch" class>运维派单</a>
-        <a target="_blank"  href="#/record" class>报表统计</a>
-        <a target="_blank"  href="#/warning" class>告警列表</a>
-        <a target="_blank"  href="#/attendance" class>考勤打卡</a>
-      </div>
-    </div>-->
+        <header class="app-top-bar">
+      <!-- <span class="icons icon-back pull-left"></span> -->
+      <h1 class="titles">站点</h1>
+    </header>
     <div class="baidumap">
       <div
         class="map-so-input el-input el-input--medium el-input-group el-input-group--append el-input--suffix"
@@ -162,8 +155,8 @@ export default {
       console.log(e);
       this.show = true;
       this.$router.push({
-        path: "/sitemanage/main",
-        query: { pid: e.pid, sid: e.id }
+        path: "/sitemanage/stationdetail",
+        query: { sid: e.id }
       });
     },
     getClickInfo(e) {
@@ -193,7 +186,7 @@ export default {
 <style>
 .bm-view {
   width: 100%;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 44px);
 }
 .baidumap {
   position: relative;
