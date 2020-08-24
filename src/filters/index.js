@@ -16,23 +16,17 @@ export function formatDateTime(time) {
   var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
   var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
   var hours = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours());
-  var minutes =(date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes());
-  return date.getFullYear() + '-' + month + "-" + day+ " " + hours+ ":" +minutes;
+  var minutes = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes());
+  return date.getFullYear() + '-' + month + "-" + day + " " + hours + ":" + minutes;
 }
 //格式化时间
 export function formatGetDate(val) {
-  if (val != "") {
-    if (typeof val === 'string') {
-      val = val.replace(/-/g, '/')
-    }
-    var date = new Date(val);
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    month = month < 10 ? "0" + month : month;
-    var day = date.getDate();
-    day = day < 10 ? "0" + day : day;
-    return year + "-" + month + "-" + day;
-  }
+  var date = new Date(val);
+  var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+  var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+  var hours = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours());
+  var minutes = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes());
+  return date.getFullYear() + '-' + month + "-" + day;
 }
 
 //格式化时间戳
@@ -66,3 +60,12 @@ export function dateDifference(sDate1, sDate2) {
   }
   return iDays
 };
+
+export function isNull(val) {
+  //debugger
+  let result = "";
+  if (typeof val != "undefined") {
+    result = val;
+  }
+  return result;
+}

@@ -23,9 +23,9 @@
               <p>设备编号：{{deviceDetailData.number}}</p>
               <p>设备型号：{{deviceDetailData.model}}</p>
               <p>运行时长：{{deviceDetailData.days}}</p>
-              <p>最近维保：{{deviceDetailData.latest_time|formatGetDate}}</p>
-              <p>品牌：{{deviceDetailData.brand}}</p>
-              <p>质保期：{{deviceDetailData.warranty_time|formatGetDate}}</p>
+              <p>最近维保：{{deviceDetailData.latest_time}}</p>
+              <p>设备品牌：{{deviceDetailData.brand}}</p>
+              <p>质保日期：{{deviceDetailData.warranty_time}}</p>
               <p>今日能耗：{{deviceDetailData.energy}}</p>
               <p>累计能耗：{{deviceDetailData.total_energy}}</p>
               <p>采购人：{{deviceDetailData.purchaser}}</p>
@@ -194,8 +194,10 @@ export default {
       }).then(res => {
         let data = res.data;
         if (data.status == 1) {
-          this.deviceDetailData = data.data;
-        }
+           data.data.latest_time= data.data.latest_time.replace("00:00:00","");
+            data.data.warranty_time= data.data.warranty_time.replace("00:00:00","");
+       this.deviceDetailData = data.data;
+      }
       });
     }
   }
