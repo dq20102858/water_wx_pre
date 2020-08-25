@@ -12,6 +12,9 @@ export function formatDate(val) {
   return year + "年" + month + "月" + day + "日";
 }
 export function formatDateTime(time) {
+  if (typeof time === 'string') {
+    time = time.replace(/-/g, '/')
+  }
   var date = new Date(time);
   var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
   var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();

@@ -13,6 +13,21 @@ const service = axios.create({
 // 请求前进行统一处理
 service.interceptors.request.use(
   function (config) {
+    let getSessionCode = window.localStorage.getItem("sessionCode");
+    if (config.method == 'get') {
+      if (config.params) {
+        config.params.sessionCode = getSessionCode;
+      } else {
+        config.params = { 'sessionCode': getSessionCode };
+      }
+    }
+    if (config.method == 'post') {
+      if (config.data) {
+        config.data.sessionCode = getSessionCode;
+      } else {
+        config.data = { 'sessionCode': getSessionCode };
+      }
+    }
     Vue.globalEvBus.$emit('showLoading')
     return config
   },
@@ -26,6 +41,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     Vue.globalEvBus.$emit('hideLoading')
+
     if (response.data.status == 0 && response.data.msg == '校验失败，请重新登录') {
       store.dispatch('FedLogOut').then(() => {
         location.reload() // 为了重新实例化vue-router对象 避免bug

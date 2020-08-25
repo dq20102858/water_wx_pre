@@ -100,11 +100,13 @@ export default {
     };
   },
   created() {
-    this.getSign();
+    //this.getSign();
     this.getDataList();
   },
   methods: {
     getDataList() {
+              debugger
+              let ss=window.localStorage.getItem('sessionCode');
       let page = this.page_cur;
       let type = this.searchType;
       let status = this.searchStatus;
@@ -115,8 +117,9 @@ export default {
       this.request({
         url: "/clock/getClockPages",
         method: "get",
-        params: { page, sid, assigner_id, type, status, start_time, end_time }
+        params: { page, sid, assigner_id, type, status, start_time, end_time, sessionCode:window.localStorage.getItem('sessionCode')}
       }).then(res => {
+
         let data = res.data;
         if (data.status == 1) {
           this.dataList = data.data.data;

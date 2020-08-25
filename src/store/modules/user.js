@@ -12,6 +12,7 @@ const user = {
     user: '',
     status: '',
     code: '',
+    sessionCode: '',
     token: getToken(),
     name: '',
     avatar: '',
@@ -27,6 +28,9 @@ const user = {
   mutations: {
     SET_CODE: (state, code) => {
       state.code = code
+    },
+    SET_SESSIONCode: (state, sessionCode) => {
+      state.sessionCode = sessionCode
     },
     SET_TOKEN: (state, token) => {
       state.token = token
@@ -64,9 +68,13 @@ const user = {
       return new Promise((resolve, reject) => {
         loginByUsername(username, userInfo.password)
           .then(response => {
+          
             if (response.data.status) {
               const data = response.data.data
               commit('SET_TOKEN', data.token)
+              //sessionStorage.setItem("activeMenu", data.sessionCode);
+              var storage = window.localStorage;
+              storage["sessionCode"] = data.sessionCode;
               setToken(data.token)
               setSystem(1)
               resolve()
@@ -83,7 +91,8 @@ const user = {
     // 获取用户信息
     GetUserInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
-        getUserInfo({ token: state.token, systemId: state.system })
+        var getSessionCode = localStorage.getItem("sessionCode");
+        getUserInfo({ token: state.token, sessionCode: getSessionCode, systemId: state.system })
           .then(response => {
             if (!response.data) {
               // 由于mockjs 不支持自定义状态码只能这样hack
@@ -100,6 +109,7 @@ const user = {
             commit('SET_AVATAR', data.avatar)
             commit('SET_INTRODUCTION', data.introduction)
             commit('SET_SYS_ROLE', data.sys_role)
+
             resolve(response)
           })
           .catch(error => {
