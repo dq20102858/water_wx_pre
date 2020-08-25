@@ -139,8 +139,7 @@ export default {
       });
     } ,   mainDetail() {
       this.$router.push({
-        path: "/sitemanage/main",
-        query: { id: id }
+        path: "/sitemanage/main"
       });
     }
     //

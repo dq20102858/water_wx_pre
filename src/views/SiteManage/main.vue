@@ -308,7 +308,7 @@ export default {
 </script>
 <style>
 /*.app-site*/
-.app-site1 {
+.app-site {
   transform: rotate(90deg);
   transform-origin: bottom left;
   position: absolute;
