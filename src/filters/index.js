@@ -11,11 +11,11 @@ export function formatDate(val) {
   day = day < 10 ? "0" + day : day;
   return year + "年" + month + "月" + day + "日";
 }
-export function formatDateTime(time) {
-  if (typeof time === 'string') {
-    time = time.replace(/-/g, '/')
+export function formatDateTime(val) {
+  if (typeof val === 'string') {
+    val = val.replace(/-/g, '/')
   }
-  var date = new Date(time);
+  var date = new Date(val);
   var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
   var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
   var hours = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours());
@@ -24,6 +24,9 @@ export function formatDateTime(time) {
 }
 //格式化时间
 export function formatGetDate(val) {
+  if (typeof val === 'string') {
+    val = val.replace(/-/g, '/')
+  }
   var date = new Date(val);
   var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
   var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();

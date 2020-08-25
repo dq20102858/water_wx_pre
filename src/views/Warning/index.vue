@@ -18,14 +18,14 @@
       <div class="app-content-rows">
         <div class="app-table">
           <el-table :data="dataList" size="mini">
-            <el-table-column label="序号" type="index">
+            <el-table-column label="序号">
                   <template slot-scope="scope">
                   <span
                     :class="[scope.row.is_read!=1? 'cirshow' : 'nums']"
                   >{{scope.$index+(page_cur - 1) * page_size + 1}}</span>
                 </template>
             </el-table-column>
-            <el-table-column label="告警设备" class-name="nowrap"  v-if="this.tabType==2">
+            <el-table-column label="设备" class-name="nowrap"  v-if="this.tabType==2" width="70">
               <template slot-scope="scope">
                 <span v-if="scope.row.type==1">风机</span>
                 <span v-if="scope.row.type==2">水泵</span>
@@ -33,7 +33,7 @@
                 <span v-if="scope.row.type==4">PLC</span>
               </template>
             </el-table-column>
-                <el-table-column prop="type" label="水质类型" v-if="this.tabType==1">
+                <el-table-column prop="type" label="类型" v-if="this.tabType==1" width="70">
                 <template slot-scope="scope">
                   <span v-if="scope.row.type==1">PH</span>
                   <span v-else-if="scope.row.type==2">DO</span>
@@ -41,7 +41,7 @@
                 </template>
               </el-table-column>
             <el-table-column label="发生位置" prop="address"></el-table-column>
-            <el-table-column label="告警时间">
+            <el-table-column label="告警时间" class-name="linewrap">
               <template slot-scope="scope">
                 <span>{{scope.row.create_time|formatDateTime}}</span>
               </template>
