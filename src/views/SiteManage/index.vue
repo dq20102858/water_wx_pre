@@ -6,6 +6,7 @@
         <i class="msgnum"></i>
       </span>
       <h1 class="titles">南通沿海市政</h1>
+       <span class="icons icon-logout pull-right" @click="logout"></span>
     </header>
     <div class="baidumap">
       <div
@@ -190,9 +191,22 @@ export default {
     },
     searchEvent() {
       this.address = this.searchAddress;
+    },
+    logout() {
+      this.$confirm("您确定要退出当前系统？", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+        customClass: "el-message-box-new"
+      })
+        .then(() => {
+          this.$store.dispatch("LogOut").then(() => {
+            location.reload(); // In order to re-instantiate the vue-router object to avoid bugs
+          });
+        })
+        .catch(() => {});
     }
-  },
-  destroyed() {}
+  }
 };
 </script>
 
