@@ -134,5 +134,4 @@ export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
-//路由组件注册
-export const asyncRouterMap = []
+
