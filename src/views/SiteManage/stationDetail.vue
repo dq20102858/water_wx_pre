@@ -9,7 +9,7 @@
         <div class="app-station-one">
           <div class="ones">
             <h3>{{stationDetail.name}}</h3>
-            <span>站点运行图</span>
+            <span @click="mainDetail">站点运行图</span>
           </div>
           <p>入网时间：{{stationDetail.create_time}}</p>
           <p>日排污量：{{stationDetail.number}}吨</p>
@@ -135,6 +135,11 @@ export default {
     getDeviceDetail(id) {
       this.$router.push({
         path: "/sitemanage/devicedetail",
+        query: { id: id }
+      });
+    } ,   mainDetail() {
+      this.$router.push({
+        path: "/sitemanage/main",
         query: { id: id }
       });
     }

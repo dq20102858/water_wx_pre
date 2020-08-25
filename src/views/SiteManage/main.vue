@@ -101,8 +101,7 @@
             <div class="ziwai">
               <h3>紫外线消毒灯光</h3>
               <p class="zhtai">
-                <em>设备状态：</em>
-                <span class="start0">运行中</span>
+                设备状态：<span class="start0">运行中</span>
               </p>
             </div>
             <div class="itembox1">
@@ -155,7 +154,7 @@
                 <div class="bwater"></div>
                 <div class="ble"></div>
               </div>
-              <div class="bnames">消毒池</div>
+              <div class="bnames" style="padding-top:0">消毒池</div>
             </div>
             <div class="itembox8">
               <div class="wbox">
@@ -219,7 +218,7 @@ export default {
     this.flowAnimations("line25", 50, 6, "w");
     this.flowAnimations("line26", 50, 6, "w");
     this.flowAnimations("line27", 180, 6, "w");
-    this.flowAnimations("line28", 150, 6, "w");
+    this.flowAnimations("line28", 60, 6, "w");
     this.flowAnimations("line29", 100, 6, "w");
 
     this.bodyWidth = document.documentElement.clientWidth;
@@ -373,12 +372,12 @@ export default {
 .app-site .itembox7 {
   position: absolute;
   top: 240px;
-  left: 495px;
+  left: 480px;
 }
 .app-site .itembox8 {
   position: absolute;
   top: 260px;
-  left: 300px;
+  left: 290px;
 }
 .app-site .itembox0 {
   position: absolute;
@@ -398,8 +397,8 @@ export default {
   margin: 0 auto;
   background: url("~@/assets/image/site-001.png") no-repeat;
   background-size: 100%;
-  width: 110px;
-  height: 98px;
+  width: 140px;
+  height: 100px;
   z-index: 999;
   overflow: hidden;
   position: relative;
@@ -447,7 +446,7 @@ export default {
 .app-site .bnames {
   color: #fff;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   padding-top: 10px;
 }
 .app-site .jcname {
@@ -472,8 +471,8 @@ export default {
   border-radius: 2px;
   border: 1px #4274a5 solid;
   position: absolute;
-  left: 150px;
-  top: 313px;
+left: 159px;
+    top: 283px;
   cursor: pointer;
 }
 .app-site .j2text {
@@ -680,11 +679,11 @@ left: 564px;
 }
 .app-site #line27 {
     left: 332px;
-    top: 274px;
+    top: 285px;
 }
 .app-site #line28 {
-  left: 250px;
-  top: 320px;
+left: 250px;
+    top: 294px;
 }
 .app-site #line29 {
   left: 558px;
