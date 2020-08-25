@@ -19,12 +19,12 @@
       <div class="app-content-rows">
         <div class="app-table">
           <el-table :data="dataList" size="mini">
-            <el-table-column label="序号">
+            <el-table-column label="序号" width="60">
            <template slot-scope="scope">
                  {{scope.$index+(page_cur - 1) * page_size + 1}}
               </template>
             </el-table-column>
-            <el-table-column label="站点名" prop="station_name"></el-table-column>
+            <el-table-column label="站点名" prop="station_name" class-name="nowrap"></el-table-column>
             <el-table-column prop="electricity" label="电表读数"></el-table-column>
             <el-table-column label="巡检日期" class-name="linewrap">
               <template slot-scope="scope">{{scope.row.create_time|formatGetDate}}</template>

@@ -8,8 +8,8 @@
       <div class="app-content-rows">
         <div class="app-table">
           <el-table :data="dataList" size="mini">
-            <el-table-column label="序号" type="index">
-              <!-- <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template> -->
+            <el-table-column label="序号"  width="60">
+           <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
             <el-table-column prop="station_name" label="维保站点" class-name="nowrap"></el-table-column>
             <el-table-column prop="type" label="维保事项">

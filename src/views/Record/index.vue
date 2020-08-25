@@ -19,10 +19,10 @@
       <div class="app-content-rows">
         <div class="app-table">
           <el-table :data="dataList" size="mini">
-            <el-table-column label="序号">
+            <el-table-column label="序号" width="60">
               <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
-            <el-table-column label="站点名" prop="station_name"></el-table-column>
+            <el-table-column label="站点名" prop="station_name" class-name="nowrap"></el-table-column>
             <el-table-column prop="is_problem" label="是否异常">
               <template slot-scope="scope">
                 <span v-if="scope.row.is_problem==1">是</span>

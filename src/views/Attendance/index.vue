@@ -18,7 +18,9 @@
       <div class="app-content-rows">
         <div class="app-table">
           <el-table :data="dataList" size="mini" @row-click="tableRowDetails">
-            <el-table-column label="序号" type="index"></el-table-column>
+            <el-table-column label="序号" width="60">
+              <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
+            </el-table-column>
             <el-table-column prop="address" label="站点名"></el-table-column>
             <el-table-column label="开始时间">
               <template slot-scope="scope">{{scope.row.start_time|formatDateTime}}</template>
@@ -105,8 +107,6 @@ export default {
   },
   methods: {
     getDataList() {
-              debugger
-              let ss=window.localStorage.getItem('sessionCode');
       let page = this.page_cur;
       let type = this.searchType;
       let status = this.searchStatus;
@@ -117,9 +117,8 @@ export default {
       this.request({
         url: "/clock/getClockPages",
         method: "get",
-        params: { page, sid, assigner_id, type, status, start_time, end_time, sessionCode:window.localStorage.getItem('sessionCode')}
+        params: { page, sid, assigner_id, type, status, start_time, end_time }
       }).then(res => {
-
         let data = res.data;
         if (data.status == 1) {
           this.dataList = data.data.data;

@@ -14,16 +14,16 @@
           </el-button>
         </div>
         <div class="items">
-          <div class="item" v-for="item in statusOkList" :key="item.id">
+          <div class="item" v-for="items in statusOkList" :key="items.id">
             <p>
-              <span class="pull-left">{{item.station_name}}</span>
-              <span v-if="item.type==1" class="type type1">设备维修</span>
-              <span v-if="item.type==2" class="type type2">例行维保</span>
-              <span v-if="item.type==3" class="type type3">运行检查</span>
+              <span class="pull-left">{{items.station_name}}</span>
+              <span v-if="items.type==1" class="type type1">设备维修</span>
+              <span v-if="items.type==2" class="type type2">例行维保</span>
+              <span v-if="items.type==3" class="type type3">运行检查</span>
             </p>
             <p>
-              <em class="pull-left">完成时间：{{item.assign_time}}</em>
-              <em class="pull-right">维保人：</em>
+              <em class="pull-left">完成时间：{{items.assign_time}}</em>
+              <em class="pull-right">维保人：{{items.assigner}}</em>
             </p>
           </div>
         </div>
@@ -64,12 +64,14 @@ export default {
       statusNoList: []
     };
   },
-  created() {
-    this.getAssignPages(1, 3);
-    this.getAssignPages(2, 3);
+  mounted() {
+    this.getAssignPages(1);
+    this.getAssignPages(2);
   },
+  created() {},
   methods: {
-    getAssignPages(status, limit) {
+    getAssignPages(status) {
+      let limit=3;
       this.request({
         url: "/assign/getAssignPages",
         method: "get",
@@ -78,9 +80,9 @@ export default {
         let data = response.data;
         if (data.status == 1) {
           if (status == 1) {
-            this.statusNoList = data.data;
+            this.statusNoList = data.data.data;
           } else {
-            this.statusOkList = data.data;
+            this.statusOkList = data.data.data;
           }
         }
       });
