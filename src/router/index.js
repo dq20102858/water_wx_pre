@@ -69,6 +69,11 @@ const constantRouterMap = [
         path: '/dispatch/list',
         name: 'dispatch-list',
         component: () => import('@/views/Dispatch/list')
+      },
+      {
+        path: '/dispatch/edit',
+        name: 'dispatch-edit',
+        component: () => import('@/views/Dispatch/edit')
       }
     ]
   },
