@@ -299,7 +299,7 @@ export default {
     //end
   },
   beforeCreate() {
-    document.querySelector("body").setAttribute("style", "background:#182175;");
+    document.querySelector("body").setAttribute("style", "background:#24284d;");
   },
   beforeDestroy() {
     document.querySelector("body").removeAttribute("style");
@@ -312,7 +312,7 @@ export default {
   transform: rotate(90deg);
   transform-origin: bottom left;
   position: absolute;
-  top: -100vw;
+  top: -90vw;
   height: 100vw;
   width: 100vh;
 }
