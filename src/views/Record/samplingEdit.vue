@@ -34,37 +34,37 @@
           </el-form-item>
           <div class="stitless">进水</div>
           <el-form-item label="PH：" prop="in_ph">
-            <el-input v-model="formData.in_ph" maxlength="6"></el-input>
+            <el-input v-model="formData.in_ph" maxlength="8"></el-input>
           </el-form-item>
           <el-form-item label="COD：" prop="in_cod">
-            <el-input v-model="formData.in_cod" maxlength="6"></el-input>
+            <el-input v-model="formData.in_cod" maxlength="8"></el-input>
           </el-form-item>
           <div class="el-form-item-sampd">
             <el-form-item label="TP：" prop="in_tp">
-              <el-input v-model="formData.in_tp" maxlength="6"></el-input>
+              <el-input v-model="formData.in_tp" maxlength="8"></el-input>
             </el-form-item>
             <el-form-item label="TN：" prop="in_tn">
-              <el-input v-model="formData.in_tn" maxlength="6"></el-input>
+              <el-input v-model="formData.in_tn" maxlength="8"></el-input>
             </el-form-item>
             <el-form-item label="NH3-N：" prop="in_nh3">
-              <el-input v-model="formData.in_nh3" maxlength="6"></el-input>
+              <el-input v-model="formData.in_nh3" maxlength="8"></el-input>
             </el-form-item>
           </div>
           <div class="stitless">出水</div>
           <el-form-item label="PH：" prop="out_ph">
-            <el-input v-model="formData.out_ph" maxlength="6"></el-input>
+            <el-input v-model="formData.out_ph" maxlength="8"></el-input>
           </el-form-item>
           <el-form-item label="COD：" prop="out_cod">
-            <el-input v-model="formData.out_cod" maxlength="6"></el-input>
+            <el-input v-model="formData.out_cod" maxlength="8"></el-input>
           </el-form-item>
           <el-form-item label="TP：" prop="out_tp">
-            <el-input v-model="formData.out_tp" maxlength="6"></el-input>
+            <el-input v-model="formData.out_tp" maxlength="8"></el-input>
           </el-form-item>
           <el-form-item label="TN：" prop="out_tn">
-            <el-input v-model="formData.out_tn" maxlength="6"></el-input>
+            <el-input v-model="formData.out_tn" maxlength="8"></el-input>
           </el-form-item>
           <el-form-item label="NH3-N：" prop="out_nh3">
-            <el-input v-model="formData.out_nh3" maxlength="6"></el-input>
+            <el-input v-model="formData.out_nh3" maxlength="8"></el-input>
           </el-form-item>
           <el-form-item class="app-form-save">
             <el-button type="primary" @click="addEvent">确 定</el-button>
@@ -111,120 +111,120 @@ export default {
         in_ph: [
           {
             required: true,
-            message: "请输入1-6位数字",
+            message: "请输入1-8位数字",
             trigger: "blur"
           },
           {
-            pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-            message: "请输入1-6位数字",
+            pattern: /^(|[1-9]\d{0,7})(\.\d{1,2})?$/,
+            message: "请输入数字并可保留两位小数点",
             trigger: "blur"
           }
         ],
         in_cod: [
           {
             required: true,
-            message: "请输入1-6位数字",
+            message: "请输入1-8位数字",
             trigger: "blur"
           },
           {
-            pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-            message: "请输入1-6位数字",
+            pattern: /^(|[1-9]\d{0,7})(\.\d{1,2})?$/,
+            message: "请输入数字并可保留两位小数点",
             trigger: "blur"
           }
         ],
         in_tp: [
           {
             required: true,
-            message: "请输入1-6位数字",
+            message: "请输入1-8位数字",
             trigger: "blur"
           },
           {
-            pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-            message: "请输入1-6位数字",
+            pattern: /^(|[1-9]\d{0,7})(\.\d{1,2})?$/,
+            message: "请输入数字并可保留两位小数点",
             trigger: "blur"
           }
         ],
         in_tn: [
           {
             required: true,
-            message: "请输入1-6位数字",
+            message: "请输入1-8位数字",
             trigger: "blur"
           },
           {
-            pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-            message: "请输入1-6位数字",
+            pattern: /^(|[1-9]\d{0,7})(\.\d{1,2})?$/,
+            message: "请输入数字并可保留两位小数点",
             trigger: "blur"
           }
         ],
         in_nh3: [
           {
             required: true,
-            message: "请输入1-6位数字",
+            message: "请输入1-8位数字",
             trigger: "blur"
           },
           {
-            pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-            message: "请输入1-6位数字",
+            pattern: /^(|[1-9]\d{0,7})(\.\d{1,2})?$/,
+            message: "请输入数字并可保留两位小数点",
             trigger: "blur"
           }
         ],
         out_ph: [
           {
             required: true,
-            message: "请输入1-6位数字",
+            message: "请输入1-8位数字",
             trigger: "blur"
           },
           {
-            pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-            message: "请输入1-6位数字",
+            pattern: /^(|[1-9]\d{0,7})(\.\d{1,2})?$/,
+            message: "请输入数字并可保留两位小数点",
             trigger: "blur"
           }
         ],
         out_cod: [
           {
             required: true,
-            message: "请输入1-6位数字",
+            message: "请输入1-8位数字",
             trigger: "blur"
           },
           {
-            pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-            message: "请输入1-6位数字",
+            pattern: /^(|[1-9]\d{0,7})(\.\d{1,2})?$/,
+            message: "请输入数字并可保留两位小数点",
             trigger: "blur"
           }
         ],
         out_tp: [
           {
             required: true,
-            message: "请输入1-6位数字",
+            message: "请输入1-8位数字",
             trigger: "blur"
           },
           {
-            pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-            message: "请输入1-6位数字",
+            pattern: /^(|[1-9]\d{0,7})(\.\d{1,2})?$/,
+            message: "请输入数字并可保留两位小数点",
             trigger: "blur"
           }
         ],
         out_tn: [
           {
             required: true,
-            message: "请输入1-6位数字",
+            message: "请输入1-8位数字",
             trigger: "blur"
           },
           {
-            pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-            message: "请输入1-6位数字",
+            pattern: /^(|[1-9]\d{0,7})(\.\d{1,2})?$/,
+            message: "请输入数字并可保留两位小数点",
             trigger: "blur"
           }
         ],
         out_nh3: [
           {
             required: true,
-            message: "请输入1-6位数字",
+            message: "请输入1-8位数字",
             trigger: "blur"
           },
           {
-            pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
-            message: "请输入1-6位数字",
+            pattern: /^(|[1-9]\d{0,7})(\.\d{1,2})?$/,
+            message: "请输入数字并可保留两位小数点",
             trigger: "blur"
           }
         ]
