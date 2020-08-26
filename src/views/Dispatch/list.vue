@@ -7,9 +7,9 @@
     <div class="app-content">
       <div class="app-content-rows">
         <div class="app-table">
-          <el-table :data="dataList" size="mini">
-            <el-table-column label="序号"  width="60">
-           <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
+          <el-table :data="dataList" size="mini" @row-click="tableRowDetails">
+            <el-table-column label="序号" width="60">
+              <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
             <el-table-column prop="station_name" label="维保站点" class-name="nowrap"></el-table-column>
             <el-table-column prop="type" label="维保事项">
@@ -40,12 +40,44 @@
         </div>
       </div>
     </div>
+
+    <el-dialog
+      width="90%"
+      title="派单详情"
+      :visible.sync="diaLogDetailVisible"
+      :close-on-click-modal="false"
+      :show-close="false"
+      center
+    >
+      <el-form class="el-form-custom" label-width="100px">
+        <el-form-item label="站点：">
+          <el-input v-model="formDetailData.station_name" autocomplete="off" disabled></el-input>
+        </el-form-item>
+        <el-form-item label="指派人员：">
+          <el-input v-model="formDetailData.assigner" autocomplete="off" disabled></el-input>
+        </el-form-item>
+        <el-form-item label="派单事项：">
+          <el-input v-model="formDetailData.typeName" autocomplete="off" disabled></el-input>
+        </el-form-item>
+        <el-form-item label="指派时间：">
+          <el-input v-model="formDetailData.assign_time" autocomplete="off" disabled></el-input>
+        </el-form-item>
+        <el-form-item label="维修内容：">
+          <el-input type="textarea" v-model="formDetailData.content" rows="3" disabled></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="diaLogDetailVisible = false">关闭</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
+      diaLogDetailVisible: false,
+      formDetailData:[],
       pageTitle: "已完成",
       page_cur: 1,
       page_data_total: 0,
@@ -95,6 +127,21 @@ export default {
     pageToLast() {
       this.page_cur = this.page_total;
       this.getDataList();
+    },
+    tableRowDetails(row) {
+      this.diaLogDetailVisible = true;
+      this.formDetailData.station_name = row.station_name;
+      this.formDetailData.assigner = row.assigner;
+      this.formDetailData.assign_time = row.assign_time;
+      this.formDetailData.content = row.content;
+
+      if (row.type == 1) {
+        this.formDetailData.typeName = "设备维修";
+      } else if (row.type == 2) {
+        this.formDetailData.typeName = "例行维保";
+      } else {
+        this.formDetailData.typeName = "例行维保";
+      }
     }
     //end
   }
