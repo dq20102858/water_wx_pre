@@ -66,7 +66,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary"  @click="diaLogDetailVisible = false">关闭</el-button>
+        <el-button type="primary" @click="diaLogDetailVisible = false">关闭</el-button>
       </div>
     </el-dialog>
     <el-dialog
@@ -164,9 +164,29 @@ export default {
             signature: jdata.signature,
             jsApiList: ["scanQRCode"]
           });
-          wx.ready(() => {
-            console.log("微信js-sdk配置成功");
+          // wx.ready(() => {
+          //   console.log("微信js-sdk配置成功");
+          // });
+           wx.ready(function() {
+            wx.scanQRCode({
+              needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+              scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+              success: function(res) {
+                var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                // location.href=res.resultStr;//扫描结果传递到的处理页面,跳转到这个页面
+                // alert(result);
+                // location.href=res.resultStr;//扫描结果传递到的处理页面,跳转到这个页面
+                // sessionStorage.setItem('saomiao_result',result);
+                //其它网页调用二维码扫描结果：
+                // var result = sessionStorage.getItem("saomiao_result");
+                console.log(result);
+              },
+              error: function(res) {
+                console.log(res);
+              }
+            });
           });
+  
           wx.error(function(res) {
             console.log("微信js-sdk配置失败");
           });
@@ -184,21 +204,22 @@ export default {
       });
     },
     addDialogEvent() {
-      this.request({
-        url: "/clock/isCard",
-        method: "get",
-        params: { sid: 6 }
-      }).then(response => {
-        var res = response.data;
-        console.log(res.data.is_card);
-        // if (== 1) {
+      this.getSign();
+      // this.request({
+      //   url: "/clock/isCard",
+      //   method: "get",
+      //   params: { sid: 6 }
+      // }).then(response => {
+      //   var res = response.data;
+      //   console.log(res.data.is_card);
+      //   // if (== 1) {
 
-        // }
-        // else
-        // {
+      //   // }
+      //   // else
+      //   // {
 
-        // }
-      });
+      //   // }
+      // });
     },
     addEvent() {
       //this.dialogVisible = true;
