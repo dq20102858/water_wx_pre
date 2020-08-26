@@ -118,6 +118,10 @@ const constantRouterMap = [
         path: '/attendance',
         name: 'attendance',
         component: () => import('@/views/Attendance/index')
+      }, {
+        path: '/attendance/qrcode',
+        name: 'attendance-qrcode',
+        component: () => import('@/views/Attendance/qrcode')
       }
     ]
   },
