@@ -92,7 +92,7 @@
               </el-radio-group>
             </el-form-item>
             <el-form-item label="异常情况：">
-              <el-input v-model="formData.exception" maxlength="6"></el-input>
+              <el-input v-model="formData.exception" maxlength="50"></el-input>
             </el-form-item>
             <el-form-item label="电表读数：" prop="electricity">
               <el-input v-model="formData.electricity" maxlength="6"></el-input>
@@ -139,7 +139,7 @@ export default {
         user_id: [
           {
             required: true,
-            message: "请选择",
+            message: "请选择巡查人",
             trigger: "change"
           }
         ],
