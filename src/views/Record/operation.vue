@@ -19,7 +19,7 @@
       <div class="app-content-rows">
         <div class="app-table">
           <el-table :data="dataList" size="mini">
-            <el-table-column label="序号" width="60">
+            <el-table-column label="序号" width="50">
            <template slot-scope="scope">
                  {{scope.$index+(page_cur - 1) * page_size + 1}}
               </template>

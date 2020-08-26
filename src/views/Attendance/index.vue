@@ -18,7 +18,7 @@
       <div class="app-content-rows">
         <div class="app-table">
           <el-table :data="dataList" size="mini" @row-click="tableRowDetails">
-            <el-table-column label="序号" width="60">
+            <el-table-column label="序号" width="50">
               <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
             <el-table-column prop="address" label="站点名"></el-table-column>
@@ -66,7 +66,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="info" plain @click="diaLogDetailVisible = false">关闭</el-button>
+        <el-button type="primary"  @click="diaLogDetailVisible = false">关闭</el-button>
       </div>
     </el-dialog>
     <el-dialog

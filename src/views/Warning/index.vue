@@ -17,15 +17,15 @@
       </div>
       <div class="app-content-rows">
         <div class="app-table">
-          <el-table :data="dataList" size="mini">
-            <el-table-column label="序号" width="60">
-                  <template slot-scope="scope">
-                  <span
-                    :class="[scope.row.is_read!=1? 'cirshow' : 'nums']"
-                  >{{scope.$index+(page_cur - 1) * page_size + 1}}</span>
-                </template>
+          <el-table :data="dataList" size="mini" @row-click="tableRowDetails">
+            <el-table-column label="序号" width="50">
+              <template slot-scope="scope">
+                <span
+                  :class="[scope.row.is_read!=1? 'cirshow' : 'nums']"
+                >{{scope.$index+(page_cur - 1) * page_size + 1}}</span>
+              </template>
             </el-table-column>
-            <el-table-column label="设备" class-name="nowrap"  v-if="this.tabType==2" width="70">
+            <el-table-column label="设备" class-name="nowrap" v-if="this.tabType==2" width="70">
               <template slot-scope="scope">
                 <span v-if="scope.row.type==1">风机</span>
                 <span v-if="scope.row.type==2">水泵</span>
@@ -33,15 +33,15 @@
                 <span v-if="scope.row.type==4">PLC</span>
               </template>
             </el-table-column>
-                <el-table-column prop="type" label="类型" v-if="this.tabType==1" width="40">
-                <template slot-scope="scope">
-                  <span v-if="scope.row.type==1">PH</span>
-                  <span v-else-if="scope.row.type==2">DO</span>
-                  <span v-else>液位</span>
-                </template>
-              </el-table-column>
+            <el-table-column prop="type" label="类型" v-if="this.tabType==1" width="40">
+              <template slot-scope="scope">
+                <span v-if="scope.row.type==1">PH</span>
+                <span v-else-if="scope.row.type==2">DO</span>
+                <span v-else>液位</span>
+              </template>
+            </el-table-column>
             <el-table-column label="发生位置" prop="address" class-name="nowrap"></el-table-column>
-            <el-table-column label="告警时间" class-name="linewrap">
+            <el-table-column label="告警时间" class-name="linewrap" width="120">
               <template slot-scope="scope">
                 <span>{{scope.row.create_time|formatDateTime}}</span>
               </template>
@@ -61,12 +61,43 @@
         </div>
       </div>
     </div>
+    <el-dialog
+      width="90%"
+      title="告警详情"
+      :visible.sync="diaLogDetailVisible"
+      :close-on-click-modal="false"
+      :show-close="false"
+      center
+    >
+      <el-form class="el-form-custom" label-width="100px">
+        <el-form-item label="告警时间：">
+          <el-input v-model="formDetailData.create_time" autocomplete="off" disabled></el-input>
+        </el-form-item>
+        <el-form-item label="水质类型：" v-if="tabType ==1">
+          <el-input v-model="formDetailData.typeNameB" autocomplete="off" disabled></el-input>
+        </el-form-item>
+        <el-form-item label="设备类型：" v-if="tabType ==2">
+          <el-input v-model="formDetailData.typeName" autocomplete="off" disabled></el-input>
+        </el-form-item>
+        <el-form-item label="发生位置：">
+          <el-input v-model="formDetailData.address" autocomplete="off" disabled></el-input>
+        </el-form-item>
+        <el-form-item label="告警内容：">
+          <el-input type="textarea" v-model="formDetailData.reason" rows="3" disabled></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="diaLogDetailVisible = false">关闭</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
+      diaLogDetailVisible: false,
+      formDetailData: [],
       tabType: 2,
       page_cur: 1,
       page_data_total: 0,
@@ -112,6 +143,43 @@ export default {
     pageToLast() {
       this.page_cur = this.page_total;
       this.getDataList();
+    },
+    tableRowDetails(row) {
+      if (row.is_read == 0) {
+        this.request({
+          url: "/alert/updateRead",
+          method: "post",
+          data: { id: row.id, type: this.tabType }
+        }).then(res => {
+          let data = res.data;
+          if (data.status == 1) {
+            this.getDataList();
+          }
+        });
+      }
+      this.diaLogDetailVisible = true;
+      this.formDetailData.address = row.address;
+      this.formDetailData.create_time = row.create_time;
+      this.formDetailData.reason = row.reason;
+      // this.formDetailData.type = row.type;
+      if (row.type == 1) {
+        this.formDetailData.typeName = "风机";
+        this.formDetailData.typeNameB = "PH";
+      } else if (row.type == 2) {
+        this.formDetailData.typeName = "水泵";
+        this.formDetailData.typeNameB = "DO";
+      } else if (row.type == 3) {
+        this.formDetailData.typeName = "紫外灯";
+        this.formDetailData.typeNameB = "液位";
+      } else {
+        this.formDetailData.typeName = "PLC";
+      }
+
+      // </span>
+      //   <span v-if="scope.row.type==2">水泵</span>
+      //   <span v-if="scope.row.type==3">紫外灯</span>
+      //   <span v-if="scope.row.type==4">PLC</span>
+      // </template>
     }
   }
 };
@@ -121,7 +189,7 @@ export default {
   padding: 3px 5px;
 }
 .cirshow {
-  background: #FF3856;
+  background: #ff3856;
   color: #fff;
   padding: 3px 5px;
   border-radius: 3px;
