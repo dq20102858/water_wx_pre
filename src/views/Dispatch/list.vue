@@ -53,16 +53,16 @@
         <el-form-item label="维保站点：">
           <el-input v-model="formDetailData.station_name" autocomplete="off" disabled></el-input>
         </el-form-item>
-        <el-form-item label="指派人员：">
-          <el-input v-model="formDetailData.assigner" autocomplete="off" disabled></el-input>
-        </el-form-item>
         <el-form-item label="派单事项：">
           <el-input v-model="formDetailData.typeName" autocomplete="off" disabled></el-input>
+        </el-form-item>
+        <el-form-item label="指派人员：">
+          <el-input v-model="formDetailData.assigner" autocomplete="off" disabled></el-input>
         </el-form-item>
         <el-form-item label="指派时间：">
           <el-input v-model="formDetailData.assign_time" autocomplete="off" disabled></el-input>
         </el-form-item>
-        <el-form-item label="维修内容：">
+        <el-form-item label="指派内容：">
           <el-input type="textarea" v-model="formDetailData.content" rows="3" disabled></el-input>
         </el-form-item>
       </el-form>
@@ -77,7 +77,7 @@ export default {
   data() {
     return {
       diaLogDetailVisible: false,
-      formDetailData:[],
+      formDetailData: [],
       pageTitle: "已完成",
       page_cur: 1,
       page_data_total: 0,

@@ -29,6 +29,18 @@
               <el-option label="运行检查" :value="3"></el-option>
             </el-select>
           </el-form-item>
+          <el-form-item label="人员职位：" prop="role_id">
+            <el-select
+              v-model="formData.role_id"
+              placeholder="请选择职位"
+              @change="changeRoleEvent($event)"
+            >
+              <el-option label="管理员" :value="1"></el-option>
+              <el-option label="维修人员" :value="2"></el-option>
+              <el-option label="巡检人员" :value="3"></el-option>
+              <el-option label="分析人员" :value="4"></el-option>
+            </el-select>
+          </el-form-item>
           <el-form-item label="指派人员：" prop="assigner_id">
             <el-select v-model="formData.assigner_id" filterable placeholder="请选择 或搜索">
               <el-option
@@ -39,7 +51,7 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="维修内容：" prop="content">
+          <el-form-item label="指派内容：" prop="content">
             <el-input type="textarea" v-model="formData.content" rows="3"></el-input>
           </el-form-item>
           <el-form-item class="app-form-save">
@@ -60,6 +72,13 @@ export default {
           {
             required: true,
             message: "请选择站点名",
+            trigger: "change"
+          }
+        ],
+        role_id: [
+          {
+            required: true,
+            message: "请选择人员职位",
             trigger: "change"
           }
         ],
@@ -104,7 +123,6 @@ export default {
   },
   created() {
     this.getStationList();
-    this.getUsersList();
   },
   methods: {
     backURL() {
@@ -121,10 +139,15 @@ export default {
         }
       });
     },
-    getUsersList() {
+    changeRoleEvent(roleid) {
+      this.$set(this.formData, "assigner_id", "");
+      this.getUsersList(roleid);
+    },
+    getUsersList(roleid) {
       this.request({
         url: "/assign/getUsersLists",
-        method: "get"
+        method: "get",
+        params: { role_id: roleid }
       }).then(response => {
         let data = response.data;
         if (data.status == 1) {
