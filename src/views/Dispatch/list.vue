@@ -50,7 +50,7 @@
       center
     >
       <el-form class="el-form-custom" label-width="100px">
-        <el-form-item label="站点：">
+        <el-form-item label="维保站点：">
           <el-input v-model="formDetailData.station_name" autocomplete="off" disabled></el-input>
         </el-form-item>
         <el-form-item label="指派人员：">

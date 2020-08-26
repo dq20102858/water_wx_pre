@@ -174,12 +174,6 @@ export default {
       } else {
         this.formDetailData.typeName = "PLC";
       }
-
-      // </span>
-      //   <span v-if="scope.row.type==2">水泵</span>
-      //   <span v-if="scope.row.type==3">紫外灯</span>
-      //   <span v-if="scope.row.type==4">PLC</span>
-      // </template>
     }
   }
 };
