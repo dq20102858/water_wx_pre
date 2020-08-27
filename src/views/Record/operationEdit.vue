@@ -113,13 +113,6 @@
 export default {
   data() {
     return {
-      tabType: 3,
-      page_cur: 1,
-      page_data_total: 0,
-      page_size: 20,
-      page_total: 0,
-      dataList: [],
-      diaLogFormVisible: false,
       stationOptions: [],
       stationOptionsProps: {
         value: "id",
@@ -240,11 +233,6 @@ export default {
   methods: {
     backURL() {
       this.$router.go(-1); //返回上一层
-    },
-    diaLogFormShowEvent() {
-      this.diaLogFormVisible = true;
-      this.getStationList();
-      this.getUsersList();
     },
     getStationList() {
       this.request({

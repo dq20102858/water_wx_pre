@@ -2,7 +2,7 @@
   <div class="app-pages">
     <header class="app-top-bar">
       <h1 class="titles">报表统计</h1>
-      <a class="icons icon-add pull-right"  @click="addShowEvent"></a>
+      <a class="icons icon-add pull-right" @click="addShowEvent"></a>
     </header>
     <div class="app-content">
       <div class="app-tab">
@@ -18,8 +18,8 @@
       </div>
       <div class="app-content-rows">
         <div class="app-table">
-          <el-table :data="dataList" size="mini">
-            <el-table-column label="序号" width="50"  class-name="nowrap">
+          <el-table :data="dataList" size="mini" @row-click="tableRowDetails">
+            <el-table-column label="序号" width="50" class-name="nowrap">
               <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
             <el-table-column label="站点名" prop="station_name" class-name="nowrap"></el-table-column>
@@ -28,7 +28,7 @@
                 <span v-if="scope.row.is_problem==1">是</span>
                 <span v-if="scope.row.is_problem==0">否</span>
               </template>
-            </el-table-column> -->
+            </el-table-column>-->
             <el-table-column label="维保日期" class-name="linewrap">
               <template slot-scope="scope">{{scope.row.create_time|formatGetDate}}</template>
             </el-table-column>
@@ -105,8 +105,16 @@ export default {
       this.page_cur = this.page_total;
       this.getDataList();
     },
-     addShowEvent() {
+    addShowEvent() {
       this.$router.push("/record/edit");
+    },
+    tableRowDetails(row) {
+      this.$router.push({
+        path: "/record/detail",
+        query: {
+          id: row.id
+        }
+      });
     }
   }
 };

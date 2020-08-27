@@ -86,26 +86,41 @@ const constantRouterMap = [
         path: '/record',
         name: 'record',
         component: () => import('@/views/Record/index')
-      }, {
+      },
+      {
         path: '/record/edit',
-        name: 'recordedit',
+        name: 'record-edit',
         component: () => import('@/views/Record/edit')
-      }, {
+      },
+      {
+        path: '/record/detail',
+        name: 'record-detail',
+        component: () => import('@/views/Record/detail')
+      },
+      {
         path: '/record/operation',
         name: 'operation',
         component: () => import('@/views/Record/operation')
       }, {
         path: '/record/operationedit',
-        name: 'operationedit',
+        name: 'operation-edit',
         component: () => import('@/views/Record/operationEdit')
+      }, {
+        path: '/record/operationdetail',
+        name: 'operation-detail',
+        component: () => import('@/views/Record/operationDetail')
       }, {
         path: '/record/sampling',
         name: 'sampling',
         component: () => import('@/views/Record/sampling')
       }, {
         path: '/record/samplingedit',
-        name: 'samplingedit',
+        name: 'sampling-edit',
         component: () => import('@/views/Record/samplingEdit')
+      }, {
+        path: '/record/samplingdetail',
+        name: 'sampling-detail',
+        component: () => import('@/views/Record/samplingDetail')
       }
     ]
   },

@@ -105,13 +105,6 @@
 export default {
   data() {
     return {
-      tabType: 3,
-      page_cur: 1,
-      page_data_total: 0,
-      page_size: 20,
-      page_total: 0,
-      dataList: [],
-      diaLogFormVisible: false,
       stationOptions: [],
       stationOptionsProps: {
         value: "id",

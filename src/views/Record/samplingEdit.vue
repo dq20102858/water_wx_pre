@@ -78,13 +78,6 @@
 export default {
   data() {
     return {
-      tabType: 3,
-      page_cur: 1,
-      page_data_total: 0,
-      page_size: 20,
-      page_total: 0,
-      dataList: [],
-      diaLogFormVisible: false,
       stationOptions: [],
       stationOptionsProps: {
         value: "id",
@@ -239,11 +232,6 @@ export default {
     backURL() {
       this.$router.go(-1); //返回上一层
     },
-    diaLogFormShowEvent() {
-      this.diaLogFormVisible = true;
-      this.getStationList();
-      this.getUsersList();
-    },
     getStationList() {
       this.request({
         url: "/station/getStationLists",
@@ -307,42 +295,6 @@ export default {
   color: #1386ff;
   font-size: 16px;
   font-weight: 700;
-  padding-top: 20px;
   padding-bottom: 20px;
-}
-.el-form-item-samp .samp-item {
-  display: flex;
-  justify-content: flex-start;
-  flex-flow: row wrap;
-}
-.el-form-item-samp .el-form-item {
-  float: left;
-  width: 50%;
-}
-.el-form-item-samp .el-input {
-  display: inline-block;
-  padding: 0 5px;
-  text-align: center;
-  border-radius: 0;
-  border: 0;
-  min-width: 100px;
-}
-.el-form-item-samp .el-input__inner {
-  border-radius: 0;
-  border: none;
-  border-bottom: 1px #9db9fa solid !important;
-  color: #338ff6 !important;
-  padding: 0 5px;
-}
-.el-form-item-samp .el-form-item__label {
-  float: none;
-
-  display: inline-block;
-  white-space: nowrap;
-  padding: 0 0 0 5px;
-}
-.el-form-item-samp .el-form-item__content {
-  display: inline-block;
-  vertical-align: top;
 }
 </style>

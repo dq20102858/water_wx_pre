@@ -90,20 +90,25 @@ selector{ cursor: pointer }
 .el-form-custom .el-form-item.is-error .el-input__inner{border-color: #9db9fa;}
 .el-form-custom .el-textarea.is-disabled .el-textarea__inner {background-color: #F5F7FA;border-color: #9db9fa;color: #338ff6;cursor: not-allowed;}
 .el-form-custom .el-radio__inner{border-radius: 0;border: 1px #9db9fa solid;}
-.el-form-custom  .el-radio__inner::after{-webkit-box-sizing: content-box;box-sizing: content-box; content: "";border: 1px solid #FFF;border-left: 0;border-top: 0;height: 7px;left: 4px;position: absolute;top: 1px; background: none;}
+.el-form-custom  .el-radio__inner::after{border-radius:0;-webkit-box-sizing: content-box;box-sizing: content-box; content: "";border: 1px solid #FFF;border-left: 0;border-top: 0;height: 7px;left: 4px;position: absolute;top: 1px; background: none;transform-origin: center;}
 .el-form-custom  .el-radio__input.is-checked .el-radio__inner::after {-webkit-transform: rotate(45deg) scaleY(1);transform: rotate(45deg) scaleY(1);}
 .el-form-custom .el-checkbox__inner{border: 1px #9db9fa solid;}
 .el-form-custom .el-date-editor.el-input{width: 100%;}
 .el-form-custom .el-input-group__append{padding:0 8px}
 .el-checks .el-form-item--medium .el-form-item__content{line-height: 24px;}
 .el-checks .el-checkbox-group{ margin-top:7px}
+
+.app-dis-radio .el-radio__input.is-disabled .el-radio__inner{border-color: #9db9fa;}
+.app-dis-radio  .el-radio__input.is-disabled .el-radio__inner::after {background:none;border-color: #338ff6;}
+.app-dis-radio  .el-radio__input.is-disabled + span.el-radio__label {color: #333;}
+.app-dis-checkbox .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {border-color: #338ff6;}
+.app-dis-checkbox .el-checkbox__input.is-disabled .el-checkbox__inner {background-color: #edf2fc;border-color: #9db9fa;}
+.app-dis-checkbox .el-checkbox__input.is-disabled + span.el-checkbox__label {color: #333;}
 /*pagination */
 .app-pagers{text-align: center;padding:15px 0; overflow: hidden; background: #fff; }
 .app-pagination{text-align: center;padding:15px 0; overflow: hidden; background: #fff; }
 .app-pagination .el-pagination {border-radius: 4px;overflow: hidden; display: inline-block;padding: 0; }
-
 /* dialog */
-
 .el-dialog{border-radius: 6px;}
 .el-dialog__header{border-radius:6px 6px 0 0; background: #4093ED;text-align: center;padding:7px 12px;}
 .el-dialog__title{color: #fff;font-size: 16px;}

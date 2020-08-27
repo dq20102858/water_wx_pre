@@ -18,7 +18,7 @@
       </div>
       <div class="app-content-rows">
         <div class="app-table">
-          <el-table :data="dataList" size="mini">
+          <el-table :data="dataList" size="mini" @row-click="tableRowDetails">
             <el-table-column label="序号" width="60">
               <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
@@ -54,7 +54,6 @@ export default {
       page_size: 20,
       page_total: 0,
       dataList: [],
-      diaLogFormVisible: false
     };
   },
   created() {
@@ -102,6 +101,14 @@ export default {
     },
     addShowEvent() {
       this.$router.push("/record/samplingedit");
+    },
+    tableRowDetails(row) {
+      this.$router.push({
+        path: "/record/samplingdetail",
+        query: {
+          id: row.id
+        }
+      });
     }
   }
 };

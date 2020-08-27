@@ -18,11 +18,9 @@
       </div>
       <div class="app-content-rows">
         <div class="app-table">
-          <el-table :data="dataList" size="mini">
+          <el-table :data="dataList" size="mini" @row-click="tableRowDetails">
             <el-table-column label="序号" width="50">
-           <template slot-scope="scope">
-                 {{scope.$index+(page_cur - 1) * page_size + 1}}
-              </template>
+              <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
             <el-table-column label="站点名" prop="station_name" class-name="nowrap"></el-table-column>
             <el-table-column prop="electricity" label="电表读数"></el-table-column>
@@ -104,8 +102,16 @@ export default {
       this.page_cur = this.page_total;
       this.getDataList();
     },
-     addShowEvent() {
+    addShowEvent() {
       this.$router.push("/record/operationedit");
+    },
+    tableRowDetails(row) {
+      this.$router.push({
+        path: "/record/operationdetail",
+        query: {
+          id: row.id
+        }
+      });
     }
   }
 };
@@ -120,5 +126,4 @@ export default {
   padding: 3px 5px;
   border-radius: 3px;
 }
-
 </style>
