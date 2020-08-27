@@ -2,7 +2,7 @@
   <div class="app-pages">
     <header class="app-top-bar">
       <span class="icons icon-back pull-left" @click="backURL"></span>
-      <h1 class="titles">XXX站点运行图</h1>
+      <h1 class="titles">{{this.$route.query.name}}运行图</h1>
     </header>
     <div class="app-content">
       <div class="app-site">

@@ -9,7 +9,7 @@
         <div class="app-station-one">
           <div class="ones">
             <h3>{{stationDetail.name}}</h3>
-            <span @click="mainDetail">站点运行图</span>
+            <span @click="mainDetail(stationDetail.id,stationDetail.name)">站点运行图</span>
           </div>
           <p>入网时间：{{stationDetail.create_time}}</p>
           <p>日排污量：{{stationDetail.number}}吨</p>
@@ -137,9 +137,14 @@ export default {
         path: "/sitemanage/devicedetail",
         query: { id: id }
       });
-    } ,   mainDetail() {
+    },
+    mainDetail(id, name) {
       this.$router.push({
-        path: "/sitemanage/main"
+        path: "/sitemanage/main",
+        query: {
+          id: id,
+          name: name
+        }
       });
     }
     //
@@ -159,7 +164,8 @@ export default {
 .app-station-one .ones h3 {
   font-size: 18px;
   font-weight: 700;
-  float: left;  width: 60%;
+  float: left;
+  width: 60%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -236,7 +242,7 @@ export default {
   display: flex;
   align-items: center;
   background: #fff url("~@/assets/image/icon-right.png") no-repeat center right
-    20px;
+    15px;
   background-size: 10px;
 }
 .app-station-three .bd-img {
@@ -249,7 +255,7 @@ export default {
   align-items: center;
 }
 .app-station-three .bd-body {
-  overflow: hidden;
+  overflow: hidden; padding-right: 12px;
 }
 .app-station-three .bd-body p {
   color: #747373;

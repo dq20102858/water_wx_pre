@@ -56,9 +56,10 @@ export default {
   },
   mounted() {
     this.getEcharts();
+     this.getDeviceDetailData();
   },
   created() {
-    this.getDeviceDetailData();
+   
   },
   methods: {
     backURL() {
@@ -219,7 +220,7 @@ export default {
   padding: 10px 15px;
 }
 .app-device-detail .ones h3 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   float: left;
   color: #fff;
@@ -230,7 +231,7 @@ export default {
 }
 .app-device-detail .ones span {
   float: right;
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
 }
 .app-device-detail .twos {
@@ -254,9 +255,7 @@ export default {
 }
 .app-device-detail p {
   color: #747373;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
   line-height: 24px;
 }
 

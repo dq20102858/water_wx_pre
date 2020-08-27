@@ -6,13 +6,20 @@
     </header>
     <div class="app-content">
       <div class="station-so">
-        <el-input placeholder="请输入内容" v-model="chlidStationName" class="input-with-select">
+        <el-input
+          placeholder="请输入站点名"
+          v-model="chlidStationName"
+          class="input-with-select"
+          clearable
+          @change="chlidStationNameEvent"
+        >
           <el-select
             v-model="fatherStationId"
             slot="prepend"
             placeholder="请选择"
             @change="fatherStationEvent($event)"
           >
+            <el-option label="全部" :value="0"></el-option>
             <el-option
               v-for="item in fatherStationList"
               :key="item.id+''"
@@ -20,7 +27,7 @@
               :value="item.id"
             ></el-option>
           </el-select>
-          <el-button slot="append" icon="el-icon-search"></el-button>
+          <el-button slot="append" icon="el-icon-search" @click="chlidStationEvent"></el-button>
         </el-input>
       </div>
       <div class="app-content-rows">
@@ -35,13 +42,14 @@
             >
               <div class="text">
                 <h3>{{item.name}}</h3>
-                <div class="status">
+                <!-- <div class="status">
                   <span class="status1">正常运行</span>
-                </div>
+                </div>-->
               </div>
               <h4>{{item.address}}</h4>
             </div>
           </div>
+          <div v-if="childStationList.length==0" class="app-nodatas">暂无数据</div>
         </div>
       </div>
     </div>
@@ -70,29 +78,40 @@ export default {
         url: "/station/getStationLists",
         method: "get"
       }).then(response => {
-      
         let res = response.data;
         if (res.status == 1) {
-          var dataList = res.data;
-         
+          let dataList = res.data;
           this.fatherStationList = dataList;
           let stationid = this.$route.query.sid;
           console.log(stationid);
-          if (typeof stationid == "undefined") {
-            stationid = dataList[0].id;
-          }
-
-          this.fatherStationId =  this.fatherStationList.find(
-            item => item.id == stationid
-          ).id;
-          this.fatherStationName = this.fatherStationList.find(
-            item => item.id == stationid
-          ).name;
-          this.fatherStationList.map(ele => {
-            if (ele.id == stationid) {
-              this.childStationList = ele.child;
+          if (typeof stationid == "undefined" || stationid == 0) {
+            stationid = 0;
+             this.fatherStationName ="全部";
+            let newJson = [];
+            for (let i = 0; i < dataList.length; i++) {
+              for (let y = 0; y < dataList[i].child.length; y++) {
+                let tempJson = {
+                  id: dataList[i].child[y].id,
+                  name: dataList[i].child[y].name,
+                  address: dataList[i].child[y].address
+                };
+                newJson.push(tempJson);
+              }
             }
-          });
+            this.childStationList = newJson;
+          } else {
+            this.fatherStationId = this.fatherStationList.find(
+              item => item.id == stationid
+            ).id;
+            this.fatherStationName = this.fatherStationList.find(
+              item => item.id == stationid
+            ).name;
+            this.fatherStationList.map(ele => {
+              if (ele.id == stationid) {
+                this.childStationList = ele.child;
+              }
+            });
+          }
         }
       });
     },
@@ -101,6 +120,33 @@ export default {
         path: "/sitemanage/station",
         query: { sid: id }
       });
+    },
+    chlidStationNameEvent() {
+      let sname = this.chlidStationName;
+      if (sname == "" || sname == null) {
+        this.getStationList();
+      }
+    },
+    chlidStationEvent() {
+      let sname = this.chlidStationName;
+      let json = this.childStationList;
+      if (sname == "" || sname == null) {
+        return json;
+      } else {
+        let newJson = [];
+        for (var i = 0; i < json.length; i++) {
+          if (json[i].name.indexOf(sname) > -1) {
+            var tempJson = {
+              id: json[i].id,
+              name: json[i].name,
+              address: json[i].address
+            };
+            newJson.push(tempJson);
+          }
+        }
+        this.childStationList = newJson;
+        return json;
+      }
     },
     stationDetail(id) {
       this.$router.push({
@@ -129,7 +175,7 @@ export default {
   border-radius: 0 30px 30px 0;
   border: none;
 }
-.station-so .el-input--suffix .el-input__inner {
+.station-so .el-select .el-input--suffix .el-input__inner {
   padding-right: 30px;
   width: 130px;
   text-align: center;
@@ -137,7 +183,9 @@ export default {
 .station-so .el-select__caret {
   color: #338ff6 !important;
 }
-.station-so .el-button--medium{padding: 10px;}
+.station-so .el-button--medium {
+  padding: 10px;
+}
 /* list */
 .station-list h2 {
   font-size: 18px;
