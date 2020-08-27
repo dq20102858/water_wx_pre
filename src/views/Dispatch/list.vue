@@ -8,27 +8,27 @@
       <div class="app-content-rows">
         <div class="app-table">
           <el-table :data="dataList" size="mini" @row-click="tableRowDetails">
-            <el-table-column label="序号" width="60">
+            <el-table-column label="序号" width="50">
               <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
             <el-table-column prop="station_name" label="维保站点" class-name="nowrap"></el-table-column>
-            <el-table-column prop="type" label="维保事项">
+            <!-- <el-table-column prop="type" label="维保事项">
               <template slot-scope="scope">
                 <span v-if="scope.row.type==1">设备维修</span>
                 <span v-else-if="scope.row.type==2">例行维保</span>
                 <span v-else>运行检查</span>
               </template>
-            </el-table-column>
-            <el-table-column label="指派时间" class-name="linewrap">
+            </el-table-column>-->
+            <el-table-column label="指派时间" width="90">
               <template slot-scope="scope">
                 <span>{{scope.row.assign_time|formatGetDate}}</span>
               </template>
-            </el-table-column>
-            <el-table-column prop="assigner" label="指派人" class-name="nowrap"></el-table-column>
+            </el-table-column> 
+            <el-table-column prop="assigner" label="指派人"  width="80" class-name="nowrap"></el-table-column>
           </el-table>
-          <div class="app-pagination">
+            <div class="app-pagers">
             <el-pagination
-              class="pagination"
+              background
               v-if="dataList.length !== 0"
               layout="prev, pager, next"
               :page-size="this.page_size"
@@ -63,7 +63,7 @@
           <el-input v-model="formDetailData.assign_time" autocomplete="off" disabled></el-input>
         </el-form-item>
         <el-form-item label="指派内容：">
-          <el-input type="textarea" v-model="formDetailData.content" rows="3" disabled></el-input>
+            <div class="el-contents">{{formDetailData.content}}</div>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">

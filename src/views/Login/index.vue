@@ -86,17 +86,17 @@ export default {
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          if (this.loginForm.username == "") {
+          if (this.loginForm.username.trim().length == "") {
             this.$message({
               type: "error",
-              message: "请输入用户名"
+              message: "请输入正确的用户名"
             });
             return false;
           }
-          if (this.loginForm.password == "") {
+          if (this.loginForm.password.trim().length == "") {
             this.$message({
               type: "error",
-              message: "请输入密码"
+              message: "请输入正确的密码"
             });
             return false;
           }
@@ -106,14 +106,13 @@ export default {
             .then(() => {
               this.loading = false;
               this.$router.push({ path: "/sitemanage" });
-              sessionStorage.setItem("activeMenu", "/sitemanage");
             })
             .catch((e) => {
               this.loading = false;
               return false;
             });
         } else {
-          console.log("error submit!!");
+          console.log("error submit");
           return false;
         }
       });

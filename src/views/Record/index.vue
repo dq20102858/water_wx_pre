@@ -29,7 +29,7 @@
                 <span v-if="scope.row.is_problem==0">否</span>
               </template>
             </el-table-column>-->
-            <el-table-column label="维保日期" class-name="linewrap">
+            <el-table-column label="维保日期" width="90">
               <template slot-scope="scope">{{scope.row.create_time|formatGetDate}}</template>
             </el-table-column>
             <el-table-column prop="user" label="维保人"></el-table-column>

@@ -52,21 +52,10 @@ selector{ cursor: pointer }
 .app-table .el-table__body-wrapper tr td{color: #212227;padding: 8px 0; border: none; }
 .app-table .linewrap .cell{white-space: nowrap!important;text-overflow: initial;}
 .app-table .nowrap .cell{overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;}
+.app-table .nowraps .cell{overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+
 .app-search{margin: 15px;}
 .app-search .el-input__inner{border: none; border-radius: 30px;}
-
-.app-operation .el-button{margin-left: 0!important;margin-right:8px;padding: 5px 10px 6px 10px; border: none;}
-.app-operation .btn-edit{ color: #fff;background: #383C57;font-size: 12px;}
-.app-operation .btn-edit:hover{ background: #EF964B;}
-.app-operation .btn-del{color: #fff;background: #ec5454;}
-.app-operation .btn-del:hover{background: #d44444;}
-.app-operation .btn-print{color: #fff;background: #009BFF;}
-.app-operation .btn-print:hover{background: #3AAAFF;}
-.app-operation .btn-apply{color: #fff;background: #09a15b;}
-.app-operation .btn-apply:hover{background: #09a15b;}
-.app-operation .btn-green{border: 1px #26a80f solid;color: #26a80f}
-.app-operation .btn-gray{ color: #333;background: #ddd;}
-.app-operation .btn-gray:hover{color: #fff; background: #3AAAFF;}
 
 /*el-form */
 .app-form{background: #fff; margin: 15px; border-radius: 5px; padding:20px 20px 20px 15px;}
@@ -104,6 +93,8 @@ selector{ cursor: pointer }
 .app-dis-checkbox .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {border-color: #338ff6;}
 .app-dis-checkbox .el-checkbox__input.is-disabled .el-checkbox__inner {background-color: #edf2fc;border-color: #9db9fa;}
 .app-dis-checkbox .el-checkbox__input.is-disabled + span.el-checkbox__label {color: #333;}
+.el-contents { min-height: 36px; white-space: normal;word-break: break-all;line-height: 1.5;color: #338ff6;background-color: #f5f7fa;border: 1px solid #e4e7ed;padding: 5px 15px;cursor: not-allowed;border-radius: 4px;}
+
 /*pagination */
 .app-pagers{text-align: center;padding:15px 0; overflow: hidden; background: #fff; }
 .app-pagination{text-align: center;padding:15px 0; overflow: hidden; background: #fff; }

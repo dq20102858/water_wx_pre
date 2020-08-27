@@ -2,7 +2,7 @@
   <div class="app-pages">
     <header class="app-top-bar">
       <span class="icons icon-back pull-left" @click="backURL"></span>
-      <h1 class="titles">污水处理站维护记录</h1>
+      <h1 class="titles">污水处理站维护记录表</h1>
     </header>
     <div class="app-content">
       <div class="app-form">
@@ -34,7 +34,7 @@
           </el-form-item>
           <div class="stitless">设备巡检内容、情况、及处理情况说明</div>
           <div class="el-checks">
-            <el-form-item label="1.活动性质：" prop="prepare">
+            <el-form-item label="1.维护预备：" prop="prepare">
               <el-checkbox-group v-model="formData.prepare">
                 <el-checkbox
                   v-for="item in prepareList"
@@ -76,9 +76,6 @@
             </el-form-item>
           </div>
           <div class="samptitles">5.其他情况</div>
-          <el-form-item label="异常情况：">
-            <el-input v-model="formData.exception" maxlength="50"></el-input>
-          </el-form-item>
           <el-form-item label="更换耗材：">
             <el-input v-model="formData.replace_material" maxlength="50"></el-input>
           </el-form-item>
@@ -89,6 +86,9 @@
             <el-input  v-model="formData.keep_time" maxlength="6">
               <template slot="append">小时</template>
             </el-input>
+          </el-form-item>
+            <el-form-item label="异常情况：">
+            <el-input v-model="formData.exception" maxlength="50"></el-input>
           </el-form-item>
           <el-form-item label="备注：">
             <el-input type="textarea" v-model="formData.remark" maxlength="200"></el-input>

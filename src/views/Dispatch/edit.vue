@@ -42,7 +42,7 @@
             </el-select>
           </el-form-item>
           <el-form-item label="指派人员：" prop="assigner_id">
-            <el-select v-model="formData.assigner_id" filterable placeholder="请选择 或搜索">
+            <el-select v-model="formData.assigner_id" filterable placeholder="请选择指派人员">
               <el-option
                 v-for="item in this.userList"
                 :key="item.id"
@@ -104,6 +104,11 @@ export default {
           }
         ],
         content: [
+          {
+            required: true,
+            message: "请输入指派内容",
+            trigger: "blur"
+          },
           { min: 2, max: 200, message: "长度在2到200个字符", trigger: "blur" },
           {
             pattern: /(^\S+).*(\S+$)/,

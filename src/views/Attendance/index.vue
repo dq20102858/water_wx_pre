@@ -21,17 +21,17 @@
             <el-table-column label="序号" width="50">
               <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
-            <el-table-column prop="address" label="站点名"></el-table-column>
-            <el-table-column label="开始时间">
+            <el-table-column prop="address" label="站点名" class-name="nowraps"></el-table-column>
+            <el-table-column label="开始时间" width="90" align="center">
               <template slot-scope="scope">{{scope.row.start_time|formatDateTime}}</template>
             </el-table-column>
-            <el-table-column label="结束时间">
+            <el-table-column label="结束时间"  width="90" align="center">
               <template slot-scope="scope">{{scope.row.end_time|formatDateTime}}</template>
             </el-table-column>
           </el-table>
-          <div class="app-pagination">
+          <div class="app-pagers">
             <el-pagination
-              class="pagination"
+              background
               v-if="dataList.length !== 0"
               layout="prev, pager, next"
               :page-size="this.page_size"
@@ -62,7 +62,8 @@
           <el-input v-model="formDetailData.end_time" autocomplete="off" disabled></el-input>
         </el-form-item>
         <el-form-item label="打卡地址：">
-          <el-input type="textarea" v-model="formDetailData.address" rows="3" disabled></el-input>
+          <div class="el-contents">{{formDetailData.address}}</div>
+          <!-- <el-input type="textarea" v-model="formDetailData.address" rows="3" disabled></el-input> -->
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -167,6 +168,8 @@ export default {
           // wx.ready(() => {
           //   console.log("微信js-sdk配置成功");
           // });
+
+          debugger
           wx.ready(function() {
             wx.scanQRCode({
               needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，

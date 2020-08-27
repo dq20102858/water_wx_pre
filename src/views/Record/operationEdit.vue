@@ -91,14 +91,14 @@
                 <el-radio label="2">异常</el-radio>
               </el-radio-group>
             </el-form-item>
-            <el-form-item label="异常情况：">
-              <el-input v-model="formData.exception" maxlength="50"></el-input>
-            </el-form-item>
             <el-form-item label="电表读数：" prop="electricity">
               <el-input v-model="formData.electricity" maxlength="6"></el-input>
             </el-form-item>
             <el-form-item label="累积读数：" prop="electricity_sum">
               <el-input v-model="formData.electricity_sum" maxlength="6"></el-input>
+            </el-form-item>
+            <el-form-item label="异常情况：">
+              <el-input type="textarea" v-model="formData.exception" maxlength="200"></el-input>
             </el-form-item>
           </div>
           <el-form-item class="app-form-save">

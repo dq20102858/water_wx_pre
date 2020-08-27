@@ -23,7 +23,7 @@
               <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
             <el-table-column label="站点名" prop="station_name" class-name="nowrap"></el-table-column>
-            <el-table-column label="采样日期" class-name="linewrap">
+            <el-table-column label="采样日期"  width="90">
               <template slot-scope="scope">{{scope.row.create_time|formatGetDate}}</template>
             </el-table-column>
             <el-table-column prop="user" label="采样人"></el-table-column>

@@ -78,14 +78,14 @@
                 <el-radio label="2">异常</el-radio>
               </el-radio-group>
             </el-form-item>
-            <el-form-item label="异常情况：">
-              <el-input v-model="formData.exception" disabled></el-input>
-            </el-form-item>
             <el-form-item label="电表读数：" prop="electricity">
               <el-input v-model="formData.electricity" disabled></el-input>
             </el-form-item>
             <el-form-item label="累积读数：" prop="electricity_sum">
-              <el-input v-model="formData.electricity_sum"  disabled></el-input>
+              <el-input v-model="formData.electricity_sum" disabled></el-input>
+            </el-form-item>
+            <el-form-item label="异常情况：">
+              <div class="el-contents">{{formData.exception}}</div>
             </el-form-item>
           </div>
         </el-form>

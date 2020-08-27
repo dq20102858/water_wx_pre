@@ -25,7 +25,7 @@
                 >{{scope.$index+(page_cur - 1) * page_size + 1}}</span>
               </template>
             </el-table-column>
-            <el-table-column label="设备" class-name="nowrap" v-if="this.tabType==2" width="70">
+            <el-table-column label="设备" class-name="nowrap" v-if="this.tabType==2" width="60">
               <template slot-scope="scope">
                 <span v-if="scope.row.type==1">风机</span>
                 <span v-if="scope.row.type==2">水泵</span>
@@ -33,23 +33,23 @@
                 <span v-if="scope.row.type==4">PLC</span>
               </template>
             </el-table-column>
-            <el-table-column prop="type" label="类型" v-if="this.tabType==1" width="40">
+            <el-table-column prop="type" label="类型" v-if="this.tabType==1" width="60">
               <template slot-scope="scope">
                 <span v-if="scope.row.type==1">PH</span>
                 <span v-else-if="scope.row.type==2">DO</span>
                 <span v-else>液位</span>
               </template>
             </el-table-column>
-            <el-table-column label="发生位置" prop="address" class-name="nowrap"></el-table-column>
-            <el-table-column label="告警时间" class-name="linewrap" width="120">
+            <el-table-column label="发生位置" prop="address" class-name="nowraps"></el-table-column>
+            <el-table-column label="告警时间" width="90" align="center">
               <template slot-scope="scope">
                 <span>{{scope.row.create_time|formatDateTime}}</span>
               </template>
             </el-table-column>
           </el-table>
-          <div class="app-pagination">
+           <div class="app-pagers">
             <el-pagination
-              class="pagination"
+              background
               v-if="dataList.length !== 0"
               layout="prev, pager, next"
               :page-size="this.page_size"
@@ -83,7 +83,7 @@
           <el-input v-model="formDetailData.address" autocomplete="off" disabled></el-input>
         </el-form-item>
         <el-form-item label="告警内容：">
-          <el-input type="textarea" v-model="formDetailData.reason" rows="3" disabled></el-input>
+             <div class="el-contents">{{formDetailData.reason}}</div>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">

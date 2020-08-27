@@ -24,7 +24,7 @@
             </el-table-column>
             <el-table-column label="站点名" prop="station_name" class-name="nowrap"></el-table-column>
             <el-table-column prop="electricity" label="电表读数"></el-table-column>
-            <el-table-column label="巡检日期" class-name="linewrap">
+            <el-table-column label="巡检日期"  width="90">
               <template slot-scope="scope">{{scope.row.create_time|formatGetDate}}</template>
             </el-table-column>
             <el-table-column prop="user" label="巡检人"></el-table-column>
