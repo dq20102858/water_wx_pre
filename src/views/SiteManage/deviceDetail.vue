@@ -6,7 +6,7 @@
     </header>
     <div class="app-content">
       <div class="app-content-rows">
-        <div class="app-device-detail">
+        <div class="app-device-detail" v-show="disShow">
           <div class="ones">
             <h3>{{deviceDetailData.name}}</h3>
             <span v-if="deviceDetailData.type==1">风机</span>
@@ -52,6 +52,7 @@
 export default {
   data() {
     return {
+      disShow: false,
       deviceDetailData: []
     };
   },
@@ -201,6 +202,7 @@ export default {
           );
           data.data.use_time = data.data.use_time.replace("00:00:00", "");
           this.deviceDetailData = data.data;
+          this.disShow = true;
         }
       });
     }
@@ -238,8 +240,8 @@ export default {
   margin-top: 10px;
 }
 .app-device-detail .bd-img {
-  float: left; 
-  margin-right: 14px; 
+  float: left;
+  margin-right: 14px;
 }
 .app-device-detail .bd-img img {
   background: #f2f2f2;
