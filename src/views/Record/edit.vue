@@ -76,21 +76,21 @@
             </el-form-item>
           </div>
           <div class="samptitles">5.其他情况</div>
-          <el-form-item label="更换耗材：">
+          <el-form-item label="更换耗材：" prop="replace_material">
             <el-input v-model="formData.replace_material" maxlength="50"></el-input>
           </el-form-item>
           <el-form-item label="离站时间：" prop="leave_time">
             <el-date-picker v-model="formData.leave_time" type="datetime" placeholder="选择日期"></el-date-picker>
           </el-form-item>
           <el-form-item label="服务耗时：" prop="keep_time">
-            <el-input  v-model="formData.keep_time" maxlength="6">
+            <el-input v-model="formData.keep_time" maxlength="6">
               <template slot="append">小时</template>
             </el-input>
           </el-form-item>
-            <el-form-item label="异常情况：">
+          <el-form-item label="异常情况：" prop="exception">
             <el-input v-model="formData.exception" maxlength="50"></el-input>
           </el-form-item>
-          <el-form-item label="备注：">
+          <el-form-item label="备注：" prop="remark">
             <el-input type="textarea" v-model="formData.remark" maxlength="200"></el-input>
           </el-form-item>
           <el-form-item class="app-form-save">
@@ -181,6 +181,27 @@ export default {
           {
             pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
             message: "请输入1-6位数字",
+            trigger: "blur"
+          }
+        ],
+        replace_material: [
+          {
+            pattern: /(^\S+).*(\S+$)/,
+            message: "开始和结尾不能有空格",
+            trigger: "blur"
+          }
+        ],
+        exception: [
+          {
+            pattern: /(^\S+).*(\S+$)/,
+            message: "开始和结尾不能有空格",
+            trigger: "blur"
+          }
+        ],
+        remark: [
+          {
+            pattern: /(^\S+).*(\S+$)/,
+            message: "开始和结尾不能有空格",
             trigger: "blur"
           }
         ]

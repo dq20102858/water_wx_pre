@@ -7,7 +7,7 @@
     <div class="app-content">
       <div class="station-so">
         <el-input
-          placeholder="请输入站点名"
+          placeholder="请输入处理站名称"
           v-model="chlidStationName"
           class="input-with-select"
           clearable

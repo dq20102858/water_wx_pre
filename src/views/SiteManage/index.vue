@@ -3,47 +3,17 @@
     <header class="app-top-bar">
       <span class="icons icon-station pull-left" @click="getAllStation"></span>
       <span class="icons icon-msg pull-left" @click="getWarm">
-        <i class="msgnum"></i>
+        <i class="msgnum">{{msgCount}}</i>
       </span>
       <h1 class="titles">南通沿海市政</h1>
-       <span class="icons icon-logout pull-right" @click="logout"></span>
+      <span class="icons icon-logout pull-right" @click="logout"></span>
     </header>
     <div class="baidumap">
-      <div
-        class="map-so-input el-input el-input--medium el-input-group el-input-group--append el-input--suffix"
-      >
-        <!---->
-        <input type="text" autocomplete="off" placeholder="请输入位置关键字" class="el-input__inner" />
-        <!---->
-        <!---->
-        <div class="el-input-group__append">
-          <button type="button" class="el-button el-button--primary el-button--medium">
-            <!---->
-            <i class="el-icon-search"></i>
-            <!---->
-          </button>
-        </div>
-        <!---->
-      </div>
-
-      <!-- <div class="baidumap-so">
-        <el-input
-        placeholder="请输入位置关键字"
-        v-model="searchAddress"
-        @keyup.enter.native="searchEvent"
-        class="map-so-input"
-        clearable
-      >
-        <el-button slot="append" type="primary" icon="el-icon-search" @click="searchEvent"></el-button>
-      </el-input>
-    
-      </div>-->
       <baidu-map
         class="bm-view"
         :center="center"
         :zoom="zoom"
         @ready="readyHandler"
-        @click="getClickInfo"
         :scroll-wheel-zoom="true"
         :mapClick="false"
         　ak="GsTerPPU46fUXlt09K8840K0HxTvKIIa"
@@ -67,12 +37,6 @@
             @click="markerClick(marker)"
           />
         </div>
-        <bm-local-search
-          :keyword="address"
-          :location="address"
-          :auto-viewport="true"
-          style="width:0px;height:0px;overflow: hidden;"
-        ></bm-local-search>
       </baidu-map>
     </div>
   </div>
@@ -91,8 +55,7 @@ import {
 export default {
   data() {
     return {
-      searchAddress: "",
-      address: "",
+      msgCount: 0,
       center: { lng: 0, lat: 0 },
       zoom: 15,
       childStationList: [],
@@ -110,8 +73,21 @@ export default {
     BmLocalSearch
   },
 
-  created() {},
+  created() {
+    this.getAlertNum();
+  },
   methods: {
+    getAlertNum() {
+      this.request({
+        url: "/alert/getAlertNum",
+        method: "get"
+      }).then(res => {
+        let data = res.data;
+        if (data.status == 1) {
+          this.msgCount = data.data.num;
+        }
+      });
+    },
     getAllStation() {
       this.$router.push({
         path: "/sitemanage/station"
@@ -188,9 +164,6 @@ export default {
       }
       this.zoom = e.target.getZoom();
       // console.log(this.centerStr.lng + "__A__" + this.centerStr.lat);
-    },
-    searchEvent() {
-      this.address = this.searchAddress;
     },
     logout() {
       this.$confirm("您确定要退出当前系统？", "提示", {

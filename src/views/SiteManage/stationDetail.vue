@@ -48,11 +48,12 @@
           </div>
         </div>
 
-        <div class="app-station-three" v-if="deviceLists.length>0">
+        <div class="app-station-three">
           <div class="ones">
             <h3>设备列表</h3>
             <!-- <span @click="deviceDetailEvent(0)">查看详情</span> -->
           </div>
+          <div class="app-nodatas" v-if="deviceLists.length==0">暂无设备</div>
           <div
             class="twos"
             v-for="item in deviceLists"
@@ -68,8 +69,8 @@
               <p>运行状态：{{item.work_status==1?"正常":"异常"}}</p>
               <p>设备编号：{{item.number}}</p>
               <p>设备型号：{{item.model}}</p>
-              <p>运行时长：{{item.days}}小时</p>
-              <p>最近维保：{{item.latest_time|formatGetDate}}</p>
+              <p>运行时长：{{item.days}}天</p>
+              <p>最近维保：{{item.latest_time|formatDateTamps}}</p>
             </div>
           </div>
         </div>
@@ -255,7 +256,8 @@ export default {
   align-items: center;
 }
 .app-station-three .bd-body {
-  overflow: hidden; padding-right: 12px;
+  overflow: hidden;
+  padding-right: 12px;
 }
 .app-station-three .bd-body p {
   color: #747373;

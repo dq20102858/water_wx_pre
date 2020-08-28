@@ -22,12 +22,13 @@
             <div class="bd-body">
               <p>设备编号：{{deviceDetailData.number}}</p>
               <p>设备型号：{{deviceDetailData.model}}</p>
-              <p>运行时长：{{deviceDetailData.days}}</p>
+              <p>运行时长：{{deviceDetailData.days}}天</p>
+              <p>投入时间：{{deviceDetailData.use_time}}</p>
               <p>最近维保：{{deviceDetailData.latest_time}}</p>
               <p>设备品牌：{{deviceDetailData.brand}}</p>
               <p>质保日期：{{deviceDetailData.warranty_time}}</p>
-              <p>今日能耗：{{deviceDetailData.energy}}</p>
-              <p>累计能耗：{{deviceDetailData.total_energy}}</p>
+              <p>今日能耗：{{deviceDetailData.energy}}度</p>
+              <p>累计能耗：{{deviceDetailData.total_energy}}度</p>
               <p>采购人：{{deviceDetailData.purchaser}}</p>
             </div>
           </div>
@@ -56,11 +57,9 @@ export default {
   },
   mounted() {
     this.getEcharts();
-     this.getDeviceDetailData();
+    this.getDeviceDetail();
   },
-  created() {
-   
-  },
+  created() {},
   methods: {
     backURL() {
       this.$router.go(-1); //返回上一层
@@ -187,7 +186,7 @@ export default {
         }
       });
     },
-    getDeviceDetailData() {
+    getDeviceDetail() {
       this.request({
         url: "/device/getDeviceDetail",
         method: "get",
@@ -200,6 +199,7 @@ export default {
             "00:00:00",
             ""
           );
+          data.data.use_time = data.data.use_time.replace("00:00:00", "");
           this.deviceDetailData = data.data;
         }
       });
@@ -211,39 +211,39 @@ export default {
 .app-device-detail {
   background: #fff;
   border-radius: 6px;
+  padding: 15px;
 }
 .app-device-detail .ones {
-  background: #2b8cf9;
   display: block;
   overflow: hidden;
-  border-radius: 6px 6px 0 0;
-  padding: 10px 15px;
 }
 .app-device-detail .ones h3 {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   float: left;
-  color: #fff;
-  width: 80%;
+  width: 60%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 .app-device-detail .ones span {
+  cursor: pointer;
   float: right;
-  font-size: 14px;
+  background: #1386ff;
   color: #fff;
+  border-radius: 30px;
+  padding: 5px 15px;
 }
 .app-device-detail .twos {
-  padding: 13px 15px 15px 15px;
+  margin-top: 10px;
 }
 .app-device-detail .bd-img {
-  float: left;
-  margin-right: 14px;
+  float: left; 
+  margin-right: 14px; 
 }
 .app-device-detail .bd-img img {
-  background: #fafafa;
-  max-width: 100px;
+  background: #f2f2f2;
+  width: 100px;
   height: 110px;
   border-radius: 3px;
   display: block;
