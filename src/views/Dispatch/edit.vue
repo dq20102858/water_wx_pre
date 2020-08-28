@@ -176,7 +176,7 @@ export default {
                 type: "success",
                 message: "保存成功！"
               });
-              window.location.reload();
+              this.$router.push( "/dispatch/");
             }
           });
         } else {
