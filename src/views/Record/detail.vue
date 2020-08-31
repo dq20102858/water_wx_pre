@@ -8,8 +8,6 @@
       <div class="app-form">
         <el-form
           :model="formData"
-          :rules="formRules"
-          ref="formRulesRef"
           class="el-form-custom"
           label-width="100px"
         >
