@@ -97,7 +97,7 @@
             <el-form-item label="累积读数：" prop="electricity_sum">
               <el-input v-model="formData.electricity_sum" maxlength="6"></el-input>
             </el-form-item>
-            <el-form-item label="异常情况：">
+            <el-form-item label="异常情况：" prop="exception">
               <el-input type="textarea" v-model="formData.exception" maxlength="200"></el-input>
             </el-form-item>
           </div>
@@ -220,6 +220,14 @@ export default {
           {
             pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
             message: "请输入1-6位数字",
+            trigger: "blur"
+          }
+        ],
+        exception: [
+          { min: 2, max: 200, message: "长度在2到200个字符", trigger: "blur" },
+          {
+            pattern: /(^\S+).*(\S+$)/,
+            message: "开始和结尾不能有空格",
             trigger: "blur"
           }
         ]
