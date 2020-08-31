@@ -11,7 +11,7 @@
             <el-table-column label="序号" width="50">
               <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
-            <el-table-column prop="station_name" label="维保站点" class-name="nowrap"></el-table-column>
+            <el-table-column prop="station_name" label="站点名" class-name="nowrap"></el-table-column>
             <!-- <el-table-column prop="type" label="维保事项">
               <template slot-scope="scope">
                 <span v-if="scope.row.type==1">设备维修</span>
@@ -23,10 +23,10 @@
               <template slot-scope="scope">
                 <span>{{scope.row.assign_time|formatGetDate}}</span>
               </template>
-            </el-table-column> 
-            <el-table-column prop="assigner" label="指派人"  width="80" class-name="nowrap"></el-table-column>
+            </el-table-column>
+            <el-table-column prop="assigner" label="指派人" width="80" class-name="nowrap"></el-table-column>
           </el-table>
-            <div class="app-pagers">
+          <div class="app-pagers">
             <el-pagination
               background
               v-if="dataList.length !== 0"
@@ -50,7 +50,7 @@
       center
     >
       <el-form class="el-form-custom" label-width="100px">
-        <el-form-item label="维保站点：">
+        <el-form-item label="站点名：">
           <el-input v-model="formDetailData.station_name" autocomplete="off" disabled></el-input>
         </el-form-item>
         <el-form-item label="派单事项：">
@@ -59,11 +59,14 @@
         <el-form-item label="指派人员：">
           <el-input v-model="formDetailData.assigner" autocomplete="off" disabled></el-input>
         </el-form-item>
+        <el-form-item label="手机号码：">
+          <el-input v-model="formDetailData.phone" autocomplete="off" disabled></el-input>
+        </el-form-item>
         <el-form-item label="指派时间：">
           <el-input v-model="formDetailData.assign_time" autocomplete="off" disabled></el-input>
         </el-form-item>
         <el-form-item label="指派内容：">
-            <div class="el-contents">{{formDetailData.content}}</div>
+          <div class="el-contents">{{formDetailData.content}}</div>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -133,8 +136,8 @@ export default {
       this.formDetailData.station_name = row.station_name;
       this.formDetailData.assigner = row.assigner;
       this.formDetailData.assign_time = row.assign_time;
+      this.formDetailData.phone = row.phone;
       this.formDetailData.content = row.content;
-
       if (row.type == 1) {
         this.formDetailData.typeName = "设备维修";
       } else if (row.type == 2) {

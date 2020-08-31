@@ -2,7 +2,7 @@
   <div class="app-pages">
     <header class="app-top-bar">
       <span class="icons icon-back pull-left" @click="backURL"></span>
-      <h1 class="titles">运维派单</h1>
+      <h1 class="titles">发起派单</h1>
     </header>
     <div class="app-content">
       <div class="app-form">
@@ -13,7 +13,7 @@
           class="el-form-custom"
           label-width="100px"
         >
-          <el-form-item label="选择站点：" prop="sid">
+          <el-form-item label="站点名：" prop="sid">
             <el-cascader
               popper-class="app-cascader"
               v-model="formData.sid"
@@ -42,7 +42,7 @@
             </el-select>
           </el-form-item>
           <el-form-item label="指派人员：" prop="assigner_id">
-            <el-select v-model="formData.assigner_id" filterable placeholder="请选择指派人员">
+            <el-select v-model="formData.assigner_id" filterable placeholder="请选择指派人员"    @change="userChange($event)">
               <el-option
                 v-for="item in this.userList"
                 :key="item.id"
@@ -50,6 +50,9 @@
                 :value="item.id"
               ></el-option>
             </el-select>
+          </el-form-item>
+            <el-form-item label="手机号码：">
+            <el-input v-model="formData.phone" autocomplete="off" disabled></el-input>
           </el-form-item>
           <el-form-item label="指派内容：" prop="content">
             <el-input type="textarea" v-model="formData.content" rows="3"></el-input>
@@ -157,6 +160,13 @@ export default {
         let data = response.data;
         if (data.status == 1) {
           this.userList = data.data;
+        }
+      });
+    },
+     userChange(e) {
+      this.userList.forEach(ele => {
+        if (ele.id == e) {
+          this.formData.phone = ele.phone;
         }
       });
     },

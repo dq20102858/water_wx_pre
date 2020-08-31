@@ -22,7 +22,7 @@
               <span v-if="items.type==3" class="type type3">运行检查</span>
             </p>
             <p>
-              <em class="pull-left">完成时间：{{items.assign_time|formatGetDate}}</em>
+              <em class="pull-left">指派时间：{{items.assign_time|formatGetDate}}</em>
               <em class="pull-right">维保人：{{items.assigner}}</em>
             </p>
           </div>
@@ -46,7 +46,7 @@
               <span v-if="item.type==3" class="type type3">运行检查</span>
             </p>
             <p>
-              <em class="pull-left">完成时间：{{item.assign_time|formatGetDate}}</em>
+              <em class="pull-left">指派时间：{{item.assign_time|formatGetDate}}</em>
               <em class="pull-right">维保人：{{item.assigner}}</em>
             </p>
           </div>
