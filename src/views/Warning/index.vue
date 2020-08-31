@@ -82,7 +82,7 @@
         <el-form-item label="发生位置：">
           <el-input v-model="formDetailData.address" autocomplete="off" disabled></el-input>
         </el-form-item>
-        <el-form-item label="告警内容：">
+        <el-form-item label="告警原因："  v-if="tabType !=3">
              <div class="el-contents">{{formDetailData.reason}}</div>
         </el-form-item>
       </el-form>
