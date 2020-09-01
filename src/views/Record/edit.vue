@@ -13,13 +13,13 @@
           class="el-form-custom"
           label-width="100px"
         >
-          <el-form-item label="选择站点：" prop="sid" label-width="90px">
+          <el-form-item label="站点名：" prop="sid" label-width="90px">
             <el-cascader
               popper-class="app-cascader"
               v-model="formData.sid"
               :options="stationOptions"
               :props="stationOptionsProps"
-              placeholder="请选择站点"
+              placeholder="请选择站点名"
             ></el-cascader>
           </el-form-item>
           <el-form-item label="维护人：" prop="user_id" label-width="90px" ref="user_id">
