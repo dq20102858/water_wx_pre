@@ -11,7 +11,7 @@
           class="el-form-custom"
           label-width="110px"
         >
-          <el-form-item label="选择站点：" prop="sid" label-width="90px">
+          <el-form-item label="站点名：" prop="sid" label-width="90px">
             <el-input v-model="formData.station_name" disabled></el-input>
           </el-form-item>
           <el-form-item label="巡查人：" prop="user_id" label-width="90px">

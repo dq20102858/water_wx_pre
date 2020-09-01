@@ -157,17 +157,15 @@ export default {
   margin-bottom: 40px;
 }
 .login-container .el-input-group__prepend {
-  border: 1px #338ff6 solid;
+  border: 0;
   background: #fff;
   padding: 0 5px;
-  border-right: 0;
 }
 .login-container .el-input-group__prepend img {
   width: 32px;
 }
 .login-container .is-error .el-input-group__prepend {
-  border: 1px #f56c6c solid;
-  border-right: 0;
+  border: 0;
 }
 .login-container .el-input__inner {
   background: #fff !important;
@@ -175,8 +173,7 @@ export default {
   padding: 0 5px 0 1px;
   color: #338ff6;
   height: 45px;
-  border: 1px #338ff6 solid;
-  border-left: none;
+  border: 0;
 }
 .login-container input:-webkit-autofill {
   box-shadow: 0 0 0px 1000px white inset !important;
