@@ -30,7 +30,7 @@ selector{ cursor: pointer }
 .icon-station{ margin-right:15px;  background: url("~@/assets/image/icon-wz.png") no-repeat; background-size: 100%; width: 25px;height: 25px; display: inline-block; vertical-align: middle;}
 .icon-msg{  background: url("~@/assets/image/icon-w2.png") no-repeat; background-size: 100%; width: 25px;height: 25px; display: inline-block; vertical-align: middle;}
 .icon-logout{  background: url("~@/assets/image/icon-logout.png") no-repeat; background-size: 100%; width: 24px;height: 24px; display: inline-block; vertical-align: middle;}
-.msgnum{position: absolute;right: -5px;top:-5px; padding:2px;height: 18px; line-height: 18px;width: 18px; text-align: center; background: #FD3C5A; float: right;border-radius: 100%;font-size:10px;color:#fff}
+.msgnum{position: absolute;right: -5px;top:-5px; padding:2px;height: 18px; line-height: 13px;width: 18px; text-align: center; background: #FD3C5A; float: right;border-radius: 100%;font-size:10px;color:#fff}
 
 .app-top-bar~.app-content {padding-top: 44px;}
 .app-content-rows {margin: 15px; border-radius: 6px;}
