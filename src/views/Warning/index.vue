@@ -20,9 +20,7 @@
           <el-table :data="dataList" size="mini" @row-click="tableRowDetails">
             <el-table-column label="序号" width="50">
               <template slot-scope="scope">
-                <span
-                  :class="[scope.row.is_read!=1? 'cirshow' : 'nums']"
-                >{{scope.$index+(page_cur - 1) * page_size + 1}}</span>
+               {{scope.$index+(page_cur - 1) * page_size + 1}}
               </template>
             </el-table-column>
             <el-table-column label="设备" class-name="nowrap" v-if="this.tabType==2" width="60">
