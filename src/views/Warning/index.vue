@@ -145,18 +145,18 @@ export default {
       this.getDataList();
     },
     tableRowDetails(row) {
-      if (row.is_read == 0) {
-        this.request({
-          url: "/alert/updateRead",
-          method: "post",
-          data: { id: row.id, type: this.tabType }
-        }).then(res => {
-          let data = res.data;
-          if (data.status == 1) {
-            this.getDataList();
-          }
-        });
-      }
+      // if (row.is_read == 0) {
+      //   this.request({
+      //     url: "/alert/updateRead",
+      //     method: "post",
+      //     data: { id: row.id, type: this.tabType }
+      //   }).then(res => {
+      //     let data = res.data;
+      //     if (data.status == 1) {
+      //       this.getDataList();
+      //     }
+      //   });
+      // }
       this.diaLogDetailVisible = true;
       this.formDetailData.address = row.address;
       this.formDetailData.create_time = row.create_time;

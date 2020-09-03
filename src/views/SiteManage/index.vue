@@ -2,9 +2,9 @@
   <div class="app-pages">
     <header class="app-top-bar">
       <span class="icons icon-station pull-left" @click="getAllStation"></span>
-      <span class="icons icon-msg pull-left" @click="getWarm">
+      <!-- <span class="icons icon-msg pull-left" @click="getWarm">
         <i class="msgnum">{{msgCount}}</i>
-      </span>
+      </span> -->
       <h1 class="titles">南通沿海市政</h1>
       <span class="icons icon-logout pull-right" @click="logout"></span>
     </header>
@@ -74,7 +74,7 @@ export default {
   },
 
   created() {
-    this.getAlertNum();
+   // this.getAlertNum();
   },
   methods: {
     getAlertNum() {

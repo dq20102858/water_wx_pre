@@ -13,7 +13,7 @@
           class="el-form-custom"
           label-width="110px"
         >
-          <el-form-item label="站点名" prop="sid" label-width="90px">
+          <el-form-item label="站点名：" prop="sid" label-width="90px">
             <el-cascader
               popper-class="app-cascader"
               v-model="formData.sid"
