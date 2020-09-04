@@ -1,5 +1,8 @@
 //格式化时间
 export function formatDate(val) {
+  if (val == '') {
+    return ""
+  }
   if (typeof val === 'string') {
     val = val.replace(/-/g, '/')
   }
@@ -12,6 +15,9 @@ export function formatDate(val) {
   return year + "年" + month + "月" + day + "日";
 }
 export function formatDateTime(val) {
+  if (val == '') {
+    return ""
+  }
   if (typeof val === 'string') {
     val = val.replace(/-/g, '/')
   }
@@ -24,6 +30,9 @@ export function formatDateTime(val) {
 }
 //格式化时间
 export function formatGetDate(val) {
+  if (val == '') {
+    return ""
+  }
   if (typeof val === 'string') {
     val = val.replace(/-/g, '/')
   }
@@ -63,7 +72,7 @@ export function formatDateTamps(timestamp) {
   var m =
     (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
   var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
-  return Y + M + D 
+  return Y + M + D
 }
 export function dateDifference(sDate1, sDate2) {
   var dateSpan,
@@ -81,7 +90,6 @@ export function dateDifference(sDate1, sDate2) {
 };
 
 export function isNull(val) {
-  //debugger
   let result = "";
   if (typeof val != "undefined") {
     result = val;
