@@ -17,7 +17,7 @@ selector{ cursor: pointer }
 .text-right{text-align: right}
 .blank{height:5px;clear: both;}
 #app {height: 100%; min-height: 100%; width: 100%; }
- .app-pages{height: 100%;  overflow: auto;-webkit-overflow-scrolling: touch;}
+ .app-pages{height: 100vh;  overflow: auto;-webkit-overflow-scrolling: touch;}
  .el-button:focus {background: #338ff6;border-color:#338ff6;}
  .el-button--primary{background: #338ff6;border-color:#338ff6}
  .el-scrollbar   .el-scrollbar__bar {opacity: 1 !important;}

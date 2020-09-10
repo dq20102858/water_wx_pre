@@ -170,7 +170,7 @@ export default {
 .login-container .el-input__inner {
   background: #fff !important;
   border: 6px;
-  padding: 0 5px 0 1px;
+  padding: 0 5px 0 10px;
   color: #338ff6;
   height: 45px;
   border: 0;
