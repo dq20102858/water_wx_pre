@@ -19,9 +19,7 @@
         <div class="app-table">
           <el-table :data="dataList" size="mini" @row-click="tableRowDetails">
             <el-table-column label="序号" width="50">
-              <template slot-scope="scope">
-               {{scope.$index+(page_cur - 1) * page_size + 1}}
-              </template>
+              <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
             </el-table-column>
             <el-table-column label="设备" class-name="nowrap" v-if="this.tabType==2" width="60">
               <template slot-scope="scope">
@@ -45,7 +43,7 @@
               </template>
             </el-table-column>
           </el-table>
-           <div class="app-pagers">
+          <div class="app-pagers">
             <el-pagination
               background
               v-if="dataList.length !== 0"
@@ -63,6 +61,7 @@
       width="90%"
       title="告警详情"
       :visible.sync="diaLogDetailVisible"
+      :modal-append-to-body="false"
       :close-on-click-modal="false"
       :show-close="false"
       center
@@ -80,8 +79,8 @@
         <el-form-item label="发生位置：">
           <el-input v-model="formDetailData.address" autocomplete="off" disabled></el-input>
         </el-form-item>
-        <el-form-item label="告警原因："  v-if="tabType !=3">
-             <div class="el-contents">{{formDetailData.reason}}</div>
+        <el-form-item label="告警原因：" v-if="tabType !=3">
+          <div class="el-contents">{{formDetailData.reason}}</div>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">

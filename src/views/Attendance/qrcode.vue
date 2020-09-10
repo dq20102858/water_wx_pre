@@ -24,6 +24,7 @@
       top="40%"
       title="提示"
       :visible.sync="dialogVisible"
+      :modal-append-to-body="false"
       :close-on-click-modal="false"
       :show-close="false"
       center

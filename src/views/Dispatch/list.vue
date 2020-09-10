@@ -45,8 +45,8 @@
       width="90%"
       title="派单详情"
       :visible.sync="diaLogDetailVisible"
-      :close-on-click-modal="false"
       :modal-append-to-body="false"
+      :close-on-click-modal="false"
       :show-close="false"
       center
     >
