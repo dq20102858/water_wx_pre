@@ -55,6 +55,7 @@
       ref="drawer"
       :withHeader="false"
       size="100%"
+      :modal-append-to-body="false"
       direction="rtl"
     >
       <div class="app-pages">

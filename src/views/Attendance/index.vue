@@ -25,7 +25,7 @@
             <el-table-column label="开始时间" width="90" align="center">
               <template slot-scope="scope">{{scope.row.start_time|formatDateTime}}</template>
             </el-table-column>
-            <el-table-column label="结束时间"  width="90" align="center">
+            <el-table-column label="结束时间" width="90" align="center">
               <template slot-scope="scope">{{scope.row.end_time|formatDateTime}}</template>
             </el-table-column>
           </el-table>
@@ -48,6 +48,7 @@
       title="打卡详情"
       :visible.sync="diaLogDetailVisible"
       :close-on-click-modal="false"
+      :modal-append-to-body="false"
       :show-close="false"
       center
     >
