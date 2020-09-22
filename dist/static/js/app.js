@@ -1,4 +1,4 @@
-webpackJsonp([20],{
+webpackJsonp([25],{
 
 /***/ "+g8z":
 /***/ (function(module, exports) {
@@ -31,6 +31,7 @@ __webpack_require__.d(filters_namespaceObject, "formatDate", function() { return
 __webpack_require__.d(filters_namespaceObject, "formatDateTime", function() { return formatDateTime; });
 __webpack_require__.d(filters_namespaceObject, "formatGetDate", function() { return formatGetDate; });
 __webpack_require__.d(filters_namespaceObject, "formatDateTamp", function() { return formatDateTamp; });
+__webpack_require__.d(filters_namespaceObject, "formatDateTamps", function() { return formatDateTamps; });
 __webpack_require__.d(filters_namespaceObject, "dateDifference", function() { return dateDifference; });
 __webpack_require__.d(filters_namespaceObject, "isNull", function() { return isNull; });
 
@@ -202,19 +203,19 @@ vue_esm["default"].use(vue_router_esm["a" /* default */]);
 var constantRouterMap = [{
   path: '/login',
   component: function component() {
-    return __webpack_require__.e/* import() */(9).then(__webpack_require__.bind(null, "T+/8"));
+    return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, "T+/8"));
   },
   hidden: true
 }, {
   path: '/404',
   component: function component() {
-    return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, "fe7i"));
+    return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, "fe7i"));
   },
   hidden: true
 }, {
   path: '/401',
   component: function component() {
-    return __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, "97xN"));
+    return __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, "97xN"));
   },
   hidden: true
 }, {
@@ -225,19 +226,19 @@ var constantRouterMap = [{
     path: '/sitemanage',
     name: 'sitemanage',
     component: function component() {
-      return __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, "vzEL"));
+      return __webpack_require__.e/* import() */(5).then(__webpack_require__.bind(null, "vzEL"));
     }
   }, {
     path: '/sitemanage/station',
     name: 'sitemanage-station',
     component: function component() {
-      return __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, "8iLd"));
+      return __webpack_require__.e/* import() */(19).then(__webpack_require__.bind(null, "8iLd"));
     }
   }, {
     path: '/sitemanage/stationdetail',
     name: 'sitemanage-stationdetail',
     component: function component() {
-      return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, "YQSK"));
+      return __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, "YQSK"));
     }
   }, {
     path: '/sitemanage/main',
@@ -249,13 +250,13 @@ var constantRouterMap = [{
     path: '/sitemanage/devicedetail',
     name: 'sitemanage-devicedetail',
     component: function component() {
-      return __webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, "AWFw"));
+      return __webpack_require__.e/* import() */(17).then(__webpack_require__.bind(null, "AWFw"));
     }
   }, {
     path: '/sitemanage/menu',
     name: 'sitemanage-menu',
     component: function component() {
-      return __webpack_require__.e/* import() */(8).then(__webpack_require__.bind(null, "y3h8"));
+      return __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, "y3h8"));
     }
   }]
 }, {
@@ -266,13 +267,19 @@ var constantRouterMap = [{
     path: '/dispatch',
     name: 'dispatch',
     component: function component() {
-      return __webpack_require__.e/* import() */(16).then(__webpack_require__.bind(null, "IRil"));
+      return __webpack_require__.e/* import() */(13).then(__webpack_require__.bind(null, "IRil"));
     }
   }, {
     path: '/dispatch/list',
     name: 'dispatch-list',
     component: function component() {
-      return __webpack_require__.e/* import() */(5).then(__webpack_require__.bind(null, "J4TC"));
+      return __webpack_require__.e/* import() */(18).then(__webpack_require__.bind(null, "J4TC"));
+    }
+  }, {
+    path: '/dispatch/edit',
+    name: 'dispatch-edit',
+    component: function component() {
+      return __webpack_require__.e/* import() */(22).then(__webpack_require__.bind(null, "1FqB"));
     }
   }]
 }, {
@@ -283,37 +290,55 @@ var constantRouterMap = [{
     path: '/record',
     name: 'record',
     component: function component() {
-      return __webpack_require__.e/* import() */(17).then(__webpack_require__.bind(null, "xqn6"));
+      return __webpack_require__.e/* import() */(8).then(__webpack_require__.bind(null, "xqn6"));
     }
   }, {
     path: '/record/edit',
-    name: 'recordedit',
+    name: 'record-edit',
     component: function component() {
-      return __webpack_require__.e/* import() */(15).then(__webpack_require__.bind(null, "TXIg"));
+      return __webpack_require__.e/* import() */(11).then(__webpack_require__.bind(null, "TXIg"));
+    }
+  }, {
+    path: '/record/detail',
+    name: 'record-detail',
+    component: function component() {
+      return __webpack_require__.e/* import() */(10).then(__webpack_require__.bind(null, "QGeQ"));
     }
   }, {
     path: '/record/operation',
     name: 'operation',
     component: function component() {
-      return __webpack_require__.e/* import() */(11).then(__webpack_require__.bind(null, "IsfQ"));
+      return __webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, "IsfQ"));
     }
   }, {
     path: '/record/operationedit',
-    name: 'operationedit',
+    name: 'operation-edit',
     component: function component() {
-      return __webpack_require__.e/* import() */(14).then(__webpack_require__.bind(null, "RdRo"));
+      return __webpack_require__.e/* import() */(12).then(__webpack_require__.bind(null, "RdRo"));
+    }
+  }, {
+    path: '/record/operationdetail',
+    name: 'operation-detail',
+    component: function component() {
+      return __webpack_require__.e/* import() */(23).then(__webpack_require__.bind(null, "D7H8"));
     }
   }, {
     path: '/record/sampling',
     name: 'sampling',
     component: function component() {
-      return __webpack_require__.e/* import() */(10).then(__webpack_require__.bind(null, "3YOD"));
+      return __webpack_require__.e/* import() */(15).then(__webpack_require__.bind(null, "3YOD"));
     }
   }, {
     path: '/record/samplingedit',
-    name: 'samplingedit',
+    name: 'sampling-edit',
     component: function component() {
-      return __webpack_require__.e/* import() */(12).then(__webpack_require__.bind(null, "Cuha"));
+      return __webpack_require__.e/* import() */(20).then(__webpack_require__.bind(null, "Cuha"));
+    }
+  }, {
+    path: '/record/samplingdetail',
+    name: 'sampling-detail',
+    component: function component() {
+      return __webpack_require__.e/* import() */(16).then(__webpack_require__.bind(null, "V9tV"));
     }
   }]
 }, {
@@ -324,7 +349,13 @@ var constantRouterMap = [{
     path: '/attendance',
     name: 'attendance',
     component: function component() {
-      return __webpack_require__.e/* import() */(13).then(__webpack_require__.bind(null, "Cxod"));
+      return __webpack_require__.e/* import() */(21).then(__webpack_require__.bind(null, "Cxod"));
+    }
+  }, {
+    path: '/attendance/qrcode',
+    name: 'attendance-qrcode',
+    component: function component() {
+      return __webpack_require__.e/* import() */(14).then(__webpack_require__.bind(null, "4ENC"));
     }
   }]
 }, {
@@ -335,7 +366,7 @@ var constantRouterMap = [{
     path: '/warning',
     name: 'warning',
     component: function component() {
-      return __webpack_require__.e/* import() */(18).then(__webpack_require__.bind(null, "WdIq"));
+      return __webpack_require__.e/* import() */(9).then(__webpack_require__.bind(null, "WdIq"));
     }
   }]
 }];
@@ -500,346 +531,16 @@ var permission = {
 
         var map = asyncRouterMap;
         // const accessedRouters = mapAsyncRouter(map, access)
-        var accessedRouters = asyncRouterMap;
-        accessedRouters.push({ path: '*', redirect: '/404', hidden: true });
-        commit('SET_ROUTERS', accessedRouters);
-        resolve();
+        // const accessedRouters = asyncRouterMap
+        // accessedRouters.push({ path: '*', redirect: '/404', hidden: true })
+        // commit('SET_ROUTERS', accessedRouters)
+        // resolve()
       });
     }
   }
 };
 
 /* harmony default export */ var modules_permission = (permission);
-// EXTERNAL MODULE: ./node_modules/babel-runtime/helpers/toConsumableArray.js
-var toConsumableArray = __webpack_require__("Gu7T");
-var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(toConsumableArray);
-
-// EXTERNAL MODULE: ./node_modules/babel-runtime/core-js/get-iterator.js
-var get_iterator = __webpack_require__("BO1k");
-var get_iterator_default = /*#__PURE__*/__webpack_require__.n(get_iterator);
-
-// EXTERNAL MODULE: ./node_modules/babel-runtime/helpers/slicedToArray.js
-var slicedToArray = __webpack_require__("d7EF");
-var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray);
-
-// EXTERNAL MODULE: ./node_modules/babel-runtime/core-js/object/assign.js
-var object_assign = __webpack_require__("woOf");
-var assign_default = /*#__PURE__*/__webpack_require__.n(object_assign);
-
-// CONCATENATED MODULE: ./src/store/modules/tagsView.js
-
-
-
-
-
-var tagsView = {
-  state: {
-    visitedViews: [],
-    cachedViews: []
-  },
-  mutations: {
-    ADD_VISITED_VIEW: function ADD_VISITED_VIEW(state, view) {
-      if (state.visitedViews.some(function (v) {
-        return v.path === view.path;
-      })) return;
-      state.visitedViews.push(assign_default()({}, view, {
-        title: view.meta.title || 'no-name'
-      }));
-    },
-    ADD_CACHED_VIEW: function ADD_CACHED_VIEW(state, view) {
-      if (state.cachedViews.includes(view.name)) return;
-      if (!view.meta.noCache) {
-        state.cachedViews.push(view.name);
-      }
-    },
-
-    DEL_VISITED_VIEW: function DEL_VISITED_VIEW(state, view) {
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = get_iterator_default()(state.visitedViews.entries()), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var _ref = _step.value;
-
-          var _ref2 = slicedToArray_default()(_ref, 2);
-
-          var i = _ref2[0];
-          var v = _ref2[1];
-
-          if (v.path === view.path) {
-            state.visitedViews.splice(i, 1);
-            break;
-          }
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-    },
-    DEL_CACHED_VIEW: function DEL_CACHED_VIEW(state, view) {
-      var _iteratorNormalCompletion2 = true;
-      var _didIteratorError2 = false;
-      var _iteratorError2 = undefined;
-
-      try {
-        for (var _iterator2 = get_iterator_default()(state.cachedViews), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-          var i = _step2.value;
-
-          if (i === view.name) {
-            var index = state.cachedViews.indexOf(i);
-            state.cachedViews.splice(index, 1);
-            break;
-          }
-        }
-      } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion2 && _iterator2.return) {
-            _iterator2.return();
-          }
-        } finally {
-          if (_didIteratorError2) {
-            throw _iteratorError2;
-          }
-        }
-      }
-    },
-
-    DEL_OTHERS_VISITED_VIEWS: function DEL_OTHERS_VISITED_VIEWS(state, view) {
-      var _iteratorNormalCompletion3 = true;
-      var _didIteratorError3 = false;
-      var _iteratorError3 = undefined;
-
-      try {
-        for (var _iterator3 = get_iterator_default()(state.visitedViews.entries()), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-          var _ref3 = _step3.value;
-
-          var _ref4 = slicedToArray_default()(_ref3, 2);
-
-          var i = _ref4[0];
-          var v = _ref4[1];
-
-          if (v.path === view.path) {
-            state.visitedViews = state.visitedViews.slice(i, i + 1);
-            break;
-          }
-        }
-      } catch (err) {
-        _didIteratorError3 = true;
-        _iteratorError3 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion3 && _iterator3.return) {
-            _iterator3.return();
-          }
-        } finally {
-          if (_didIteratorError3) {
-            throw _iteratorError3;
-          }
-        }
-      }
-    },
-    DEL_OTHERS_CACHED_VIEWS: function DEL_OTHERS_CACHED_VIEWS(state, view) {
-      var _iteratorNormalCompletion4 = true;
-      var _didIteratorError4 = false;
-      var _iteratorError4 = undefined;
-
-      try {
-        for (var _iterator4 = get_iterator_default()(state.cachedViews), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-          var i = _step4.value;
-
-          if (i === view.name) {
-            var index = state.cachedViews.indexOf(i);
-            state.cachedViews = state.cachedViews.slice(index, index + 1);
-            break;
-          }
-        }
-      } catch (err) {
-        _didIteratorError4 = true;
-        _iteratorError4 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion4 && _iterator4.return) {
-            _iterator4.return();
-          }
-        } finally {
-          if (_didIteratorError4) {
-            throw _iteratorError4;
-          }
-        }
-      }
-    },
-
-    DEL_ALL_VISITED_VIEWS: function DEL_ALL_VISITED_VIEWS(state) {
-      state.visitedViews = [];
-    },
-    DEL_ALL_CACHED_VIEWS: function DEL_ALL_CACHED_VIEWS(state) {
-      state.cachedViews = [];
-    },
-
-    UPDATE_VISITED_VIEW: function UPDATE_VISITED_VIEW(state, view) {
-      var _iteratorNormalCompletion5 = true;
-      var _didIteratorError5 = false;
-      var _iteratorError5 = undefined;
-
-      try {
-        for (var _iterator5 = get_iterator_default()(state.visitedViews), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-          var v = _step5.value;
-
-          if (v.path === view.path) {
-            v = assign_default()(v, view);
-            break;
-          }
-        }
-      } catch (err) {
-        _didIteratorError5 = true;
-        _iteratorError5 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion5 && _iterator5.return) {
-            _iterator5.return();
-          }
-        } finally {
-          if (_didIteratorError5) {
-            throw _iteratorError5;
-          }
-        }
-      }
-    }
-
-  },
-  actions: {
-    addView: function addView(_ref5, view) {
-      var dispatch = _ref5.dispatch;
-
-      dispatch('addVisitedView', view);
-      dispatch('addCachedView', view);
-    },
-    addVisitedView: function addVisitedView(_ref6, view) {
-      var commit = _ref6.commit;
-
-      commit('ADD_VISITED_VIEW', view);
-    },
-    addCachedView: function addCachedView(_ref7, view) {
-      var commit = _ref7.commit;
-
-      commit('ADD_CACHED_VIEW', view);
-    },
-    delView: function delView(_ref8, view) {
-      var dispatch = _ref8.dispatch,
-          state = _ref8.state;
-
-      return new promise_default.a(function (resolve) {
-        dispatch('delVisitedView', view);
-        dispatch('delCachedView', view);
-        resolve({
-          visitedViews: [].concat(toConsumableArray_default()(state.visitedViews)),
-          cachedViews: [].concat(toConsumableArray_default()(state.cachedViews))
-        });
-      });
-    },
-    delVisitedView: function delVisitedView(_ref9, view) {
-      var commit = _ref9.commit,
-          state = _ref9.state;
-
-      return new promise_default.a(function (resolve) {
-        commit('DEL_VISITED_VIEW', view);
-        resolve([].concat(toConsumableArray_default()(state.visitedViews)));
-      });
-    },
-    delCachedView: function delCachedView(_ref10, view) {
-      var commit = _ref10.commit,
-          state = _ref10.state;
-
-      return new promise_default.a(function (resolve) {
-        commit('DEL_CACHED_VIEW', view);
-        resolve([].concat(toConsumableArray_default()(state.cachedViews)));
-      });
-    },
-    delOthersViews: function delOthersViews(_ref11, view) {
-      var dispatch = _ref11.dispatch,
-          state = _ref11.state;
-
-      return new promise_default.a(function (resolve) {
-        dispatch('delOthersVisitedViews', view);
-        dispatch('delOthersCachedViews', view);
-        resolve({
-          visitedViews: [].concat(toConsumableArray_default()(state.visitedViews)),
-          cachedViews: [].concat(toConsumableArray_default()(state.cachedViews))
-        });
-      });
-    },
-    delOthersVisitedViews: function delOthersVisitedViews(_ref12, view) {
-      var commit = _ref12.commit,
-          state = _ref12.state;
-
-      return new promise_default.a(function (resolve) {
-        commit('DEL_OTHERS_VISITED_VIEWS', view);
-        resolve([].concat(toConsumableArray_default()(state.visitedViews)));
-      });
-    },
-    delOthersCachedViews: function delOthersCachedViews(_ref13, view) {
-      var commit = _ref13.commit,
-          state = _ref13.state;
-
-      return new promise_default.a(function (resolve) {
-        commit('DEL_OTHERS_CACHED_VIEWS', view);
-        resolve([].concat(toConsumableArray_default()(state.cachedViews)));
-      });
-    },
-    delAllViews: function delAllViews(_ref14, view) {
-      var dispatch = _ref14.dispatch,
-          state = _ref14.state;
-
-      return new promise_default.a(function (resolve) {
-        dispatch('delAllVisitedViews', view);
-        dispatch('delAllCachedViews', view);
-        resolve({
-          visitedViews: [].concat(toConsumableArray_default()(state.visitedViews)),
-          cachedViews: [].concat(toConsumableArray_default()(state.cachedViews))
-        });
-      });
-    },
-    delAllVisitedViews: function delAllVisitedViews(_ref15) {
-      var commit = _ref15.commit,
-          state = _ref15.state;
-
-      return new promise_default.a(function (resolve) {
-        commit('DEL_ALL_VISITED_VIEWS');
-        resolve([].concat(toConsumableArray_default()(state.visitedViews)));
-      });
-    },
-    delAllCachedViews: function delAllCachedViews(_ref16) {
-      var commit = _ref16.commit,
-          state = _ref16.state;
-
-      return new promise_default.a(function (resolve) {
-        commit('DEL_ALL_CACHED_VIEWS');
-        resolve([].concat(toConsumableArray_default()(state.cachedViews)));
-      });
-    },
-    updateVisitedView: function updateVisitedView(_ref17, view) {
-      var commit = _ref17.commit;
-
-      commit('UPDATE_VISITED_VIEW', view);
-    }
-  }
-};
-
-/* harmony default export */ var modules_tagsView = (tagsView);
 // EXTERNAL MODULE: ./node_modules/babel-runtime/helpers/extends.js
 var helpers_extends = __webpack_require__("Dd8w");
 var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
@@ -861,7 +562,7 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 
 var host = window.location.host;
 // host = 'http://' + host
-host =  true ? 'http://' + host : 'http://10.100.103.204:10002';
+host =  true ? 'http://' + host : 'http://ccrerp.schuee.net/';
 var service = axios_default.a.create({
   baseURL: host, // api的base_url
   withCredentials: true,
@@ -869,6 +570,21 @@ var service = axios_default.a.create({
 });
 // 请求前进行统一处理
 service.interceptors.request.use(function (config) {
+  var getSessionCode = window.localStorage.getItem("sessionCode");
+  if (config.method == 'get') {
+    if (config.params) {
+      config.params.sessionCode = getSessionCode;
+    } else {
+      config.params = { 'sessionCode': getSessionCode };
+    }
+  }
+  if (config.method == 'post') {
+    if (config.data) {
+      config.data.sessionCode = getSessionCode;
+    } else {
+      config.data = { 'sessionCode': getSessionCode };
+    }
+  }
   vue_esm["default"].globalEvBus.$emit('showLoading');
   return config;
 }, function (error) {
@@ -879,6 +595,7 @@ service.interceptors.request.use(function (config) {
 // 请求后进行统一处理
 service.interceptors.response.use(function (response) {
   vue_esm["default"].globalEvBus.$emit('hideLoading');
+
   if (response.data.status == 0 && response.data.msg == '校验失败，请重新登录') {
     src_store.dispatch('FedLogOut').then(function () {
       location.reload(); // 为了重新实例化vue-router对象 避免bug
@@ -1029,6 +746,7 @@ var user = {
     user: '',
     status: '',
     code: '',
+    sessionCode: '',
     token: getToken(),
     name: '',
     avatar: '',
@@ -1044,6 +762,9 @@ var user = {
   mutations: {
     SET_CODE: function SET_CODE(state, code) {
       state.code = code;
+    },
+    SET_SESSIONCode: function SET_SESSIONCode(state, sessionCode) {
+      state.sessionCode = sessionCode;
     },
     SET_TOKEN: function SET_TOKEN(state, token) {
       state.token = token;
@@ -1082,9 +803,13 @@ var user = {
       var username = userInfo.username.trim();
       return new promise_default.a(function (resolve, reject) {
         loginByUsername(username, userInfo.password).then(function (response) {
+
           if (response.data.status) {
             var data = response.data.data;
             commit('SET_TOKEN', data.token);
+            //sessionStorage.setItem("activeMenu", data.sessionCode);
+            var storage = window.localStorage;
+            storage["sessionCode"] = data.sessionCode;
             setToken(data.token);
             setSystem(1);
             resolve();
@@ -1104,7 +829,8 @@ var user = {
           state = _ref2.state;
 
       return new promise_default.a(function (resolve, reject) {
-        getUserInfo({ token: state.token, systemId: state.system }).then(function (response) {
+        var getSessionCode = localStorage.getItem("sessionCode");
+        getUserInfo({ token: state.token, sessionCode: getSessionCode, systemId: state.system }).then(function (response) {
           if (!response.data) {
             // 由于mockjs 不支持自定义状态码只能这样hack
             reject('error');
@@ -1120,6 +846,7 @@ var user = {
           commit('SET_AVATAR', data.avatar);
           commit('SET_INTRODUCTION', data.introduction);
           commit('SET_SYS_ROLE', data.sys_role);
+
           resolve(response);
         }).catch(function (error) {
           reject(error);
@@ -1218,20 +945,11 @@ var user = {
 /* harmony default export */ var modules_user = (user);
 // CONCATENATED MODULE: ./src/store/getters.js
 var getters = {
-  sidebar: function sidebar(state) {
-    return state.app.sidebar;
-  },
   language: function language(state) {
     return state.app.language;
   },
   device: function device(state) {
     return state.app.device;
-  },
-  visitedViews: function visitedViews(state) {
-    return state.tagsView.visitedViews;
-  },
-  cachedViews: function cachedViews(state) {
-    return state.tagsView.cachedViews;
   },
   token: function token(state) {
     return state.user.token;
@@ -1276,14 +994,12 @@ var getters = {
 
 
 
-
 vue_esm["default"].use(vuex_esm["a" /* default */]);
 
 var store = new vuex_esm["a" /* default */].Store({
   modules: {
     app: modules_app,
     permission: modules_permission,
-    tagsView: modules_tagsView,
     user: modules_user
   },
   getters: store_getters
@@ -1330,7 +1046,6 @@ router.beforeEach(function (to, from, next) {
       nprogress_default.a.done(); // if current page is dashboard will not trigger	afterEach hook, so manually handle it
     } else {
       if (src_store.getters.roles.length === 0) {
-
         // 判断当前用户是否已拉取完user_info信息
         src_store.dispatch('GetUserInfo').then(function (res) {
           // 拉取user_info
@@ -1380,6 +1095,9 @@ router.afterEach(function () {
 // CONCATENATED MODULE: ./src/filters/index.js
 //格式化时间
 function formatDate(val) {
+  if (val == '') {
+    return "";
+  }
   if (typeof val === 'string') {
     val = val.replace(/-/g, '/');
   }
@@ -1391,8 +1109,14 @@ function formatDate(val) {
   day = day < 10 ? "0" + day : day;
   return year + "年" + month + "月" + day + "日";
 }
-function formatDateTime(time) {
-  var date = new Date(time);
+function formatDateTime(val) {
+  if (val == '') {
+    return "";
+  }
+  if (typeof val === 'string') {
+    val = val.replace(/-/g, '/');
+  }
+  var date = new Date(val);
   var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
   var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
   var hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
@@ -1401,6 +1125,12 @@ function formatDateTime(time) {
 }
 //格式化时间
 function formatGetDate(val) {
+  if (val == '') {
+    return "";
+  }
+  if (typeof val === 'string') {
+    val = val.replace(/-/g, '/');
+  }
   var date = new Date(val);
   var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
   var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
@@ -1421,7 +1151,16 @@ function formatDateTamp(time, type) {
   var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
   return type == 'date' ? Y + M + D : Y + M + D + h + m + s;
 }
-
+function formatDateTamps(timestamp) {
+  var date = new Date(timestamp * 1000); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+  var Y = date.getFullYear() + '-';
+  var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+  var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+  var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+  var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+  var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+  return Y + M + D;
+}
 function dateDifference(sDate1, sDate2) {
   var dateSpan, tempDate, iDays;
   sDate1 = Date.parse(sDate1);
@@ -1436,7 +1175,6 @@ function dateDifference(sDate1, sDate2) {
 };
 
 function isNull(val) {
-  //debugger
   var result = "";
   if (typeof val != "undefined") {
     result = val;

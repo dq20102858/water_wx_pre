@@ -5,7 +5,7 @@
       :style="{backgroundImage:'url('+require('@/assets/image/icon-login-bg.png')+')'}"
     ></div>
     <div class="login-form">
-      <div class="title-container">
+      <div class="title-container"  @click="getSign">
         <img :src="require('@/assets/image/logo.png')" />
       </div>
       <div class="corpname">南通智能污水处理站监控系统</div>
@@ -116,8 +116,84 @@ export default {
           return false;
         }
       });
-    }
-  },
+    },
+ //扫码
+    getSign() {
+      
+      let url = location.href.split("#")[0];
+      this.request({
+        url: "http://ccrerp.schuee.net/weixin/getWeixinConfig",
+        method: "get"
+      }).then(res => {
+        let jdata = res.data;
+        if (jdata.status == 1) {
+          let a = jdata.data;
+          wx.config({
+            debug: true,
+            appId: jdata.data.appid,
+            timestamp: jdata.data.timestamp,
+            noncestr: jdata.data.noncestr,
+            signature: jdata.data.signature,
+            jsApiList: ["scanQRCode"]
+          });
+          wx.error(function(res) {
+            alert("出错了：" + res.errMsg); //这个地方的好处就是wx.config配置错误，会弹出窗口哪里错误，然后根据微信文档查询即可。
+          });
+          //debugger
+          wx.ready(function() {
+            wx.checkJsApi({
+              jsApiList: ["scanQRCode"],
+              success: function(res) {
+                alert(res);
+              }
+            });
+            wx.scanQRCode({
+              needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+              scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+              success: function(res) {
+                alert( res.resultStr);
+                let result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                let id = result.id;
+                let name = result.name;
+                console.log(result);
+                this.$router.push({
+                  path: "/attendance/qrcode",
+                  query: {
+                    id: id,
+                    name: name
+                  }
+                });
+                //location.href=""res.resultStr;//扫描结果传递到的处理页面,跳转到这个页面
+                // alert(result);
+                // location.href=res.resultStr;//扫描结果传递到的处理页面,跳转到这个页面
+                // sessionStorage.setItem('saomiao_result',result);
+                //其它网页调用二维码扫描结果：
+                // var result = sessionStorage.getItem("saomiao_result");
+              },
+              error: function(res) {
+                console.log(res);
+              }
+            });
+          });
+
+          wx.error(function(res) {
+            console.log("微信js-sdk配置失败");
+          });
+
+          // timestamp	number
+
+          // noncestr	string
+
+          // jsapi_ticket	string
+
+          // signature	string
+
+          // appid	string
+        }
+      });
+    },
+   
+ },
   mounted() {
     this.bodyHeight = document.documentElement.clientHeight;
     window.addEventListener("resize", function() {
