@@ -151,7 +151,7 @@ export default {
     addTest() {},
     //扫码
     getSign() {
-      let url =location.href.split("#")[0];
+      let url = location.href.split("#")[0];
       this.request({
         url: "/weixin/getWeixinConfig",
         method: "get",
@@ -159,7 +159,6 @@ export default {
       }).then(res => {
         let jdata = res.data;
         if (jdata.status == 1) {
-        //  debugger
           let a = jdata.data;
           wx.config({
             debug: true,
@@ -169,7 +168,7 @@ export default {
             signature: jdata.data.signature,
             jsApiList: ["scanQRCode"]
           });
-         
+
           wx.ready(function() {
             wx.scanQRCode({
               needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
@@ -178,7 +177,7 @@ export default {
                 let result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
                 let id = result.id;
                 let name = result.name;
-                console.log(result);
+                alert(result);
                 this.$router.push({
                   path: "/attendance/qrcode",
                   query: {
@@ -198,20 +197,6 @@ export default {
               }
             });
           });
-
-          wx.error(function(res) {
-            console.log("微信js-sdk配置失败");
-          });
-
-          // timestamp	number
-
-          // noncestr	string
-
-          // jsapi_ticket	string
-
-          // signature	string
-
-          // appid	string
         }
       });
     },

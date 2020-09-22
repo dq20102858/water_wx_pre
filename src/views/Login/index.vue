@@ -5,7 +5,7 @@
       :style="{backgroundImage:'url('+require('@/assets/image/icon-login-bg.png')+')'}"
     ></div>
     <div class="login-form">
-      <div class="title-container"  @click="getSign">
+      <div class="title-container" @click="getSign">
         <img :src="require('@/assets/image/logo.png')" />
       </div>
       <div class="corpname">南通智能污水处理站监控系统</div>
@@ -14,7 +14,8 @@
           <el-input
             v-model="loginForm.username"
             placeholder="用户名"
-            autocomplete="new-password"  maxlength="20"
+            autocomplete="new-password"
+            maxlength="20"
             clearable
           >
             <template slot="prepend">
@@ -28,7 +29,8 @@
             type="password"
             v-model="loginForm.password"
             placeholder="登录密码"
-            autocomplete="new-password" maxlength="20"
+            autocomplete="new-password"
+            maxlength="20"
             clearable
           >
             <template slot="prepend">
@@ -107,7 +109,7 @@ export default {
               this.loading = false;
               this.$router.push({ path: "/sitemanage" });
             })
-            .catch((e) => {
+            .catch(e => {
               this.loading = false;
               return false;
             });
@@ -117,7 +119,7 @@ export default {
         }
       });
     },
- //扫码
+    //扫码
     getSign() {
       let url = location.href.split("#")[0];
       this.request({
@@ -127,7 +129,7 @@ export default {
       }).then(res => {
         let jdata = res.data;
         if (jdata.status == 1) {
-        //  debugger
+          //  debugger
           let a = jdata.data;
           wx.config({
             debug: true,
@@ -137,7 +139,7 @@ export default {
             signature: jdata.data.signature,
             jsApiList: ["scanQRCode"]
           });
-         
+
           wx.ready(function() {
             wx.scanQRCode({
               needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
@@ -146,7 +148,7 @@ export default {
                 let result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
                 let id = result.id;
                 let name = result.name;
-                console.log(result);
+                alert(result);
                 this.$router.push({
                   path: "/attendance/qrcode",
                   query: {
@@ -166,25 +168,10 @@ export default {
               }
             });
           });
-
-          wx.error(function(res) {
-            console.log("微信js-sdk配置失败");
-          });
-
-          // timestamp	number
-
-          // noncestr	string
-
-          // jsapi_ticket	string
-
-          // signature	string
-
-          // appid	string
         }
       });
-    },
-   
- },
+    }
+  },
   mounted() {
     this.bodyHeight = document.documentElement.clientHeight;
     window.addEventListener("resize", function() {
