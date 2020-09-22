@@ -1,5 +1,19 @@
 webpackJsonp([1],{
 
+/***/ "/8Jj":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("ACC/");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("rjj0")("465e8c61", content, true);
+
+/***/ }),
+
 /***/ "6wsJ":
 /***/ (function(module, exports) {
 
@@ -7,17 +21,18 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABX
 
 /***/ }),
 
-/***/ "7gBJ":
+/***/ "ACC/":
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
+exports = module.exports = __webpack_require__("FZ+f")(false);
+// imports
 
-// load the styles
-var content = __webpack_require__("jPdX");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("rjj0")("1a5fe2c1", content, true);
+
+// module
+exports.push([module.i, "\n.login-container {\r\n  height: 100%;\r\n  background-color: #2d3a4b;\n}\n.login-container .login-form {\r\n  padding: 35px 50px 30px 50px;\n}\n.login-container .corpname {\r\n  text-align: center;\r\n  font-size: 24px;\r\n  font-weight: 700;\r\n  color: #fff;\r\n  margin-bottom: 30px;\n}\n.login-container .title-container {\r\n  text-align: center;\r\n  margin-bottom: 35px;\n}\n.login-container .title-container img {\r\n  margin: 0 auto;\r\n  width: 88px;\n}\n.login-container .el-form-item {\r\n  margin-bottom: 40px;\n}\n.login-container .el-input-group__prepend {\r\n  border: 0;\r\n  background: #fff;\r\n  padding: 0 5px;\n}\n.login-container .el-input-group__prepend img {\r\n  width: 32px;\n}\n.login-container .is-error .el-input-group__prepend {\r\n  border: 0;\n}\n.login-container .el-input__inner {\r\n  background: #fff !important;\r\n  border: 6px;\r\n  padding: 0 5px 0 10px;\r\n  color: #338ff6;\r\n  height: 45px;\r\n  border: 0;\n}\n.login-container input:-webkit-autofill {\r\n  -webkit-box-shadow: 0 0 0px 1000px white inset !important;\r\n          box-shadow: 0 0 0px 1000px white inset !important;\n}\n.login-container .el-form-item__error {\r\n  padding-top: 5px;\n}\n.login-container .el-button {\r\n  font-size: 18px;\n}\n.login-container .el-button:hover {\r\n  background: #338ff6;\r\n  border-color: #338ff6;\n}\n.login-container .el-button:focus {\r\n  background: #338ff6;\r\n  border-color: #338ff6;\n}\r\n", ""]);
+
+// exports
+
 
 /***/ }),
 
@@ -35,6 +50,8 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/login/index.vue
+//
+//
 //
 //
 //
@@ -149,73 +166,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           return false;
         }
       });
-    },
-
-    //扫码
-    getSign: function getSign() {
-      var url = location.href.split("#")[0];
-      this.request({
-        url: "/weixin/getWeixinConfig",
-        method: "get",
-        params: { url: url }
-      }).then(function (res) {
-        var jdata = res.data;
-        if (jdata.status == 1) {
-          //  debugger
-          var a = jdata.data;
-          wx.config({
-            debug: true,
-            appId: jdata.data.appid,
-            timestamp: jdata.data.timestamp,
-            noncestr: jdata.data.noncestr,
-            signature: jdata.data.signature,
-            jsApiList: ["scanQRCode"]
-          });
-
-          wx.ready(function () {
-            wx.scanQRCode({
-              needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
-              scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
-              success: function success(res) {
-                var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
-                var id = result.id;
-                var name = result.name;
-                console.log(result);
-                this.$router.push({
-                  path: "/attendance/qrcode",
-                  query: {
-                    id: id,
-                    name: name
-                  }
-                });
-                //location.href=""res.resultStr;//扫描结果传递到的处理页面,跳转到这个页面
-                // alert(result);
-                // location.href=res.resultStr;//扫描结果传递到的处理页面,跳转到这个页面
-                // sessionStorage.setItem('saomiao_result',result);
-                //其它网页调用二维码扫描结果：
-                // var result = sessionStorage.getItem("saomiao_result");
-              },
-              error: function error(res) {
-                console.log(res);
-              }
-            });
-          });
-
-          wx.error(function (res) {
-            console.log("微信js-sdk配置失败");
-          });
-
-          // timestamp	number
-
-          // noncestr	string
-
-          // jsapi_ticket	string
-
-          // signature	string
-
-          // appid	string
-        }
-      });
     }
   },
   mounted: function mounted() {
@@ -229,14 +179,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     });
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-d070cbb8","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/login/index.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"login-container",style:({ height: _vm.bodyHeight + 'px' })},[_c('div',{staticClass:"mod-new-reg-bg",style:({backgroundImage:'url('+__webpack_require__("ZoK1")+')'})}),_vm._v(" "),_c('div',{staticClass:"login-form"},[_c('div',{staticClass:"title-container",on:{"click":_vm.getSign}},[_c('img',{attrs:{"src":__webpack_require__("KItN")}})]),_vm._v(" "),_c('div',{staticClass:"corpname"},[_vm._v("南通智能污水处理站监控系统")]),_vm._v(" "),_c('el-form',{ref:"loginForm",attrs:{"autocomplete":"off","model":_vm.loginForm,"rules":_vm.loginRules}},[_c('el-form-item',{attrs:{"prop":"username"}},[_c('el-input',{attrs:{"placeholder":"用户名","autocomplete":"new-password","maxlength":"20","clearable":""},model:{value:(_vm.loginForm.username),callback:function ($$v) {_vm.$set(_vm.loginForm, "username", $$v)},expression:"loginForm.username"}},[_c('template',{slot:"prepend"},[_c('img',{attrs:{"src":__webpack_require__("6wsJ")}})])],2)],1),_vm._v(" "),_c('el-form-item',{attrs:{"prop":"password"}},[_c('el-input',{attrs:{"id":"password","type":"password","placeholder":"登录密码","autocomplete":"new-password","maxlength":"20","clearable":""},model:{value:(_vm.loginForm.password),callback:function ($$v) {_vm.$set(_vm.loginForm, "password", $$v)},expression:"loginForm.password"}},[_c('template',{slot:"prepend"},[_c('img',{attrs:{"src":__webpack_require__("YAVh")}})])],2)],1),_vm._v(" "),_c('el-button',{staticStyle:{"width":"100%","margin-bottom":"30px","padding":"15px"},attrs:{"type":"primary","loading":_vm.loading},nativeOn:{"click":function($event){$event.preventDefault();_vm.handleLogin($event)}}},[_vm._v("登录")])],1)],1)])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-102a501b","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/login/index.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"login-container",style:({ height: _vm.bodyHeight + 'px' })},[_c('div',{staticClass:"mod-new-reg-bg",style:({backgroundImage:'url('+__webpack_require__("ZoK1")+')'})}),_vm._v(" "),_c('div',{staticClass:"login-form"},[_c('div',{staticClass:"title-container"},[_c('img',{attrs:{"src":__webpack_require__("KItN")}})]),_vm._v(" "),_c('div',{staticClass:"corpname"},[_vm._v("南通智能污水处理站监控系统")]),_vm._v(" "),_c('el-form',{ref:"loginForm",attrs:{"autocomplete":"off","model":_vm.loginForm,"rules":_vm.loginRules}},[_c('el-form-item',{attrs:{"prop":"username"}},[_c('el-input',{attrs:{"placeholder":"用户名","autocomplete":"new-password","maxlength":"20","clearable":""},model:{value:(_vm.loginForm.username),callback:function ($$v) {_vm.$set(_vm.loginForm, "username", $$v)},expression:"loginForm.username"}},[_c('template',{slot:"prepend"},[_c('img',{attrs:{"src":__webpack_require__("6wsJ")}})])],2)],1),_vm._v(" "),_c('el-form-item',{attrs:{"prop":"password"}},[_c('el-input',{attrs:{"id":"password","type":"password","placeholder":"登录密码","autocomplete":"new-password","maxlength":"20","clearable":""},model:{value:(_vm.loginForm.password),callback:function ($$v) {_vm.$set(_vm.loginForm, "password", $$v)},expression:"loginForm.password"}},[_c('template',{slot:"prepend"},[_c('img',{attrs:{"src":__webpack_require__("YAVh")}})])],2)],1),_vm._v(" "),_c('el-button',{staticStyle:{"width":"100%","margin-bottom":"30px","padding":"15px"},attrs:{"type":"primary","loading":_vm.loading},nativeOn:{"click":function($event){$event.preventDefault();_vm.handleLogin($event)}}},[_vm._v("登录")])],1)],1)])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ var views_login = (esExports);
 // CONCATENATED MODULE: ./src/views/login/index.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("7gBJ")
+  __webpack_require__("/8Jj")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -276,21 +226,6 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABX
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "static/img/icon-login-bg.86836b3.png";
-
-/***/ }),
-
-/***/ "jPdX":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("FZ+f")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.login-container {\r\n  height: 100%;\r\n  background-color: #2d3a4b;\n}\n.login-container .login-form {\r\n  padding: 35px 50px 30px 50px;\n}\n.login-container .corpname {\r\n  text-align: center;\r\n  font-size: 24px;\r\n  font-weight: 700;\r\n  color: #fff;\r\n  margin-bottom: 30px;\n}\n.login-container .title-container {\r\n  text-align: center;\r\n  margin-bottom: 35px;\n}\n.login-container .title-container img {\r\n  margin: 0 auto;\r\n  width: 88px;\n}\n.login-container .el-form-item {\r\n  margin-bottom: 40px;\n}\n.login-container .el-input-group__prepend {\r\n  border: 0;\r\n  background: #fff;\r\n  padding: 0 5px;\n}\n.login-container .el-input-group__prepend img {\r\n  width: 32px;\n}\n.login-container .is-error .el-input-group__prepend {\r\n  border: 0;\n}\n.login-container .el-input__inner {\r\n  background: #fff !important;\r\n  border: 6px;\r\n  padding: 0 5px 0 10px;\r\n  color: #338ff6;\r\n  height: 45px;\r\n  border: 0;\n}\n.login-container input:-webkit-autofill {\r\n  -webkit-box-shadow: 0 0 0px 1000px white inset !important;\r\n          box-shadow: 0 0 0px 1000px white inset !important;\n}\n.login-container .el-form-item__error {\r\n  padding-top: 5px;\n}\n.login-container .el-button {\r\n  font-size: 18px;\n}\n.login-container .el-button:hover {\r\n  background: #338ff6;\r\n  border-color: #338ff6;\n}\n.login-container .el-button:focus {\r\n  background: #338ff6;\r\n  border-color: #338ff6;\n}\r\n", ""]);
-
-// exports
-
 
 /***/ })
 

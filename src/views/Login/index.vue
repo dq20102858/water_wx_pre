@@ -5,7 +5,7 @@
       :style="{backgroundImage:'url('+require('@/assets/image/icon-login-bg.png')+')'}"
     ></div>
     <div class="login-form">
-      <div class="title-container" @click="getSign">
+      <div class="title-container">
         <img :src="require('@/assets/image/logo.png')" />
       </div>
       <div class="corpname">南通智能污水处理站监控系统</div>
@@ -116,58 +116,6 @@ export default {
         } else {
           console.log("error submit");
           return false;
-        }
-      });
-    },
-    //扫码
-    getSign() {
-      let url = location.href.split("#")[0];
-      this.request({
-        url: "/weixin/getWeixinConfig",
-        method: "get",
-        params: { url: url }
-      }).then(res => {
-        let jdata = res.data;
-        if (jdata.status == 1) {
-          //  debugger
-          let a = jdata.data;
-          wx.config({
-            debug: true,
-            appId: jdata.data.appid,
-            timestamp: jdata.data.timestamp,
-            noncestr: jdata.data.noncestr,
-            signature: jdata.data.signature,
-            jsApiList: ["scanQRCode"]
-          });
-
-          wx.ready(function() {
-            wx.scanQRCode({
-              needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
-              scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
-              success: function(res) {
-                let result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
-                let id = result.id;
-                let name = result.name;
-                alert(result);
-                this.$router.push({
-                  path: "/attendance/qrcode",
-                  query: {
-                    id: id,
-                    name: name
-                  }
-                });
-                //location.href=""res.resultStr;//扫描结果传递到的处理页面,跳转到这个页面
-                // alert(result);
-                // location.href=res.resultStr;//扫描结果传递到的处理页面,跳转到这个页面
-                // sessionStorage.setItem('saomiao_result',result);
-                //其它网页调用二维码扫描结果：
-                // var result = sessionStorage.getItem("saomiao_result");
-              },
-              error: function(res) {
-                console.log(res);
-              }
-            });
-          });
         }
       });
     }

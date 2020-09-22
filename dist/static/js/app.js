@@ -256,7 +256,7 @@ var constantRouterMap = [{
     path: '/sitemanage/menu',
     name: 'sitemanage-menu',
     component: function component() {
-      return __webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, "y3h8"));
+      return __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, "y3h8"));
     }
   }]
 }, {
@@ -308,7 +308,7 @@ var constantRouterMap = [{
     path: '/record/operation',
     name: 'operation',
     component: function component() {
-      return __webpack_require__.e/* import() */(8).then(__webpack_require__.bind(null, "IsfQ"));
+      return __webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, "IsfQ"));
     }
   }, {
     path: '/record/operationedit',
@@ -349,7 +349,7 @@ var constantRouterMap = [{
     path: '/attendance',
     name: 'attendance',
     component: function component() {
-      return __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, "Cxod"));
+      return __webpack_require__.e/* import() */(8).then(__webpack_require__.bind(null, "Cxod"));
     }
   }, {
     path: '/attendance/qrcode',

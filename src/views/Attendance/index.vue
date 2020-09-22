@@ -2,7 +2,7 @@
   <div class="app-pages">
     <header class="app-top-bar">
       <h1 class="titles">考勤统计</h1>
-      <a class="icons icon-add pull-right" @click="addDialogEvent"></a>
+      <a class="icons icon-add pull-right" @click="scan"></a>
     </header>
     <div class="app-content">
       <div class="app-search">
@@ -108,6 +108,9 @@ export default {
     //this.getSign();
     this.getDataList();
   },
+  mounted() {
+    this.init();
+  },
   methods: {
     getDataList() {
       let page = this.page_cur;
@@ -150,6 +153,86 @@ export default {
     },
     addTest() {},
     //扫码
+    init() {
+      let url = location.href.split("#")[0];
+      this.request({
+        url: "/weixin/getWeixinConfig",
+        method: "get",
+        params: { url: url }
+      }).then(res => {
+        let jdata = res.data;
+        if (jdata.status == 1) {
+          //  debugger
+          let a = jdata.data;
+          wx.config({
+            debug: true,
+            appId: jdata.data.appid,
+            timestamp: jdata.data.timestamp,
+            noncestr: jdata.data.noncestr,
+            signature: jdata.data.signature,
+            jsApiList: ["checkJsApi", "scanQRCode"]
+          });
+        }
+      });
+    },
+    // this.$axios.get("/api/wx/jsdk/config",{params:{
+    //     url:url
+    // }}).then(res => {
+    //     if(res.success){
+    //         window.wx.config({
+    //           debug: false,
+    //           appId: res.data.appId, // 必填,公众号的唯一标识
+    //           timestamp: res.data.timeSpan, // 必填,生成签名的时间戳
+    //           nonceStr: res.data.nonceStr, // 必填,生成签名的随机串
+    //           signature: res.data.sinature, // 必填,签名
+    //           jsApiList: ['checkJsApi', 'scanQRCode'] // 必填,需要使用的JS接口列表
+    //         })
+    //     }else{
+    //         alert(res.msg);
+    //     }
+    // })
+
+    scan() {
+      window.wx.ready(function() {
+        wx.checkJsApi({
+          jsApiList: ["scanQRCode"],
+          success: function(res) {
+            if (res.checkResult.scanQRCode === true) {
+              wx.scanQRCode({
+                // 微信扫一扫接口
+                needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                success: function(res) {
+                  let result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                  alert(result + "_" + result.id + "_" + result.name);
+                  let id = result.id;
+                  let name = result.name;
+
+                  this.$router.push({
+                    path: "/attendance/qrcode",
+                    query: {
+                      id: id,
+                      name: name
+                    }
+                  });
+                }
+              });
+            } else {
+              alert("抱歉，当前客户端版本不支持扫一扫");
+            }
+          },
+
+          fail: function(res) {
+            // 检测getNetworkType该功能失败时处理
+            alert("fail" + res);
+          }
+        });
+      });
+      window.wx.error(function(res) {
+        alert("出错了：" + res.errMsg); //这个地方的好处就是wx.config配置错误，会弹出窗口哪里错误，然后根据微信文档查询即可。
+      });
+    },
+
     getSign() {
       let url = location.href.split("#")[0];
       this.request({
