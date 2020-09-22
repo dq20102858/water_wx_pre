@@ -122,8 +122,9 @@ export default {
       
       let url = location.href.split("#")[0];
       this.request({
-        url: "http://ccrerp.schuee.net/weixin/getWeixinConfig",
-        method: "get"
+        url: "/weixin/getWeixinConfig",
+        method: "get",
+         params: { url: url }
       }).then(res => {
         let jdata = res.data;
         if (jdata.status == 1) {
