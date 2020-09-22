@@ -151,7 +151,7 @@ export default {
     addTest() {},
     //扫码
     getSign() {
-      let url = location.href.split("#")[0];
+      let url =location.href.split("#")[0];
       this.request({
         url: "/weixin/getWeixinConfig",
         method: "get",

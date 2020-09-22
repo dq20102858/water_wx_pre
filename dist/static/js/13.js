@@ -1,27 +1,65 @@
 webpackJsonp([13],{
 
-/***/ "3K+v":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("FZ+f")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.dis-box-card {\r\n  margin: 15px;\r\n  border-radius: 6px;\n}\n.dis-box-card .el-card__header {\r\n  background: #2b8cf9;\r\n  color: #fff;\r\n  padding: 8px 10px 8px 15px;\n}\n.dis-box-card .mores {\r\n  float: right;\r\n  padding: 3px 0;\r\n  color: #fff;\n}\n.dis-box-card .item {\r\n  border-bottom: 1px #ddd solid;\r\n  overflow: hidden;\r\n  padding: 20px 0 15px 0;\n}\n.dis-box-card .item:last-child {\r\n  border: 0;\n}\n.dis-box-card .el-card__body {\r\n  padding: 0 20px;\n}\n.dis-box-card .item p {\r\n  display: block;\r\n  padding-bottom: 5px;\r\n  overflow: hidden;\n}\n.dis-box-card .item span {\r\n  color: #333;\r\n  font-size: 14px;\n}\n.dis-box-card .item em {\r\n  color: #999;\r\n  font-size: 12px;\n}\n.dis-box-card .type {\r\n  float: right;\r\n  cursor: pointer;\r\n  color: #fff !important;\r\n  padding: 3px 8px;\r\n  border-radius: 3px;\r\n  font-size: 12px !important;\n}\n.dis-box-card .type1 {\r\n  background: #3a91f1;\n}\n.dis-box-card .type2 {\r\n  background: #00dd86;\n}\n.dis-box-card .type3 {\r\n  background: #ffa000;\n}\r\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "IRil":
+/***/ "RdRo":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Dispatch/index.vue
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Record/operationEdit.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -81,62 +119,177 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ var Dispatch = ({
+/* harmony default export */ var operationEdit = ({
   data: function data() {
     return {
-      statusOkList: [],
-      statusNoList: []
+      stationOptions: [],
+      stationOptionsProps: {
+        value: "id",
+        label: "name",
+        children: "child"
+      },
+      userList: [],
+      formData: {},
+      formRules: {
+        sid: [{
+          required: true,
+          message: "请选择站点",
+          trigger: "change"
+        }],
+        user_id: [{
+          required: true,
+          message: "请选择巡查人",
+          trigger: "change"
+        }],
+        fan: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        water_pump: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        disinfect: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        cabinet: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        wetland: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        pretreatment: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        biochemistry: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        precipitate: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        out_water: [{
+          required: true,
+          message: "请选择",
+          trigger: "change"
+        }],
+        electricity: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }],
+        electricity_sum: [{
+          required: true,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }, {
+          pattern: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+          message: "请输入1-6位数字",
+          trigger: "blur"
+        }],
+        exception: [{ min: 2, max: 200, message: "长度在2到200个字符", trigger: "blur" }, {
+          pattern: /(^\S+).*(\S+$)/,
+          message: "开始和结尾不能有空格",
+          trigger: "blur"
+        }]
+      }
     };
   },
-  mounted: function mounted() {
-    this.getAssignPages(1);
-    this.getAssignPages(2);
+  created: function created() {
+    this.getStationList();
+    this.getUsersList();
   },
-  created: function created() {},
 
   methods: {
-    getAssignPages: function getAssignPages(status) {
+    backURL: function backURL() {
+      this.$router.go(-1); //返回上一层
+    },
+    getStationList: function getStationList() {
       var _this = this;
 
-      var limit = 3;
       this.request({
-        url: "/assign/getAssignPages",
-        method: "get",
-        params: { status: status, limit: limit }
+        url: "/station/getStationLists",
+        method: "get"
       }).then(function (response) {
         var data = response.data;
         if (data.status == 1) {
-          if (status == 1) {
-            _this.statusNoList = data.data.data;
-          } else {
-            _this.statusOkList = data.data.data;
-          }
+          _this.stationOptions = data.data;
         }
       });
     },
-    addShowDialog: function addShowDialog() {
-      this.$router.push({
-        path: "/dispatch/edit"
+    getUsersList: function getUsersList() {
+      var _this2 = this;
+
+      this.request({
+        url: "/assign/getUsersLists",
+        method: "get"
+      }).then(function (response) {
+        var data = response.data;
+        if (data.status == 1) {
+          _this2.userList = data.data;
+        }
       });
     },
-    getListDetail: function getListDetail(val) {
-      this.$router.push({
-        path: "/dispatch/list",
-        query: {
-          status: val
+    addEvent: function addEvent() {
+      var _this3 = this;
+
+      this.$refs["formRulesRef"].validate(function (valid) {
+        if (valid) {
+          var data = _this3.formData;
+          data.sid = _this3.formData.sid[1];
+          data.type = 2;
+          //console.log(this.formData);
+          _this3.request({
+            url: "/record/addRecord",
+            method: "post",
+            data: data
+          }).then(function (response) {
+            var data = response.data;
+            if (data.status == 1) {
+              _this3.$message({
+                type: "success",
+                message: "保存成功！"
+              });
+              _this3.backURL();
+            }
+          });
+        } else {
+          var that = _this3;
+          that.$nextTick(function () {
+            var isError = document.getElementsByClassName("is-error");
+            isError[0].querySelector("input").focus();
+          });
+          return false;
         }
       });
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-49e0e9a0","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Dispatch/index.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('h1',{staticClass:"titles"},[_vm._v("运维派单")]),_vm._v(" "),_c('a',{staticClass:"icons icon-add pull-right",on:{"click":_vm.addShowDialog}})]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('el-card',{staticClass:"dis-box-card box-card"},[_c('div',{staticClass:"clearfix",attrs:{"slot":"header"},slot:"header"},[_c('span',{staticStyle:{"font-size":"14px"}},[_vm._v("已完成")]),_vm._v(" "),_c('el-button',{staticClass:"mores",attrs:{"type":"text"},on:{"click":function($event){_vm.getListDetail(2)}}},[_vm._v("\n          查看更多\n          "),_c('i',{staticClass:"icon-rights"})])],1),_vm._v(" "),_c('div',{staticClass:"items"},_vm._l((_vm.statusOkList),function(items){return _c('div',{key:items.id,staticClass:"item"},[_c('p',[_c('span',{staticClass:"pull-left"},[_vm._v(_vm._s(items.station_name))]),_vm._v(" "),(items.type==1)?_c('span',{staticClass:"type type1"},[_vm._v("设备维修")]):_vm._e(),_vm._v(" "),(items.type==2)?_c('span',{staticClass:"type type2"},[_vm._v("例行维保")]):_vm._e(),_vm._v(" "),(items.type==3)?_c('span',{staticClass:"type type3"},[_vm._v("运行检查")]):_vm._e()]),_vm._v(" "),_c('p',[_c('em',{staticClass:"pull-left"},[_vm._v("指派时间："+_vm._s(_vm._f("formatGetDate")(items.assign_time)))]),_vm._v(" "),_c('em',{staticClass:"pull-right"},[_vm._v("维保人："+_vm._s(items.assigner))])])])})),_vm._v(" "),(_vm.statusOkList.length==0)?_c('div',{staticClass:"app-nodata"},[_vm._v("暂无信息")]):_vm._e()]),_vm._v(" "),_c('el-card',{staticClass:"dis-box-card box-card"},[_c('div',{staticClass:"clearfix",attrs:{"slot":"header"},slot:"header"},[_c('span',{staticStyle:{"font-size":"14px"}},[_vm._v("未完成")]),_vm._v(" "),_c('el-button',{staticClass:"mores",attrs:{"type":"text"},on:{"click":function($event){_vm.getListDetail(1)}}},[_vm._v("\n          查看更多\n          "),_c('i',{staticClass:"icon-rights"})])],1),_vm._v(" "),_c('div',{staticClass:"items"},_vm._l((_vm.statusNoList),function(item){return _c('div',{key:item.id,staticClass:"item"},[_c('p',[_c('span',{staticClass:"pull-left"},[_vm._v(_vm._s(item.station_name))]),_vm._v(" "),(item.type==1)?_c('span',{staticClass:"type type1"},[_vm._v("设备维修")]):_vm._e(),_vm._v(" "),(item.type==2)?_c('span',{staticClass:"type type2"},[_vm._v("例行维保")]):_vm._e(),_vm._v(" "),(item.type==3)?_c('span',{staticClass:"type type3"},[_vm._v("运行检查")]):_vm._e()]),_vm._v(" "),_c('p',[_c('em',{staticClass:"pull-left"},[_vm._v("指派时间："+_vm._s(_vm._f("formatGetDate")(item.assign_time)))]),_vm._v(" "),_c('em',{staticClass:"pull-right"},[_vm._v("维保人："+_vm._s(item.assigner))])])])})),_vm._v(" "),(_vm.statusNoList.length==0)?_c('div',{staticClass:"app-nodata"},[_vm._v("暂无信息")]):_vm._e()])],1)])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-520d5888","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Record/operationEdit.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('span',{staticClass:"icons icon-back pull-left",on:{"click":_vm.backURL}}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v("污水处理站运行记录")])]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-form"},[_c('el-form',{ref:"formRulesRef",staticClass:"el-form-custom",attrs:{"model":_vm.formData,"rules":_vm.formRules,"label-width":"110px"}},[_c('el-form-item',{attrs:{"label":"站点名：","prop":"sid","label-width":"90px"}},[_c('el-cascader',{attrs:{"popper-class":"app-cascader","options":_vm.stationOptions,"props":_vm.stationOptionsProps,"placeholder":"请选择站点名"},model:{value:(_vm.formData.sid),callback:function ($$v) {_vm.$set(_vm.formData, "sid", $$v)},expression:"formData.sid"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"巡查人：","prop":"user_id","label-width":"90px"}},[_c('el-select',{attrs:{"placeholder":"请选择巡查人"},model:{value:(_vm.formData.user_id),callback:function ($$v) {_vm.$set(_vm.formData, "user_id", $$v)},expression:"formData.user_id"}},_vm._l((this.userList),function(item){return _c('el-option',{key:item.id,attrs:{"label":item.name,"value":item.id}})}))],1),_vm._v(" "),_c('div',{staticClass:"el-radioed"},[_c('div',{staticClass:"stitless"},[_vm._v("设备运行状况")]),_vm._v(" "),_c('div',{staticClass:"el-form-item-inline"},[_c('el-form-item',{attrs:{"label":"风机：","prop":"fan"}},[_c('el-radio-group',{model:{value:(_vm.formData.fan),callback:function ($$v) {_vm.$set(_vm.formData, "fan", $$v)},expression:"formData.fan"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"紫外消毒机：","prop":"disinfect"}},[_c('el-radio-group',{model:{value:(_vm.formData.disinfect),callback:function ($$v) {_vm.$set(_vm.formData, "disinfect", $$v)},expression:"formData.disinfect"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"湿地情况：","prop":"wetland"}},[_c('el-radio-group',{model:{value:(_vm.formData.wetland),callback:function ($$v) {_vm.$set(_vm.formData, "wetland", $$v)},expression:"formData.wetland"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"各水泵：","prop":"water_pump"}},[_c('el-radio-group',{model:{value:(_vm.formData.water_pump),callback:function ($$v) {_vm.$set(_vm.formData, "water_pump", $$v)},expression:"formData.water_pump"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"电控柜：","prop":"cabinet"}},[_c('el-radio-group',{model:{value:(_vm.formData.cabinet),callback:function ($$v) {_vm.$set(_vm.formData, "cabinet", $$v)},expression:"formData.cabinet"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1)],1),_vm._v(" "),_c('div',{staticClass:"stitless"},[_vm._v("主要处理单元")]),_vm._v(" "),_c('el-form-item',{attrs:{"label":"预处理：","prop":"pretreatment"}},[_c('el-radio-group',{model:{value:(_vm.formData.pretreatment),callback:function ($$v) {_vm.$set(_vm.formData, "pretreatment", $$v)},expression:"formData.pretreatment"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"沉淀情况：","prop":"precipitate"}},[_c('el-radio-group',{model:{value:(_vm.formData.precipitate),callback:function ($$v) {_vm.$set(_vm.formData, "precipitate", $$v)},expression:"formData.precipitate"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"生化处理：","prop":"biochemistry"}},[_c('el-radio-group',{model:{value:(_vm.formData.biochemistry),callback:function ($$v) {_vm.$set(_vm.formData, "biochemistry", $$v)},expression:"formData.biochemistry"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"出水情况：","prop":"out_water"}},[_c('el-radio-group',{model:{value:(_vm.formData.out_water),callback:function ($$v) {_vm.$set(_vm.formData, "out_water", $$v)},expression:"formData.out_water"}},[_c('el-radio',{attrs:{"label":"1"}},[_vm._v("正常")]),_vm._v(" "),_c('el-radio',{attrs:{"label":"2"}},[_vm._v("异常")])],1)],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"电表读数：","prop":"electricity"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.electricity),callback:function ($$v) {_vm.$set(_vm.formData, "electricity", $$v)},expression:"formData.electricity"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"累积读数：","prop":"electricity_sum"}},[_c('el-input',{attrs:{"maxlength":"6"},model:{value:(_vm.formData.electricity_sum),callback:function ($$v) {_vm.$set(_vm.formData, "electricity_sum", $$v)},expression:"formData.electricity_sum"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"异常情况：","prop":"exception"}},[_c('el-input',{attrs:{"type":"textarea","maxlength":"200"},model:{value:(_vm.formData.exception),callback:function ($$v) {_vm.$set(_vm.formData, "exception", $$v)},expression:"formData.exception"}})],1)],1),_vm._v(" "),_c('el-form-item',{staticClass:"app-form-save"},[_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.addEvent}},[_vm._v("确 定")])],1)],1)],1)])])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ var views_Dispatch = (esExports);
-// CONCATENATED MODULE: ./src/views/Dispatch/index.vue
+/* harmony default export */ var Record_operationEdit = (esExports);
+// CONCATENATED MODULE: ./src/views/Record/operationEdit.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("SGNj")
+  __webpack_require__("ibXR")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -152,30 +305,45 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  Dispatch,
-  views_Dispatch,
+  operationEdit,
+  Record_operationEdit,
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
 
-/* harmony default export */ var src_views_Dispatch = __webpack_exports__["default"] = (Component.exports);
+/* harmony default export */ var views_Record_operationEdit = __webpack_exports__["default"] = (Component.exports);
 
 
 /***/ }),
 
-/***/ "SGNj":
+/***/ "egj2":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("FZ+f")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.stitless {\r\n  overflow: hidden;\r\n  text-align: center;\r\n  display: block;\r\n  color: #1386ff;\r\n  font-size: 16px;\r\n  font-weight: 700;\r\n  padding-top: 20px;\r\n  padding-bottom: 20px;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "ibXR":
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__("3K+v");
+var content = __webpack_require__("egj2");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("rjj0")("0b5a397a", content, true);
+var update = __webpack_require__("rjj0")("5d00637c", content, true);
 
 /***/ })
 

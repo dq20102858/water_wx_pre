@@ -232,7 +232,7 @@ var constantRouterMap = [{
     path: '/sitemanage/station',
     name: 'sitemanage-station',
     component: function component() {
-      return __webpack_require__.e/* import() */(19).then(__webpack_require__.bind(null, "8iLd"));
+      return __webpack_require__.e/* import() */(20).then(__webpack_require__.bind(null, "8iLd"));
     }
   }, {
     path: '/sitemanage/stationdetail',
@@ -250,13 +250,13 @@ var constantRouterMap = [{
     path: '/sitemanage/devicedetail',
     name: 'sitemanage-devicedetail',
     component: function component() {
-      return __webpack_require__.e/* import() */(17).then(__webpack_require__.bind(null, "AWFw"));
+      return __webpack_require__.e/* import() */(18).then(__webpack_require__.bind(null, "AWFw"));
     }
   }, {
     path: '/sitemanage/menu',
     name: 'sitemanage-menu',
     component: function component() {
-      return __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, "y3h8"));
+      return __webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, "y3h8"));
     }
   }]
 }, {
@@ -267,13 +267,13 @@ var constantRouterMap = [{
     path: '/dispatch',
     name: 'dispatch',
     component: function component() {
-      return __webpack_require__.e/* import() */(13).then(__webpack_require__.bind(null, "IRil"));
+      return __webpack_require__.e/* import() */(14).then(__webpack_require__.bind(null, "IRil"));
     }
   }, {
     path: '/dispatch/list',
     name: 'dispatch-list',
     component: function component() {
-      return __webpack_require__.e/* import() */(18).then(__webpack_require__.bind(null, "J4TC"));
+      return __webpack_require__.e/* import() */(19).then(__webpack_require__.bind(null, "J4TC"));
     }
   }, {
     path: '/dispatch/edit',
@@ -290,31 +290,31 @@ var constantRouterMap = [{
     path: '/record',
     name: 'record',
     component: function component() {
-      return __webpack_require__.e/* import() */(8).then(__webpack_require__.bind(null, "xqn6"));
+      return __webpack_require__.e/* import() */(9).then(__webpack_require__.bind(null, "xqn6"));
     }
   }, {
     path: '/record/edit',
     name: 'record-edit',
     component: function component() {
-      return __webpack_require__.e/* import() */(11).then(__webpack_require__.bind(null, "TXIg"));
+      return __webpack_require__.e/* import() */(12).then(__webpack_require__.bind(null, "TXIg"));
     }
   }, {
     path: '/record/detail',
     name: 'record-detail',
     component: function component() {
-      return __webpack_require__.e/* import() */(10).then(__webpack_require__.bind(null, "QGeQ"));
+      return __webpack_require__.e/* import() */(11).then(__webpack_require__.bind(null, "QGeQ"));
     }
   }, {
     path: '/record/operation',
     name: 'operation',
     component: function component() {
-      return __webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, "IsfQ"));
+      return __webpack_require__.e/* import() */(8).then(__webpack_require__.bind(null, "IsfQ"));
     }
   }, {
     path: '/record/operationedit',
     name: 'operation-edit',
     component: function component() {
-      return __webpack_require__.e/* import() */(12).then(__webpack_require__.bind(null, "RdRo"));
+      return __webpack_require__.e/* import() */(13).then(__webpack_require__.bind(null, "RdRo"));
     }
   }, {
     path: '/record/operationdetail',
@@ -326,19 +326,19 @@ var constantRouterMap = [{
     path: '/record/sampling',
     name: 'sampling',
     component: function component() {
-      return __webpack_require__.e/* import() */(15).then(__webpack_require__.bind(null, "3YOD"));
+      return __webpack_require__.e/* import() */(16).then(__webpack_require__.bind(null, "3YOD"));
     }
   }, {
     path: '/record/samplingedit',
     name: 'sampling-edit',
     component: function component() {
-      return __webpack_require__.e/* import() */(20).then(__webpack_require__.bind(null, "Cuha"));
+      return __webpack_require__.e/* import() */(21).then(__webpack_require__.bind(null, "Cuha"));
     }
   }, {
     path: '/record/samplingdetail',
     name: 'sampling-detail',
     component: function component() {
-      return __webpack_require__.e/* import() */(16).then(__webpack_require__.bind(null, "V9tV"));
+      return __webpack_require__.e/* import() */(17).then(__webpack_require__.bind(null, "V9tV"));
     }
   }]
 }, {
@@ -349,13 +349,13 @@ var constantRouterMap = [{
     path: '/attendance',
     name: 'attendance',
     component: function component() {
-      return __webpack_require__.e/* import() */(21).then(__webpack_require__.bind(null, "Cxod"));
+      return __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, "Cxod"));
     }
   }, {
     path: '/attendance/qrcode',
     name: 'attendance-qrcode',
     component: function component() {
-      return __webpack_require__.e/* import() */(14).then(__webpack_require__.bind(null, "4ENC"));
+      return __webpack_require__.e/* import() */(15).then(__webpack_require__.bind(null, "4ENC"));
     }
   }]
 }, {
@@ -366,7 +366,7 @@ var constantRouterMap = [{
     path: '/warning',
     name: 'warning',
     component: function component() {
-      return __webpack_require__.e/* import() */(9).then(__webpack_require__.bind(null, "WdIq"));
+      return __webpack_require__.e/* import() */(10).then(__webpack_require__.bind(null, "WdIq"));
     }
   }]
 }];

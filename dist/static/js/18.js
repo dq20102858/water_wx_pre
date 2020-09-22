@@ -1,54 +1,27 @@
 webpackJsonp([18],{
 
-/***/ "B/Iu":
+/***/ "8aG+":
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
+exports = module.exports = __webpack_require__("FZ+f")(false);
+// imports
 
-// load the styles
-var content = __webpack_require__("UkqF");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("rjj0")("ad99f74e", content, true);
+
+// module
+exports.push([module.i, "\n.app-device-detail {\r\n  background: #fff;\r\n  border-radius: 6px;\r\n  padding: 15px;\n}\n.app-device-detail .ones {\r\n  display: block;\r\n  overflow: hidden;\n}\n.app-device-detail .ones h3 {\r\n  font-size: 18px;\r\n  font-weight: 700;\r\n  float: left;\r\n  width: 60%;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  text-overflow: ellipsis;\n}\n.app-device-detail .ones span {\r\n  cursor: pointer;\r\n  float: right;\r\n  background: #1386ff;\r\n  color: #fff;\r\n  border-radius: 30px;\r\n  padding: 5px 15px;\n}\n.app-device-detail .twos {\r\n  margin-top: 10px;\n}\n.app-device-detail .bd-img {\r\n  float: left;\r\n  margin-right: 14px;\n}\n.app-device-detail .bd-img img {\r\n  background: #f2f2f2;\r\n  width: 100px;\r\n  height: 110px;\r\n  border-radius: 3px;\r\n  display: block;\r\n  margin-top: 5px;\r\n  margin-bottom: 20px;\n}\n.app-device-detail .bd-body {\r\n  overflow: hidden;\n}\n.app-device-detail p {\r\n  color: #747373;\r\n\r\n  line-height: 24px;\n}\n.app-device-chart {\r\n  background: #fff;\r\n  border-radius: 6px;\r\n  padding: 15px;\r\n  margin-top: 15px;\n}\n.app-device-chart .ones h3 {\r\n  font-size: 16px;\r\n  font-weight: 700;\r\n  float: left;\r\n  color: #303030;\n}\n.app-device-chart .ones span {\r\n  float: right;\r\n  font-size: 14px;\r\n  color: #747373;\n}\n.app-device-chart .echartbox {\r\n  margin-top: 20px;\r\n  overflow: hidden;\r\n  width: 100%;\n}\n.app-device-chart .echarts {\r\n  height: 300px;\r\n  width: 100%;\n}\r\n", ""]);
+
+// exports
+
 
 /***/ }),
 
-/***/ "J4TC":
+/***/ "AWFw":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/Dispatch/list.vue
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/views/SiteManage/deviceDetail.vue
 //
 //
 //
@@ -100,91 +73,173 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ var list = ({
+/* harmony default export */ var deviceDetail = ({
   data: function data() {
     return {
-      diaLogDetailVisible: false,
-      formDetailData: [],
-      pageTitle: "已完成",
-      page_cur: 1,
-      page_data_total: 0,
-      page_size: 20,
-      page_total: 0,
-      dataList: []
+      disShow: false,
+      deviceDetailData: []
     };
   },
-  created: function created() {
-    var getStatus = this.$route.query.status;
-    if (getStatus == 1) {
-      this.pageTitle = "未完成";
-    }
-    this.getDataList();
+  mounted: function mounted() {
+    this.getEcharts();
+    this.getDeviceDetail();
   },
+  created: function created() {},
 
   methods: {
     backURL: function backURL() {
       this.$router.go(-1); //返回上一层
     },
-    getDataList: function getDataList() {
+    getEcharts: function getEcharts() {
       var _this = this;
 
-      var page = this.page_cur;
-      var status = this.$route.query.status;
-      var limit = 20;
       this.request({
-        url: "/assign/getAssignPages",
+        url: "/device/getDeviceData",
         method: "get",
-        params: { page: page, status: status }
+        params: { did: this.$route.query.id }
       }).then(function (res) {
         var data = res.data;
         if (data.status == 1) {
-          _this.dataList = data.data.data;
-          _this.page_cur = parseInt(data.data.current_page);
-          _this.page_total = data.data.last_page;
-          _this.page_data_total = data.data.total;
-          _this.page_size = data.data.per_page;
+          _this.deviceDetailData = data.data;
+          var dataxAxis = data.data.x;
+          var dataSeries = data.data.result;
+          //  let dataxAxis = [12, 13, 14, 15];
+          //   let dataSeries = [20, 70, 50, 90];
+          //
+          var myChart = _this.$echarts.init(document.getElementById("oneChart"));
+          if (data.data.x.length == 0) {
+            myChart.showLoading({
+              text: "暂无数据",
+              color: "#fff",
+              textColor: "#8a8e91",
+              maskColor: "rgba(255, 255, 255, 0.8)"
+            });
+          }
+          var option = {
+            backgroundColor: "#fff",
+            tooltip: {
+              trigger: "axis",
+              axisPointer: {
+                type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
+              }
+            },
+            toolbox: {
+              feature: {
+                saveAsImage: {}
+              }
+            },
+            grid: {
+              left: "1%",
+              right: "2%",
+              bottom: "2%",
+              top: "10%",
+              containLabel: true
+            },
+            // legend: {
+            //   data: ["总能耗"],
+            //   textStyle: {
+            //     color: ["#00D98B"],
+            //     fontSize: 15
+            //   },
+            //   itemWidth: 32,
+            //   itemHeight: 15
+            // },
+            xAxis: {
+              type: "category",
+              data: dataxAxis,
+              axisLine: {
+                show: true,
+                lineStyle: {
+                  color: "#869ec6"
+                }
+              },
+              splitLine: {
+                show: true,
+                lineStyle: {
+                  color: "#eff4f6"
+                }
+              },
+              axisLabel: {
+                textStyle: {
+                  fontFamily: "Microsoft YaHei"
+                }
+              }
+            },
+            yAxis: {
+              type: "value",
+              // max: "1200",
+              axisLine: {
+                show: true,
+                lineStyle: {
+                  color: "#869ec6"
+                }
+              },
+              splitLine: {
+                show: true,
+                lineStyle: {
+                  color: "#eff4f6"
+                }
+              },
+              axisLabel: {}
+            },
+            series: [{
+              name: "总能耗",
+              type: "line",
+              barWidth: "12",
+              label: {
+                normal: {
+                  show: true,
+                  fontSize: 12,
+                  color: "#00D98B",
+                  position: "top"
+                }
+              },
+              itemStyle: {
+                normal: {
+                  color: "#00D98B"
+                }
+              },
+
+              data: dataSeries
+            }]
+          };
+          myChart.setOption(option);
+          myChart.resize();
+          window.addEventListener("resize", function () {
+            myChart.resize();
+          });
+          //
         }
       });
     },
-    pageChange: function pageChange(value) {
-      this.page_cur = value;
-      this.getDataList();
-    },
-    pageToFirst: function pageToFirst() {
-      this.page_cur = 1;
-      this.getDataList();
-    },
-    pageToLast: function pageToLast() {
-      this.page_cur = this.page_total;
-      this.getDataList();
-    },
-    tableRowDetails: function tableRowDetails(row) {
-      this.diaLogDetailVisible = true;
-      this.formDetailData.station_name = row.station_name;
-      this.formDetailData.assigner = row.assigner;
-      this.formDetailData.assign_time = row.assign_time;
-      this.formDetailData.phone = row.phone;
-      this.formDetailData.content = row.content;
-      if (row.type == 1) {
-        this.formDetailData.typeName = "设备维修";
-      } else if (row.type == 2) {
-        this.formDetailData.typeName = "例行维保";
-      } else {
-        this.formDetailData.typeName = "例行维保";
-      }
-    }
-    //end
+    getDeviceDetail: function getDeviceDetail() {
+      var _this2 = this;
 
+      this.request({
+        url: "/device/getDeviceDetail",
+        method: "get",
+        params: { id: this.$route.query.id }
+      }).then(function (res) {
+        var data = res.data;
+        if (data.status == 1) {
+          data.data.latest_time = data.data.latest_time.replace("00:00:00", "");
+          data.data.warranty_time = data.data.warranty_time.replace("00:00:00", "");
+          data.data.use_time = data.data.use_time.replace("00:00:00", "");
+          _this2.deviceDetailData = data.data;
+          _this2.disShow = true;
+        }
+      });
+    }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-27a81658","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/Dispatch/list.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('a',{staticClass:"icons icon-back pull-left",on:{"click":_vm.backURL}}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v(_vm._s(_vm.pageTitle))])]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-content-rows"},[_c('div',{staticClass:"app-table"},[_c('el-table',{attrs:{"data":_vm.dataList,"size":"mini"},on:{"row-click":_vm.tableRowDetails}},[_c('el-table-column',{attrs:{"label":"序号","width":"50"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_vm._v(_vm._s(scope.$index+(_vm.page_cur - 1) * _vm.page_size + 1))]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"station_name","label":"站点名","class-name":"nowrap"}}),_vm._v(" "),_c('el-table-column',{attrs:{"label":"指派时间","width":"90"},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('span',[_vm._v(_vm._s(_vm._f("formatGetDate")(scope.row.assign_time)))])]}}])}),_vm._v(" "),_c('el-table-column',{attrs:{"prop":"assigner","label":"指派人","width":"80","class-name":"nowrap"}})],1),_vm._v(" "),_c('div',{staticClass:"app-pagers"},[(_vm.dataList.length !== 0)?_c('el-pagination',{attrs:{"background":"","layout":"prev, pager, next","page-size":this.page_size,"current-page":this.page_cur,"total":this.page_data_total},on:{"current-change":_vm.pageChange}}):_vm._e()],1)],1)])]),_vm._v(" "),_c('el-dialog',{attrs:{"width":"90%","title":"派单详情","visible":_vm.diaLogDetailVisible,"modal-append-to-body":false,"close-on-click-modal":false,"show-close":false,"center":""},on:{"update:visible":function($event){_vm.diaLogDetailVisible=$event}}},[_c('el-form',{staticClass:"el-form-custom",attrs:{"label-width":"100px"}},[_c('el-form-item',{attrs:{"label":"站点名："}},[_c('el-input',{attrs:{"autocomplete":"off","disabled":""},model:{value:(_vm.formDetailData.station_name),callback:function ($$v) {_vm.$set(_vm.formDetailData, "station_name", $$v)},expression:"formDetailData.station_name"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"派单事项："}},[_c('el-input',{attrs:{"autocomplete":"off","disabled":""},model:{value:(_vm.formDetailData.typeName),callback:function ($$v) {_vm.$set(_vm.formDetailData, "typeName", $$v)},expression:"formDetailData.typeName"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"指派人员："}},[_c('el-input',{attrs:{"autocomplete":"off","disabled":""},model:{value:(_vm.formDetailData.assigner),callback:function ($$v) {_vm.$set(_vm.formDetailData, "assigner", $$v)},expression:"formDetailData.assigner"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"手机号码："}},[_c('el-input',{attrs:{"autocomplete":"off","disabled":""},model:{value:(_vm.formDetailData.phone),callback:function ($$v) {_vm.$set(_vm.formDetailData, "phone", $$v)},expression:"formDetailData.phone"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"指派时间："}},[_c('el-input',{attrs:{"autocomplete":"off","disabled":""},model:{value:(_vm.formDetailData.assign_time),callback:function ($$v) {_vm.$set(_vm.formDetailData, "assign_time", $$v)},expression:"formDetailData.assign_time"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"指派内容："}},[_c('div',{staticClass:"el-contents"},[_vm._v(_vm._s(_vm.formDetailData.content))])])],1),_vm._v(" "),_c('div',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){_vm.diaLogDetailVisible = false}}},[_vm._v("关闭")])],1)],1)],1)}
-var staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-3b674372","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/views/SiteManage/deviceDetail.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-pages"},[_c('header',{staticClass:"app-top-bar"},[_c('span',{staticClass:"icons icon-back pull-left",on:{"click":_vm.backURL}}),_vm._v(" "),_c('h1',{staticClass:"titles"},[_vm._v("设备详情")])]),_vm._v(" "),_c('div',{staticClass:"app-content"},[_c('div',{staticClass:"app-content-rows"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.disShow),expression:"disShow"}],staticClass:"app-device-detail"},[_c('div',{staticClass:"ones"},[_c('h3',[_vm._v(_vm._s(_vm.deviceDetailData.name))]),_vm._v(" "),(_vm.deviceDetailData.type==1)?_c('span',[_vm._v("风机")]):_vm._e(),_vm._v(" "),(_vm.deviceDetailData.type==2)?_c('span',[_vm._v("水泵")]):_vm._e(),_vm._v(" "),(_vm.deviceDetailData.type==3)?_c('span',[_vm._v("紫外灯")]):_vm._e(),_vm._v(" "),(_vm.deviceDetailData.type==4)?_c('span',[_vm._v("PLC")]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"twos"},[_c('div',{staticClass:"bd-img"},[_c('img',{attrs:{"src":_vm.deviceDetailData.img}}),_vm._v(" "),_c('p',[_vm._v("设备状态："+_vm._s(_vm.deviceDetailData.work_status==1?"正常":"异常"))])]),_vm._v(" "),_c('div',{staticClass:"bd-body"},[_c('p',[_vm._v("设备编号："+_vm._s(_vm.deviceDetailData.number))]),_vm._v(" "),_c('p',[_vm._v("设备型号："+_vm._s(_vm.deviceDetailData.model))]),_vm._v(" "),_c('p',[_vm._v("运行时长："+_vm._s(_vm.deviceDetailData.days)+"天")]),_vm._v(" "),_c('p',[_vm._v("投入时间："+_vm._s(_vm.deviceDetailData.use_time))]),_vm._v(" "),_c('p',[_vm._v("最近维保："+_vm._s(_vm.deviceDetailData.latest_time))]),_vm._v(" "),_c('p',[_vm._v("设备品牌："+_vm._s(_vm.deviceDetailData.brand))]),_vm._v(" "),_c('p',[_vm._v("质保日期："+_vm._s(_vm.deviceDetailData.warranty_time))]),_vm._v(" "),_c('p',[_vm._v("今日能耗："+_vm._s(_vm.deviceDetailData.energy)+"度")]),_vm._v(" "),_c('p',[_vm._v("累计能耗："+_vm._s(_vm.deviceDetailData.total_energy)+"度")]),_vm._v(" "),_c('p',[_vm._v("采购人："+_vm._s(_vm.deviceDetailData.purchaser))])])])]),_vm._v(" "),_vm._m(0)])])])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-device-chart"},[_c('div',{staticClass:"ones"},[_c('h3',[_vm._v("设备耗能图")])]),_vm._v(" "),_c('div',{staticClass:"echartbox"},[_c('div',{staticClass:"echarts",attrs:{"id":"oneChart"}})])])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ var Dispatch_list = (esExports);
-// CONCATENATED MODULE: ./src/views/Dispatch/list.vue
+/* harmony default export */ var SiteManage_deviceDetail = (esExports);
+// CONCATENATED MODULE: ./src/views/SiteManage/deviceDetail.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("B/Iu")
+  __webpack_require__("ibn4")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -200,31 +255,30 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  list,
-  Dispatch_list,
+  deviceDetail,
+  SiteManage_deviceDetail,
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
 
-/* harmony default export */ var views_Dispatch_list = __webpack_exports__["default"] = (Component.exports);
+/* harmony default export */ var views_SiteManage_deviceDetail = __webpack_exports__["default"] = (Component.exports);
 
 
 /***/ }),
 
-/***/ "UkqF":
+/***/ "ibn4":
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__("FZ+f")(false);
-// imports
+// style-loader: Adds some css to the DOM by adding a <style> tag
 
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
+// load the styles
+var content = __webpack_require__("8aG+");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("rjj0")("43cb4fea", content, true);
 
 /***/ })
 
