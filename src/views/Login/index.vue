@@ -119,15 +119,15 @@ export default {
     },
  //扫码
     getSign() {
-      
       let url = location.href.split("#")[0];
       this.request({
         url: "/weixin/getWeixinConfig",
         method: "get",
-         params: { url: url }
+        params: { url: url }
       }).then(res => {
         let jdata = res.data;
         if (jdata.status == 1) {
+        //  debugger
           let a = jdata.data;
           wx.config({
             debug: true,
@@ -137,22 +137,12 @@ export default {
             signature: jdata.data.signature,
             jsApiList: ["scanQRCode"]
           });
-          wx.error(function(res) {
-            alert("出错了：" + res.errMsg); //这个地方的好处就是wx.config配置错误，会弹出窗口哪里错误，然后根据微信文档查询即可。
-          });
-          //debugger
+         
           wx.ready(function() {
-            wx.checkJsApi({
-              jsApiList: ["scanQRCode"],
-              success: function(res) {
-                alert(res);
-              }
-            });
             wx.scanQRCode({
-              needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+              needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
               scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
               success: function(res) {
-                alert( res.resultStr);
                 let result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
                 let id = result.id;
                 let name = result.name;
