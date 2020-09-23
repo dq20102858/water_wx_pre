@@ -10,7 +10,7 @@
           <i class="el-icon el-icon-success"></i>
           <div class="txts">
             <h3>扫码成功</h3>
-            <p>XXX村地方村地方村地方村地方</p>
+            <p>{{name}}</p>
           </div>
           <div class="daka">
             <el-button type="primary" @click="dialogVisible = false">确定</el-button>
@@ -19,7 +19,7 @@
         </div>
       </div>
     </div>
-    <el-dialog
+    <!-- <el-dialog
       width="90%"
       top="40%"
       title="提示"
@@ -34,16 +34,15 @@
         <el-button type="primary" @click="dialogVisible = false">确定</el-button>
         <el-button type="info" plain @click="dialogVisible = false">重新开始</el-button>
       </span>
-    </el-dialog>
+    </el-dialog>-->
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      dialogVisible: false,
-      diaLogDetailVisible: false,
-      formDetailData: []
+      id: 0,
+      name: ""
     };
   },
   created() {
@@ -54,20 +53,9 @@ export default {
     backURL() {
       this.$router.go(-1); //返回上一层
     },
-    addDialogEvent() {
-      // this.request({
-      //   url: "/clock/isCard",
-      //   method: "get",
-      //   params: { sid: 6 }
-      // }).then(response => {
-      //   var res = response.data;
-      //   console.log(res.data.is_card);
-      //   // if (== 1) {
-      //   // }
-      //   // else
-      //   // {
-      //   // }
-      // });
+    getDataList() {
+      this.id = this.$router.query.id;
+      this.name = this.$router.query.name;
     },
     addEvent() {
       //this.dialogVisible = true;
@@ -110,7 +98,7 @@ export default {
   font-size: 120px;
   color: #09ba08;
 }
-.qrcode .txts {  
+.qrcode .txts {
   color: #09ba08;
   margin: 10px 30px 30px 30px;
   font-size: 16px;
@@ -123,5 +111,7 @@ export default {
 .qrcode .daka {
   margin-top: 100px;
 }
-.qrcode button{width: 100px;}
+.qrcode button {
+  width: 100px;
+}
 </style>

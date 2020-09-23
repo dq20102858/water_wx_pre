@@ -2,7 +2,7 @@
   <div class="app-pages">
     <header class="app-top-bar">
       <h1 class="titles">考勤统计</h1>
-      <a class="icons icon-add pull-right" @click="scan"></a>
+      <a class="icons icon-add pull-right" @click="scanQRCodeEvent"></a>
     </header>
     <div class="app-content">
       <div class="app-search">
@@ -75,28 +75,32 @@
       width="90%"
       top="40%"
       title="提示"
-      :visible.sync="dialogVisible"
+      :visible.sync="dialogEventVisible"
       :modal-append-to-body="false"
       :close-on-click-modal="false"
       :show-close="false"
       center
     >
+      <span class="dialiginfoa">{{stationName}}</span>
       <span class="dialiginfoa">是否打卡后结束任务</span>
       <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="dialogVisible = false">确定</el-button>
-        <el-button type="info" plain @click="dialogVisible = false">重新开始</el-button>
+        <el-button type="primary" @click="addClockOne(1)">确定</el-button>
+        <el-button type="info" plain @click="addClockOne(2)">重新开始</el-button>
       </span>
     </el-dialog>
   </div>
 </template>
 <script>
+import Cookies from "js-cookie";
 export default {
   data() {
     return {
-      dialogVisible: false,
+      dialogEventVisible: false,
       diaLogDetailVisible: false,
       formDetailData: [],
       searchName: "",
+      stationId: 0,
+      stationName: "",
       page_cur: 1,
       page_data_total: 0,
       page_size: 20,
@@ -105,11 +109,9 @@ export default {
     };
   },
   created() {
-    //this.getSign();
     this.getDataList();
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     getDataList() {
       let page = this.page_cur;
@@ -150,9 +152,43 @@ export default {
       this.page_cur = this.page_total;
       this.getDataList();
     },
-    addTest() {},
+    dialogEvent() {
+      this.dialogEventVisible = true;
+    },
+    addClockOne(flag) {
+      let sid = this.stationId;
+      let user_id = Cookies.get("Admin-Token");
+      let is_end = 0;
+      let is_recard = 0;
+      if (flag == 1) {
+        is_end = 1;
+      }
+      if (flag == 2) {
+        is_recard = 1;
+      }
+      this.request({
+        url: "/clock/addClock",
+        method: "post",
+        data: {
+          sid: sid,
+          user_id: user_id,
+          is_end: is_end,
+          is_recard: is_recard
+        }
+      }).then(response => {
+        var data = response.data;
+        if (data.status == 1) {
+          this.dialogEventVisible = false;
+          this.$message({
+            type: "success",
+            message: "打卡成功！"
+          });
+          this.getDataList();
+        }
+      });
+    },
     //扫码
-    scan() {
+    scanQRCodeEvent() {
       let url = location.href.split("#")[0];
       this.request({
         url: "/weixin/getWeixinConfig",
@@ -161,7 +197,6 @@ export default {
       }).then(res => {
         let jdata = res.data;
         if (jdata.status == 1) {
-          let a = jdata.data;
           wx.config({
             debug: true,
             appId: jdata.data.appid,
@@ -173,7 +208,7 @@ export default {
         }
       });
       wx.error(function(res) {
-        alert("出错了：" + res.errMsg); //这个地方的好处就是wx.config配置错误，会弹出窗口哪里错误，然后根据微信文档查询即可。
+        this.$message.error("配置验证失败: " + JSON.stringify(res));
       });
       wx.ready(function() {
         wx.checkJsApi({
@@ -184,20 +219,22 @@ export default {
                 needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
                 scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
                 success: function(res) {
-                  let result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
-                  alert(result + "_" + result.id + "_" + result.name);
+                  let result = JSON.parse(res.resultStr); // 当needResult 为 1 时，扫码返回的结果
                   let id = result.id;
                   let name = result.name;
-                  if (val === undefined) {
-                    this.$message.error("二维码错误");
+                  if (id === undefined) {
+                    this.$message.error("请扫描正确的站点二维码");
                   } else {
-                    this.$router.push({
-                      path: "/attendance/qrcode",
-                      query: {
-                        id: id,
-                        name: name
-                      }
-                    });
+                    this.stationId = id;
+                    this.stationName = name;
+                    this.dialogEventVisible = true;
+                    //   this.$router.push({
+                    //     path: "/attendance/qrcode",
+                    //     query: {
+                    //       id: id,
+                    //       name: name
+                    //     }
+                    //   });
                   }
                 }
               });
@@ -210,9 +247,6 @@ export default {
           }
         });
       });
-    },
-    addDialogEvent() {
-      this.getSign();
     },
     addEvent() {
       //this.dialogVisible = true;
@@ -258,4 +292,4 @@ export default {
   margin: 0 auto;
   padding: 20px 0;
 }
-</style>
+</style>.
