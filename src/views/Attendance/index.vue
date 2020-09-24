@@ -198,7 +198,7 @@ export default {
         let jdata = res.data;
         if (jdata.status == 1) {
           wx.config({
-            debug: true,
+            debug: false,
             appId: jdata.data.appid,
             timestamp: jdata.data.timestamp,
             nonceStr: jdata.data.noncestr,
