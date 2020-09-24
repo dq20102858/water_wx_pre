@@ -188,8 +188,8 @@ export default {
       });
     },
     //扫码
-
     scanQRCodeEvent() {
+      let that=this;
       // const str = '{"id":0,"name":"张三","age":12}'
       // const strToObj = JSON.parse(str)
       // console.log('str:', str)
@@ -222,20 +222,18 @@ export default {
             if (res.checkResult.scanQRCode === true) {
               wx.scanQRCode({
                 needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
-                scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                scanType: ["qrCode", "barCode"],
                 success: function(res) {
-                  let data = res.resultStr;
-                  alert("data-" + data + "_" + data.id + "_" + data.name);
-                  var obj = eval("(" + data + ")");
+                  var obj = eval("(" +  res.resultStr + ")");
                   let id = obj.id;
                   let name = obj.name;
                   alert("obj-" + obj + "_" + obj.id + "_" + obj.name);
                   if (typeof id == "undefined") {
-                    this.$message.error("请扫描正确的站点二维码");
+                    that.$message.error("请扫描正确的站点二维码");
                   } else {
-                    this.stationId = id;
-                    this.stationName = name;
-                    this.dialogEventVisible = true;
+                    that.stationId = id;
+                    that.stationName = name;
+                    that.dialogEventVisible = true;
                   }
                 }
               });
