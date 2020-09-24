@@ -190,10 +190,10 @@ export default {
     //扫码
 
     scanQRCodeEvent() {
-      //     let resultStr ="{\"id\": \"1600929767\", \"name\": \"ac8bcd6c639a87d6fecaa5bffb0f860f\"}";
-      //  let results =JSON.parse(resultStr);
-      //     alert(results.name);
-
+      // const str = '{"id":0,"name":"张三","age":12}'
+      // const strToObj = JSON.parse(str)
+      // console.log('str:', str)
+      // console.log('strToObj:', strToObj)
       let url = location.href.split("#")[0];
       this.request({
         url: "/weixin/getWeixinConfig",
@@ -225,22 +225,12 @@ export default {
                 scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
                 success: function(res) {
                   let data = res.resultStr;
-                  alert("data" + data + "_" + data.id+ "_" + data.name);
-
-                  let stringify = JSON.stringify(data);
-                  alert("stringify:" + stringify + "_" + stringify.id+ "_" + stringify.name);
-
-                  let alls = JSON.parse(stringify);
-                  alert("all" + alls + "_" + alls.id+ "_" + alls.name);
-
-                  let parses = JSON.parse(data);
-                  alert("parses" + parses + "_" + parses.id+ "_" + parses.name);
-
-                  let id = parses.id;
-                  let name = parses.name;
-
-                
-                  if (id === undefined) {
+                  alert("data-" + data + "_" + data.id + "_" + data.name);
+                  var obj = eval("(" + data + ")");
+                  let id = obj.id;
+                  let name = obj.name;
+                  alert("obj-" + obj + "_" + obj.id + "_" + obj.name);
+                  if (typeof id == "undefined") {
                     this.$message.error("请扫描正确的站点二维码");
                   } else {
                     this.stationId = id;
