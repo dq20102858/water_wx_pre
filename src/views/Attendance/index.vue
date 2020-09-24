@@ -190,6 +190,10 @@ export default {
     //扫码
 
     scanQRCodeEvent() {
+      //     let resultStr ="{\"id\": \"1600929767\", \"name\": \"ac8bcd6c639a87d6fecaa5bffb0f860f\"}";
+      //  let results =JSON.parse(resultStr);
+      //     alert(results.name);
+
       let url = location.href.split("#")[0];
       this.request({
         url: "/weixin/getWeixinConfig",
@@ -208,9 +212,9 @@ export default {
           });
         }
       });
-      // wx.error(function(res) {
-      //   this.$message.error("配置验证失败: " + JSON.stringify(res));
-      // });
+      wx.error(function(res) {
+        this.$message.error("配置验证失败: " + JSON.stringify(res));
+      });
       wx.ready(function() {
         wx.checkJsApi({
           jsApiList: ["scanQRCode"],
@@ -220,22 +224,28 @@ export default {
                 needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
                 scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
                 success: function(res) {
-                  let result = JSON.parse(res.resultStr); // 当needResult 为 1 时，扫码返回的结果
-                  let id = result.id;
-                  let name = result.name;
+                  let data = res.resultStr;
+                  alert("data" + data + "_" + data.id+ "_" + data.name);
+
+                  let stringify = JSON.stringify(data);
+                  alert("stringify:" + stringify + "_" + stringify.id+ "_" + stringify.name);
+
+                  let alls = JSON.parse(stringify);
+                  alert("all" + alls + "_" + alls.id+ "_" + alls.name);
+
+                  let parses = JSON.parse(data);
+                  alert("parses" + parses + "_" + parses.id+ "_" + parses.name);
+
+                  let id = parses.id;
+                  let name = parses.name;
+
+                
                   if (id === undefined) {
                     this.$message.error("请扫描正确的站点二维码");
                   } else {
                     this.stationId = id;
                     this.stationName = name;
                     this.dialogEventVisible = true;
-                    //   this.$router.push({
-                    //     path: "/attendance/qrcode",
-                    //     query: {
-                    //       id: id,
-                    //       name: name
-                    //     }
-                    //   });
                   }
                 }
               });
