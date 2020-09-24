@@ -188,6 +188,7 @@ export default {
       });
     },
     //扫码
+
     scanQRCodeEvent() {
       let url = location.href.split("#")[0];
       this.request({
@@ -207,9 +208,9 @@ export default {
           });
         }
       });
-      wx.error(function(res) {
-        this.$message.error("配置验证失败: " + JSON.stringify(res));
-      });
+      // wx.error(function(res) {
+      //   this.$message.error("配置验证失败: " + JSON.stringify(res));
+      // });
       wx.ready(function() {
         wx.checkJsApi({
           jsApiList: ["scanQRCode"],
