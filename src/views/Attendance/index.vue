@@ -267,8 +267,7 @@ export default {
                     var obj = eval("(" + data + ")");
                     let sid = obj.nxstationid;
                     let sname = obj.name;
-
-                    this.request({
+                    that.request({
                       url: "/clock/isCard",
                       method: "get",
                       params: { sid: sid }
@@ -280,7 +279,7 @@ export default {
                           that.stationName = sname;
                           that.dialogEventVisible = true;
                         } else {
-                          this.addClockOne(0);
+                          that.addClockOne(0);
                         }
                       }
                     });
