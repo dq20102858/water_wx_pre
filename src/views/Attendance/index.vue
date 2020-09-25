@@ -255,10 +255,10 @@ export default {
                   let data = res.resultStr;
                   if (data.indexOf("nxstationid") != -1) {
                     var obj = eval("(" + data + ")");
-                    let id = obj.id;
-                    let name = obj.name;
-                    that.stationId = id;
-                    that.stationName = name;
+                    let sid = obj.nxstationid;
+                    let sname = obj.name;
+                    that.stationId = sid;
+                    that.stationName = sname;
                     that.dialogEventVisible = true;
                   } else {
                     that.$message.error("请扫描正确的站点二维码");
