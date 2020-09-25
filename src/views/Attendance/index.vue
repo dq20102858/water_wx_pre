@@ -98,13 +98,12 @@
     <el-dialog
       width="90%"
       top="40%"
-      title="提示"
+      :title="stationName"
       :visible.sync="dialogEventVisible"
       :modal-append-to-body="false"
       :close-on-click-modal="false"
       center
     >
-      <span class="dialiginfoa">{{ stationName }}</span>
       <span class="dialiginfoa">是否打卡后结束任务</span>
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="addClockOne(1)">确定</el-button>
@@ -215,13 +214,24 @@ export default {
     //扫码
     scanQRCodeEvent() {
       let that = this;
-
-      // let data = "werwer";
-      // var obj = eval("(" + data + ")");
-      // if (obj.hasOwnProperty("id")) {
-      //   alert("sdfsdf");
-      // }
-
+      // let sid = 6;
+      // let sname = "中南新村";
+      // this.request({
+      //   url: "/clock/isCard",
+      //   method: "get",
+      //   params: { sid: sid }
+      // }).then(response => {
+      //   var data = response.data;
+      //   if (data.status == 1) {
+      //     if (data.data.is_card == 1) {
+      //       that.stationId = sid;
+      //       that.stationName = sname;
+      //       that.dialogEventVisible = true;
+      //     } else {
+      //       that.addClockOne(0);
+      //     }
+      //   }
+      // });
       let url = location.href.split("#")[0];
       this.request({
         url: "/weixin/getWeixinConfig",
@@ -257,9 +267,23 @@ export default {
                     var obj = eval("(" + data + ")");
                     let sid = obj.nxstationid;
                     let sname = obj.name;
-                    that.stationId = sid;
-                    that.stationName = sname;
-                    that.dialogEventVisible = true;
+
+                    this.request({
+                      url: "/clock/isCard",
+                      method: "get",
+                      params: { sid: sid }
+                    }).then(response => {
+                      var data = response.data;
+                      if (data.status == 1) {
+                        if (data.data.is_card == 1) {
+                          that.stationId = sid;
+                          that.stationName = sname;
+                          that.dialogEventVisible = true;
+                        } else {
+                          this.addClockOne(0);
+                        }
+                      }
+                    });
                   } else {
                     that.$message.error("请扫描正确的站点二维码");
                   }
