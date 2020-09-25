@@ -19,14 +19,24 @@
         <div class="app-table">
           <el-table :data="dataList" size="mini" @row-click="tableRowDetails">
             <el-table-column label="序号" width="50">
-              <template slot-scope="scope">{{scope.$index+(page_cur - 1) * page_size + 1}}</template>
+              <template slot-scope="scope">{{
+                scope.$index + (page_cur - 1) * page_size + 1
+              }}</template>
             </el-table-column>
-            <el-table-column prop="address" label="站点名" class-name="nowraps"></el-table-column>
+            <el-table-column
+              prop="address"
+              label="站点名"
+              class-name="nowraps"
+            ></el-table-column>
             <el-table-column label="开始时间" width="90" align="center">
-              <template slot-scope="scope">{{scope.row.start_time|formatDateTime}}</template>
+              <template slot-scope="scope">{{
+                scope.row.start_time | formatDateTime
+              }}</template>
             </el-table-column>
             <el-table-column label="结束时间" width="90" align="center">
-              <template slot-scope="scope">{{scope.row.end_time|formatDateTime}}</template>
+              <template slot-scope="scope">{{
+                scope.row.end_time | formatDateTime
+              }}</template>
             </el-table-column>
           </el-table>
           <div class="app-pagers">
@@ -54,21 +64,35 @@
     >
       <el-form class="el-form-custom" label-width="100px">
         <el-form-item label="打卡人：">
-          <el-input v-model="formDetailData.user" autocomplete="off" disabled></el-input>
+          <el-input
+            v-model="formDetailData.user"
+            autocomplete="off"
+            disabled
+          ></el-input>
         </el-form-item>
         <el-form-item label="开始时间：">
-          <el-input v-model="formDetailData.start_time" autocomplete="off" disabled></el-input>
+          <el-input
+            v-model="formDetailData.start_time"
+            autocomplete="off"
+            disabled
+          ></el-input>
         </el-form-item>
         <el-form-item label="结束时间：">
-          <el-input v-model="formDetailData.end_time" autocomplete="off" disabled></el-input>
+          <el-input
+            v-model="formDetailData.end_time"
+            autocomplete="off"
+            disabled
+          ></el-input>
         </el-form-item>
         <el-form-item label="打卡地址：">
-          <div class="el-contents">{{formDetailData.address}}</div>
+          <div class="el-contents">{{ formDetailData.address }}</div>
           <!-- <el-input type="textarea" v-model="formDetailData.address" rows="3" disabled></el-input> -->
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="diaLogDetailVisible = false">关闭</el-button>
+        <el-button type="primary" @click="diaLogDetailVisible = false"
+          >关闭</el-button
+        >
       </div>
     </el-dialog>
     <el-dialog
@@ -78,14 +102,15 @@
       :visible.sync="dialogEventVisible"
       :modal-append-to-body="false"
       :close-on-click-modal="false"
-      :show-close="false"
       center
     >
-      <span class="dialiginfoa">{{stationName}}</span>
+      <span class="dialiginfoa">{{ stationName }}</span>
       <span class="dialiginfoa">是否打卡后结束任务</span>
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="addClockOne(1)">确定</el-button>
-        <el-button type="info" plain @click="addClockOne(2)">重新开始</el-button>
+        <el-button type="info" plain @click="addClockOne(2)"
+          >重新开始</el-button
+        >
       </span>
     </el-dialog>
   </div>
@@ -189,11 +214,14 @@ export default {
     },
     //扫码
     scanQRCodeEvent() {
-      let that=this;
-      // const str = '{"id":0,"name":"张三","age":12}'
-      // const strToObj = JSON.parse(str)
-      // console.log('str:', str)
-      // console.log('strToObj:', strToObj)
+      let that = this;
+
+      // let data = "werwer";
+      // var obj = eval("(" + data + ")");
+      // if (obj.hasOwnProperty("id")) {
+      //   alert("sdfsdf");
+      // }
+
       let url = location.href.split("#")[0];
       this.request({
         url: "/weixin/getWeixinConfig",
@@ -224,16 +252,16 @@ export default {
                 needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
                 scanType: ["qrCode", "barCode"],
                 success: function(res) {
-                  var obj = eval("(" +  res.resultStr + ")");
-                  let id = obj.id;
-                  let name = obj.name;
-                  alert("obj-" + obj + "_" + obj.id + "_" + obj.name);
-                  if (typeof id == "undefined") {
-                    that.$message.error("请扫描正确的站点二维码");
-                  } else {
+                  let data = res.resultStr;
+                  if (data.indexOf("nxstationid") != -1) {
+                    var obj = eval("(" + data + ")");
+                    let id = obj.id;
+                    let name = obj.name;
                     that.stationId = id;
                     that.stationName = name;
                     that.dialogEventVisible = true;
+                  } else {
+                    that.$message.error("请扫描正确的站点二维码");
                   }
                 }
               });
