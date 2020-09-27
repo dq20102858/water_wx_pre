@@ -294,6 +294,7 @@ export default {
           },
           fail: function(res) {
             alert("fail" + res);
+            
           }
         });
       });
