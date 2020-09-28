@@ -1,19 +1,17 @@
 <template>
   <div class="app-wrapper">
     <router-view :key="$route.fullPath"></router-view>
-    <div class="menus" @click="showMenu">菜单</div>
+    <!-- <div class="menus" @click="showMenu">菜单</div>
     <el-dialog title="临时菜单" :visible.sync="dialogVisible" width="90%">
       <div class="navss">
       <a @click="hideMenu" href="#/sitemanage" class>站点首页</a>
         <a @click="hideMenu" href="#/sitemanage/station" class>选择站点</a>
-        <!-- <a @click="hideMenu" href="#/sitemanage/stationDetail" class>站点详情</a> -->
-        <!-- <a  href="#/sitemanage/main" class>运行图</a> -->
         <a @click="hideMenu" href="#/dispatch" class>运维派单</a>
         <a @click="hideMenu" href="#/record" class>报表统计</a>
         <a @click="hideMenu" href="#/warning" class>告警列表</a>
         <a @click="hideMenu" href="#/attendance" class>考勤打卡</a>
       </div>
-    </el-dialog>
+    </el-dialog> -->
   </div>
 </template>
 <script>

@@ -5,7 +5,7 @@
       <a class="icons icon-add pull-right" @click="scanQRCodeEvent"></a>
     </header>
     <div class="app-content">
-      <div class="app-search">
+      <div class="app-search"  v-if="this.roles ==1">
         <el-input
           v-model="searchName"
           prefix-icon="el-icon-search"
@@ -22,7 +22,12 @@
               <template slot-scope="scope">{{
                 scope.$index + (page_cur - 1) * page_size + 1
               }}</template>
-            </el-table-column>
+            </el-table-column> 
+            <el-table-column   v-if="this.roles ==1"
+              prop="user"
+              label="考勤人"
+              class-name="nowraps"
+            ></el-table-column>
             <el-table-column
               prop="address"
               label="站点名"
@@ -116,6 +121,7 @@
 </template>
 <script>
 import Cookies from "js-cookie";
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -123,14 +129,15 @@ export default {
       diaLogDetailVisible: false,
       formDetailData: [],
       searchName: "",
-      stationId: 0,
-      stationName: "",
       page_cur: 1,
       page_data_total: 0,
       page_size: 20,
       page_total: 0,
       dataList: []
     };
+  },
+     computed: {
+    ...mapGetters(["token", "roles"])
   },
   created() {
     this.getDataList();
@@ -139,16 +146,11 @@ export default {
   methods: {
     getDataList() {
       let page = this.page_cur;
-      let type = this.searchType;
-      let status = this.searchStatus;
-      let sid = this.chlidStationId;
-      let assigner_id = this.searchAssignerId;
-      let start_time = this.searchStartTime;
-      let end_time = this.searchEndTime;
+      let name = this.searchName;
       this.request({
         url: "/clock/getClockPages",
         method: "get",
-        params: { page, sid, assigner_id, type, status, start_time, end_time }
+        params: { page, name }
       }).then(res => {
         let data = res.data;
         if (data.status == 1) {
