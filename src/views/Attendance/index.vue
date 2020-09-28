@@ -281,8 +281,7 @@ export default {
                             that.stationName = sname;
                             that.dialogEventVisible = true;
                           } else {
-
-                             that.stationId = sid;
+                            that.stationId = sid;
                             that.addClockOne(0);
                           }
                         }
