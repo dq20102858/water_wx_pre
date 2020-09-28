@@ -267,22 +267,26 @@ export default {
                     var obj = eval("(" + data + ")");
                     let sid = obj.nxstationid;
                     let sname = obj.name;
-                    that.request({
-                      url: "/clock/isCard",
-                      method: "get",
-                      params: { sid: sid }
-                    }).then(response => {
-                      var data = response.data;
-                      if (data.status == 1) {
-                        if (data.data.is_card == 1) {
-                          that.stationId = sid;
-                          that.stationName = sname;
-                          that.dialogEventVisible = true;
-                        } else {
-                          that.addClockOne(0);
+                    that
+                      .request({
+                        url: "/clock/isCard",
+                        method: "get",
+                        params: { sid: sid }
+                      })
+                      .then(response => {
+                        var data = response.data;
+                        if (data.status == 1) {
+                          if (data.data.is_card == 1) {
+                            that.stationId = sid;
+                            that.stationName = sname;
+                            that.dialogEventVisible = true;
+                          } else {
+
+                             that.stationId = sid;
+                            that.addClockOne(0);
+                          }
                         }
-                      }
-                    });
+                      });
                   } else {
                     that.$message.error("请扫描正确的站点二维码");
                   }
