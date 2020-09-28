@@ -190,6 +190,13 @@ export default {
       if (flag == 2) {
         is_recard = 1;
       }
+      let jsond = {
+        sid: sid,
+        user_id: user_id,
+        is_end: is_end,
+        is_recard: is_recard
+      };
+      alert(JSON.stringify(jsond));
       this.request({
         url: "/clock/addClock",
         method: "post",
