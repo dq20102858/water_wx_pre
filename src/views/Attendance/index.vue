@@ -294,35 +294,8 @@ export default {
           },
           fail: function(res) {
             alert("fail" + res);
-            
           }
         });
-      });
-    },
-    addEvent() {
-      //this.dialogVisible = true;
-      let datas = {
-        sid: 7,
-        user_id: 17,
-        // start_time: "2020-08-21 8:00:00",
-        //end_time: "2020-08-21 11:20:30",
-        is_end: 0,
-        is_recard: 0
-      };
-      let data = datas;
-      this.request({
-        url: "/clock/addClock",
-        method: "post",
-        data
-      }).then(response => {
-        var data = response.data;
-        if (data.status == 1) {
-          this.$message({
-            type: "success",
-            message: "保存成功！"
-          });
-          this.getDataList();
-        }
       });
     },
     tableRowDetails(row) {
