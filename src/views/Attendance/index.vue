@@ -5,7 +5,7 @@
       <a class="icons icon-add pull-right" @click="scanQRCodeEvent"></a>
     </header>
     <div class="app-content">
-      <div class="app-search"  v-if="this.roles ==1">
+      <div class="app-search" v-if="this.roles == 1">
         <el-input
           v-model="searchName"
           prefix-icon="el-icon-search"
@@ -22,8 +22,9 @@
               <template slot-scope="scope">{{
                 scope.$index + (page_cur - 1) * page_size + 1
               }}</template>
-            </el-table-column> 
-            <el-table-column   v-if="this.roles ==1"
+            </el-table-column>
+            <el-table-column
+              v-if="this.roles == 1"
               prop="user"
               label="考勤人"
               class-name="nowraps"
@@ -128,8 +129,8 @@ export default {
       dialogEventVisible: false,
       diaLogDetailVisible: false,
       formDetailData: [],
-      stationId:0,
-      stationName:'',
+      stationId: 0,
+      stationName: "",
       searchName: "",
       page_cur: 1,
       page_data_total: 0,
@@ -138,7 +139,7 @@ export default {
       dataList: []
     };
   },
-     computed: {
+  computed: {
     ...mapGetters(["token", "roles"])
   },
   created() {
