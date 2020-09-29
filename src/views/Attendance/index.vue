@@ -11,7 +11,8 @@
           prefix-icon="el-icon-search"
           class="inline-input"
           placeholder="请输入打卡人名字"
-          @select="searchNameEvent($event)"
+        type="search"
+        @keyup.enter.native="searchNameEvent"
           clearable
         ></el-input>
       </div>
@@ -178,7 +179,7 @@ export default {
       this.getDataList();
     },
     searchNameEvent() {
-      this.page_cur = this.page_total;
+      this.page_cur = 1;
       this.getDataList();
     },
     dialogEvent() {
