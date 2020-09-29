@@ -128,6 +128,8 @@ export default {
       dialogEventVisible: false,
       diaLogDetailVisible: false,
       formDetailData: [],
+      stationId:0,
+      stationName:'',
       searchName: "",
       page_cur: 1,
       page_data_total: 0,
