@@ -25,7 +25,7 @@
             </el-table-column>
             <el-table-column
               v-if="this.roles == 1"
-              prop="user"
+              prop="user_name"
               label="考勤人"
               class-name="nowraps"
             ></el-table-column>
