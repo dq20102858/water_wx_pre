@@ -12,7 +12,7 @@
           class="inline-input"
           placeholder="请输入打卡人名字"
         type="search"
-        @keyup.enter.native="searchNameEvent"
+        @input="searchNameEvent"
           clearable
         ></el-input>
       </div>
@@ -316,7 +316,7 @@ export default {
     },
     tableRowDetails(row) {
       this.diaLogDetailVisible = true;
-      this.formDetailData.user = row.user;
+      this.formDetailData.user = row.user_name;
       this.formDetailData.start_time = row.start_time;
       this.formDetailData.end_time = row.end_time;
       this.formDetailData.address = row.address;
